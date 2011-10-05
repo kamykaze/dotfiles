@@ -51,6 +51,10 @@ map <Leader>p :set invpaste<CR>
 " when using <Ctrl+N>/<Ctrl+P> for command completion, see what your other options are there
 set wildmenu
 
+" remap Ctrl+A and Ctrl+X to +/- for easy increment/decrement of numbers
+nnoremap + <c-a>
+nnoremap - <c-x>
+
 "----- AUTO COMPLETION ----------------------------
 " remap Ctrl-X to Ctrl-K because the first combination is too hard to use effectively
 imap <c-k> <c-x>
