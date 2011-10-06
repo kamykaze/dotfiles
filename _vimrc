@@ -60,22 +60,18 @@ nnoremap - <c-x>
 imap <c-k> <c-x>
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
 
-" auto complete brackets
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-inoremap {%     {%%}<Left><Left>
-inoremap {{     {{}}<Left><Left>
-inoremap {}     {}
+" auto complete brackets // TODO: find better alternative...these interfere when pasting code
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
+"inoremap {%     {%%}<Left><Left>
+"inoremap {{     {{}}<Left><Left>
+"inoremap {}     {}
 
 
 "##### NAVIGATION ##################################
