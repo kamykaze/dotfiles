@@ -124,6 +124,10 @@ set title
 " Turn syntax highlighting on and specified a colorscheme (.vim/colors/{schemename}.vim)
 syntax on
 colorscheme enzyme
+" If 256 colors are supported
+"set t_Co=256
+"colorscheme wombat
+
 
 " briefly jump to the open/close bracket
 set showmatch
