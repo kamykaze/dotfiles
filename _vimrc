@@ -1,6 +1,12 @@
 "----------- INITIALIZATION: This needs to be at the top of .vimrc ------------------
 " pathogen allows you to manage your plugins and runtime files in their own private directories
 " http://www.vim.org/scripts/script.php?script_id=2332
+"
+" Adding a module is as simple as unzipping the module inside .vim/bundle/[module_name]
+" or if you use git
+"
+" git submodule add http://github.com/user/module_name.git bundle/[module_name]
+
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -164,3 +170,7 @@ map <Leader>C V:s/\/\*//g<C-M><Esc>V:s/\*\///g<CR><Esc>j
 " Append a tag to the end of the current selector 
 " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
 map <Leader>ca f{i
+
+" adding zen coding (http://code.google.com/p/zen-coding/ ) support
+let g:user_zen_expandabbr_key = '<c-e>'
+let g:use_zen_complete_tag = 1

@@ -4,3 +4,6 @@
 [submodule "_vim/bundle/vim-repeat"]
 	path = _vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
+[submodule "_vim/bundle/zencoding"]
+	path = _vim/bundle/zencoding
+	url = http://github.com/mattn/zencoding-vim.git
