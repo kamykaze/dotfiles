@@ -172,5 +172,36 @@ map <Leader>C V:s/\/\*//g<C-M><Esc>V:s/\*\///g<CR><Esc>j
 map <Leader>ca f{i
 
 " adding zen coding (http://code.google.com/p/zen-coding/ ) support
-let g:user_zen_expandabbr_key = '<c-e>'
+let g:user_zen_leader_key = '<C-L>'
 let g:use_zen_complete_tag = 1
+let g:user_zen_settings = {
+\    'indentation' : '    ',
+\    'html' : {
+\        'snippets' : {
+\          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
+\        },
+\    },
+\    'css' : {
+\        'filters': 'fc',
+\        'indentation' : '    ',
+\    },
+\}
+" Shortcut summary:
+" n  <C-L>A        <Plug>ZenCodingAnchorizeSummary
+" n  <C-L>a        <Plug>ZenCodingAnchorizeURL
+" n  <C-L>k        <Plug>ZenCodingRemoveTag
+" n  <C-L>j        <Plug>ZenCodingSplitJoinTagNormal
+" n  <C-L>/        <Plug>ZenCodingToggleComment
+" n  <C-L>i        <Plug>ZenCodingImageSize
+" n  <C-L>N        <Plug>ZenCodingPrev
+" n  <C-L>n        <Plug>ZenCodingNext
+" v  <C-L>D        <Plug>ZenCodingBalanceTagOutwardVisual
+" n  <C-L>D        <Plug>ZenCodingBalanceTagOutwardNormal
+" v  <C-L>d        <Plug>ZenCodingBalanceTagInwardVisual
+" n  <C-L>d        <Plug>ZenCodingBalanceTagInwardNormal
+" n  <C-L>;        <Plug>ZenCodingExpandWord
+" n  <C-L>,        <Plug>ZenCodingExpandNormal
+" v  <C-L>,        <Plug>ZenCodingExpandVisual
+
+" when using css zen, css rules get generated in the same line; use this shortcut to separate them into multiple lines
+map <Leader>t :s/;\([^$]\)/;\r\t\1/g<C-M>
