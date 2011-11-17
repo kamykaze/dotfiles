@@ -87,9 +87,9 @@ nnoremap ' `
 nnoremap ` '
 
 " make it easier to go to the beginning of the line
-nmap H ^
+map H ^
 " make it easier to go to the end of the line
-nmap L $
+map L $
 
 "--------- WINDOWS --------------------------------
 " shortcuts for moving around windows (instead of using c-w, j...you can simply using c-j) 
@@ -184,6 +184,23 @@ let g:user_zen_settings = {
 \    'css' : {
 \        'filters': 'fc',
 \        'indentation' : '    ',
+\        'snippets': {
+\            'bgp': 'background-position:|;',
+\            'c': 'color:#|;',
+\            'fz': 'font-size:|px;',
+\            'h': 'height:|px;',
+\            'lh': 'line-height:|px;',
+\            'mb': 'margin-bottom:|px;',
+\            'ml': 'margin-left:|px;',
+\            'mt': 'margin-top:|px;',
+\            'mr': 'margin-right:|px;',
+\            'pb': 'padding-bottom:|px;',
+\            'pl': 'padding-left:|px;',
+\            'pt': 'padding-top:|px;',
+\            'pr': 'padding-right:|px;',
+\            's': 'font-size:|px;',
+\            'w': 'width:|px;',
+\        },
 \    },
 \}
 " Shortcut summary:
