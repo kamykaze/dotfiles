@@ -91,6 +91,9 @@ map H ^
 " make it easier to go to the end of the line
 map L $
 
+" remap easymotion leader key to avoid conflict with my custom binding <Leader>,
+let g:EasyMotion_leader_key = '<Leader><Space>'
+
 "--------- WINDOWS --------------------------------
 " shortcuts for moving around windows (instead of using c-w, j...you can simply using c-j) 
 map <c-j> <c-w>j
@@ -179,6 +182,7 @@ let g:user_zen_settings = {
 \    'html' : {
 \        'snippets' : {
 \          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
+\          'comment' : "{% comment %}\n\t${child}|\n{% endcomment %}",
 \        },
 \    },
 \    'css' : {
@@ -200,6 +204,10 @@ let g:user_zen_settings = {
 \            'pr': 'padding-right:|px;',
 \            's': 'font-size:|px;',
 \            'w': 'width:|px;',
+\            't': 'top:|px;',
+\            'b': 'bottom:|px;',
+\            'l': 'left:|px;',
+\            'r': 'right:|px;',
 \        },
 \    },
 \}

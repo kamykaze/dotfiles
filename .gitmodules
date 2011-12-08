@@ -7,3 +7,6 @@
 [submodule "_vim/bundle/zencoding"]
 	path = _vim/bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim.git
+[submodule "_vim/bundle/easymotion"]
+	path = _vim/bundle/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
