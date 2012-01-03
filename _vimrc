@@ -61,6 +61,7 @@ set wildmenu
 nnoremap + <c-a>
 nnoremap - <c-x>
 
+
 "----- AUTO COMPLETION ----------------------------
 " remap Ctrl-X to Ctrl-K because the first combination is too hard to use effectively
 imap <c-k> <c-x>
@@ -69,15 +70,6 @@ imap <c-k> <c-x>
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-" auto complete brackets // TODO: find better alternative...these interfere when pasting code
-"inoremap {      {}<Left>
-"inoremap {<CR>  {<CR>}<Esc>O
-"inoremap {{     {
-"inoremap {}     {}
-"inoremap {%     {%%}<Left><Left>
-"inoremap {{     {{}}<Left><Left>
-"inoremap {}     {}
 
 
 "##### NAVIGATION ##################################
@@ -90,6 +82,7 @@ nnoremap ` '
 map H ^
 " make it easier to go to the end of the line
 map L $
+
 
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<Leader><Space>'
@@ -132,10 +125,13 @@ set title
 
 " Turn syntax highlighting on and specified a colorscheme (.vim/colors/{schemename}.vim)
 syntax on
-colorscheme enzyme
 " If 256 colors are supported
-"set t_Co=256
+set t_Co=256
+"colorscheme default
+"colorscheme enzyme
 "colorscheme wombat
+"colorscheme wombat256mod
+colorscheme jellybeans
 
 
 " briefly jump to the open/close bracket
@@ -176,6 +172,43 @@ map <Leader>ca f{i
 
 " adding zen coding (http://code.google.com/p/zen-coding/ ) support
 let g:user_zen_leader_key = '<C-L>'
+
+" Shortcut summary:
+" n  <C-L>A        <Plug>ZenCodingAnchorizeSummary
+" n  <C-L>a        <Plug>ZenCodingAnchorizeURL
+" n  <C-L>k        <Plug>ZenCodingRemoveTag
+" n  <C-L>j        <Plug>ZenCodingSplitJoinTagNormal
+" n  <C-L>/        <Plug>ZenCodingToggleComment
+" n  <C-L>i        <Plug>ZenCodingImageSize
+" n  <C-L>N        <Plug>ZenCodingPrev
+" n  <C-L>n        <Plug>ZenCodingNext
+" v  <C-L>D        <Plug>ZenCodingBalanceTagOutwardVisual
+" n  <C-L>D        <Plug>ZenCodingBalanceTagOutwardNormal
+" v  <C-L>d        <Plug>ZenCodingBalanceTagInwardVisual
+" n  <C-L>d        <Plug>ZenCodingBalanceTagInwardNormal
+" n  <C-L>;        <Plug>ZenCodingExpandWord
+" n  <C-L>,        <Plug>ZenCodingExpandNormal
+" v  <C-L>,        <Plug>ZenCodingExpandVisual
+
+let g:user_zen_expandabbr_key = '<s-tab>'
+"let g:user_zen_next_key = '<C-,>'
+"let g:user_zen_prev_key = '<C-;>'
+
+""" Other zen key binding settings """
+"-------------------------------------
+" user_zen_expandabbr_key'
+" user_zen_expandword_key'
+" user_zen_balancetaginward_key'
+" user_zen_balancetagoutward_key'
+" user_zen_next_key'
+" user_zen_prev_key'
+" user_zen_imagesize_key'
+" user_zen_togglecomment_key'
+" user_zen_splitjointag_key'
+" user_zen_removetag_key'
+" user_zen_anchorizeurl_key'
+" user_zen_anchorizesummary_key'
+
 let g:use_zen_complete_tag = 1
 let g:user_zen_settings = {
 \    'indentation' : '    ',
@@ -211,22 +244,7 @@ let g:user_zen_settings = {
 \        },
 \    },
 \}
-" Shortcut summary:
-" n  <C-L>A        <Plug>ZenCodingAnchorizeSummary
-" n  <C-L>a        <Plug>ZenCodingAnchorizeURL
-" n  <C-L>k        <Plug>ZenCodingRemoveTag
-" n  <C-L>j        <Plug>ZenCodingSplitJoinTagNormal
-" n  <C-L>/        <Plug>ZenCodingToggleComment
-" n  <C-L>i        <Plug>ZenCodingImageSize
-" n  <C-L>N        <Plug>ZenCodingPrev
-" n  <C-L>n        <Plug>ZenCodingNext
-" v  <C-L>D        <Plug>ZenCodingBalanceTagOutwardVisual
-" n  <C-L>D        <Plug>ZenCodingBalanceTagOutwardNormal
-" v  <C-L>d        <Plug>ZenCodingBalanceTagInwardVisual
-" n  <C-L>d        <Plug>ZenCodingBalanceTagInwardNormal
-" n  <C-L>;        <Plug>ZenCodingExpandWord
-" n  <C-L>,        <Plug>ZenCodingExpandNormal
-" v  <C-L>,        <Plug>ZenCodingExpandVisual
+
 
 " when using css zen, css rules get generated in the same line; use this shortcut to separate them into multiple lines
 map <Leader>t :s/;\([^$]\)/;\r\t\1/g<C-M>
