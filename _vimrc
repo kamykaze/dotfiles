@@ -66,6 +66,16 @@ nnoremap - <c-x>
 " remap Ctrl-X to Ctrl-K because the first combination is too hard to use effectively
 imap <c-k> <c-x>
 
+" map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+   endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
