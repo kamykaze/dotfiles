@@ -80,6 +80,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 
 
 "##### NAVIGATION ##################################

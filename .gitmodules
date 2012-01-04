@@ -10,3 +10,6 @@
 [submodule "_vim/bundle/easymotion"]
 	path = _vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "_vim/bundle/django"]
+	path = _vim/bundle/django
+	url = https://github.com/vim-scripts/django.vim.git
