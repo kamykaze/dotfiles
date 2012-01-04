@@ -16,9 +16,6 @@
 [submodule "_vim/bundle/vim-fuzzyfinder"]
 	path = _vim/bundle/vim-fuzzyfinder
 	url = https://github.com/clones/vim-fuzzyfinder.git
-#[submodule "_vim/bundle/l9"]
-#	path = _vim/bundle/l9
-#	url = https://github.com/clones/vim-l9.git
 [submodule "_vim/bundle/vim-l9"]
 	path = _vim/bundle/vim-l9
 	url = https://github.com/clones/vim-l9.git
