@@ -1,3 +1,27 @@
+This repository stores all my vim customizations. It is targeted towards web developer using html/css/js on a python/django platform.
+While not all features will be applicable to you, I have tried to document them as clearly as possible. Feel free to pick only the things that work for you.
+
+## Features
+* pathogen (for easy plugin management in vim)
+* syntax highlighting for html/css/js and colorcoding
+* [zen coding](http://code.google.com/p/zen-coding/) plugin
+    * several snippet overwrites to add 'px' to properties I always use in pixels (like margins, paddings, etc.)
+* custom key mappings for faster/easier navigation
+    * <C-hjkl> instead of <C-w>hkl for navigating through windows
+    * ,, and ,. to maximize or even window sizes
+    * ,r to toggle line numbers
+    * ,p to toggle paste mode
+    * H and L instead of ^ and $ to go to beginning/end of line
+    * <C-k> instead of <C-x> to enter completion submodes inside 'insert' mode
+    * Smart <Tab> completion depending on whether you're at the beginning of a line or completing a word
+    * <S-Tab> to trigger zen coding expansion
+* case-insensitive search (unless there's an uppercase letter in your keywords)
+* django syntax for html templates
+* [surround](https://github.com/tpope/vim-surround) plugin
+* [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
+* [git](https://github.com/tpope/vim-fugitive) integration
+* [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin
+
 ## Files
 ### .vim 
 directory of file type configurations and plugins
