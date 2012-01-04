@@ -82,6 +82,13 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 
+"----- FILE HANDLING -------------------------------
+" searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
+nnoremap <silent> ss :FufCoverageFile<CR> 
+" searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
+nnoremap <silent> sb :FufBuffer<CR>
+" Disabled modes we are not using (no reason to use extra memory and slow things down)
+let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmarkdir', 'tag', 'buffertag', 'taggedfile', 'jumplist', 'changelist', 'line', 'help', 'given', 'givendir', 'givencmd', 'callback', 'callbackitem', ]
 
 "##### NAVIGATION ##################################
 
@@ -97,6 +104,7 @@ map L $
 
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<Leader><Space>'
+
 
 "--------- WINDOWS --------------------------------
 " shortcuts for moving around windows (instead of using c-w, j...you can simply using c-j) 

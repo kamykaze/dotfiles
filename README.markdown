@@ -21,6 +21,7 @@ While not all features will be applicable to you, I have tried to document them 
 * [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
 * [git](https://github.com/tpope/vim-fugitive) integration
 * [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin
+* [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library
 
 ## Files
 ### .vim 
