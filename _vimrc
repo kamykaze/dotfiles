@@ -40,6 +40,9 @@ set wildignore=*.swp,*.bak,*.pyc
 
 "##### EDITING #######################################
 
+" map jj to Esc. You really don't use jj in editing that often, if at all.
+inoremap jj <ESC>
+
 " Set backspace behavior (so it can backspace over auto-indent, newline, etc.
 " Use this for vim 5.4 or earlier: set backspace=2
 set backspace=indent,eol,start
@@ -60,12 +63,19 @@ set autoindent
 " toggle paste mode (for pasting external code without indentation)
 map <Leader>p :set invpaste<CR>
 
+" reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
+nnoremap <leader>v V`]
+
 " when using <Ctrl+N>/<Ctrl+P> for command completion, see what your other options are there
 set wildmenu
 
 " remap Ctrl+A and Ctrl+X to +/- for easy increment/decrement of numbers
 nnoremap + <c-a>
 nnoremap - <c-x>
+
+" creates a separator "=========" line below the current line
+nnoremap <leader>1 yypVr=
+nnoremap <leader>1 yypVr-
 
 
 "----- AUTO COMPLETION ----------------------------
@@ -99,7 +109,7 @@ let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmark
 "##### NAVIGATION ##################################
 
 " swap ' and `. Since ` takes you to the exact column marked and I don't really need that
-nnoremap ' `
+"nnoremap ' ` " using this for ; instead
 nnoremap ` '
 
 " make it easier to go to the beginning of the line
@@ -107,6 +117,18 @@ map H ^
 " make it easier to go to the end of the line
 map L $
 
+" make the searches use Python style regular expressions (no need to escape so many things)
+nnoremap / /\v
+vnoremap / /\v
+
+" make <tab> jump you to the matching bracket in normal or visual modes
+nnoremap <tab> %
+vnoremap <tab> %
+
+" when you have long wrapped lines, j/k will move you to the next line, which is counter intuitive.
+" This mapping makes it so they move to the next "row"
+nnoremap j gj
+nnoremap k gk
 
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<Leader><Space>'
@@ -179,7 +201,27 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Shortcut to clear out the search highlight after you've found what you were looking for
+nnoremap <leader><Esc> :noh<cr>
+
 "##### KEYBOARD SHORTCUTS ##############################
+
+"------ VIM ----------------------------------
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Get rid of annoying help when you accidentally hit F1 instead of Esc. Use :h for help
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Save you two keystrokes (pressing/releasing Shift) when typing commands
+nnoremap ; :
+nnoremap ' ;
+
+
 
 "------ HTML/CSS -----------------------------
 " HTML comment/uncomment current line
@@ -190,6 +232,9 @@ map <Leader>H V:s/<!--//g<C-M><Esc>V:s/-->//g<CR><Esc>j
 " CSS comment/uncomment current line
 map <Leader>c I/*<Esc>A*/<Esc>j
 map <Leader>C V:s/\/\*//g<C-M><Esc>V:s/\*\///g<CR><Esc>j
+
+" Sort css properties (courtesy of Steve Losh)
+nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 " Append a tag to the end of the current selector 
 " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
