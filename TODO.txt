@@ -1,9 +1,8 @@
 - update zen coding plugin: http://www.vim.org/scripts/script.php?script_id=2981
 - get familiar with surround
-- fix vim exiting with error code 1
 - learn to use easy motion
 - add python support (and maybe Ruby)
-- install fuzzyfinder
+* install fuzzyfinder
 
 #########FUTURE plugins to look into ##########
 - SuperTab

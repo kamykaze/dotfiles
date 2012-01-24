@@ -32,6 +32,12 @@ set history=500
 set novisualbell
 
 
+"##### FILE MANAGEMENT ###############################
+
+" Ignore .pyc when tab-completing filenames
+set wildignore=*.swp,*.bak,*.pyc
+
+
 "##### EDITING #######################################
 
 " Set backspace behavior (so it can backspace over auto-indent, newline, etc.
@@ -250,6 +256,7 @@ let g:user_zen_settings = {
 \            'ml': 'margin-left:|px;',
 \            'mt': 'margin-top:|px;',
 \            'mr': 'margin-right:|px;',
+\            'p' : 'padding:|px;',
 \            'pb': 'padding-bottom:|px;',
 \            'pl': 'padding-left:|px;',
 \            'pt': 'padding-top:|px;',

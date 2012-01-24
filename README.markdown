@@ -4,8 +4,6 @@ While not all features will be applicable to you, I have tried to document them 
 ## Features
 * pathogen (for easy plugin management in vim)
 * syntax highlighting for html/css/js and colorcoding
-* [zen coding](http://code.google.com/p/zen-coding/) plugin
-    * several snippet overwrites to add 'px' to properties I always use in pixels (like margins, paddings, etc.)
 * custom key mappings for faster/easier navigation
     * <C-hjkl> instead of <C-w>hkl for navigating through windows
     * ,, and ,. to maximize or even window sizes
@@ -15,8 +13,11 @@ While not all features will be applicable to you, I have tried to document them 
     * <C-k> instead of <C-x> to enter completion submodes inside 'insert' mode
     * Smart <Tab> completion depending on whether you're at the beginning of a line or completing a word
     * <S-Tab> to trigger zen coding expansion
+    * ss and sb to open Fuzzyfinder's Coverage File (search all files within cur dir) and Buffer modes (search currently opened files)
 * case-insensitive search (unless there's an uppercase letter in your keywords)
 * django syntax for html templates
+* [zen coding](http://code.google.com/p/zen-coding/) plugin
+    * several snippet overwrites to add 'px' to properties I always use in pixels (like margins, paddings, etc.)
 * [surround](https://github.com/tpope/vim-surround) plugin
 * [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
 * [git](https://github.com/tpope/vim-fugitive) integration
