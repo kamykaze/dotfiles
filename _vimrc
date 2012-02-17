@@ -75,7 +75,12 @@ nnoremap - <c-x>
 
 " creates a separator "=========" line below the current line
 nnoremap <leader>1 yypVr=
-nnoremap <leader>1 yypVr-
+nnoremap <leader>2 yypVr-
+
+" map 
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
+imap <C-v><C-v> <Esc>:r !pbpaste<CR>
 
 
 "----- AUTO COMPLETION ----------------------------
@@ -253,7 +258,9 @@ vnoremap <F1> <ESC>
 
 " Save you two keystrokes (pressing/releasing Shift) when typing commands
 nnoremap ; :
-nnoremap ' ;
+vnoremap ; :
+nnoremap <leader>; ;
+vnoremap <leader>; ;
 
 
 
@@ -275,7 +282,7 @@ nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 map <Leader>ca f{i
 
 " adding zen coding (http://code.google.com/p/zen-coding/ ) support
-let g:user_zen_leader_key = '<C-L>'
+let g:user_zen_leader_key = '<C-space>'
 
 " Shortcut summary:
 " n  <C-L>A        <Plug>ZenCodingAnchorizeSummary
