@@ -102,6 +102,9 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
+autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
+"autocmd FileType actionscript :set dictionary=$HOME/vimfiles/dict/actionscript.dict
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)

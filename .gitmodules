@@ -22,3 +22,6 @@
 [submodule "_vim/bundle/rainbow_parentheses"]
 	path = _vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "_vim/bundle/actionscript"]
+	path = _vim/bundle/actionscript
+	url = https://github.com/vim-scripts/actionscript.vim--Leider.git
