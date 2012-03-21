@@ -106,6 +106,15 @@ autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 "autocmd FileType actionscript :set dictionary=$HOME/vimfiles/dict/actionscript.dict
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
+" auto complete brackets // TODO: find better alternative...these interfere when pasting code
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O<Tab>
+inoremap {{     {
+inoremap {}     {}
+inoremap {%     {%%}<Left><Left>
+inoremap {{     {{}}<Left><Left>
+inoremap {}     {}
+
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
 nnoremap <silent> ss :FufCoverageFile<CR> 
@@ -149,7 +158,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 " hitting ,, will maximizing current window
-map <Leader>, <c-w>_
+map <Leader>, <c-w>_<c-w><bar>
 " hitting ,. will even out all windows
 map <Leader>. <c-w>=
 
