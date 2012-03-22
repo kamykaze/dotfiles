@@ -106,14 +106,31 @@ autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 "autocmd FileType actionscript :set dictionary=$HOME/vimfiles/dict/actionscript.dict
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
-" auto complete brackets // TODO: find better alternative...these interfere when pasting code
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O<Tab>
-inoremap {{     {
-inoremap {}     {}
-inoremap {%     {%%}<Left><Left>
-inoremap {{     {{}}<Left><Left>
-inoremap {}     {}
+" auto complete brackets
+function! ConditionalPairMap(open, close, move_cursor)
+  let line = getline('.')
+  let col = col('.')
+  if col < col('$') || stridx(line, a:close, col + 1) != -1
+    return a:open
+  else
+    let result = a:open . a:close
+    if a:move_cursor == 1
+        let result = result . repeat("\<left>", len(a:close))
+    endif
+    "return a:open . a:close . repeat("\<left>", len(a:close))
+    return result
+  endif
+endf
+inoremap <expr> ( ConditionalPairMap('(', ')', 1)
+inoremap <expr> () ConditionalPairMap('()', '', 1)
+inoremap <expr> { ConditionalPairMap('{', '}', 1)
+inoremap <expr> {} ConditionalPairMap('{}', '', 1)
+inoremap <expr> [ ConditionalPairMap('[', ']', 1)
+inoremap <expr> [] ConditionalPairMap('[]', '', 1)
+inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0)
+inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1)
+inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1)
+inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1)
 
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
