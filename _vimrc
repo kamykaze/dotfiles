@@ -107,30 +107,37 @@ autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " auto complete brackets
-function! ConditionalPairMap(open, close, move_cursor)
-  let line = getline('.')
-  let col = col('.')
-  if col < col('$') || stridx(line, a:close, col + 1) != -1
-    return a:open
-  else
-    let result = a:open . a:close
-    if a:move_cursor == 1
-        let result = result . repeat("\<left>", len(a:close))
+function! ConditionalPairMap(open, close, move_cursor, mid_line)
+    " open - string to be inserted before the cursor
+    " close - string to be inserted after the cursor
+    " move_cursor - if set to 1, the cursor will move left the same number of characters as in <close>. 
+    "               Set this to 0 if you have new line or tabs in your <open> argument. Then manually move the cursor to the desired place.
+    " mid_line - if 1, mapping works in the middle of a line. If 0, mapping only works at the end of a line
+
+    let line = getline('.')
+    let col = col('.')
+    if a:mid_line != 1 && (col < col('$') || stridx(line, a:close, col + 1) != -1)
+        return a:open
+    else
+        let result = a:open . a:close
+        if a:move_cursor == 1
+            let result = result . repeat("\<left>", len(a:close))
+        endif
+        return result
     endif
-    "return a:open . a:close . repeat("\<left>", len(a:close))
-    return result
-  endif
 endf
-inoremap <expr> ( ConditionalPairMap('(', ')', 1)
-inoremap <expr> () ConditionalPairMap('()', '', 1)
-inoremap <expr> { ConditionalPairMap('{', '}', 1)
-inoremap <expr> {} ConditionalPairMap('{}', '', 1)
-inoremap <expr> [ ConditionalPairMap('[', ']', 1)
-inoremap <expr> [] ConditionalPairMap('[]', '', 1)
-inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0)
-inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1)
-inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1)
-inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1)
+inoremap <expr> ( ConditionalPairMap('(', ')', 1, 0)
+inoremap <expr> () ConditionalPairMap('()', '', 1, 0)
+inoremap <expr> { ConditionalPairMap('{', '}', 1, 0)
+inoremap <expr> {} ConditionalPairMap('{}', '', 1, 0)
+inoremap <expr> [ ConditionalPairMap('[', ']', 1, 0)
+inoremap <expr> [] ConditionalPairMap('[]', '', 1, 0)
+inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0, 0)
+inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1, 0)
+inoremap <expr> {%<space> ConditionalPairMap('{% ', ' %}', 1, 0)
+inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1, 0)
+inoremap <expr> {{<space> ConditionalPairMap('{{ ', ' }}', 1, 1)
+inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1, 1)
 
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
@@ -169,6 +176,9 @@ let g:EasyMotion_leader_key = '<Leader><Space>'
 
 
 "--------- WINDOWS --------------------------------
+" set minimum window height to 0 instead of 1
+set wmh=0
+
 " shortcuts for moving around windows (instead of using c-w, j...you can simply using c-j) 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -270,7 +280,7 @@ set ignorecase
 set smartcase
 
 " Shortcut to clear out the search highlight after you've found what you were looking for
-nnoremap <leader><Esc> :noh<cr>
+nnoremap <Esc><Esc> :noh<cr>
 
 "##### KEYBOARD SHORTCUTS ##############################
 
