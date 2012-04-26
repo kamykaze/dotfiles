@@ -63,9 +63,6 @@ set autoindent
 " toggle paste mode (for pasting external code without indentation)
 map <Leader>p :set invpaste<CR>
 
-" reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
-nnoremap <leader>v V`]
-
 " when using <Ctrl+N>/<Ctrl+P> for command completion, see what your other options are there
 set wildmenu
 
@@ -82,6 +79,13 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 imap <C-v><C-v> <Esc>:r !pbpaste<CR>
 
+"----- SELECTIONS ---------------------------------
+" reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
+nnoremap <leader>v V`]
+
+" make < > shifts keep selection
+vnoremap < <gv
+vnoremap > >gv
 
 "----- AUTO COMPLETION ----------------------------
 " remap Ctrl-X to Ctrl-K because the first combination is too hard to use effectively
@@ -172,8 +176,7 @@ nnoremap j gj
 nnoremap k gk
 
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
-let g:EasyMotion_leader_key = '<Leader><Space>'
-
+let g:EasyMotion_leader_key = '<Leader>'
 
 "--------- WINDOWS --------------------------------
 " set minimum window height to 0 instead of 1
@@ -316,6 +319,9 @@ map <Leader>C V:s/\/\*//g<C-M><Esc>V:s/\*\///g<CR><Esc>j
 " Sort css properties (courtesy of Steve Losh)
 nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
+" Some people like merging all css definitions in one line. Use this to sPlit them into multiple lines
+map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
+
 " Append a tag to the end of the current selector 
 " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
 map <Leader>ca f{i
@@ -396,6 +402,3 @@ let g:user_zen_settings = {
 \    },
 \}
 
-
-" when using css zen, css rules get generated in the same line; use this shortcut to separate them into multiple lines
-map <Leader>t :s/;\([^$]\)/;\r\t\1/g<C-M>
