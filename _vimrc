@@ -226,6 +226,12 @@ map <Leader>. <c-w>=
 
 "###### UI ########################################
 
+" Don't show the intro message when starting vim
+set shortmess=atI
+
+" Show the current mode (Normal/Visual/etc.)
+set showmode
+
 " Displays the line number and column number on the 'status' line
 set ruler
 set rulerformat=%10(%l,%c%V%)
@@ -254,13 +260,15 @@ set cursorline
 " add underline to current line
 "hi CursorLine   cterm=NONE,underline
 
+" always show status line (even if only one window)
+set laststatus=2
 
 " briefly jump to the open/close bracket
 set showmatch
 set matchtime=2
 
 " show trailing spaces, tabs, and end of lines
-set listchars=tab:>-,trail:·,eol:$
+set listchars=tab:>-,trail:·,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
 
 "----- Rainbow Parentheses --------------------
