@@ -70,6 +70,11 @@ endif
 
 " map jj to Esc. You really don't use jj in editing that often, if at all.
 inoremap jj <ESC>
+inoremap ;w <ESC>:w
+
+" map 'OO' to return to a newline above your current position 
+" (useful when you want to close brackets and still continue editing)
+inoremap OO <ESC>O
 
 " Set backspace behavior (so it can backspace over auto-indent, newline, etc.
 " Use this for vim 5.4 or earlier: set backspace=2
@@ -139,37 +144,37 @@ autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " auto complete brackets
-function! ConditionalPairMap(open, close, move_cursor, mid_line)
-    " open - string to be inserted before the cursor
-    " close - string to be inserted after the cursor
-    " move_cursor - if set to 1, the cursor will move left the same number of characters as in <close>. 
-    "               Set this to 0 if you have new line or tabs in your <open> argument. Then manually move the cursor to the desired place.
-    " mid_line - if 1, mapping works in the middle of a line. If 0, mapping only works at the end of a line
-
-    let line = getline('.')
-    let col = col('.')
-    if a:mid_line != 1 && (col < col('$') || stridx(line, a:close, col + 1) != -1)
-        return a:open
-    else
-        let result = a:open . a:close
-        if a:move_cursor == 1
-            let result = result . repeat("\<left>", len(a:close))
-        endif
-        return result
-    endif
-endf
-inoremap <expr> ( ConditionalPairMap('(', ')', 1, 0)
-inoremap <expr> () ConditionalPairMap('()', '', 1, 0)
-inoremap <expr> { ConditionalPairMap('{', '}', 1, 0)
-inoremap <expr> {} ConditionalPairMap('{}', '', 1, 0)
-inoremap <expr> [ ConditionalPairMap('[', ']', 1, 0)
-inoremap <expr> [] ConditionalPairMap('[]', '', 1, 0)
-inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0, 0)
-inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1, 0)
-inoremap <expr> {%<space> ConditionalPairMap('{% ', ' %}', 1, 0)
-inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1, 0)
-inoremap <expr> {{<space> ConditionalPairMap('{{ ', ' }}', 1, 1)
-inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1, 1)
+" function! ConditionalPairMap(open, close, move_cursor, mid_line)
+"     " open - string to be inserted before the cursor
+"     " close - string to be inserted after the cursor
+"     " move_cursor - if set to 1, the cursor will move left the same number of characters as in <close>. 
+"     "               Set this to 0 if you have new line or tabs in your <open> argument. Then manually move the cursor to the desired place.
+"     " mid_line - if 1, mapping works in the middle of a line. If 0, mapping only works at the end of a line
+" 
+"     let line = getline('.')
+"     let col = col('.')
+"     if a:mid_line != 1 && (col < col('$') || stridx(line, a:close, col + 1) != -1)
+"         return a:open
+"     else
+"         let result = a:open . a:close
+"         if a:move_cursor == 1
+"             let result = result . repeat("\<left>", len(a:close))
+"         endif
+"         return result
+"     endif
+" endf
+" inoremap <expr> ( ConditionalPairMap('(', ')', 1, 0)
+" inoremap <expr> () ConditionalPairMap('()', '', 1, 0)
+" inoremap <expr> { ConditionalPairMap('{', '}', 1, 0)
+" inoremap <expr> {} ConditionalPairMap('{}', '', 1, 0)
+" inoremap <expr> [ ConditionalPairMap('[', ']', 1, 0)
+" inoremap <expr> [] ConditionalPairMap('[]', '', 1, 0)
+" inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0, 0)
+" inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1, 0)
+" inoremap <expr> {%<space> ConditionalPairMap('{% ', ' %}', 1, 0)
+" inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1, 0)
+" inoremap <expr> {{<space> ConditionalPairMap('{{ ', ' }}', 1, 1)
+" inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1, 1)
 
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
@@ -244,6 +249,7 @@ set rulerformat=%10(%l,%c%V%)
 
 " show line numbers on the left
 set number
+set numberwidth=5
 
 " toggle line numbers (useful for copying code with multiple lines)
 map <Leader>r :set invnumber<CR>
@@ -368,24 +374,24 @@ map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<C
 map <Leader>ca f{i
 
 " adding zen coding (http://code.google.com/p/zen-coding/ ) support
-let g:user_zen_leader_key = '<C-space>'
+let g:user_zen_leader_key = '<C-n>'
 
 " Shortcut summary:
-" n  <C-L>A        <Plug>ZenCodingAnchorizeSummary
-" n  <C-L>a        <Plug>ZenCodingAnchorizeURL
-" n  <C-L>k        <Plug>ZenCodingRemoveTag
-" n  <C-L>j        <Plug>ZenCodingSplitJoinTagNormal
-" n  <C-L>/        <Plug>ZenCodingToggleComment
-" n  <C-L>i        <Plug>ZenCodingImageSize
-" n  <C-L>N        <Plug>ZenCodingPrev
-" n  <C-L>n        <Plug>ZenCodingNext
-" v  <C-L>D        <Plug>ZenCodingBalanceTagOutwardVisual
-" n  <C-L>D        <Plug>ZenCodingBalanceTagOutwardNormal
-" v  <C-L>d        <Plug>ZenCodingBalanceTagInwardVisual
-" n  <C-L>d        <Plug>ZenCodingBalanceTagInwardNormal
-" n  <C-L>;        <Plug>ZenCodingExpandWord
-" n  <C-L>,        <Plug>ZenCodingExpandNormal
-" v  <C-L>,        <Plug>ZenCodingExpandVisual
+" n  <C-n>A        <Plug>ZenCodingAnchorizeSummary
+" n  <C-n>a        <Plug>ZenCodingAnchorizeURL
+" n  <C-n>k        <Plug>ZenCodingRemoveTag
+" n  <C-n>j        <Plug>ZenCodingSplitJoinTagNormal
+" n  <C-n>/        <Plug>ZenCodingToggleComment
+" n  <C-n>i        <Plug>ZenCodingImageSize
+" n  <C-n>N        <Plug>ZenCodingPrev
+" n  <C-n>n        <Plug>ZenCodingNext
+" v  <C-n>D        <Plug>ZenCodingBalanceTagOutwardVisual
+" n  <C-n>D        <Plug>ZenCodingBalanceTagOutwardNormal
+" v  <C-n>d        <Plug>ZenCodingBalanceTagInwardVisual
+" n  <C-n>d        <Plug>ZenCodingBalanceTagInwardNormal
+" n  <C-n>;        <Plug>ZenCodingExpandWord
+" n  <C-n>,        <Plug>ZenCodingExpandNormal
+" v  <C-n>,        <Plug>ZenCodingExpandVisual
 
 let g:user_zen_expandabbr_key = '<s-tab>'
 "let g:user_zen_next_key = '<C-,>'
@@ -420,7 +426,7 @@ let g:user_zen_settings = {
 \        'indentation' : '    ',
 \        'snippets': {
 \            'bgp': 'background-position:|;',
-\            'c': 'color:#|;',
+\            'c': 'color:|;',
 \            'fz': 'font-size:|px;',
 \            'h': 'height:|px;',
 \            'lh': 'line-height:|px;',
@@ -435,6 +441,7 @@ let g:user_zen_settings = {
 \            'pr': 'padding-right:|px;',
 \            's': 'font-size:|px;',
 \            'w': 'width:|px;',
+\            'ww': 'width:100%;|',
 \            't': 'top:|px;',
 \            'b': 'bottom:|px;',
 \            'l': 'left:|px;',
