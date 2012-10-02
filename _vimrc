@@ -66,11 +66,15 @@ if exists("&undodir")
     set undodir=~/.vim/undo
 endif
 
+" Change swap backup frequency (reduce from default of 4s and 200 chars)
+set updatetime=10000
+set updatecount=500
+
 "##### EDITING #######################################
 
 " map jj to Esc. You really don't use jj in editing that often, if at all.
 inoremap jj <ESC>
-inoremap ;w <ESC>:w
+inoremap ;; <ESC>:
 
 " map 'OO' to return to a newline above your current position 
 " (useful when you want to close brackets and still continue editing)
