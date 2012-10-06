@@ -72,13 +72,14 @@ set updatecount=500
 
 "##### EDITING #######################################
 
-" map jj to Esc. You really don't use jj in editing that often, if at all.
-inoremap jj <ESC>
+" map kj to Esc. You really don't use kj in editing that often, if at all.
+inoremap kj <ESC>
 "inoremap ;; <ESC>
 
 " map 'OO' to return to a newline above your current position 
 " (useful when you want to close brackets and still continue editing)
 inoremap OO <ESC>O
+inoremap Oo <ESC>O
 
 " Set backspace behavior (so it can backspace over auto-indent, newline, etc.
 " Use this for vim 5.4 or earlier: set backspace=2
@@ -115,6 +116,19 @@ nnoremap <leader>2 yypVr-
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 imap <C-v><C-v> <Esc>:r !pbpaste<CR>
+
+" toggle betwee UPPER, lower, and Title case
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
 
 "----- SELECTIONS ---------------------------------
 " reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
@@ -320,6 +334,15 @@ nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
 nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
 nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return '[PASTE]'
+    en
+    return ''
+endfunction
+
+set statusline=\ %{HasPaste()}\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
 
 "##### SEARCH ##################################
 
