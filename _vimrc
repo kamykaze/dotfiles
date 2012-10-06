@@ -342,7 +342,11 @@ function! HasPaste()
     return ''
 endfunction
 
-set statusline=\ %{HasPaste()}\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
+set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
+if version >= 700
+    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+    hi link PasteFlag VimError
+endif
 
 "##### SEARCH ##################################
 
