@@ -265,8 +265,8 @@ map <Leader>. <c-w>=
 " Don't show the intro message when starting vim
 set shortmess=atI
 
-" Show the current mode (Normal/Visual/etc.)
-set showmode
+" Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
+set noshowmode
 
 " Displays the line number and column number on the 'status' line
 set ruler
@@ -349,19 +349,23 @@ nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
 nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
 nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return '[PASTE]'
-    en
-    return ''
-endfunction
+" Switched to powerline plugin
+"
+"" Returns true if paste mode is enabled
+"function! HasPaste()
+"    if &paste
+"        return '[PASTE]'
+"    en
+"    return ''
+"endfunction
+"
+"set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
+"if version >= 700
+"    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+"    hi link PasteFlag VimError
+"endif
 
-set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
-if version >= 700
-    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
-    hi link PasteFlag VimError
-endif
+"let g:Powerline_colorscheme = 'solarized256'
 
 "##### SEARCH ##################################
 

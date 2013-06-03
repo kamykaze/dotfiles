@@ -28,3 +28,6 @@
 [submodule "_vim/bundle/vim-numbertoggle"]
 	path = _vim/bundle/vim-numbertoggle
 	url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+[submodule "_vim/bundle/powerline"]
+	path = _vim/bundle/powerline
+	url = http://github.com/Lokaltog/vim-powerline.git
