@@ -1,0 +1,4 @@
+set gfn=ProggySquare:h11
+"set gfn=TerminusMedium:h14
+set linespace=3
+set noantialias
