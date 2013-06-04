@@ -35,7 +35,7 @@
 	url = http://github.com/Lokaltog/vim-powerline.git
 [submodule "chrome/chrome-devtools-theme"]
 	path = chrome/chrome-devtools-theme
-	url = https://github.com/kamykaze/chrome-devtools-theme.git
+	url = git://github.com/kamykaze/chrome-devtools-theme.git
 [submodule "_vim/bundle/vim-scss-syntax"]
 	path = _vim/bundle/vim-scss-syntax
 	url = git://github.com/cakebaker/scss-syntax.vim.git
