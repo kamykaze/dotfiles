@@ -74,11 +74,9 @@ set updatecount=500
 
 " map kj to Esc. You really don't use kj in editing that often, if at all.
 inoremap kj <ESC>
-"inoremap ;; <ESC>
 
-" map 'OO' to return to a newline above your current position 
+" map 'Oo' to return to a newline above your current position 
 " (useful when you want to close brackets and still continue editing)
-inoremap OO <ESC>O
 inoremap Oo <ESC>O
 
 " Set backspace behavior (so it can backspace over auto-indent, newline, etc.
@@ -89,11 +87,11 @@ set backspace=indent,eol,start
 set expandtab
 
 " use 4 spaces to represent a tab
-set tabstop=2
-set softtabstop=2
+set tabstop=4
+set softtabstop=4
 
 " use 4 spaces for auto indent (use >> or << to indent current line)
-set shiftwidth=2
+set shiftwidth=4
 
 " indent new line based on current line's indentation
 set autoindent
@@ -157,49 +155,15 @@ autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType scss inoremap { {<CR>}<Esc>ko<tab>
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
-"autocmd FileType actionscript :set dictionary=$HOME/vimfiles/dict/actionscript.dict
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType python set tabstop=4
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
+autocmd FileType html,css set tabstop=2
+autocmd FileType html,css set softtabstop=2
+autocmd FileType html,css set shiftwidth=2
 
 autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
-" auto complete brackets
-" function! ConditionalPairMap(open, close, move_cursor, mid_line)
-"     " open - string to be inserted before the cursor
-"     " close - string to be inserted after the cursor
-"     " move_cursor - if set to 1, the cursor will move left the same number of characters as in <close>. 
-"     "               Set this to 0 if you have new line or tabs in your <open> argument. Then manually move the cursor to the desired place.
-"     " mid_line - if 1, mapping works in the middle of a line. If 0, mapping only works at the end of a line
-" 
-"     let line = getline('.')
-"     let col = col('.')
-"     if a:mid_line != 1 && (col < col('$') || stridx(line, a:close, col + 1) != -1)
-"         return a:open
-"     else
-"         let result = a:open . a:close
-"         if a:move_cursor == 1
-"             let result = result . repeat("\<left>", len(a:close))
-"         endif
-"         return result
-"     endif
-" endf
-" inoremap <expr> ( ConditionalPairMap('(', ')', 1, 0)
-" inoremap <expr> () ConditionalPairMap('()', '', 1, 0)
-" inoremap <expr> { ConditionalPairMap('{', '}', 1, 0)
-" inoremap <expr> {} ConditionalPairMap('{}', '', 1, 0)
-" inoremap <expr> [ ConditionalPairMap('[', ']', 1, 0)
-" inoremap <expr> [] ConditionalPairMap('[]', '', 1, 0)
-" inoremap <expr> {<CR> ConditionalPairMap("{\<CR>", "}\<Esc>\O\<tab>", 0, 0)
-" inoremap <expr> {# ConditionalPairMap('{# ', ' #}', 1, 0)
-" inoremap <expr> {%<space> ConditionalPairMap('{% ', ' %}', 1, 0)
-" inoremap <expr> {% ConditionalPairMap('{% ', ' %}', 1, 0)
-" inoremap <expr> {{<space> ConditionalPairMap('{{ ', ' }}', 1, 1)
-" inoremap <expr> {{ ConditionalPairMap('{{ ', ' }}', 1, 1)
 
 "----- FILE HANDLING -------------------------------
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
@@ -212,7 +176,6 @@ let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmark
 "##### NAVIGATION ##################################
 
 " swap ' and `. Since ` takes you to the exact column marked and I don't really need that
-"nnoremap ' ` " using this for ; instead
 nnoremap ` '
 
 " make it easier to go to the beginning of the line
@@ -220,9 +183,6 @@ map H ^
 " make it easier to go to the end of the line
 map L $
 
-" make the searches use Python style regular expressions (no need to escape so many things)
-nnoremap / /\v
-vnoremap / /\v
 
 " make <tab> jump you to the matching bracket in normal or visual modes
 nnoremap <tab> %
@@ -269,15 +229,17 @@ set shortmess=atI
 set noshowmode
 
 " Displays the line number and column number on the 'status' line
-set ruler
-set rulerformat=%10(%l,%c%V%)
+"set ruler
+"set rulerformat=%10(%l,%c%V%)
 
 " show line numbers on the left
-set number
-set numberwidth=5
+"set number
+"set numberwidth=5
 
 " toggle line numbers (useful for copying code with multiple lines)
+" TODO: use one mapping to rotate between 3 states (relative numbers, abs numbers, and no numbers)
 map <Leader>r :set invnumber<CR>
+"let g:NumberToggleTrigger="<Leader>r"
 
 " set the terminal title
 set title
@@ -296,15 +258,13 @@ colorscheme hybrid
 
 " highlight current line
 set cursorline
-" add underline to current line
-"hi CursorLine   cterm=NONE,underline
 
 " always show status line (even if only one window)
 set laststatus=2
 
-" briefly jump to the open/close bracket
-set showmatch
-set matchtime=2
+" when closing a bracket, briefly flash the corresponding open bracket
+"set showmatch
+"set matchtime=2
 
 " show trailing spaces, tabs, and end of lines
 set listchars=tab:>-,trail:·,eol:$,nbsp:_
@@ -348,22 +308,6 @@ nnoremap <leader>`r :RainbowParenthesesLoadRound<cr>
 nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
 nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
 nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
-
-" Switched to powerline plugin
-"
-"" Returns true if paste mode is enabled
-"function! HasPaste()
-"    if &paste
-"        return '[PASTE]'
-"    en
-"    return ''
-"endfunction
-"
-"set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
-"if version >= 700
-"    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
-"    hi link PasteFlag VimError
-"endif
 
 let g:Powerline_colorscheme = 'solarized256'
 
@@ -444,6 +388,7 @@ let g:user_zen_leader_key = '<C-n>'
 " v  <C-n>,        <Plug>ZenCodingExpandVisual
 
 let g:user_zen_expandabbr_key = '<s-tab>'
+let g:user_zen_togglecomment_key = '<c-_>'
 "let g:user_zen_next_key = '<C-,>'
 "let g:user_zen_prev_key = '<C-;>'
 
