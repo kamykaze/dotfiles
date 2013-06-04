@@ -152,6 +152,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
 autocmd BufNewFile,BufRead *.scss set filetype=scss
+autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -172,6 +173,8 @@ nnoremap <silent> ss :FufCoverageFile<CR>
 nnoremap <silent> sb :FufBuffer<CR>
 " Disabled modes we are not using (no reason to use extra memory and slow things down)
 let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmarkdir', 'tag', 'buffertag', 'taggedfile', 'jumplist', 'changelist', 'line', 'help', 'given', 'givendir', 'givencmd', 'callback', 'callbackitem', ]
+" Set <CR> to open in a split window (instead of current window)
+let g:fuf_keyOpenSplit = '<CR>'
 
 "##### NAVIGATION ##################################
 
@@ -233,8 +236,8 @@ set noshowmode
 "set rulerformat=%10(%l,%c%V%)
 
 " show line numbers on the left
-"set number
-"set numberwidth=5
+set number
+set numberwidth=5
 
 " toggle line numbers (useful for copying code with multiple lines)
 " TODO: use one mapping to rotate between 3 states (relative numbers, abs numbers, and no numbers)
@@ -424,9 +427,8 @@ let g:user_zen_settings = {
 \        'snippets': {
 \            'bgp': 'background-position:|;',
 \            'c': 'color:|;',
-\            'h': 'height:|px;',
-\            'lh': 'line-height:|px;',
-\            'w': 'width:|;',
+\            'hp': 'height:|px;',
+\            'hh': 'height:auto;',
 \            'wp': 'width:|px;',
 \            'ww': 'width:100%;|',
 \        },

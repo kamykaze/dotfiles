@@ -3,7 +3,6 @@ While not all features will be applicable to you, I have tried to document them 
 
 ## Features
 * pathogen (for easy plugin management in vim)
-* syntax highlighting for html/css/js and colorcoding
 * custom key mappings for faster/easier navigation
     * <C-hjkl> instead of <C-w>hkl for navigating through windows
     * ,, and ,. to maximize or even window sizes
@@ -15,7 +14,13 @@ While not all features will be applicable to you, I have tried to document them 
     * <S-Tab> to trigger zen coding expansion
     * ss and sb to open Fuzzyfinder's Coverage File (search all files within cur dir) and Buffer modes (search currently opened files)
 * case-insensitive search (unless there's an uppercase letter in your keywords)
-* django syntax for html templates
+* syntax and color coding
+    * django syntax for html templates
+    * html
+    * javascript
+    * css
+    * scss
+    * less
 * [zen coding](http://code.google.com/p/zen-coding/) plugin
     * several snippet overwrites to add 'px' to properties I always use in pixels (like margins, paddings, etc.)
 * [surround](https://github.com/tpope/vim-surround) plugin
@@ -25,6 +30,7 @@ While not all features will be applicable to you, I have tried to document them 
 * [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library
 * [numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle) plugin to use relative line numbers
 * [powerline](https://github.com/Lokaltog/vim-powerline) plugin for nicer status line
+
 
 ## Files
 ### .vim 
