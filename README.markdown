@@ -24,6 +24,7 @@ While not all features will be applicable to you, I have tried to document them 
 * [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin
 * [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library
 * [numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle) plugin to use relative line numbers
+* [powerline](https://github.com/Lokaltog/vim-powerline) plugin for nicer status line
 
 ## Files
 ### .vim 

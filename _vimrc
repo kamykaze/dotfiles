@@ -89,11 +89,11 @@ set backspace=indent,eol,start
 set expandtab
 
 " use 4 spaces to represent a tab
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 
 " use 4 spaces for auto indent (use >> or << to indent current line)
-set shiftwidth=4
+set shiftwidth=2
 
 " indent new line based on current line's indentation
 set autoindent
@@ -153,13 +153,20 @@ endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
+autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType scss inoremap { {<CR>}<Esc>ko<tab>
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 "autocmd FileType actionscript :set dictionary=$HOME/vimfiles/dict/actionscript.dict
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd FileType python set tabstop=4
+autocmd FileType python set softtabstop=4
+autocmd FileType python set shiftwidth=4
+
+autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
 " auto complete brackets
 " function! ConditionalPairMap(open, close, move_cursor, mid_line)
@@ -258,8 +265,8 @@ map <Leader>. <c-w>=
 " Don't show the intro message when starting vim
 set shortmess=atI
 
-" Show the current mode (Normal/Visual/etc.)
-set showmode
+" Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
+set noshowmode
 
 " Displays the line number and column number on the 'status' line
 set ruler
@@ -283,7 +290,9 @@ set t_Co=256
 "colorscheme enzyme
 "colorscheme wombat
 "colorscheme wombat256mod
-colorscheme jellybeans
+"colorscheme jellybeans
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 
 " highlight current line
 set cursorline
@@ -300,6 +309,12 @@ set matchtime=2
 " show trailing spaces, tabs, and end of lines
 set listchars=tab:>-,trail:·,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
+
+" color overflow region
+"set colorcolumn=80,120
+"let &colorcolumn=join(range(80,119),",")
+"highlight ColorColumn ctermbg=233 guibg=#181818
+
 
 "----- Rainbow Parentheses --------------------
 " this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
@@ -334,19 +349,23 @@ nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
 nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
 nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return '[PASTE]'
-    en
-    return ''
-endfunction
+" Switched to powerline plugin
+"
+"" Returns true if paste mode is enabled
+"function! HasPaste()
+"    if &paste
+"        return '[PASTE]'
+"    en
+"    return ''
+"endfunction
+"
+"set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
+"if version >= 700
+"    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
+"    hi link PasteFlag VimError
+"endif
 
-set statusline=\ %#PasteFlag#%{HasPaste()}%#StatusLine#\ %f%m%r%h\ %w\ %=%{getcwd()}\ \ %-10.(%l,%c%V%)
-if version >= 700
-    "hi PasteFlag term=reverse ctermfg=15 ctermbg=9 guifg=White guibg=Red
-    hi link PasteFlag VimError
-endif
+let g:Powerline_colorscheme = 'solarized256'
 
 "##### SEARCH ##################################
 
@@ -445,38 +464,26 @@ let g:user_zen_expandabbr_key = '<s-tab>'
 
 let g:use_zen_complete_tag = 1
 let g:user_zen_settings = {
-\    'indentation' : '    ',
+\    'indentation' : '  ',
 \    'html' : {
 \        'snippets' : {
 \          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
 \          'comment' : "{% comment %}\n\t${child}|\n{% endcomment %}",
+\          'if' : "{% if | %}\n\t${child}|{% endif %}",
+\          'else' : "{% else %}|",
 \        },
 \    },
 \    'css' : {
-\        'filters': 'fc',
-\        'indentation' : '    ',
+\        'filters': 'html, fc',
+\        'indentation' : '  ',
 \        'snippets': {
 \            'bgp': 'background-position:|;',
 \            'c': 'color:|;',
-\            'fz': 'font-size:|px;',
 \            'h': 'height:|px;',
 \            'lh': 'line-height:|px;',
-\            'mb': 'margin-bottom:|px;',
-\            'ml': 'margin-left:|px;',
-\            'mt': 'margin-top:|px;',
-\            'mr': 'margin-right:|px;',
-\            'p' : 'padding:|px;',
-\            'pb': 'padding-bottom:|px;',
-\            'pl': 'padding-left:|px;',
-\            'pt': 'padding-top:|px;',
-\            'pr': 'padding-right:|px;',
-\            's': 'font-size:|px;',
-\            'w': 'width:|px;',
+\            'w': 'width:|;',
+\            'wp': 'width:|px;',
 \            'ww': 'width:100%;|',
-\            't': 'top:|px;',
-\            'b': 'bottom:|px;',
-\            'l': 'left:|px;',
-\            'r': 'right:|px;',
 \        },
 \    },
 \}
