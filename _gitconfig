@@ -1,0 +1,35 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[push]
+    default = tracking
+[core]
+    editor = /usr/bin/vim
+    page = less -R
+    pager = less -+$LESS -FRX
+    excludesfile = ~/.gitignore
+[format]
+    pretty = format:%C(yellow)%H %C(green)%ad%n%C(reset)%s %C(blue)[%cn]%C(magenta)%d%n
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    df = diff
+    ds = diff --staged
+    fe = fetch
+    gr = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+    lg = log --pretty=format:\"%C(yellow)%h %C(green)%ad %C(reset)%s%C(blue) [%cn] %C(magenta)%d\" --decorate --date=short
+    mg = merge
+    ps = push
+    pu = pull
+    sh = stash
+    st = status -sb
+    wd = diff --color-words
+    wdiff = diff --color-words
+
+    # alias gi to git for typos (eg: 'gi tst' instead of 'git st')
+    tst = status
+[include]
+    path = ~/.private/github
