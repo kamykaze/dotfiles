@@ -16,9 +16,11 @@
 [submodule "_vim/bundle/vim-fuzzyfinder"]
 	path = _vim/bundle/vim-fuzzyfinder
 	url = https://github.com/clones/vim-fuzzyfinder.git
+    ignore = dirty
 [submodule "_vim/bundle/vim-l9"]
 	path = _vim/bundle/vim-l9
 	url = https://github.com/clones/vim-l9.git
+    ignore = dirty
 [submodule "_vim/bundle/rainbow_parentheses"]
 	path = _vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
