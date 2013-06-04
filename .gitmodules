@@ -33,3 +33,6 @@
 [submodule "_vim/bundle/powerline"]
 	path = _vim/bundle/powerline
 	url = http://github.com/Lokaltog/vim-powerline.git
+[submodule "chrome/chrome-devtools-theme"]
+	path = chrome/chrome-devtools-theme
+	url = https://github.com/kamykaze/chrome-devtools-theme.git
