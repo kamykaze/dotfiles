@@ -365,7 +365,7 @@ nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 "    hi link PasteFlag VimError
 "endif
 
-"let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_colorscheme = 'solarized256'
 
 "##### SEARCH ##################################
 
