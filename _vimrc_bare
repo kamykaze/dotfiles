@@ -1,0 +1,57 @@
+" Bare bones vim settings
+"=========================
+set nocompatible                   "disable vi compatibility for more features
+"-- Find --
+set path=**                        "set find path to current directory
+set suffixesadd=.py,.html,.css,.js,.scss,.less     "add sufixes so you don't have to type whole filenames
+"-- Autocomplete on command mode --
+set wildmode=full                  "autocomplete filenames, help, etc.
+set wildmenu                       "shows autocomplete options in a nice menu list
+set wildignore=*.swp,*.bak,*.pyc   "ignore certain file types in autocompletion
+"-- Syntax --
+filetype on                        "auto detect filetype
+syntax on                          "syntax highlighting
+"-- Spaces and Indenting --
+set backspace=indent,eol,start     "set backspace behavior (so it can backspace over auto-indent, newline, etc.)
+set expandtab                      "replace tabs with spaces
+set tabstop=4                      "use 4 spaces to represent a tab
+set softtabstop=4
+set shiftwidth=4                   "use 4 spaces for auto indent (use >> or << to indent current line)
+set autoindent
+
+"-- UI --
+set ruler
+set rulerformat=%10(%l,%c%V%)
+set laststatus=2                   "always show status line
+set cursorline                     "highlight current line
+set number
+set numberwidth=5
+set hlsearch
+
+"-- Search --
+set incsearch
+set ignorecase
+set smartcase
+
+"-- Custom key mapping I can't live without --
+let mapleader = ","
+map <Leader>p :set invpaste<CR>
+map H ^
+map L $
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <Leader>, <c-w>_<c-w><bar>
+map <Leader>. <c-w>=
+nnoremap ` '
+nnoremap j gj
+nnoremap k gk
+nnoremap <Esc><Esc> :noh<cr>
+nnoremap ; :
+nnoremap <leader>; ;
+vnoremap < <gv
+vnoremap > >gv
+vnoremap ; :
+vnoremap <leader>; ;
+inoremap kj <ESC>                  
