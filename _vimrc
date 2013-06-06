@@ -56,6 +56,13 @@ set novisualbell
 
 "##### FILE MANAGEMENT ###############################
 
+"set find path to current directory
+set path=**
+"add sufixes so you don't have to type whole filenames
+set suffixesadd=.py,.html,.css,.js,.scss,.less
+
+set wildmode=full
+
 " Ignore .pyc when tab-completing filenames
 set wildignore=*.swp,*.bak,*.pyc
 
