@@ -20,6 +20,7 @@ set shiftwidth=4                   "use 4 spaces for auto indent (use >> or << t
 set autoindent
 
 "-- UI --
+set background=dark
 set ruler
 set rulerformat=%10(%l,%c%V%)
 set laststatus=2                   "always show status line

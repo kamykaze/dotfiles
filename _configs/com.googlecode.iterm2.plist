@@ -1015,9 +1015,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>841 4 445 270 0 0 1366 746 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>412 60 924 485 0 0 1366 746 </string>
+	<string>442 131 924 485 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1366 742 0 0 1366 746 </string>
+	<string>0 4 1145 742 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 36 1173 710 0 0 1366 746 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1839,9 +1839,9 @@
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
-			<true/>
-			<key>Use Bright Bold</key>
 			<false/>
+			<key>Use Bright Bold</key>
+			<true/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
@@ -2422,11 +2422,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-06-04T05:05:41Z</date>
+	<date>2013-06-06T00:26:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
-	<false/>
+	<true/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
