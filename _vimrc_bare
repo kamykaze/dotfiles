@@ -49,10 +49,10 @@ nnoremap ` '
 nnoremap j gj
 nnoremap k gk
 nnoremap <Esc><Esc> :noh<cr>
-nnoremap ; :
-nnoremap <leader>; ;
+"nnoremap ; :
+"nnoremap <leader>; ;
 vnoremap < <gv
 vnoremap > >gv
-vnoremap ; :
-vnoremap <leader>; ;
+"vnoremap ; :
+"vnoremap <leader>; ;
 inoremap kj <ESC>                  

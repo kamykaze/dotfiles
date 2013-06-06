@@ -350,10 +350,10 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Save you two keystrokes (pressing/releasing Shift) when typing commands
-nnoremap ; :
-vnoremap ; :
-nnoremap <leader>; ;
-vnoremap <leader>; ;
+"nnoremap ; :
+"vnoremap ; :
+"nnoremap <leader>; ;
+"vnoremap <leader>; ;
 
 
 
