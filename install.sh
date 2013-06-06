@@ -4,6 +4,7 @@ function link_file {
     target="${HOME}/${1/_/.}"
 
     if [ -e "${target}" ]; then
+        echo "${taget} already exists...creating backup: ${target}.bak"
         mv $target $target.bak
     fi
 
