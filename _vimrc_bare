@@ -40,39 +40,84 @@ set shiftwidth=4                   "use 4 spaces for auto indent (use >> or << t
 set autoindent
 
 "-- UI --
+set shortmess=atI                  " Don't show the intro message when starting vim
+set title                          " set the terminal title
 set background=dark
-set ruler
+set ruler                          "show status line
 set rulerformat=%10(%l,%c%V%)
 set laststatus=2                   "always show status line
 set cursorline                     "highlight current line
-set number
+set number                         "show line numbers
 set numberwidth=5
-set hlsearch
+set hlsearch                       "highlight search keywords
 
 "-- Search --
-set incsearch
-set ignorecase
-set smartcase
+set incsearch                      "dynamically search term as you type (incremental search)
+set ignorecase                     "case-insensitive search
+set smartcase                      "unless there's an uppercase letter in the keyword
 
 "-- Custom key mapping --
 let mapleader = ","
+
+" toggle paste mode
 map <Leader>p :set invpaste<CR>
+
+" easier way to get to beginning end of line
 map H ^
 map L $
+
+"--- windows ---
+" quick window switching
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+" maximize current window
 map <Leader>, <c-w>_<c-w><bar>
+
+" make all windows equal size
 map <Leader>. <c-w>=
+
+" no need to go exact column of marker, just row
 nnoremap ` '
+
+" when you have long wrapped lines, j/k will move you to the next line, which is counter intuitive.
+" This mapping makes it so they move to the next "row"
 nnoremap j gj
 nnoremap k gk
+
+" hide search highlights
 nnoremap <Esc><Esc> :noh<cr>
-"nnoremap ; :
-"nnoremap <leader>; ;
+
+" keep visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
+
+" easier completion mode
+imap <c-k> <c-x>
+
+" quick way to escape insert mode
+inoremap kj <ESC>                  
+
+" make <tab> jump you to the matching bracket in normal or visual modes
+nnoremap <tab> %
+vnoremap <tab> %
+
+" toggle line numbers (useful for manual copying code with multiple lines)
+map <Leader>r :set invnumber<CR>
+
+" show trailing spaces, tabs, and end of lines
+set listchars=tab:>-,trail:·,eol:$,nbsp:_
+nmap <silent> <leader>s :set nolist!<CR>
+
+" Get rid of annoying help when you accidentally hit F1 instead of Esc. Use :h for help
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Use ; instead of : to go to command mode
+"nnoremap ; :
+"nnoremap <leader>; ;
 "vnoremap ; :
 "vnoremap <leader>; ;
-inoremap kj <ESC>                  

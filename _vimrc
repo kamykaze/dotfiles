@@ -8,18 +8,13 @@
 " git submodule add http://github.com/user/module_name.git bundle/[module_name]
 
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
-" Reset vim defaults (set compatible will make vim behave more like vi)
-set nocompatible
-filetype on
+" load barebones vim settings (the one I curl onto a server I don't have my own user profile)
+so ~/.vimrc_bare
 
-" Set personal mapping character (used in other remappings further below)
-let mapleader = ","
-"------------------------------------------------------------------------------------
-
-"##### HISTORY ########################################
+"-- History --
 
 " Number of undos to save
 set history=500
@@ -46,25 +41,12 @@ augroup resCur
 augroup END
 
 
-
 "##### ERRORS ########################################
-
-" Hide error sound/visual error notification
-"set noerrorbells
+" make sure we use audible bell since we're using powerline
 set novisualbell
 
 
 "##### FILE MANAGEMENT ###############################
-
-"set find path to current directory
-set path=**
-"add sufixes so you don't have to type whole filenames
-set suffixesadd=.py,.html,.css,.js,.scss,.less
-
-set wildmode=full
-
-" Ignore .pyc when tab-completing filenames
-set wildignore=*.swp,*.bak,*.pyc
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -79,50 +61,29 @@ set updatecount=500
 
 "##### EDITING #######################################
 
-" map kj to Esc. You really don't use kj in editing that often, if at all.
-inoremap kj <ESC>
-
 " map 'Oo' to return to a newline above your current position 
 " (useful when you want to close brackets and still continue editing)
 inoremap Oo <ESC>O
-
-" Set backspace behavior (so it can backspace over auto-indent, newline, etc.
-" Use this for vim 5.4 or earlier: set backspace=2
-set backspace=indent,eol,start
-
-" replace tabs with spaces
-set expandtab
-
-" use 4 spaces to represent a tab
-set tabstop=4
-set softtabstop=4
-
-" use 4 spaces for auto indent (use >> or << to indent current line)
-set shiftwidth=4
-
-" indent new line based on current line's indentation
-set autoindent
-
-" toggle paste mode (for pasting external code without indentation)
-map <Leader>p :set invpaste<CR>
-
-" when using <Ctrl+N>/<Ctrl+P> for command completion, see what your other options are there
-set wildmenu
 
 " remap Ctrl+A and Ctrl+X to +/- for easy increment/decrement of numbers
 nnoremap + <c-a>
 nnoremap - <c-x>
 
-" creates a separator "=========" line below the current line
-nnoremap <leader>1 yypVr=
-nnoremap <leader>2 yypVr-
+" creates a line separator  line below the current line
+" use any character key after calling this to pick which char to fill the line
+" eg: using <leader>1= will create a line like 
+" =============
+nnoremap <leader>1 yypVr
 
-" map 
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
-imap <C-v><C-v> <Esc>:r !pbpaste<CR>
+" convenient copy & paste to clipboard (Mac only)
+let os = substitute(system('uname'), "\n", "", "")
+if os == "macunix"
+    vmap <C-x> :!pbcopy<CR>
+    vmap <C-c> :w !pbcopy<CR><CR>
+    imap <C-v><C-v> <Esc>:r !pbpaste<CR>
+endif
 
-" toggle betwee UPPER, lower, and Title case
+" toggle between UPPER, lower, and Title case
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
     let result = tolower(a:str)
@@ -139,21 +100,15 @@ vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
 " reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
 nnoremap <leader>v V`]
 
-" make < > shifts keep selection
-vnoremap < <gv
-vnoremap > >gv
-
 "----- AUTO COMPLETION ----------------------------
-" remap Ctrl-X to Ctrl-K because the first combination is too hard to use effectively
-imap <c-k> <c-x>
-
 " map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
 function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-N>"
-   endif
+    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+        return "\<Tab>"
+    else
+        return "\<C-N>"
+    "TODO: elseif ... " check if current char is a space (sometimes you want to tab at the end of a line for inline comment)
+    endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
@@ -185,40 +140,12 @@ let g:fuf_keyOpenSplit = '<CR>'
 
 "##### NAVIGATION ##################################
 
-" swap ' and `. Since ` takes you to the exact column marked and I don't really need that
-nnoremap ` '
-
-" make it easier to go to the beginning of the line
-map H ^
-" make it easier to go to the end of the line
-map L $
-
-
-" make <tab> jump you to the matching bracket in normal or visual modes
-nnoremap <tab> %
-vnoremap <tab> %
-
-" when you have long wrapped lines, j/k will move you to the next line, which is counter intuitive.
-" This mapping makes it so they move to the next "row"
-nnoremap j gj
-nnoremap k gk
-
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<Leader>'
 
 "--------- WINDOWS --------------------------------
 " set minimum window height to 0 instead of 1
 set wmh=0
-
-" shortcuts for moving around windows (instead of using c-w, j...you can simply using c-j) 
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-" hitting ,, will maximizing current window
-map <Leader>, <c-w>_<c-w><bar>
-" hitting ,. will even out all windows
-map <Leader>. <c-w>=
 
 
 " #### TODO: Folds #######
@@ -232,30 +159,14 @@ map <Leader>. <c-w>=
 
 "###### UI ########################################
 
-" Don't show the intro message when starting vim
-set shortmess=atI
-
 " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
 set noshowmode
 
-" Displays the line number and column number on the 'status' line
-"set ruler
-"set rulerformat=%10(%l,%c%V%)
-
-" show line numbers on the left
-set number
-set numberwidth=5
-
 " toggle line numbers (useful for copying code with multiple lines)
 " TODO: use one mapping to rotate between 3 states (relative numbers, abs numbers, and no numbers)
-map <Leader>r :set invnumber<CR>
+"map <Leader>r :set invnumber<CR>
 "let g:NumberToggleTrigger="<Leader>r"
 
-" set the terminal title
-set title
-
-" Turn syntax highlighting on and specified a colorscheme (.vim/colors/{schemename}.vim)
-syntax on
 " If 256 colors are supported
 set t_Co=256
 "colorscheme default
@@ -266,19 +177,9 @@ set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-" highlight current line
-set cursorline
-
-" always show status line (even if only one window)
-set laststatus=2
-
 " when closing a bracket, briefly flash the corresponding open bracket
 "set showmatch
 "set matchtime=2
-
-" show trailing spaces, tabs, and end of lines
-set listchars=tab:>-,trail:·,eol:$,nbsp:_
-nmap <silent> <leader>s :set nolist!<CR>
 
 " color overflow region
 "set colorcolumn=80,120
@@ -321,21 +222,6 @@ nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
 let g:Powerline_colorscheme = 'solarized256'
 
-"##### SEARCH ##################################
-
-" highlight search keywords
-set hlsearch
-
-" dynamically search term as you type (incremental search)
-set incsearch
-
-" These two options, when set together, will make /-style searches case-sensitive only if there is a capital letter in the search expression.
-set ignorecase
-set smartcase
-
-" Shortcut to clear out the search highlight after you've found what you were looking for
-nnoremap <Esc><Esc> :noh<cr>
-
 "##### KEYBOARD SHORTCUTS ##############################
 
 "------ VIM ----------------------------------
@@ -343,18 +229,6 @@ nnoremap <Esc><Esc> :noh<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Get rid of annoying help when you accidentally hit F1 instead of Esc. Use :h for help
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" Save you two keystrokes (pressing/releasing Shift) when typing commands
-"nnoremap ; :
-"vnoremap ; :
-"nnoremap <leader>; ;
-"vnoremap <leader>; ;
-
 
 
 "------ HTML/CSS -----------------------------
