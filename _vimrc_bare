@@ -1,16 +1,36 @@
 " Bare bones vim settings
 "=========================
+" This file can be used on a remote server that you don't have a home directory.
+" Simple do the following on the server:
+"
+"$ curl https://raw.github.com/kamykaze/dotfiles/master/_vimrc_bare -o /tmp/_vimrc
+"
+" This might work if you don't have a .vim/ or .viminfo in the current user's
+" home directory
+"
+"$ export MYVIMRC=/tmp/_vimrc
+"$ vim
+"
+" If this doesn't work, you can call it manually when you use vim
+"
+"$ vim filename.ext -u /tmp/_vimrc
+"-------------------------
+
 set nocompatible                   "disable vi compatibility for more features
+
 "-- Find --
 set path=**                        "set find path to current directory
 set suffixesadd=.py,.html,.css,.js,.scss,.less     "add sufixes so you don't have to type whole filenames
+
 "-- Autocomplete on command mode --
 set wildmode=full                  "autocomplete filenames, help, etc.
 set wildmenu                       "shows autocomplete options in a nice menu list
 set wildignore=*.swp,*.bak,*.pyc   "ignore certain file types in autocompletion
+
 "-- Syntax --
 filetype on                        "auto detect filetype
 syntax on                          "syntax highlighting
+
 "-- Spaces and Indenting --
 set backspace=indent,eol,start     "set backspace behavior (so it can backspace over auto-indent, newline, etc.)
 set expandtab                      "replace tabs with spaces
@@ -34,7 +54,7 @@ set incsearch
 set ignorecase
 set smartcase
 
-"-- Custom key mapping I can't live without --
+"-- Custom key mapping --
 let mapleader = ","
 map <Leader>p :set invpaste<CR>
 map H ^
