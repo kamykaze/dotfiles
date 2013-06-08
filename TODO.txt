@@ -2,7 +2,8 @@
 - get familiar with surround
 - learn to use easy motion
 - add python support (and maybe Ruby)
-* install fuzzyfinder
+- figure out why FuzzyFinder is so slow/stalling
+- add emacs Ctrl-A, Ctrl-E, etc. mapping in command line (see Tim Pope's .vimrc?)
 
 #########FUTURE plugins to look into ##########
 - SuperTab

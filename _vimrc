@@ -76,11 +76,13 @@ nnoremap - <c-x>
 nnoremap <leader>1 yypVr
 
 " convenient copy & paste to clipboard (Mac only)
-let os = substitute(system('uname'), "\n", "", "")
-if os == "macunix"
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
     vmap <C-x> :!pbcopy<CR>
     vmap <C-c> :w !pbcopy<CR><CR>
     imap <C-v><C-v> <Esc>:r !pbpaste<CR>
+  endif
 endif
 
 " toggle between UPPER, lower, and Title case
