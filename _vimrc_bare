@@ -99,6 +99,7 @@ imap <c-k> <c-x>
 
 " quick way to escape insert mode
 inoremap kj <ESC>                  
+inoremap <S-Space> <ESC>
 
 " make <tab> jump you to the matching bracket in normal or visual modes
 nnoremap <tab> %

@@ -1,9 +1,9 @@
-- update zen coding plugin: http://www.vim.org/scripts/script.php?script_id=2981
 - get familiar with surround
 - learn to use easy motion
 - add python support (and maybe Ruby)
 - figure out why FuzzyFinder is so slow/stalling
 - add emacs Ctrl-A, Ctrl-E, etc. mapping in command line (see Tim Pope's .vimrc?)
+- try vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
 
 #########FUTURE plugins to look into ##########
 - SuperTab
