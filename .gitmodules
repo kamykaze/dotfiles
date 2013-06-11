@@ -1,44 +1,48 @@
 [submodule "_vim/bundle/vim-surround"]
-	path = _vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+    path = _vim/bundle/vim-surround
+    url = git://github.com/tpope/vim-surround.git
 [submodule "_vim/bundle/vim-repeat"]
-	path = _vim/bundle/vim-repeat
-	url = git://github.com/tpope/vim-repeat.git
+    path = _vim/bundle/vim-repeat
+    url = git://github.com/tpope/vim-repeat.git
 [submodule "_vim/bundle/zencoding"]
-	path = _vim/bundle/zencoding
-	url = http://github.com/mattn/zencoding-vim.git
+    path = _vim/bundle/zencoding
+    url = http://github.com/mattn/zencoding-vim.git
 [submodule "_vim/bundle/easymotion"]
-	path = _vim/bundle/easymotion
-	url = git://github.com/Lokaltog/vim-easymotion.git
+    path = _vim/bundle/easymotion
+    url = git://github.com/Lokaltog/vim-easymotion.git
 [submodule "_vim/bundle/django"]
-	path = _vim/bundle/django
-	url = https://github.com/vim-scripts/django.vim.git
+    path = _vim/bundle/django
+    url = https://github.com/vim-scripts/django.vim.git
 [submodule "_vim/bundle/vim-fuzzyfinder"]
-	path = _vim/bundle/vim-fuzzyfinder
-	url = https://github.com/clones/vim-fuzzyfinder.git
+    path = _vim/bundle/vim-fuzzyfinder
+    url = https://github.com/clones/vim-fuzzyfinder.git
     ignore = dirty
 [submodule "_vim/bundle/vim-l9"]
-	path = _vim/bundle/vim-l9
-	url = https://github.com/clones/vim-l9.git
+    path = _vim/bundle/vim-l9
+    url = https://github.com/clones/vim-l9.git
     ignore = dirty
 [submodule "_vim/bundle/rainbow_parentheses"]
-	path = _vim/bundle/rainbow_parentheses
-	url = https://github.com/kien/rainbow_parentheses.vim.git
+    path = _vim/bundle/rainbow_parentheses
+    url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "_vim/bundle/actionscript"]
-	path = _vim/bundle/actionscript
-	url = https://github.com/vim-scripts/actionscript.vim--Leider.git
+    path = _vim/bundle/actionscript
+    url = https://github.com/vim-scripts/actionscript.vim--Leider.git
 [submodule "_vim/bundle/vim-numbertoggle"]
-	path = _vim/bundle/vim-numbertoggle
-	url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+    path = _vim/bundle/vim-numbertoggle
+    url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 [submodule "_vim/bundle/powerline"]
-	path = _vim/bundle/powerline
-	url = http://github.com/Lokaltog/vim-powerline.git
+    path = _vim/bundle/powerline
+    url = http://github.com/Lokaltog/vim-powerline.git
 [submodule "chrome/chrome-devtools-theme"]
-	path = chrome/chrome-devtools-theme
-	url = git://github.com/kamykaze/chrome-devtools-theme.git
+    path = chrome/chrome-devtools-theme
+    url = git://github.com/kamykaze/chrome-devtools-theme.git
 [submodule "_vim/bundle/vim-scss-syntax"]
-	path = _vim/bundle/vim-scss-syntax
-	url = git://github.com/cakebaker/scss-syntax.vim.git
+    path = _vim/bundle/vim-scss-syntax
+    url = git://github.com/cakebaker/scss-syntax.vim.git
 [submodule "_vim/bundle/vim-less"]
-	path = _vim/bundle/vim-less
-	url = git://github.com/KohPoll/vim-less.git
+    path = _vim/bundle/vim-less
+    url = git://github.com/KohPoll/vim-less.git
+[submodule "_vim/bundle/vim-multiple-cursors"]
+    path = _vim/bundle/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors.git
+    ignore = dirty
