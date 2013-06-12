@@ -1,3 +1,4 @@
-set gfn=TerminusMedium:h14
-set linespace=3
-set noantialias
+"set gfn=TerminusMedium:h14
+set gfn=TerminusMediumForPowerline:h14
+set linespace=2
+"set noantialias

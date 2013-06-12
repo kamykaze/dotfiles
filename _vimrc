@@ -223,6 +223,7 @@ nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
 nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
 let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_symbols = 'fancy'
 
 "##### KEYBOARD SHORTCUTS ##############################
 
