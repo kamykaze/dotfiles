@@ -47,3 +47,6 @@
     path = _vim/bundle/vim-multiple-cursors
     url = https://github.com/terryma/vim-multiple-cursors.git
     ignore = dirty
+[submodule "_vim/bundle/ack"]
+	path = _vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
