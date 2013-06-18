@@ -88,7 +88,7 @@ nnoremap j gj
 nnoremap k gk
 
 " hide search highlights
-nnoremap <Esc><Esc> :noh<cr>
+nnoremap <silent> <Esc><Esc> :noh<cr>
 
 " keep visual selection after indenting
 vnoremap < <gv
@@ -99,7 +99,10 @@ imap <c-k> <c-x>
 
 " quick way to escape insert mode
 inoremap kj <ESC>
-inoremap <S-Space> <ESC>
+" <C-Space> only works with gui
+imap <C-SPACE> <ESC>
+" in most terminals, Ctrl+Space is sent as a null character
+imap <nul> <ESC>
 
 " make <tab> jump you to the matching bracket in normal or visual modes
 nnoremap <tab> %
@@ -113,9 +116,9 @@ set listchars=tab:>-,trail:·,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
 
 " Get rid of annoying help when you accidentally hit F1 instead of Esc. Use :h for help
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+"inoremap <F1> <ESC>
+"nnoremap <F1> <ESC>
+"vnoremap <F1> <ESC>
 
 " Use ; instead of : to go to command mode
 "nnoremap ; :

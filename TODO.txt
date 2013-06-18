@@ -1,3 +1,7 @@
+- remap keys that have default vim behavior 
+    - remap <Leader> (currently , )
+    - remap window moving (CTRL-K, CTRL-L)
+    - remove <f1> mappings
 - get familiar with surround
 - learn to use easy motion
 - add python support (and maybe Ruby)
@@ -22,7 +26,7 @@
 
 " auto complete brackets // TODO: find better alternative...these interfere when pasting code
 "inoremap {      {}<Left>
-"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {<CR>  {<CR>}<Esc>O<Tab>
 "inoremap {{     {
 "inoremap {}     {}
 "inoremap {%     {%%}<Left><Left>
