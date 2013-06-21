@@ -105,11 +105,12 @@ nnoremap <leader>v V`]
 "----- AUTO COMPLETION ----------------------------
 " map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
 function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
+        return "\<Tab>"
+    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
         return "\<Tab>"
     else
         return "\<C-N>"
-    "TODO: elseif ... " check if current char is a space (sometimes you want to tab at the end of a line for inline comment)
     endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
