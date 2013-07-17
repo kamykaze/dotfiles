@@ -132,6 +132,7 @@ autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
 
 "----- FILE HANDLING -------------------------------
+nnoremap <leader><tab> :NERDTree<CR>
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
 nnoremap <silent> ss :FufCoverageFile<CR> 
 " searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
@@ -144,7 +145,7 @@ let g:fuf_keyOpenSplit = '<CR>'
 "##### NAVIGATION ##################################
 
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
-let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<space>'
 
 "--------- WINDOWS --------------------------------
 " set minimum window height to 0 instead of 1
