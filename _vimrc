@@ -124,9 +124,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType html,htmldjango,css,scss,less set tabstop=2
-autocmd FileType html,htmldjango,css,scss,less set softtabstop=2
-autocmd FileType html,htmldjango,css,scss,less set shiftwidth=2
+autocmd FileType javascript,html,htmldjango,css,scss,less set tabstop=2
+autocmd FileType javascript,html,htmldjango,css,scss,less set softtabstop=2
+autocmd FileType javascript,html,htmldjango,css,scss,less set shiftwidth=2
 
 autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
