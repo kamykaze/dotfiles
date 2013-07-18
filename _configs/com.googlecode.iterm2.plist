@@ -1050,10 +1050,12 @@
 	<string>1858 312 445 270 0 0 2560 1418 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>249 466 924 485 0 0 2560 1418 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>1088 986 384 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>1509 488 592 584 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1039 450 1521 960 0 0 2560 1418 </string>
+	<string>1280 90 1273 1328 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1135 530 1425 888 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1064,6 +1066,8 @@
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
+			<false/>
+			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
@@ -1224,6 +1228,8 @@
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
+			<key>Background Image Is Tiled</key>
+			<false/>
 			<key>Background Image Location</key>
 			<string></string>
 			<key>Blend</key>
@@ -1852,7 +1858,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.129412442445755</real>
+			<real>0.15710058808326721</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1878,8 +1884,12 @@
 			<true/>
 			<key>Use Bright Bold</key>
 			<true/>
+			<key>Use Canonical Parser</key>
+			<false/>
+			<key>Use Italic Font</key>
+			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>0.99155408143997192</real>
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
@@ -2456,11 +2466,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.googlecode.com/svn/trunk/appcasts/testing.xml</string>
+	<string>http://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-06-12T19:20:45Z</date>
+	<date>2013-06-24T20:13:31Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2546,6 +2556,6 @@
 	<key>findRegex_iTerm</key>
 	<true/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20130319</string>
+	<string>1.0.0.20130622</string>
 </dict>
 </plist>

@@ -227,6 +227,22 @@ nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 let g:Powerline_colorscheme = 'solarized256'
 let g:Powerline_symbols = 'fancy'
 
+" toggle line numbers (loops between relative, absolute, and no numbers)
+set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    if(&number == 1)
+        set invnumber
+    else
+        set relativenumber
+    endif
+  endif
+endfunc
+nnoremap <silent> <leader>r :call NumberToggle()<cr>
+
+
 "##### KEYBOARD SHORTCUTS ##############################
 
 "------ VIM ----------------------------------

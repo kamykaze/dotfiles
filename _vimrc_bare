@@ -108,9 +108,6 @@ imap <nul> <ESC>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" toggle line numbers (useful for manual copying code with multiple lines)
-map <Leader>r :set invnumber<CR>
-
 " show trailing spaces, tabs, and end of lines
 set listchars=tab:>-,trail:·,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
