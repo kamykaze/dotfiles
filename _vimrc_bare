@@ -79,6 +79,9 @@ map <Leader>, <c-w>_<c-w><bar>
 " make all windows equal size
 map <Leader>. <c-w>=
 
+" quicker saving
+map <Leader>w :w<cr>
+
 " no need to go exact column of marker, just row
 "nnoremap ` '
 
