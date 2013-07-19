@@ -6,12 +6,12 @@ While not all features will be applicable to you, I have tried to document them 
 * custom key mappings for faster/easier navigation
     * <C-hjkl> instead of <C-w>hkl for navigating through windows
     * ,, and ,. to maximize or even window sizes
-    * ,r to toggle line numbers
+    * ,r to toggle line numbers (relative, absolute, no numbers)
     * ,p to toggle paste mode
     * H and L instead of ^ and $ to go to beginning/end of line
-    * <C-k> instead of <C-x> to enter completion submodes inside 'insert' mode
+    * <C-k> instead of <C-x> to enter completion submodes inside 'insert' modes
     * Smart <Tab> completion depending on whether you're at the beginning of a line or completing a word
-    * <S-Tab> to trigger zen coding expansion
+    * <S-Tab> to trigger emmett/zen coding expansion
     * ss and sb to open Fuzzyfinder's Coverage File (search all files within cur dir) and Buffer modes (search currently opened files)
 * case-insensitive search (unless there's an uppercase letter in your keywords)
 * syntax and color coding
@@ -19,22 +19,23 @@ While not all features will be applicable to you, I have tried to document them 
     * html
     * javascript
     * css
-    * scss
+    * scss/sass
     * less
-* [zen coding](http://code.google.com/p/zen-coding/) plugin
-    * several snippet overwrites to add 'px' to properties I always use in pixels (like margins, paddings, etc.)
+* [zen coding](http://code.google.com/p/zen-coding/) plugin (Zen Coding is now known as Emmett)
 * [surround](https://github.com/tpope/vim-surround) plugin
 * [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
-* [git](https://github.com/tpope/vim-fugitive) integration
+* [git](https://github.com/tpope/vim-fugitive) integration with Fugitive plugin
 * [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin
 * [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library
-* [numbertoggle](https://github.com/jeffkreeftmeijer/vim-numbertoggle) plugin to use relative line numbers
 * [powerline](https://github.com/Lokaltog/vim-powerline) plugin for nicer status line
 
 
 ## Files
 ### .vim 
 directory of file type configurations and plugins
+
+### .vimrc_bare
+my bare minimal vim configuration. It provides remapping and other settings without the use of plugins
 
 ### .vimrc
 my vim configuration
