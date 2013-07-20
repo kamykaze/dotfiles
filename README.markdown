@@ -21,12 +21,13 @@ While not all features will be applicable to you, I have tried to document them 
     * css
     * scss/sass
     * less
-* [zen coding](http://code.google.com/p/zen-coding/) plugin (Zen Coding is now known as Emmett)
-* [surround](https://github.com/tpope/vim-surround) plugin
+* [zen coding](http://code.google.com/p/zen-coding/) plugin (Zen Coding is now known as Emmett) for expanding html/css
+* [surround](https://github.com/tpope/vim-surround) plugin for quickly changing quotes, brackets, tags, etc.
+* [snipmate](https://github.com/msanders/snipmate.vim) plugin for easy code expansion
 * [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
-* [git](https://github.com/tpope/vim-fugitive) integration with Fugitive plugin
-* [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin
-* [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library
+* [fugitive](https://github.com/tpope/vim-fugitive) plugin for Git integration
+* [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin for improved navigation
+* [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library for finding files using fuzzy match
 * [powerline](https://github.com/Lokaltog/vim-powerline) plugin for nicer status line
 
 

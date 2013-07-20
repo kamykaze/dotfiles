@@ -104,24 +104,24 @@ nnoremap <leader>v V`]
 
 "----- AUTO COMPLETION ----------------------------
 " map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
-        return "\<Tab>"
-    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
-        return "\<Tab>"
-    else
-        return "\<C-N>"
-    endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+"function! CleverTab()
+"    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
+"        return "\<Tab>"
+"    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
+"        return "\<Tab>"
+"    else
+"        return "\<C-N>"
+"    endif
+"endfunction
+"inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
-autocmd BufNewFile,BufRead *.scss set filetype=scss
-autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+autocmd BufNewFile,BufRead *.less set filetype=less.css
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd BufNewFile,BufRead *.html set filetype=htmldjango
+autocmd FileType html set filetype=htmldjango.html
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 autocmd FileType javascript,html,htmldjango,css,scss,less set tabstop=2
@@ -292,7 +292,7 @@ let g:user_zen_leader_key = '<C-n>'
 " n  <C-n>,        <Plug>ZenCodingExpandNormal
 " v  <C-n>,        <Plug>ZenCodingExpandVisual
 
-let g:user_zen_expandabbr_key = '<s-tab>'
+let g:user_zen_expandabbr_key = '<s-tab><s-tab>'
 let g:user_zen_togglecomment_key = '<c-_>'
 "let g:user_zen_next_key = '<C-,>'
 "let g:user_zen_prev_key = '<C-;>'
