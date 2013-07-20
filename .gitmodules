@@ -54,3 +54,6 @@
 	path = _vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
     ignore = dirty
+[submodule "_vim/bundle/snipmate_for_django"]
+	path = _vim/bundle/snipmate_for_django
+	url = https://github.com/robhudson/snipmate_for_django.git

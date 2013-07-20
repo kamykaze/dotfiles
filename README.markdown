@@ -24,6 +24,7 @@ While not all features will be applicable to you, I have tried to document them 
 * [zen coding](http://code.google.com/p/zen-coding/) plugin (Zen Coding is now known as Emmett) for expanding html/css
 * [surround](https://github.com/tpope/vim-surround) plugin for quickly changing quotes, brackets, tags, etc.
 * [snipmate](https://github.com/msanders/snipmate.vim) plugin for easy code expansion
+    * [snipmate for django](https://github.com/robhudson/snipmate_for_django.git) snippets for django expansion
 * [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
 * [fugitive](https://github.com/tpope/vim-fugitive) plugin for Git integration
 * [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin for improved navigation
