@@ -116,17 +116,17 @@ nnoremap <leader>v V`]
 "inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
-autocmd BufNewFile,BufRead *.scss set filetype=scss.css
 autocmd BufNewFile,BufRead *.less set filetype=less.css
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set filetype=htmldjango.html
-autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
+autocmd FileType scss set filetype=css.scss
+"autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType javascript,html,htmldjango,css,scss,less set tabstop=2
-autocmd FileType javascript,html,htmldjango,css,scss,less set softtabstop=2
-autocmd FileType javascript,html,htmldjango,css,scss,less set shiftwidth=2
+autocmd FileType javascript,html,css set tabstop=2
+autocmd FileType javascript,html,css set softtabstop=2
+autocmd FileType javascript,html,css set shiftwidth=2
 
 autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
