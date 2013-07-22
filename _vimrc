@@ -117,16 +117,16 @@ nnoremap <leader>v V`]
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
 autocmd BufNewFile,BufRead *.less set filetype=less.css
+autocmd BufNewFile,BufRead *.scss set filetype=scss
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set filetype=htmldjango.html
-autocmd FileType scss set filetype=css.scss
 "autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType javascript,html,css set tabstop=2
-autocmd FileType javascript,html,css set softtabstop=2
-autocmd FileType javascript,html,css set shiftwidth=2
+autocmd FileType javascript,html,scss,css set tabstop=2
+autocmd FileType javascript,html,scss,css set softtabstop=2
+autocmd FileType javascript,html,scss,css set shiftwidth=2
 
 autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
