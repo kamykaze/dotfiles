@@ -54,3 +54,6 @@
 [submodule "_vim/bundle/snipmate_for_django"]
 	path = _vim/bundle/snipmate_for_django
 	url = https://github.com/robhudson/snipmate_for_django.git
+[submodule "_vim/bundle/zencoding"]
+	path = _vim/bundle/zencoding
+	url = git@github.com:kamykaze/zencoding-vim.git

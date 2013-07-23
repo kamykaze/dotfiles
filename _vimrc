@@ -117,16 +117,16 @@ nnoremap <leader>v V`]
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
 autocmd BufNewFile,BufRead *.less set filetype=less.css
-autocmd BufNewFile,BufRead *.scss set filetype=scss
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html set filetype=htmldjango.html
-"autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType javascript,html,scss,css set tabstop=2
-autocmd FileType javascript,html,scss,css set softtabstop=2
-autocmd FileType javascript,html,scss,css set shiftwidth=2
+autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
+autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
+autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
 
 autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
 
@@ -292,7 +292,7 @@ let g:user_zen_leader_key = '<C-n>'
 " n  <C-n>,        <Plug>ZenCodingExpandNormal
 " v  <C-n>,        <Plug>ZenCodingExpandVisual
 
-let g:user_zen_expandabbr_key = '<s-tab><s-tab>'
+let g:user_zen_expandabbr_key = ';;'
 let g:user_zen_togglecomment_key = '<c-_>'
 "let g:user_zen_next_key = '<C-,>'
 "let g:user_zen_prev_key = '<C-;>'
