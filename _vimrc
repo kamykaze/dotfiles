@@ -292,7 +292,7 @@ let g:user_zen_leader_key = '<C-n>'
 " n  <C-n>,        <Plug>ZenCodingExpandNormal
 " v  <C-n>,        <Plug>ZenCodingExpandVisual
 
-let g:user_zen_expandabbr_key = ';;'
+let g:user_zen_expandabbr_key = '<s-tab><s-tab>'
 let g:user_zen_togglecomment_key = '<c-_>'
 "let g:user_zen_next_key = '<C-,>'
 "let g:user_zen_prev_key = '<C-;>'
