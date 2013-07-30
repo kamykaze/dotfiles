@@ -24,8 +24,8 @@
 			}
 		},
 		"shell": {
-			"colorscheme": "default",
-			"theme": "default_leftonly"
+			"colorscheme": "kam",
+			"theme": "kam_leftonly"
 		},
 		"tmux": {
 			"colorscheme": "default",
