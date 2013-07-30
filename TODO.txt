@@ -1,3 +1,4 @@
+- add bashrc and bash_profile to repo
 - remap keys that have default vim behavior 
     - remap <Leader> (currently , )
     - remap window moving (CTRL-K, CTRL-L)

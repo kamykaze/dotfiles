@@ -7,6 +7,7 @@
 "
 " git submodule add http://github.com/user/module_name.git bundle/[module_name]
 
+filetype on
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
@@ -337,4 +338,25 @@ let g:user_zen_settings = {
 \    },
 \}
 
+" adding multiple cursors support
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_key='<C-p>'
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
+
+" adding snippets directories
 let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
+
+" adding powerline
+set rtp+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=300
+        au InsertLeave * set timeoutlen=500
+    augroup END
+endif
+
