@@ -7,6 +7,7 @@
 "
 " git submodule add http://github.com/user/module_name.git bundle/[module_name]
 
+filetype on
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
@@ -350,4 +351,12 @@ let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/b
 
 " adding powerline
 set rtp+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=300
+        au InsertLeave * set timeoutlen=500
+    augroup END
+endif
 
