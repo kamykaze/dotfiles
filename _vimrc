@@ -345,4 +345,9 @@ let g:multi_cursor_start_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
 
+" adding snippets directories
 let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
+
+" adding powerline
+set rtp+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+
