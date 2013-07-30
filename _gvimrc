@@ -1,4 +1,4 @@
 "set gfn=TerminusMedium:h14
-set gfn=TerminusMediumForPowerline:h15
-set linespace=2
-"set noantialias
+set gfn=InconsolataForPowerline:h15
+set linespace=0
+set noantialias
