@@ -120,6 +120,7 @@ nnoremap <leader>v V`]
 autocmd BufNewFile,BufRead *.less set filetype=less.css
 autocmd BufNewFile,BufRead *.scss set filetype=scss.css
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
+autocmd BufNewFile,BufRead *.json set filetype=javascript
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS

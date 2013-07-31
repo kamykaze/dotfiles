@@ -2,13 +2,13 @@
 	"default_module": "powerline.segments.common",
 	"segment_data": {
 		"hostname": {
-			"before": " ",
+			"before": "",
 			"args": {
 				"only_if_ssh": true
 			}
 		},
 		"virtualenv": {
-			"before": "ⓔ  "
+			"before": "ⓔ "
 		},
 		"branch": {
 			"before": " "
@@ -18,31 +18,37 @@
 		"left": [
 			{
 				"name": "last_status",
-				"module": "powerline.segments.shell"
+				"module": "powerline.segments.shell",
+        "priority": 1
 			},
 			{
 				"name": "date",
 				"args": {
-					"format": "%m/%d %H:%M"
+					"format": "%H:%M"
 				}
 			},
 			{
-				"name": "hostname"
+				"name": "hostname",
+        "priority": 2
 			},
 			{
-				"name": "user"
+				"name": "user",
+        "priority": 2
 			},
 			{
-				"name": "virtualenv"
+				"name": "virtualenv",
+        "priority": 3
 			},
 			{
-				"name": "branch"
+				"name": "branch",
+        "priority": 3
 			},
 			{
 				"name": "cwd",
 				"args": {
 					"dir_limit_depth": 3
-				}
+				},
+        "draw_inner_divider": false
 			}
 		]
 	}
