@@ -1,8 +1,15 @@
-# ls aliases
+# vim: ft=sh
+
+# shortcuts
 alias ls='ls -G'
 alias ll='ls -hl'
 alias l='ls -l'
 alias lla='ls -ahl'
+alias ..='cd ..'
+alias mkdir='mkdir -pv'
+
+# go to actual directory when CDing into a symlink
+set -P
 
 # shortcut for finding a keyword in files 
 # (uses Ag or Ack depending on what's available)
@@ -19,8 +26,24 @@ fi
 # find a file by a certain name quickly
 function s { find . -name $@;}
 
+# get stats for a domain
+function fs { ping -o "$1" | grep "$1" | grep -v statistics; }
+
+# remove all .pyc files under current directory and subdirectories
+function clean_pyc { find . -name "*.pyc" -delete;}
+
 # go to a reference project
 function goto { cd `cd ${HOME}/ref/$1 && pwd -P`; }
+_goto_complete () {
+    local cur="$2"
+    COMPREPLY=( $(goto && compgen -d -- "${cur}" ) )
+}
+complete -o nospace -F _goto_complete -S/ goto
+
+# quick http server for current directory
+server() {
+    python -m SimpleHTTPServer $1
+}
 
 
 # using powerline for nice prompt (custom is a copy with an \n to make command be at 2nd line)
@@ -32,12 +55,18 @@ function goto { cd `cd ${HOME}/ref/$1 && pwd -P`; }
 # pythonbrew stuff
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
-# Virtualenvwrapper must be loaded after pythonbrew
+# Env variables and functions for virtualenvwrapper.
+# virtualenv must be loaded after pythonbrew
 export WORKON_HOME=$HOME/dev/virtualenvs
-. $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
+if [ -f $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh ]; then
+    . $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
+else
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$PATH"
 
 ### some python tools for convenience
 export PYTHONPATH="${HOME}/tools/:${HOME}/dev/src/django-debug-toolbar/:$PYTHONPATH"
+
