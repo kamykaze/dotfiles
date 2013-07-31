@@ -1,4 +1,8 @@
-- add bashrc and bash_profile to repo
+## General
+- add bash_profile to repo
+- look into wemux
+
+## VIM
 - remap keys that have default vim behavior 
     - remap <Leader> (currently , )
     - remap window moving (CTRL-K, CTRL-L)
@@ -16,14 +20,6 @@
 
 " map Ctrl+Space as Escape key
 "noremap <C-Space> <Esc> // currently doing some sort of paste if no edit is made
-
-
-" map <space> to act like a web browser's page down
-"nnoremap <space> <PageDown>
-"nnoremap <S-space> <C-u> "TODO: figured out how to configure terminal to send proper code
-"vnoremap <space> <PageDown>
-"vnoremap <S-space> <C-u>
-
 
 " auto complete brackets // TODO: find better alternative...these interfere when pasting code
 "inoremap {      {}<Left>
