@@ -32,8 +32,8 @@
 			"theme": "default"
 		},
 		"vim": {
-			"colorscheme": "default",
-			"theme": "default",
+			"colorscheme": "kam",
+			"theme": "kam",
 			"local_themes": {
 				"cmdwin": "cmdwin",
 				"help": "help",

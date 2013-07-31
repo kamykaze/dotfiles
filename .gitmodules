@@ -60,3 +60,6 @@
 [submodule "utilities/powerline"]
 	path = utilities/powerline
 	url = https://github.com/Lokaltog/powerline.git
+[submodule "utilities/tmux-MacOSX-pasteboard"]
+	path = utilities/tmux-MacOSX-pasteboard
+	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git

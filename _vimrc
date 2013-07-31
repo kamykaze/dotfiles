@@ -183,6 +183,9 @@ set t_Co=256
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
+" Enable mouse support
+set mouse:a
+
 " when closing a bracket, briefly flash the corresponding open bracket
 "set showmatch
 "set matchtime=2
