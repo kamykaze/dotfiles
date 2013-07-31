@@ -28,7 +28,7 @@
 			"theme": "kam_leftonly"
 		},
 		"tmux": {
-			"colorscheme": "default",
+			"colorscheme": "kam",
 			"theme": "default"
 		},
 		"vim": {
