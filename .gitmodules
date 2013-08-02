@@ -66,3 +66,4 @@
 [submodule "_vim/bundle/zoomwin"]
 	path = _vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
+    ignore = dirty
