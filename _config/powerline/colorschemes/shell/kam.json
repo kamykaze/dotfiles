@@ -1,7 +1,7 @@
 {
 	"name": "Custom color scheme for shell prompts",
 	"groups": {
-		"date": { "fg": "brightyellow", "bg": "gray1", "attr": ["bold"] },
+		"date": { "fg": "brightyellow", "bg": "gray1"},
 		"user": { "fg": "gray1", "bg": "blue", "attr": ["bold"] },
 		"superuser": { "fg": "white", "bg": "brightred", "attr": ["bold"] },
 		"virtualenv": { "fg": "white", "bg": "magenta" },
