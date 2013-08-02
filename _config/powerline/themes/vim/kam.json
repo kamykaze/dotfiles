@@ -17,6 +17,12 @@
 	"segments": {
 		"left": [
 			{
+				"name": "zoom_indicator",
+				"module": "powerline_custom.segments.vim",
+				"exclude_modes": ["nc"],
+				"priority": 5
+			},
+			{
 				"name": "paste_indicator",
 				"exclude_modes": ["nc"],
 				"priority": 10

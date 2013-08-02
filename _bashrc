@@ -47,7 +47,7 @@ server() {
 
 
 # using powerline for nice prompt (custom is a copy with an \n to make command be at 2nd line)
-. /Users/kam/dotfiles/utilities/powerline_custom/powerline/bindings/bash/powerline.sh
+. /Users/kam/dotfiles/utilities/powerline_custom/bindings/bash/powerline.sh
 # Note: you'll need a patched font to use with your terminal (iTerm2)
 # I use Inconsolata 13pt for non-ASCII (https://github.com/Lokaltog/powerline-fonts/tree/master/Inconsolata )
 # and Terminus Medium 14pt for regular font
@@ -68,5 +68,5 @@ fi
 export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$PATH"
 
 ### some python tools for convenience
-export PYTHONPATH="${HOME}/tools/:${HOME}/dev/src/django-debug-toolbar/:$PYTHONPATH"
+export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/dev/src/django-debug-toolbar/:$PYTHONPATH"
 

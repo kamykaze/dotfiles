@@ -5,6 +5,7 @@
 		"background:divider": { "fg": "gray6", "bg": "gray2" },
 		"mode": { "fg": "white", "bg": "blue", "attr": ["bold"] },
 		"modified_indicator": { "fg": "brightyellow", "bg": "gray4", "attr": ["bold"] },
+		"zoom_indicator": { "fg": "white", "bg": "red", "attr": ["bold"] },
 		"paste_indicator": { "fg": "white", "bg": "magenta", "attr": ["bold"] },
 		"readonly_indicator": { "fg": "white", "bg": "gray4" },
 		"branch": { "fg": "gray2", "bg": "gray9" },

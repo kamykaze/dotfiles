@@ -153,6 +153,20 @@ let g:EasyMotion_leader_key = '<space>'
 " set minimum window height to 0 instead of 1
 set wmh=0
 
+" shortcut for zooming in/out of a window
+map <Leader>, :ZoomWin<cr>
+
+let g:ZoomWinStatus=0
+function! ZWStatline(state)
+  if a:state
+   let g:ZoomWinStatus=1
+  else
+   let g:ZoomWinStatus=0
+  endif
+endfunc
+let g:zoomwin_preserve_taglist='true'
+let g:zoomwin_preserve_winmanager='true'
+let g:ZoomWin_funcref= function("ZWStatline")
 
 " #### TODO: Folds #######
 " fold by indentation
