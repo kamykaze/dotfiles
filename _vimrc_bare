@@ -79,14 +79,16 @@ map <Leader>, <c-w>_<c-w><bar>
 " make all windows equal size
 map <Leader>. <c-w>=
 
+
+"--- Files/Buffers ---
 " quicker saving
 map <Leader>w :w<cr>
 
 " quicker closing of file
 map <Leader>q :q<cr>
 
-" no need to go exact column of marker, just row
-"nnoremap ` '
+" close file and delete its buffer
+map <Leader>d :bd<cr>
 
 " when you have long wrapped lines, j/k will move you to the next line, which is counter intuitive.
 " This mapping makes it so they move to the next "row"
