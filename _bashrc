@@ -45,12 +45,17 @@ server() {
     python -m SimpleHTTPServer $1
 }
 
+# using powerline for nice prompt (custom powerline prompt below to add newlines)
+. ${HOME}/dotfiles/utilities/powerline/powerline/bindings/bash/powerline.sh
+_powerline_prompt() {
+	local last_exit_code=$?
+	[[ -z "$POWERLINE_OLD_PROMPT_COMMAND" ]] ||
+		eval $POWERLINE_OLD_PROMPT_COMMAND
+	PS1="\n$($POWERLINE_COMMAND shell left -r bash_prompt --last_exit_code=$last_exit_code)\r\n$ "
+	_powerline_tmux_set_pwd
+	return $last_exit_code
+}
 
-# using powerline for nice prompt (custom is a copy with an \n to make command be at 2nd line)
-. /Users/kam/dotfiles/utilities/powerline_custom/bindings/bash/powerline.sh
-# Note: you'll need a patched font to use with your terminal (iTerm2)
-# I use Inconsolata 13pt for non-ASCII (https://github.com/Lokaltog/powerline-fonts/tree/master/Inconsolata )
-# and Terminus Medium 14pt for regular font
 
 # pythonbrew stuff
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
