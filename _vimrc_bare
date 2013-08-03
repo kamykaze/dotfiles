@@ -31,6 +31,9 @@ set wildignore=*.swp,*.bak,*.pyc   "ignore certain file types in autocompletion
 filetype on                        "auto detect filetype
 syntax on                          "syntax highlighting
 
+"-- Custom leader key mapping --
+let mapleader = ","
+
 "-- Spaces and Indenting --
 set backspace=indent,eol,start     "set backspace behavior (so it can backspace over auto-indent, newline, etc.)
 set expandtab                      "replace tabs with spaces
@@ -51,59 +54,44 @@ set number                         "show line numbers
 set numberwidth=5
 set hlsearch                       "highlight search keywords
 
+" automatic set relative number for current buffer, and absolute numbers for inactive ones
+autocmd BufEnter * set relativenumber
+autocmd BufLeave * set number
+
+" toggle line numbers (loops between relative, absolute, and no numbers)
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    if(&number == 1)
+        set invnumber
+    else
+        set relativenumber
+    endif
+  endif
+endfunc
+nnoremap <silent> <leader>r :call NumberToggle()<cr>
+
+" show trailing spaces, tabs, and end of lines
+set listchars=tab:>-,trail:·,eol:$,nbsp:_
+nmap <silent> <leader>s :set nolist!<CR>
+
+" easier completion mode
+imap <c-k> <c-x>
+
+" set minimum window height to 0 instead of 1
+set wmh=0
+
 "-- Search --
 set incsearch                      "dynamically search term as you type (incremental search)
 set ignorecase                     "case-insensitive search
 set smartcase                      "unless there's an uppercase letter in the keyword
 
-"-- Custom key mapping --
-let mapleader = ","
 
-" toggle paste mode
-map <Leader>p :set invpaste<CR>
-
+"-- Navigation --
 " easier way to get to beginning end of line
 map H ^
 map L $
-
-"--- windows ---
-" quick window switching
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
-" maximize current window
-map <Leader>, <c-w>_<c-w><bar>
-
-" make all windows equal size
-map <Leader>. <c-w>=
-
-
-"--- Files/Buffers ---
-" quicker saving
-map <Leader>w :w<cr>
-
-" quicker closing of file
-map <Leader>q :q<cr>
-
-" close file and delete its buffer
-map <Leader>d :bd<cr>
-
-" when you have long wrapped lines, j/k will move you to the next line, which is counter intuitive.
-" This mapping makes it so they move to the next "row"
-"nnoremap j gj
-"nnoremap k gk
-
-" hide search highlights
-nnoremap <silent> <Esc><Esc> :noh<cr>
-
-" keep visual selection after indenting
-vnoremap < <gv
-vnoremap > >gv
-
-" easier completion mode
-imap <c-k> <c-x>
 
 " quick way to escape insert mode
 inoremap kj <ESC>
@@ -116,17 +104,73 @@ imap <nul> <ESC>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" show trailing spaces, tabs, and end of lines
-set listchars=tab:>-,trail:·,eol:$,nbsp:_
-nmap <silent> <leader>s :set nolist!<CR>
 
-" Get rid of annoying help when you accidentally hit F1 instead of Esc. Use :h for help
-"inoremap <F1> <ESC>
-"nnoremap <F1> <ESC>
-"vnoremap <F1> <ESC>
+"--- windows ---
+" quick window switching
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
-" Use ; instead of : to go to command mode
-"nnoremap ; :
-"nnoremap <leader>; ;
-"vnoremap ; :
-"vnoremap <leader>; ;
+" toggles between maximized window, and even sized windows
+let g:ZoomFlag=0
+function! ToggleZoom(zoomed)
+  if a:zoomed == 1
+    let g:ZoomFlag = 0
+    normal =
+  else
+    let g:ZoomFlag = 1
+    normal _|
+  endif
+endfunction
+map <Leader>, :call ToggleZoom(g:ZoomFlag)<cr>
+
+"--- Files/Buffers ---
+" quicker saving
+map <Leader>w :w<cr>
+
+" quicker closing of file
+map <Leader>q :q<cr>
+
+" close file and delete its buffer
+map <Leader>d :bd<cr>
+
+
+"-- Utilities --
+" toggle paste mode
+map <Leader>p :set invpaste<CR>
+
+" hide search highlights
+nnoremap <silent> <Esc><Esc> :noh<cr>
+
+" keep visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" toggle between UPPER, lower, and Title case
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
+
+" map 'Oo' to return to a newline above your current position 
+" (useful when you want to close brackets and still continue editing)
+inoremap Oo <ESC>ko
+
+" remap Ctrl+A and Ctrl+X to +/- for easy increment/decrement of numbers
+nnoremap + <c-a>
+nnoremap - <c-x>
+
+" creates a line separator  line below the current line
+" use any character key after calling this to pick which char to fill the line
+" eg: using <leader>1= will create a line like 
+" =============
+nnoremap <leader>1 yypVr
+

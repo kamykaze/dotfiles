@@ -62,20 +62,6 @@ set updatecount=500
 
 "##### EDITING #######################################
 
-" map 'Oo' to return to a newline above your current position 
-" (useful when you want to close brackets and still continue editing)
-inoremap Oo <ESC>O
-
-" remap Ctrl+A and Ctrl+X to +/- for easy increment/decrement of numbers
-nnoremap + <c-a>
-nnoremap - <c-x>
-
-" creates a line separator  line below the current line
-" use any character key after calling this to pick which char to fill the line
-" eg: using <leader>1= will create a line like 
-" =============
-nnoremap <leader>1 yypVr
-
 " convenient copy & paste to clipboard (Mac only)
 if has("unix")
   let s:uname = system("uname")
@@ -85,19 +71,6 @@ if has("unix")
     imap <C-v><C-v> <Esc>:r !pbpaste<CR>
   endif
 endif
-
-" toggle between UPPER, lower, and Title case
-function! TwiddleCase(str)
-  if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
-  elseif a:str ==# tolower(a:str)
-    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
-  else
-    let result = toupper(a:str)
-  endif
-  return result
-endfunction
-vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
 
 "----- SELECTIONS ---------------------------------
 " reselect the text that was just pasted so I can perform commands (like indentation) on it (Steve Losh)
@@ -130,7 +103,7 @@ autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
 autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
 autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
 
-autocmd FileType scss imap <buffer> { {<CR>}<Esc>ko<tab>
+autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
 
 
 "----- FILE HANDLING -------------------------------
@@ -165,11 +138,6 @@ let g:EasyMotion_leader_key = '<space>'
 
 " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
 set noshowmode
-
-" toggle line numbers (useful for copying code with multiple lines)
-" TODO: use one mapping to rotate between 3 states (relative numbers, abs numbers, and no numbers)
-"map <Leader>r :set invnumber<CR>
-"let g:NumberToggleTrigger="<Leader>r"
 
 " If 256 colors are supported
 set t_Co=256
@@ -229,21 +197,6 @@ nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
 let g:Powerline_colorscheme = 'solarized256'
 let g:Powerline_symbols = 'fancy'
-
-" toggle line numbers (loops between relative, absolute, and no numbers)
-set relativenumber
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    if(&number == 1)
-        set invnumber
-    else
-        set relativenumber
-    endif
-  endif
-endfunc
-nnoremap <silent> <leader>r :call NumberToggle()<cr>
 
 
 "##### KEYBOARD SHORTCUTS ##############################
