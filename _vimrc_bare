@@ -117,13 +117,16 @@ let g:ZoomFlag=0
 function! ToggleZoom(zoomed)
   if a:zoomed == 1
     let g:ZoomFlag = 0
-    normal =
+    exe "normal \<c-w>="
   else
-    let g:ZoomFlag = 1
-    normal _|
+    " only zoom if there's more than one window
+    if winnr('$') != 1
+      let g:ZoomFlag = 1
+      exe "normal \<c-w>_\<c-w>|"
+    endif
   endif
 endfunction
-map <Leader>, :call ToggleZoom(g:ZoomFlag)<cr>
+map <silent> <Leader>, :call ToggleZoom(g:ZoomFlag)<cr>
 
 "--- Files/Buffers ---
 " quicker saving
