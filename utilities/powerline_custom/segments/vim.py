@@ -15,7 +15,7 @@ def zoom_indicator(pl, segment_info, text='ZOOM'):
     :param string text:
         text to display if zoomed mode is enabled
     '''
-    #return text
+    return None
     try:
         return text if vim.eval('g:ZoomWinStatus') == '1' else None
     except:
