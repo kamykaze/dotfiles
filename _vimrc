@@ -141,11 +141,6 @@ set noshowmode
 
 " If 256 colors are supported
 set t_Co=256
-"colorscheme default
-"colorscheme enzyme
-"colorscheme wombat
-"colorscheme wombat256mod
-"colorscheme jellybeans
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
@@ -209,24 +204,15 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 
 "------ HTML/CSS -----------------------------
-" HTML comment/uncomment current line
-map <Leader>h I<!--<Esc>A--><Esc>j
-
-map <Leader>H V:s/<!--//g<C-M><Esc>V:s/-->//g<CR><Esc>j
-
-" CSS comment/uncomment current line
-map <Leader>c I/*<Esc>A*/<Esc>j
-map <Leader>C V:s/\/\*//g<C-M><Esc>V:s/\*\///g<CR><Esc>j
-
 " Sort css properties (courtesy of Steve Losh)
-nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+autocmd FileType css nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
 " Some people like merging all css definitions in one line. Use this to sPlit them into multiple lines
-map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
+autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
 
 " Append a tag to the end of the current selector 
 " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
-map <Leader>ca f{i
+autocmd FileType css map <Leader>ca f{i
 
 " adding zen coding (http://code.google.com/p/zen-coding/ ) support
 let g:user_zen_leader_key = '<C-n>'
@@ -292,6 +278,9 @@ let g:user_zen_settings = {
 \        },
 \    },
 \}
+
+"------ Git Repo -----------------------------
+map <leader>g :Gstatus<cr>
 
 " adding multiple cursors support
 let g:multi_cursor_use_default_mapping=0
