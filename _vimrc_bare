@@ -112,21 +112,21 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-" toggles between maximized window, and even sized windows
-let g:ZoomFlag=0
-function! ToggleZoom(zoomed)
-  if a:zoomed == 1
-    let g:ZoomFlag = 0
-    exe "normal \<c-w>="
-  else
-    " only zoom if there's more than one window
-    if winnr('$') != 1
-      let g:ZoomFlag = 1
+" Zooms/maximize current window. If it's already zoomed, even size all windows
+let g:ZoomWin=0
+function! ToggleZoom()
+  if winnr('$') != 1        " only zoom if there's more than one window
+    if winnr() != g:ZoomWin " and current window is not zoomed
+      " zoom cur window
+      let g:ZoomWin = winnr()
       exe "normal \<c-w>_\<c-w>|"
+    else                    " otherwise restore windows
+      let g:ZoomWin = 0
+      exe "normal \<c-w>="
     endif
-  endif
+  endif 
 endfunction
-map <silent> <Leader>, :call ToggleZoom(g:ZoomFlag)<cr>
+map <silent> <Leader>, :call ToggleZoom()<cr>
 
 "--- Files/Buffers ---
 " quicker saving
