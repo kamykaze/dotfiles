@@ -72,6 +72,25 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$PATH"
 
-### some python tools for convenience
-export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/dev/src/django-debug-toolbar/:$PYTHONPATH"
+export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
+
+# add django tools
+if [ -f ~/dev/src/django-current/extras/django_bash_completion ]; then
+    . ~/dev/src/django-current/extras/django_bash_completion
+fi
+
+# add git autocompletion
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+# Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
+function go {
+    export GO_SHELL_SCRIPT=$HOME/.__tmp_go.sh
+    python -m go $*
+    if [ -f $GO_SHELL_SCRIPT ] ; then
+        source $GO_SHELL_SCRIPT
+    fi
+    unset GO_SHELL_SCRIPT
+}
 
