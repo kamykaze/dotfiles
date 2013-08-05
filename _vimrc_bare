@@ -138,6 +138,20 @@ map <Leader>q :q<cr>
 " close file and delete its buffer
 map <Leader>d :bd<cr>
 
+" edit completion with current file's dictory
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+
+"-- Command Line --
+" map emacs style bindings for command line mode (
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
 
 "-- Utilities --
 " toggle paste mode
