@@ -45,6 +45,8 @@ server() {
     python -m SimpleHTTPServer $1
 }
 
+export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
+
 # using powerline for nice prompt (custom powerline prompt below to add newlines)
 . ${HOME}/dotfiles/utilities/powerline/powerline/bindings/bash/powerline.sh
 _powerline_prompt() {
@@ -72,7 +74,6 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$PATH"
 
-export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
 # add django tools
 if [ -f ~/dev/src/django-current/extras/django_bash_completion ]; then
