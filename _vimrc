@@ -304,3 +304,5 @@ if ! has('gui_running')
     augroup END
 endif
 
+
+noremap <silent> <leader>t  :TlistToggle<CR>

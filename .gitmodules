@@ -63,3 +63,6 @@
 [submodule "utilities/tmux-MacOSX-pasteboard"]
 	path = utilities/tmux-MacOSX-pasteboard
 	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
+[submodule "_vim/bundle/taglist"]
+	path = _vim/bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
