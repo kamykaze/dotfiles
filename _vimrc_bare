@@ -129,8 +129,8 @@ endfunction
 map <silent> <Leader>, :call ToggleZoom()<cr>
 
 "--- Tabs ---
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
+nnoremap <leader>[ :tabprevious<CR>
+nnoremap <leader>] :tabnext<CR>
 
 "--- Files/Buffers ---
 " quicker saving
