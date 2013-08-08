@@ -1,6 +1,7 @@
 ## General
 - add bash_profile to repo
 - look into wemux
+- look into ctags and vim-taglist
 
 ## VIM
 - remap keys that have default vim behavior 
@@ -16,10 +17,6 @@
 
 #########FUTURE plugins to look into ##########
 - SuperTab
-- snipmate
-
-" map Ctrl+Space as Escape key
-"noremap <C-Space> <Esc> // currently doing some sort of paste if no edit is made
 
 " auto complete brackets // TODO: find better alternative...these interfere when pasting code
 "inoremap {      {}<Left>

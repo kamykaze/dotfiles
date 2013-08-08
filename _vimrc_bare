@@ -128,6 +128,10 @@ function! ToggleZoom()
 endfunction
 map <silent> <Leader>, :call ToggleZoom()<cr>
 
+"--- Tabs ---
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+
 "--- Files/Buffers ---
 " quicker saving
 map <Leader>w :w<cr>

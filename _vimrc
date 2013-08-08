@@ -103,7 +103,12 @@ autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
 autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
 autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
 
-autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
+"autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
+autocmd FileType css,scss,javascript inoremap <buffer> { {}<Left>
+autocmd FileType css,scss,javascript inoremap <buffer> {} {}
+autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
+autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
+autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
 
 
 "----- FILE HANDLING -------------------------------
