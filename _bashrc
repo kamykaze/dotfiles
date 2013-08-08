@@ -45,7 +45,10 @@ server() {
     python -m SimpleHTTPServer $1
 }
 
-export PYTHONPATH="${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
+# pythonbrew stuff
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+
+export PYTHONPATH="$PYTHONPATH:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
 # using powerline for nice prompt (custom powerline prompt below to add newlines)
 . ${HOME}/dotfiles/utilities/powerline/powerline/bindings/bash/powerline.sh
@@ -58,9 +61,6 @@ _powerline_prompt() {
 	return $last_exit_code
 }
 
-
-# pythonbrew stuff
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
 # Env variables and functions for virtualenvwrapper.
 # virtualenv must be loaded after pythonbrew
