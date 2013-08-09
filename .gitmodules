@@ -66,3 +66,10 @@
 [submodule "_vim/bundle/taglist"]
 	path = _vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "_vim/bundle/livestyle"]
+	path = _vim/bundle/livestyle
+	url = https://github.com/mattn/livestyle-vim.git
+    ignore = dirty
+[submodule "_vim/bundle/webapi"]
+	path = _vim/bundle/webapi
+	url = https://github.com/mattn/webapi-vim.git

@@ -86,12 +86,13 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
-function go {
-    export GO_SHELL_SCRIPT=$HOME/.__tmp_go.sh
-    python -m go $*
-    if [ -f $GO_SHELL_SCRIPT ] ; then
-        source $GO_SHELL_SCRIPT
-    fi
-    unset GO_SHELL_SCRIPT
-}
+#function go {
+#    export GO_SHELL_SCRIPT=$HOME/.__tmp_go.sh
+#    python -m go $*
+#    if [ -f $GO_SHELL_SCRIPT ] ; then
+#        source $GO_SHELL_SCRIPT
+#    fi
+#    unset GO_SHELL_SCRIPT
+#}
 
+[[ -d $HOME/dev/src/gocode ]] && export GOPATH=$GOPATH:$HOME/dev/src/gocode
