@@ -305,7 +305,7 @@ if ! has('gui_running')
     augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=300
-        au InsertLeave * set timeoutlen=500
+        au InsertLeave * set timeoutlen=750
     augroup END
 endif
 
