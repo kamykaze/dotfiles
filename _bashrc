@@ -96,3 +96,8 @@ fi
 #}
 
 [[ -d $HOME/dev/src/gocode ]] && export GOPATH=$GOPATH:$HOME/dev/src/gocode
+
+
+if [ -f $HOME/tools/projects.sh ] ; then
+    source $HOME/tools/projects.sh
+fi
