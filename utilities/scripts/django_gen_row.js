@@ -26,7 +26,7 @@
            $new_obj.find('input[type=text], textarea').each(function() {
                var $tgt_field = $(this);
                var $src_field = $tpl_obj.find('#'+$tgt_field.attr('id').replace(/\d+/,0));
-               $tgt_field.val($src_field.val().replace('#',cur_index));
+               $tgt_field.val($src_field.val().replace(/\d+/,cur_index));
            })
 
            // checkboxes
@@ -53,7 +53,21 @@
            })
 
            // TODO: radio buttons
-           // TODO: file input fields
+
+           // TODO: file input fields (this won't work for security reasons)
+           // $new_obj.find('input[type=file]').each(function() {
+           //     var $tgt_field = $(this);
+           //     var $src_field = $tpl_obj.find('#'+$tgt_field.attr('id').replace(/\d+/,0));
+
+           //     // we can't read the value of a file field for security reasons, so we clone it
+           //     var $clone = $src_field.clone();
+           //     $clone.attr({
+           //       id: $tgt_field.attr('id'),
+           //       name: $tgt_field.attr('name')
+           //     });
+           //     $tgt_field.replaceWith($clone);
+           // })
+           $new_obj.find('input[type=file]').first().focus();
 
            cur_index++;
            $group.data('last-index', cur_index);
