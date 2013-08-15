@@ -147,7 +147,7 @@ set noshowmode
 " If 256 colors are supported
 set t_Co=256
 let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+colorscheme base16-eighties
 
 " Enable mouse support
 set mouse:a

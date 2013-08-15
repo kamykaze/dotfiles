@@ -101,3 +101,10 @@ fi
 if [ -f $HOME/tools/projects.sh ] ; then
     source $HOME/tools/projects.sh
 fi
+
+
+if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
+    source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
+fi
+
+
