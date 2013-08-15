@@ -1,18 +1,18 @@
 {
 	"name": "Custom color scheme for shell prompts",
 	"groups": {
-		"date": { "fg": "brightyellow", "bg": "gray1"},
-		"user": { "fg": "gray1", "bg": "blue", "attr": ["bold"] },
+		"date": { "fg": "brightyellow", "bg": "gray3"},
+		"user": { "fg": "gray1", "bg": "green", "attr": ["bold"] },
 		"superuser": { "fg": "white", "bg": "brightred", "attr": ["bold"] },
-		"virtualenv": { "fg": "white", "bg": "magenta" },
-		"branch": { "fg": "gray2", "bg": "gray9" },
-    "branch_dirty": { "fg": "darkestred", "bg": "gray9" },
-		"branch_clean": { "fg": "gray2", "bg": "gray9" },
-		"cwd": { "fg": "gray9", "bg": "gray1" },
-		"cwd:current_folder": { "fg": "gray10", "bg": "gray1", "attr": ["bold"] },
-		"cwd:divider": { "fg": "gray7", "bg": "gray1" },
+		"virtualenv": { "fg": "white", "bg": "blue" },
+		"branch": { "fg": "gray2", "bg": "gray6", "attr":["bold"] },
+    "branch_dirty": { "fg": "darkestred", "bg": "gray6", "attr":["bold"] },
+		"branch_clean": { "fg": "gray2", "bg": "gray6", "attr":["bold"] },
+		"cwd": { "fg": "gray9", "bg": "gray3" },
+		"cwd:current_folder": { "fg": "white", "bg": "gray3" },
+		"cwd:divider": { "fg": "gray7", "bg": "gray3" },
 		"hostname": { "fg": "brightyellow", "bg": "mediumorange" },
-		"exit_fail": { "fg": "white", "bg": "mediumred" },
+		"exit_fail": { "fg": "white", "bg": "red" },
 		"exit_success": { "fg": "white", "bg": "darkestgreen" },
 		"environment": { "fg": "white", "bg": "darkestgreen" }
 	}
