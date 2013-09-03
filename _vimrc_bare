@@ -54,9 +54,23 @@ set number                         "show line numbers
 set numberwidth=5
 set hlsearch                       "highlight search keywords
 
+function! UpdateNumbers(state)
+  if a:state == 'enter'
+    if buffer_name('%') !~# 'NERD_tree_.\+'
+      set relativenumber
+    endif
+  else
+    if buffer_name('%') !~# 'NERD_tree_.\+'
+      set number
+    endif
+  endif
+endfunc
+
 " automatic set relative number for current buffer, and absolute numbers for inactive ones
-autocmd BufEnter * set relativenumber
-autocmd BufLeave * set number
+" autocmd BufEnter * set relativenumber
+" autocmd BufLeave * set number
+autocmd BufEnter * call UpdateNumbers('enter')
+autocmd BufLeave * call UpdateNumbers('leave')
 
 " toggle line numbers (loops between relative, absolute, and no numbers)
 function! NumberToggle()
