@@ -112,6 +112,7 @@ autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><
 
 
 "----- FILE HANDLING -------------------------------
+let NERDTreeIgnore=['.pyc$[[file]]']
 nnoremap <leader><tab> :NERDTree<CR>
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
 nnoremap <silent> ss :FufCoverageFile<CR> 
