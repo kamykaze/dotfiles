@@ -73,3 +73,6 @@
 [submodule "_vim/bundle/webapi"]
 	path = _vim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim.git
+[submodule "_vim/bundle/seek"]
+	path = _vim/bundle/seek
+	url = https://github.com/goldfeld/vim-seek.git
