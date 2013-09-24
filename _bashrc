@@ -48,7 +48,7 @@ server() {
 # pythonbrew stuff
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
-export PYTHONPATH="$PYTHONPATH:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
+export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages/:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
 # using powerline for nice prompt (custom powerline prompt below to add newlines)
 . ${HOME}/dotfiles/utilities/powerline/powerline/bindings/bash/powerline.sh
@@ -65,6 +65,7 @@ _powerline_prompt() {
 # Env variables and functions for virtualenvwrapper.
 # virtualenv must be loaded after pythonbrew
 export WORKON_HOME=$HOME/dev/virtualenvs
+export PROJECT_HOME=$HOME/dev/projects
 if [ -f $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh ]; then
     . $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
 else
@@ -84,6 +85,12 @@ fi
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+# add tmuxinator autocompletion
+if hash tmuxinator 2>/dev/null; then
+    source ~/dotfiles/utilities/bin/tmuxinator.bash
+fi
+
 
 # Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
 #function go {
@@ -107,4 +114,7 @@ if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
     source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
 fi
 
+# what other editor could you possible want to use?
+export EDITOR='vim'
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

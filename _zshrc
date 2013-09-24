@@ -52,3 +52,5 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Note: you'll need a patched font to use with your terminal (iTerm2)
 # I use Inconsolata 13pt for non-ASCII (https://github.com/Lokaltog/powerline-fonts/tree/master/Inconsolata )
 # and Terminus Medium 14pt for regular font
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
