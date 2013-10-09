@@ -83,3 +83,6 @@
 	path = _vim/bundle/session
 	url = https://github.com/xolox/vim-session.git
     ignore = dirty
+[submodule "chrome/Readable-ChromeDevThemes"]
+	path = chrome/Readable-ChromeDevThemes
+	url = https://github.com/Augus/Readable-ChromeDevThemes
