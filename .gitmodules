@@ -76,3 +76,9 @@
 [submodule "_vim/bundle/seek"]
 	path = _vim/bundle/seek
 	url = https://github.com/goldfeld/vim-seek.git
+[submodule "_vim/bundle/misc"]
+	path = _vim/bundle/misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "_vim/bundle/session"]
+	path = _vim/bundle/session
+	url = https://github.com/xolox/vim-session.git

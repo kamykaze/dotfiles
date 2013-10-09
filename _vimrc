@@ -60,6 +60,11 @@ endif
 set updatetime=10000
 set updatecount=500
 
+"----- SESSION PLUGIN OPTIONS ---------------------
+" change default session directory to avoid showing up on dotfiles repo
+let g:session_directory='~/.vim_sessions'
+let g:session_autosave = 'yes'
+
 "##### EDITING #######################################
 
 " convenient copy & paste to clipboard (Mac only)
