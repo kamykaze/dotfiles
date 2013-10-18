@@ -160,16 +160,15 @@ map <Leader>d :bd<cr>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 
-"-- Command Line --
-" map emacs style bindings for command line mode (
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
+"-- Command Line -- removed emacs binding. Now I'm using:
+"
+"   <C-b>/<C-e> to go to beggining/end of the line
+"   <S-Left>/<S-Right> to jump between words
+"
+"   <C-f> to go into a command line buffer mode
+"   regular vim keys to edit the command (or find previous commands)
+"   <C-c> to exit and go back into command line
+
 
 "-- Utilities --
 " toggle paste mode
