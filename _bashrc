@@ -87,8 +87,8 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # add tmuxinator autocompletion
-if hash tmuxinator 2>/dev/null; then
-    source ~/dotfiles/utilities/bin/tmuxinator.bash
+if [ -f ~/dotfiles/utilities/bin/tmuxinator.bash ]; then
+    . ~/dotfiles/utilities/bin/tmuxinator.bash
 fi
 
 
