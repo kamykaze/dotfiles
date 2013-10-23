@@ -156,6 +156,9 @@ map <Leader>q :q<cr>
 " close file and delete its buffer
 map <Leader>d :bd<cr>
 
+" quick list of buffers
+map <Leader>b :buffers<cr>
+
 " edit completion with current file's dictory
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
