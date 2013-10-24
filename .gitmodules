@@ -10,10 +10,6 @@
 [submodule "_vim/bundle/django"]
     path = _vim/bundle/django
     url = https://github.com/vim-scripts/django.vim.git
-[submodule "_vim/bundle/vim-fuzzyfinder"]
-    path = _vim/bundle/vim-fuzzyfinder
-    url = https://github.com/clones/vim-fuzzyfinder.git
-    ignore = dirty
 [submodule "_vim/bundle/vim-l9"]
     path = _vim/bundle/vim-l9
     url = https://github.com/clones/vim-l9.git
@@ -86,3 +82,9 @@
 [submodule "chrome/Readable-ChromeDevThemes"]
 	path = chrome/Readable-ChromeDevThemes
 	url = https://github.com/Augus/Readable-ChromeDevThemes
+[submodule "_vim/bundle/lusty"]
+	path = _vim/bundle/lusty
+	url = https://github.com/sjbach/lusty.git
+[submodule "_vim/bundle/ctrlp"]
+	path = _vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
