@@ -71,9 +71,9 @@ let g:session_autosave = 'yes'
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
-    vmap <C-x> :!pbcopy<CR>
-    vmap <C-c> :w !pbcopy<CR><CR>
-    imap <C-v><C-v> <Esc>:r !pbpaste<CR>
+    vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>
+    vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
+    imap <C-v><C-v> <Esc>:r !reattach-to-user-namespace pbpaste<CR>
   endif
 endif
 
@@ -318,3 +318,11 @@ endif
 
 
 noremap <silent> <leader>t  :TlistToggle<CR>
+
+
+"##### TOOLS ########################################
+"----- Tmux Integration ---------------------
+vmap <Leader>m <Plug>SendSelectionToTmux
+nmap <Leader>m <Plug>NormalModeSendToTmux
+nmap <Leader>z <Plug>SetTmuxVars
+

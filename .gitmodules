@@ -86,3 +86,6 @@
 [submodule "chrome/Readable-ChromeDevThemes"]
 	path = chrome/Readable-ChromeDevThemes
 	url = https://github.com/Augus/Readable-ChromeDevThemes
+[submodule "_vim/bundle/tslime"]
+	path = _vim/bundle/tslime
+	url = https://github.com/jgdavey/tslime.vim.git
