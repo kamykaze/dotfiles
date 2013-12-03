@@ -91,6 +91,11 @@ if [ -f ~/dotfiles/utilities/bin/tmuxinator.bash ]; then
     . ~/dotfiles/utilities/bin/tmuxinator.bash
 fi
 
+# add sack utility
+if [ -f ~/dotfiles/sack/sack.zsh ]; then
+    . ~/dotfiles/sack/sack.zsh
+fi
+
 
 # Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
 #function go {
@@ -117,4 +122,4 @@ fi
 # what other editor could you possible want to use?
 export EDITOR='vim'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/dotfiles/sack:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
