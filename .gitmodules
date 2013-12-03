@@ -91,3 +91,6 @@
 [submodule "_vim/bundle/ag"]
 	path = _vim/bundle/ag
 	url = https://github.com/rking/ag.vim
+[submodule "sack"]
+	path = sack
+	url = https://github.com/zph/sack.git
