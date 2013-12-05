@@ -11,6 +11,7 @@
 --ignore-dir=coverage
 --ignore-dir=public/media
 --ignore-dir=.sass-cache
+--ignore-dir=trash
 --smart-case
 --sort-files
 --color

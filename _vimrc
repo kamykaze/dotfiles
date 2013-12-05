@@ -326,4 +326,4 @@ vmap <Leader>m <Plug>SendSelectionToTmux
 nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 0
