@@ -13,6 +13,7 @@
 - find better file/path management plugin (LustyExplorer? FuzzyFinder? CtrlP?)
 - try vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
 - try vim-multicursor instead https://github.com/paradigm/vim-multicursor
+- find good buffer management plugin
 
 #########FUTURE plugins to look into ##########
 - SuperTab
