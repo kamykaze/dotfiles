@@ -73,7 +73,7 @@ else
 fi
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$PATH"
+export PATH="/usr/local/php5/bin:/usr/local/heroku/bin:$HOME/local/bin:$HOME/.local/bin:$PATH"
 
 
 # add django tools
