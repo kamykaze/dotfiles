@@ -1,5 +1,6 @@
 --type-add=css=.sass,.less,.scss
 --type-add=sass=.sass,.scss
+--type-add=scss=.sass,.scss
 --type-add=ruby=.rake,.rsel,.builder,.thor
 --type-add=html=.haml,.html.erb,.html.haml
 --type-add=js=.js.erb,.coffee
@@ -10,8 +11,9 @@
 --ignore-dir=doc
 --ignore-dir=coverage
 --ignore-dir=public/media
---ignore-dir=.sass-cache
 --ignore-dir=trash
+--ignore-file=is:tags
+--ignore-file=is:TAGS
 --smart-case
 --sort-files
 --color
