@@ -307,7 +307,8 @@ let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/b
 
 " adding powerline
 
-if filereadable("~/dotfiles/utilities/powerline/powerline/bindings/vim")
+if system('whoami') != "root\n"
+"else
     set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
 endif
 
