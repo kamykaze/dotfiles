@@ -306,7 +306,11 @@ let g:multi_cursor_start_key='<C-p>'
 let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
 
 " adding powerline
-set rtp+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+
+if filereadable("~/dotfiles/utilities/powerline/powerline/bindings/vim")
+    set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+endif
+
 if ! has('gui_running')
     set ttimeoutlen=10
     augroup FastEscape
