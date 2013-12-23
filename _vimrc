@@ -332,3 +332,6 @@ nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
 let g:ctrlp_working_path_mode = 0
+
+"---- Ack mapping ---------------------------
+nnoremap <C-A> :Ack 
