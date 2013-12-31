@@ -332,6 +332,10 @@ nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
+  \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
+  \ }
 
 "---- Ack mapping ---------------------------
 nnoremap <C-A> :Ack 
