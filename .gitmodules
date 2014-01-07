@@ -94,3 +94,6 @@
 [submodule "sack"]
 	path = sack
 	url = https://github.com/zph/sack.git
+[submodule "_vim/bundle/quickbuf"]
+	path = _vim/bundle/quickbuf
+	url = https://github.com/vim-scripts/QuickBuf.git

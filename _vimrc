@@ -47,7 +47,7 @@ augroup END
 set novisualbell
 
 
-"##### FILE MANAGEMENT ###############################
+"##### FILE / BUFFER MANAGEMENT ###############################
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
@@ -59,6 +59,12 @@ endif
 " Change swap backup frequency (reduce from default of 4s and 200 chars)
 set updatetime=10000
 set updatecount=500
+
+" configuration for Quickbuf plugin
+if mapcheck("<leader>b", "N") != ""
+  nunmap <leader>b
+  let g:qb_hotkey = "<leader>b"
+endif
 
 "----- SESSION PLUGIN OPTIONS ---------------------
 " change default session directory to avoid showing up on dotfiles repo
