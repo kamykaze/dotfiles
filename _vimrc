@@ -342,6 +342,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
   \ }
+nnoremap <leader><C-P> :CtrlP 
+
 
 "---- Ack mapping ---------------------------
 nnoremap <C-A> :Ack 
