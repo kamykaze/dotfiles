@@ -97,3 +97,6 @@
 [submodule "_vim/bundle/quickbuf"]
 	path = _vim/bundle/quickbuf
 	url = https://github.com/vim-scripts/QuickBuf.git
+[submodule "_vim/bundle/gitgutter"]
+	path = _vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
