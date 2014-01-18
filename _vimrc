@@ -337,13 +337,17 @@ vmap <Leader>m <Plug>SendSelectionToTmux
 nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
+"---- CtrlP mapping ---------------------------
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
   \ }
-nnoremap <leader><C-P> :CtrlP 
-
+nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
+nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
+nnoremap <leader><space>. :CtrlP ..<cr>
 
 "---- Ack mapping ---------------------------
 nnoremap <C-A> :Ack 
+nnoremap <leader><CR>w :Ack $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
+nnoremap <leader><CR>d :Ack $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
