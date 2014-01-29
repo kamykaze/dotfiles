@@ -346,8 +346,8 @@ let g:ctrlp_prompt_mappings = {
   \ }
 nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
 nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
-nnoremap <leader><space>. :ctrlp ..<cr>
-nnoremap <leader><space>r :ctrlp ~/ref/
+nnoremap <leader><space>. :CtrlP ..<cr>
+nnoremap <leader><space>r :CtrlP ~/ref/
 
 "---- Ack mapping ---------------------------
 nnoremap <C-A> :Ack 

@@ -4,6 +4,7 @@
 --type-add=ruby=.rake,.rsel,.builder,.thor
 --type-add=html=.haml,.html.erb,.html.haml
 --type-add=js=.js.erb,.coffee
+--type-add=minjs=.min.js
 --ignore-dir=wc
 --ignore-dir=log
 --ignore-dir=.sass-cache
