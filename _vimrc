@@ -339,15 +339,18 @@ nmap <Leader>z <Plug>SetTmuxVars
 
 "---- CtrlP mapping ---------------------------
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
   \ }
 nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
 nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
-nnoremap <leader><space>. :CtrlP ..<cr>
+nnoremap <leader><space>. :ctrlp ..<cr>
+nnoremap <leader><space>r :ctrlp ~/ref/
 
 "---- Ack mapping ---------------------------
 nnoremap <C-A> :Ack 
-nnoremap <leader><CR>w :Ack $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
-nnoremap <leader><CR>d :Ack $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
+nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
