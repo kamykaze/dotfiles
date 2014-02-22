@@ -121,6 +121,7 @@ autocmd FileType css,scss,javascript inoremap <buffer> {} {}
 autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
 autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
 autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
+autocmd FileType css,scss nnoremap <buffer> <leader>} $%bev^yf{%A<space>/*<space><esc>pA<space>*/<esc>j
 
 
 "----- FILE HANDLING -------------------------------
@@ -338,6 +339,9 @@ nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
 "---- CtrlP mapping ---------------------------
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]public\/media$'
+    \ }
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_prompt_mappings = {
