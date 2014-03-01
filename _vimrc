@@ -121,7 +121,7 @@ autocmd FileType css,scss,javascript inoremap <buffer> {} {}
 autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
 autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
 autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
-autocmd FileType css,scss nnoremap <buffer> <leader>} $%bev^yf{%A<space>/*<space><esc>pA<space>*/<esc>j
+autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/*<space><esc>pA<space>*/<esc>
 
 
 "----- FILE HANDLING -------------------------------
