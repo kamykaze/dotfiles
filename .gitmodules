@@ -82,6 +82,7 @@
 [submodule "chrome/Readable-ChromeDevThemes"]
 	path = chrome/Readable-ChromeDevThemes
 	url = https://github.com/Augus/Readable-ChromeDevThemes
+    ignore = dirty
 [submodule "_vim/bundle/tslime"]
 	path = _vim/bundle/tslime
 	url = https://github.com/jgdavey/tslime.vim.git
@@ -100,3 +101,6 @@
 [submodule "_vim/bundle/gitgutter"]
 	path = _vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "_vim/bundle/indent-object"]
+	path = _vim/bundle/indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
