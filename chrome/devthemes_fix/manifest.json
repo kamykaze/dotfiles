@@ -1,0 +1,6 @@
+{
+  "name": "Readable Chrome DevTools Theme",
+  "version": "1",
+  "devtools_page": "devtools.html",
+  "manifest_version": 2
+}
