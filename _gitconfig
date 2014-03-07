@@ -3,6 +3,19 @@
     status = auto
     branch = auto
     ui = true
+[color "branch"]
+  current = green bold
+  remote = red bold
+[color "diff"]
+  meta = yellow
+  frag = cyan bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = green bold
+  changed = red bold
+  untracked = red bold
+
 [push]
     default = tracking
 [core]
@@ -11,7 +24,7 @@
     pager = less -+$LESS -FRX
     excludesfile = ~/.gitignore
 [format]
-    pretty = format:%C(yellow)%H %C(green)%ad%n%C(reset)%s %C(blue)[%cn]%C(magenta)%d%n
+    pretty = format:%C(yellow)%h %C(green)%ad %C(red)%d%C(reset) %s %C(blue)[%an]%C(reset)
 [alias]
     br = branch
     ci = commit
@@ -19,8 +32,9 @@
     df = diff
     ds = diff --staged
     fe = fetch
-    gr = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-    lg = log --pretty=format:\"%C(yellow)%h %C(green)%ad %C(reset)%s%C(blue) [%cn] %C(magenta)%d\" --decorate --date=short
+    lg = log --date=short
+    gr = log --graph --date=short
+    gra = log --graph --date=short --all
     mg = merge
     ps = push
     pu = pull
@@ -28,8 +42,14 @@
     st = status -sb
     wd = diff --color-words
     wdiff = diff --color-words
+    undo = reset --soft HEAD^
+    amend = commit --amend -C HEAD
+    check = !"git diff @{1}..HEAD --name-status"
 
     # alias gi to git for typos (eg: 'gi tst' instead of 'git st')
     tst = status
 [include]
     path = ~/.private/github
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
