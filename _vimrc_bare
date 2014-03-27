@@ -57,7 +57,9 @@ set hlsearch                       "highlight search keywords
 function! UpdateNumbers(state)
   if a:state == 'enter'
     if buffer_name('%') !~# 'NERD_tree_.\+'
-      set relativenumber
+      if has('relativenumber')
+        set relativenumber
+      endif
     endif
   else
     if buffer_name('%') !~# 'NERD_tree_.\+'
@@ -87,7 +89,7 @@ endfunc
 nnoremap <silent> <leader>r :call NumberToggle()<cr>
 
 " show trailing spaces, tabs, and end of lines
-set listchars=tab:>-,trail:·,eol:$,nbsp:_
+set listchars=tab:>-,trail:.,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
 
 " easier completion mode
