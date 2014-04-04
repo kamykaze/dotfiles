@@ -104,3 +104,6 @@
 [submodule "_vim/bundle/indent-object"]
 	path = _vim/bundle/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "_vim/bundle/editorconfig"]
+	path = _vim/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git

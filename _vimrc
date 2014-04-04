@@ -5,7 +5,7 @@
 " Adding a module is as simple as unzipping the module inside .vim/bundle/[module_name]
 " or if you use git
 "
-" git submodule add http://github.com/user/module_name.git bundle/[module_name]
+" git submodule add http://github.com/user/module_name.git .vim/bundle/[module_name]
 
 filetype on
 filetype off
