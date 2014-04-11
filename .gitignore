@@ -3,3 +3,4 @@
 _atom/packages
 _atom/storage
 _atom/.node-gyp
+_atom/config.cson
