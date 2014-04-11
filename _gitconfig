@@ -53,3 +53,5 @@
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+[status]
+	displayCommentPrefix = true
