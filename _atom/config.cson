@@ -1,0 +1,28 @@
+'exception-reporting':
+  'userId': 'e653579c-6aa9-da14-9d2a-84aa0a9303b4'
+'release-notes':
+  'viewedVersion': '0.84.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'b021125e16426ee4cd7515bb583588c32f1ae3c9'
+'editor':
+  'fontSize': 15
+  'fontFamily': 'TerminusMedium'
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'base16-tomorrow-dark-theme'
+  ]
+  'ignoredNames': [
+    '.git'
+    '.svn'
+    '.DS_Store'
+    '.sass-cache'
+  ]
+  'projectHome': '/Users/kam/dev/projects/'
+  'disabledPackages': [
+    'vim-mode'
+  ]
+'autocomplete':
+  'includeCompletionsFromAllBuffers': true
