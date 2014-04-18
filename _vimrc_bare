@@ -57,7 +57,7 @@ set hlsearch                       "highlight search keywords
 function! UpdateNumbers(state)
   if a:state == 'enter'
     if buffer_name('%') !~# 'NERD_tree_.\+'
-      if has('relativenumber')
+      if exists('&relativenumber')
         set relativenumber
       endif
     endif

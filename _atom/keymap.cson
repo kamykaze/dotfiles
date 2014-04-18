@@ -19,3 +19,6 @@
 'body':
   'ctrl-tab': 'pane:show-next-item'
   'ctrl-shift-tab': 'pane:show-previous-item'
+'.workspace .editor:not(.mini)':
+  'ctrl-alt-down': 'editor:add-selection-below'
+  'ctrl-alt-up': 'editor:add-selection-above'  
