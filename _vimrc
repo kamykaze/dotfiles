@@ -126,7 +126,7 @@ autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/
 
 "----- FILE HANDLING -------------------------------
 let NERDTreeIgnore=['.pyc$[[file]]']
-nnoremap <leader><tab> :NERDTree<CR>
+nnoremap <leader><tab> :NERDTreeToggle<CR>
 " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
 nnoremap <silent> ss :FufCoverageFile<CR> 
 " searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
