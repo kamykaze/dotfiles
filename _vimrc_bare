@@ -120,10 +120,6 @@ imap <nul> <ESC>
 nnoremap <tab> %
 vnoremap <tab> %
 
-"-- Folding --
-" quick fold current block (brackets)
-nnoremap <leader>f $va{zf
-
 "--- windows ---
 " quick window switching
 map <c-j> <c-w>j
