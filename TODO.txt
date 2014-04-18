@@ -4,16 +4,19 @@
 - look into ctags and vim-taglist
 
 ## VIM
+- improving folding map to avoid nesting folds when using multiple times
+- show foldcolumn
 - remap keys that have default vim behavior 
     - remap <Leader> (currently , )
     - remap window moving (CTRL-K, CTRL-L)
     - remove <f1> mappings
 - get familiar with surround
 - add python support (and maybe Ruby)
-- find better file/path management plugin (LustyExplorer? FuzzyFinder? CtrlP?)
-- try vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
-- try vim-multicursor instead https://github.com/paradigm/vim-multicursor
-- find good buffer management plugin
+- find good multi cursor plugin:
+    - vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
+    - vim-multicursor instead https://github.com/paradigm/vim-multicursor
+- remap keys for consistency among plugins:
+    eg: open in new split for CtrlP, QuickBuf, Ack
 
 #########FUTURE plugins to look into ##########
 - SuperTab
