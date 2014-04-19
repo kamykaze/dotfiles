@@ -1,7 +1,7 @@
 " Bare bones vim settings
 "=========================
 " This file can be used on a remote server that you don't have a home directory.
-" Simple do the following on the server:
+" Simply do the following on the server:
 "
 "$ curl https://raw.github.com/kamykaze/dotfiles/master/_vimrc_bare -o /tmp/_vimrc
 "
@@ -16,7 +16,7 @@
 "$ vim filename.ext -u /tmp/_vimrc
 "-------------------------
 
-set nocompatible                   "disable vi compatibility for more features
+set nocompatible                   "disable vi compatibility for better features
 
 "-- Find --
 set path=**                        "set find path to current directory
@@ -32,7 +32,8 @@ filetype on                        "auto detect filetype
 syntax on                          "syntax highlighting
 
 "-- Custom leader key mapping --
-let mapleader = ","
+let mapleader = ","                "much easier than \, but you make the default command 'Repeat 
+                                   "latest f, t, F or T in opposite direction' slower, but that's ok
 
 "-- Spaces and Indenting --
 set backspace=indent,eol,start     "set backspace behavior (so it can backspace over auto-indent, newline, etc.)
@@ -54,6 +55,7 @@ set number                         "show line numbers
 set numberwidth=5
 set hlsearch                       "highlight search keywords
 
+" automatic set relative number for current buffer, and absolute numbers for inactive ones
 function! UpdateNumbers(state)
   if a:state == 'enter'
     if buffer_name('%') !~# 'NERD_tree_.\+'
@@ -68,9 +70,6 @@ function! UpdateNumbers(state)
   endif
 endfunc
 
-" automatic set relative number for current buffer, and absolute numbers for inactive ones
-" autocmd BufEnter * set relativenumber
-" autocmd BufLeave * set number
 autocmd BufEnter * call UpdateNumbers('enter')
 autocmd BufLeave * call UpdateNumbers('leave')
 
@@ -101,7 +100,7 @@ set wmh=0
 "-- Search --
 set incsearch                      "dynamically search term as you type (incremental search)
 set ignorecase                     "case-insensitive search
-set smartcase                      "unless there's an uppercase letter in the keyword
+set smartcase                      "make search case sensitive if there's an uppercase letter in the keyword
 
 
 "-- Navigation --
@@ -158,7 +157,7 @@ map <Leader>q :q<cr>
 map <Leader>d :bd<cr>
 
 " quick list of buffers
-map <Leader>b :buffers<cr>
+map <Leader>b :buffers<cr>              ".vimrc will overwrite this with a better plugin
 
 " edit completion with current file's dictory
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
