@@ -107,3 +107,6 @@
 [submodule "_vim/bundle/editorconfig"]
 	path = _vim/bundle/editorconfig
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "_vim/bundle/indentLine"]
+	path = _vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git

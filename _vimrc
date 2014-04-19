@@ -150,7 +150,7 @@ let g:EasyMotion_leader_key = '<space>'
 " set default fold level, 0=all minimized
 "set foldlevel=200
 " do not show a column to indicate a fold
-"set foldcolumn=0
+set foldcolumn=2
 
 " quick fold current block (brackets)
 nnoremap <leader>f $va{zf
