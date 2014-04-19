@@ -123,6 +123,8 @@ autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><
 autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
 autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/*<space><esc>pA<space>*/<esc>
 
+autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
+
 
 "----- FILE HANDLING -------------------------------
 let NERDTreeIgnore=['.pyc$[[file]]']
@@ -148,9 +150,11 @@ let g:EasyMotion_leader_key = '<space>'
 " fold by indentation
 "set foldmethod=indent
 " set default fold level, 0=all minimized
-"set foldlevel=200
+set foldlevel=2
 " do not show a column to indicate a fold
 set foldcolumn=2
+" prevent deep folding
+set foldnestmax=3
 
 " quick fold current block (brackets)
 nnoremap <leader>f $va{zf
