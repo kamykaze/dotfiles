@@ -17,9 +17,11 @@
     - vim-multicursor instead https://github.com/paradigm/vim-multicursor
 - remap keys for consistency among plugins:
     eg: open in new split for CtrlP, QuickBuf, Ack
-
-#########FUTURE plugins to look into ##########
-- SuperTab
+    - maybe unite.vim ? https://github.com/Shougo/unite.vim
+- find good code outline plugin
+    - mabye unite's outline plugin
+- auto complete brackets // TODO: find better alternative...these interfere when pasting code
+- look into SuperTab
 
 " auto complete brackets // TODO: find better alternative...these interfere when pasting code
 "inoremap {      {}<Left>
