@@ -5,3 +5,4 @@ _atom/storage
 _atom/.node-gyp
 _atom/config.cson
 _atom/projects.cson
+_vim/bundle/

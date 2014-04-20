@@ -1,93 +1,19 @@
-[submodule "_vim/bundle/vim-l9"]
-    path = _vim/bundle/vim-l9
-    url = https://github.com/clones/vim-l9.git
-    ignore = dirty
-[submodule "_vim/bundle/rainbow_parentheses"]
-    path = _vim/bundle/rainbow_parentheses
-    url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "chrome/chrome-devtools-theme"]
     path = chrome/chrome-devtools-theme
     url = git://github.com/kamykaze/chrome-devtools-theme.git
-[submodule "_vim/bundle/vim-less"]
-    path = _vim/bundle/vim-less
-    url = git://github.com/KohPoll/vim-less.git
-[submodule "_vim/bundle/vim-multiple-cursors"]
-    path = _vim/bundle/vim-multiple-cursors
-    url = https://github.com/terryma/vim-multiple-cursors.git
-    ignore = dirty
-[submodule "_vim/bundle/ack"]
-	path = _vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "_vim/bundle/nerdtree"]
-	path = _vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "_vim/bundle/snipmate"]
-	path = _vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
-    ignore = dirty
-[submodule "_vim/bundle/snipmate_for_django"]
-	path = _vim/bundle/snipmate_for_django
-    url = https://github.com:kamykaze/snipmate_for_django.git
-[submodule "_vim/bundle/zencoding"]
-	path = _vim/bundle/zencoding
-	url = git@github.com:kamykaze/zencoding-vim.git
 [submodule "utilities/powerline"]
 	path = utilities/powerline
 	url = https://github.com/Lokaltog/powerline.git
 [submodule "utilities/tmux-MacOSX-pasteboard"]
 	path = utilities/tmux-MacOSX-pasteboard
 	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
-[submodule "_vim/bundle/taglist"]
-	path = _vim/bundle/taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "_vim/bundle/livestyle"]
-	path = _vim/bundle/livestyle
-	url = https://github.com/mattn/livestyle-vim.git
-    ignore = dirty
-[submodule "_vim/bundle/webapi"]
-	path = _vim/bundle/webapi
-	url = https://github.com/mattn/webapi-vim.git
-[submodule "_vim/bundle/seek"]
-	path = _vim/bundle/seek
-	url = https://github.com/goldfeld/vim-seek.git
-[submodule "_vim/bundle/misc"]
-	path = _vim/bundle/misc
-	url = https://github.com/xolox/vim-misc.git
-[submodule "_vim/bundle/session"]
-	path = _vim/bundle/session
-	url = https://github.com/xolox/vim-session.git
-    ignore = dirty
 [submodule "chrome/Readable-ChromeDevThemes"]
 	path = chrome/Readable-ChromeDevThemes
 	url = https://github.com/Augus/Readable-ChromeDevThemes
     ignore = dirty
-[submodule "_vim/bundle/tslime"]
-	path = _vim/bundle/tslime
-	url = https://github.com/jgdavey/tslime.vim.git
-[submodule "_vim/bundle/ag"]
-	path = _vim/bundle/ag
-	url = https://github.com/rking/ag.vim
 [submodule "sack"]
 	path = sack
 	url = https://github.com/zph/sack.git
-[submodule "_vim/bundle/gitgutter"]
-	path = _vim/bundle/gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "_vim/bundle/indent-object"]
-	path = _vim/bundle/indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object.git
-[submodule "_vim/bundle/editorconfig"]
-	path = _vim/bundle/editorconfig
-	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "_vim/bundle/indentLine"]
-	path = _vim/bundle/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
-[submodule "_vim/bundle/unite"]
-	path = _vim/bundle/unite
-	url = https://github.com/Shougo/unite.vim.git
-[submodule "_vim/bundle/unite-outline"]
-	path = _vim/bundle/unite-outline
-	url = https://github.com/h1mesuke/unite-outline.git
 [submodule "_vim/bundle/neobundle"]
 	path = _vim/bundle/neobundle
 	url = https://github.com/Shougo/neobundle.vim.git

@@ -87,11 +87,12 @@ set novisualbell
 "    let g:qb_hotkey = "<leader>b"
 "  endif
 "  
-"  "----- SESSION PLUGIN OPTIONS ---------------------
-"  " change default session directory to avoid showing up on dotfiles repo
-"  let g:session_directory='~/.vim_sessions'
-"  let g:session_autosave = 'yes'
-"  
+"----- SESSION PLUGIN OPTIONS ---------------------
+NeoBundle 'xolox/vim-session'
+" change default session directory to avoid showing up on dotfiles repo
+let g:session_directory='~/.vim_sessions'
+let g:session_autosave = 'yes'
+
 "##### EDITING #######################################
 
 " convenient copy & paste to clipboard (Mac only)
@@ -151,18 +152,19 @@ NeoBundle 'tpope/vim-surround'          "adds mappings for adding/changing/delet
 "  autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
 "  
 "  
-"  "----- FILE HANDLING -------------------------------
-"  let NERDTreeIgnore=['.pyc$[[file]]']
-"  nnoremap <leader><tab> :NERDTreeToggle<CR>
-"  " searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
-"  nnoremap <silent> ss :FufCoverageFile<CR> 
-"  " searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
-"  nnoremap <silent> sb :FufBuffer<CR>
-"  " Disabled modes we are not using (no reason to use extra memory and slow things down)
-"  let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmarkdir', 'tag', 'buffertag', 'taggedfile', 'jumplist', 'changelist', 'line', 'help', 'given', 'givendir', 'givencmd', 'callback', 'callbackitem', ]
-"  " Set <CR> to open in a split window (instead of current window)
-"  let g:fuf_keyOpenSplit = '<CR>'
-"  
+"----- FILE HANDLING -------------------------------
+NeoBundle 'scrooloose/nerdtree'
+let NERDTreeIgnore=['.pyc$[[file]]']
+nnoremap <leader><tab> :NERDTreeToggle<CR>
+" searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
+nnoremap <silent> ss :FufCoverageFile<CR> 
+" searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
+nnoremap <silent> sb :FufBuffer<CR>
+" Disabled modes we are not using (no reason to use extra memory and slow things down)
+let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmarkdir', 'tag', 'buffertag', 'taggedfile', 'jumplist', 'changelist', 'line', 'help', 'given', 'givendir', 'givencmd', 'callback', 'callbackitem', ]
+" Set <CR> to open in a split window (instead of current window)
+let g:fuf_keyOpenSplit = '<CR>'
+
 "##### NAVIGATION ##################################
 
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -198,166 +200,141 @@ let g:EasyMotion_leader_key = '<space>'
 "  endfunction
 "  set foldtext=NeatFoldText()
 "  " }}}2
+
+"###### UI ########################################
+
+" Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
+set noshowmode
+
+" If 256 colors are supported
+set t_Co=256
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+
+" Enable mouse support
+set mouse:a
+
+" when closing a bracket, briefly flash the corresponding open bracket
+"set showmatch
+"set matchtime=2
+
+" color overflow region
+"set colorcolumn=80,120
+"let &colorcolumn=join(range(80,119),",")
+"highlight ColorColumn ctermbg=233 guibg=#181818
+
+
+"----- Rainbow Parentheses --------------------
+" this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
+NeoBundle 'kien/rainbow_parentheses.vim'
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadChevrons
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+inoremap <leader>`` <esc>:RainbowParenthesesToggle<cr>a
+nnoremap <leader>`` :RainbowParenthesesToggle<cr>
+nnoremap <leader>`r :RainbowParenthesesLoadRound<cr>
+nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
+nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
+nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
+
+let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_symbols = 'fancy'
+
+
+"##### KEYBOARD SHORTCUTS ##############################
+
+"------ VIM ----------------------------------
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+
+"------ HTML/CSS -----------------------------
+" Sort css properties (courtesy of Steve Losh)
+autocmd FileType css nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+" Some people like merging all css definitions in one line. Use this to sPlit them into multiple lines
+autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
+
+" Append a tag to the end of the current selector 
+" (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
+autocmd FileType css map <Leader>ca f{i
+
+" adding emmet (http://emmet.io) support
+let g:user_emmet_leader_key = '<C-n>'
+let g:user_emmet_expandabbr_key = '<s-tab><s-tab>'
+let g:user_emmet_togglecomment_key = '<c-_>'
+"let g:user_emmet_next_key = '<C-,>'
+"let g:user_emmet_prev_key = '<C-;>'
+
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+\    'indentation' : '  ',
+\    'html' : {
+\        'snippets' : {
+\          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
+\          'comment' : "{% comment %}\n\t${child}|\n{% endcomment %}",
+\          'if' : "{% if | %}\n\t${child}|{% endif %}",
+\          'else' : "{% else %}|",
+\        },
+\    },
+\    'css' : {
+\        'filters': 'html, fc',
+\        'indentation' : '  ',
+\        'snippets': {
+\            'bgp': 'background-position:|;',
+\            'c': 'color:|;',
+\            'hp': 'height:|px;',
+\            'hh': 'height:auto;',
+\            'wp': 'width:|px;',
+\            'ww': 'width:100%;|',
+\        },
+\    },
+\}
+
+"------ GIT -----------------------------
+NeoBundle 'tpope/vim-fugitive'
+map <leader>g :Gstatus<cr>
+
+" adding multiple cursors support
+" NeoBundle 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_start_key='<C-p>'
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
 "  
-"  "###### UI ########################################
-"  
-"  " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
-"  set noshowmode
-"  
-"  " If 256 colors are supported
-"  set t_Co=256
-"  let g:hybrid_use_Xresources = 1
-"  colorscheme hybrid
-"  
-"  " Enable mouse support
-"  set mouse:a
-"  
-"  " when closing a bracket, briefly flash the corresponding open bracket
-"  "set showmatch
-"  "set matchtime=2
-"  
-"  " color overflow region
-"  "set colorcolumn=80,120
-"  "let &colorcolumn=join(range(80,119),",")
-"  "highlight ColorColumn ctermbg=233 guibg=#181818
-"  
-"  
-"  "----- Rainbow Parentheses --------------------
-"  " this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
-"  let g:rbpt_colorpairs = [
-"      \ ['brown',       'RoyalBlue3'],
-"      \ ['Darkblue',    'SeaGreen3'],
-"      \ ['darkgray',    'DarkOrchid3'],
-"      \ ['darkgreen',   'firebrick3'],
-"      \ ['darkcyan',    'RoyalBlue3'],
-"      \ ['darkred',     'SeaGreen3'],
-"      \ ['darkmagenta', 'DarkOrchid3'],
-"      \ ['brown',       'firebrick3'],
-"      \ ['gray',        'RoyalBlue3'],
-"      \ ['black',       'SeaGreen3'],
-"      \ ['darkmagenta', 'DarkOrchid3'],
-"      \ ['Darkblue',    'firebrick3'],
-"      \ ['darkgreen',   'RoyalBlue3'],
-"      \ ['darkcyan',    'SeaGreen3'],
-"      \ ['darkred',     'DarkOrchid3'],
-"      \ ['red',         'firebrick3'],
-"      \ ]
-"  let g:rbpt_max = 16
-"  "au VimEnter * RainbowParenthesesToggle
-"  "au Syntax * RainbowParenthesesLoadChevrons
-"  "au Syntax * RainbowParenthesesLoadRound
-"  "au Syntax * RainbowParenthesesLoadSquare
-"  "au Syntax * RainbowParenthesesLoadBraces
-"  inoremap <leader>`` <esc>:RainbowParenthesesToggle<cr>a
-"  nnoremap <leader>`` :RainbowParenthesesToggle<cr>
-"  nnoremap <leader>`r :RainbowParenthesesLoadRound<cr>
-"  nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
-"  nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
-"  nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
-"  
-"  let g:Powerline_colorscheme = 'solarized256'
-"  let g:Powerline_symbols = 'fancy'
-"  
-"  
-"  "##### KEYBOARD SHORTCUTS ##############################
-"  
-"  "------ VIM ----------------------------------
-"  
-"  " Quickly edit/reload the vimrc file
-"  nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
-"  nmap <silent> <leader>sv :so $MYVIMRC<CR>
-"  
-"  
-"  "------ HTML/CSS -----------------------------
-"  " Sort css properties (courtesy of Steve Losh)
-"  autocmd FileType css nnoremap <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
-"  
-"  " Some people like merging all css definitions in one line. Use this to sPlit them into multiple lines
-"  autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
-"  
-"  " Append a tag to the end of the current selector 
-"  " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
-"  autocmd FileType css map <Leader>ca f{i
-"  
-"  " adding zen coding (http://code.google.com/p/zen-coding/ ) support
-"  let g:user_zen_leader_key = '<C-n>'
-"  
-"  " Shortcut summary:
-"  " n  <C-n>A        <Plug>ZenCodingAnchorizeSummary
-"  " n  <C-n>a        <Plug>ZenCodingAnchorizeURL
-"  " n  <C-n>k        <Plug>ZenCodingRemoveTag
-"  " n  <C-n>j        <Plug>ZenCodingSplitJoinTagNormal
-"  " n  <C-n>/        <Plug>ZenCodingToggleComment
-"  " n  <C-n>i        <Plug>ZenCodingImageSize
-"  " n  <C-n>N        <Plug>ZenCodingPrev
-"  " n  <C-n>n        <Plug>ZenCodingNext
-"  " v  <C-n>D        <Plug>ZenCodingBalanceTagOutwardVisual
-"  " n  <C-n>D        <Plug>ZenCodingBalanceTagOutwardNormal
-"  " v  <C-n>d        <Plug>ZenCodingBalanceTagInwardVisual
-"  " n  <C-n>d        <Plug>ZenCodingBalanceTagInwardNormal
-"  " n  <C-n>;        <Plug>ZenCodingExpandWord
-"  " n  <C-n>,        <Plug>ZenCodingExpandNormal
-"  " v  <C-n>,        <Plug>ZenCodingExpandVisual
-"  
-"  let g:user_zen_expandabbr_key = '<s-tab><s-tab>'
-"  let g:user_zen_togglecomment_key = '<c-_>'
-"  "let g:user_zen_next_key = '<C-,>'
-"  "let g:user_zen_prev_key = '<C-;>'
-"  
-"  """ Other zen key binding settings """
-"  "-------------------------------------
-"  " user_zen_expandabbr_key'
-"  " user_zen_expandword_key'
-"  " user_zen_balancetaginward_key'
-"  " user_zen_balancetagoutward_key'
-"  " user_zen_next_key'
-"  " user_zen_prev_key'
-"  " user_zen_imagesize_key'
-"  " user_zen_togglecomment_key'
-"  " user_zen_splitjointag_key'
-"  " user_zen_removetag_key'
-"  " user_zen_anchorizeurl_key'
-"  " user_zen_anchorizesummary_key'
-"  
-"  let g:use_zen_complete_tag = 1
-"  let g:user_zen_settings = {
-"  \    'indentation' : '  ',
-"  \    'html' : {
-"  \        'snippets' : {
-"  \          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
-"  \          'comment' : "{% comment %}\n\t${child}|\n{% endcomment %}",
-"  \          'if' : "{% if | %}\n\t${child}|{% endif %}",
-"  \          'else' : "{% else %}|",
-"  \        },
-"  \    },
-"  \    'css' : {
-"  \        'filters': 'html, fc',
-"  \        'indentation' : '  ',
-"  \        'snippets': {
-"  \            'bgp': 'background-position:|;',
-"  \            'c': 'color:|;',
-"  \            'hp': 'height:|px;',
-"  \            'hh': 'height:auto;',
-"  \            'wp': 'width:|px;',
-"  \            'ww': 'width:100%;|',
-"  \        },
-"  \    },
-"  \}
-"  
-"  "------ Git Repo -----------------------------
-"  map <leader>g :Gstatus<cr>
-"  
-"  " adding multiple cursors support
-"  let g:multi_cursor_use_default_mapping=0
-"  let g:multi_cursor_start_key='<C-p>'
-"  "let g:multi_cursor_next_key='<C-n>'
-"  "let g:multi_cursor_prev_key='<C-p>'
-"  "let g:multi_cursor_skip_key='<C-x>'
-"  "let g:multi_cursor_quit_key='<Esc>'
-"  
-"  " adding snippets directories
-"  let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
-"  
+NeoBundle 'airblade/vim-gitgutter'
+
+"----- Snippets -------------------------
+NeoBundle 'msanders/snipmate.vim'
+NeoBundle 'kamykaze/snipmate_for_django'
+" adding snippets directories
+let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
+
 "  " adding powerline
 "  
 "  if system('whoami') != "root\n"
@@ -378,12 +355,13 @@ let g:EasyMotion_leader_key = '<space>'
 "  noremap <silent> <leader>t  :TlistToggle<CR>
 "  
 "  
-"  "##### TOOLS ########################################
-"  "----- Tmux Integration ---------------------
-"  vmap <Leader>m <Plug>SendSelectionToTmux
-"  nmap <Leader>m <Plug>NormalModeSendToTmux
-"  nmap <Leader>z <Plug>SetTmuxVars
-"  
+"##### TOOLS ########################################
+"----- Tmux Integration ---------------------
+NeoBundle 'jgdavey/tslime.vim'
+vmap <Leader>m <Plug>SendSelectionToTmux
+nmap <Leader>m <Plug>NormalModeSendToTmux
+nmap <Leader>z <Plug>SetTmuxVars
+
 "  "---- CtrlP mapping ---------------------------
 "  let g:ctrlp_custom_ignore = {
 "      \ 'dir':  '\v[\/]public\/media$'
@@ -408,31 +386,46 @@ let g:EasyMotion_leader_key = '<space>'
 "  nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
 "  nnoremap <leader><CR>a :Ack <cword> 
 "  
-"  "- #TODO replace CtrlP and Ack with Unite
-"  "---- Unite mapping ---------------------------
-"  let g:unite_source_history_yank_enable = 1
-"  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"  nnoremap <leader>t :<C-u>Unite -buffer-name=files   -start-insert file_rec<cr>
-"  nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-"  "nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-"  nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-"  nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-"  nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
-"  
-"  " Custom mappings for the unite buffer
-"  autocmd FileType unite call s:unite_settings()
-"  function! s:unite_settings()
-"    " Play nice with supertab
-"    let b:SuperTabDisabled=1
-"    " Enable navigation with control-j and control-k in insert mode
-"    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-"    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-"  endfunction
-"  
+"- #TODO replace CtrlP and Ack with Unite
+"---- Unite mapping ---------------------------
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'h1mesuke/unite-outline'
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>t :<C-u>Unite -buffer-name=files   -start-insert file_rec<cr>
+nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
+"nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
 
 " TODO: sort these
+NeoBundle 'clones/vim-l9'
 NeoBundle 'vim-scripts/django.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'KohPoll/vim-less'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/livestyle-vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'goldfeld/vim-seek'
+NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'vim-scripts/taglist.vim'
+"NeoBundle 'mileszs/ag.vim'
 "NeoBundle 'Lokaltog/powerline'
 
 " If there are uninstalled bundles found on startup,
