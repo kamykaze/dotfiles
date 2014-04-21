@@ -14,6 +14,3 @@
 [submodule "sack"]
 	path = sack
 	url = https://github.com/zph/sack.git
-[submodule "_vim/bundle/neobundle"]
-	path = _vim/bundle/neobundle
-	url = https://github.com/Shougo/neobundle.vim.git

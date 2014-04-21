@@ -1,20 +1,40 @@
-"----------- INITIALIZATION: This needs to be at the top of .vimrc ------------------
-" pathogen allows you to manage your plugins and runtime files in their own private directories
-" http://www.vim.org/scripts/script.php?script_id=2332
-"
-" Adding a module is as simple as unzipping the module inside .vim/bundle/[module_name]
-" or if you use git
-"
-" git submodule add http://github.com/user/module_name.git .vim/bundle/[module_name]
+" This .vimrc file requires a .vimrc_bare file in the user's home
+" directory. The .vimrc_bare is a stripped down bare bones vimrc file
+" with some essential mappings and configurations (it assumes you're
+" on a server with no home directory), but no extra plugins. 
 
-filetype on
-filetype off
+"# TABLE OF CONTENTS ######################################################
+"#
+"# 1. Initialization
+"# 2. Core
+"## 2a. History
+"## 2b. Errors
+"# 3. Session, Buffers, Backups
+"# 4. Editing
+"# 5. Filetypes
+"# 6. Navigation
+
+"# 1. Initialization ######################################################
 
 " load barebones vim settings (the one I curl onto a server I don't have my own user profile)
-so ~/.vimrc_bare
+source ~/.vimrc_bare
 
-"-- History --
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
+" Setup NeoBundle for plugin management (tells where plugins should be located)
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+"# 2. Core ############################################################
+
+filetype plugin indent on
+
+"## 2a. History ########################################################
 " Number of undos to save
 set history=500
 
@@ -39,17 +59,8 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-"##### CORE  #########################################
-if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle/
-endif
 
-" Setup NeoBundle for plugin management
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
+" Asynchronous process used by several of Shougo's plugins (Unite)
 NeoBundle 'Shougo/vimproc.vim', {
   \ 'build': {
     \ 'mac': 'make -f make_mac.mak',
@@ -59,41 +70,38 @@ NeoBundle 'Shougo/vimproc.vim', {
   \ },
 \ }
 
-call neobundle#end()
-filetype plugin indent on
 
+"## 2b. Errors ############################################################
 
-"##### ERRORS ########################################
 " make sure we use audible bell since we're using powerline
 set novisualbell
 
+"# 3. Session, Buffers, Backups ###########################################
 
-"  "##### FILE / BUFFER MANAGEMENT ###############################
-"  
-"  " Centralize backups, swapfiles and undo history
-"  set backupdir=~/.vim/backups
-"  set directory=~/.vim/swaps
-"  if exists("&undodir")
-"      set undodir=~/.vim/undo
-"  endif
-"  
-"  " Change swap backup frequency (reduce from default of 4s and 200 chars)
-"  set updatetime=10000
-"  set updatecount=500
-"  
-"  " configuration for Quickbuf plugin
-"  if mapcheck("<leader>b", "N") != ""
-"    nunmap <leader>b
-"    let g:qb_hotkey = "<leader>b"
-"  endif
-"  
-"----- SESSION PLUGIN OPTIONS ---------------------
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+    set undodir=~/.vim/undo
+endif
+
+" Change swap backup frequency (reduce from default of 4s and 200 chars)
+set updatetime=10000
+set updatecount=500
+
+" configuration for Quickbuf plugin
+NeoBundle 'vim-scripts/QuickBuf'
+if mapcheck("<leader>b", "N") != ""
+  nunmap <leader>b
+  let g:qb_hotkey = "<leader>b"
+endif
+  
 NeoBundle 'xolox/vim-session'
 " change default session directory to avoid showing up on dotfiles repo
 let g:session_directory='~/.vim_sessions'
 let g:session_autosave = 'yes'
 
-"##### EDITING #######################################
+"# 4. Editing #############################################################
 
 " convenient copy & paste to clipboard (Mac only)
 if has("unix")
@@ -112,94 +120,90 @@ NeoBundle 'tpope/vim-repeat'            "allows certain plugins to repeat the la
 NeoBundle 'tpope/vim-surround'          "adds mappings for adding/changing/deleting surrounding characters like {}, [], '', and even html tags
 
 
+"# 5. Filetypes ############################################################
 
-"  "----- AUTO COMPLETION ----------------------------
-"  " map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
-"  "function! CleverTab()
-"  "    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
-"  "        return "\<Tab>"
-"  "    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
-"  "        return "\<Tab>"
-"  "    else
-"  "        return "\<C-N>"
-"  "    endif
-"  "endfunction
-"  "inoremap <Tab> <C-R>=CleverTab()<CR>
-"  
-"  " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
-"  autocmd BufNewFile,BufRead *.less set filetype=less.css
-"  autocmd BufNewFile,BufRead *.scss set filetype=scss.css
-"  autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
-"  autocmd BufNewFile,BufRead *.json set filetype=javascript
-"  autocmd BufNewFile,BufRead *.py set filetype=python.django
-"  autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"  autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
-"  autocmd BufNewFile,BufRead *.as set filetype=actionscript
-"  autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
-"  autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
-"  autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
-"  
-"  "autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
-"  autocmd FileType css,scss,javascript inoremap <buffer> { {}<Left>
-"  autocmd FileType css,scss,javascript inoremap <buffer> {} {}
-"  autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
-"  autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
-"  autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
-"  autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/*<space><esc>pA<space>*/<esc>
-"  
-"  autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
-"  
-"  
-"----- FILE HANDLING -------------------------------
+"----- AUTO COMPLETION ----------------------------
+" map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
+"function! CleverTab()
+"    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
+"        return "\<Tab>"
+"    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
+"        return "\<Tab>"
+"    else
+"        return "\<C-N>"
+"    endif
+"endfunction
+"inoremap <Tab> <C-R>=CleverTab()<CR>
+
+NeoBundle 'vim-scripts/django.vim'
+
+" Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
+autocmd BufNewFile,BufRead *.less set filetype=less.css
+autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
+autocmd BufNewFile,BufRead *.json set filetype=javascript
+autocmd BufNewFile,BufRead *.py set filetype=python.django
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
+autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
+autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
+
+"autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
+autocmd FileType css,scss,javascript inoremap <buffer> { {}<Left>
+autocmd FileType css,scss,javascript inoremap <buffer> {} {}
+autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
+autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
+autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
+autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/*<space><esc>pA<space>*/<esc>
+
+
+
+"# 6. Navigation ###########################################################
+
+"## 6a. File navigation
 NeoBundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['.pyc$[[file]]']
 nnoremap <leader><tab> :NERDTreeToggle<CR>
-" searches files within current working directory (use <CR> to open in current window, or <C-J> to open in a new window)
-nnoremap <silent> ss :FufCoverageFile<CR> 
-" searches files that are currently open (use <CR> to load the file in the current window, or <C-J> to jump to the window where the file is open)
-nnoremap <silent> sb :FufBuffer<CR>
-" Disabled modes we are not using (no reason to use extra memory and slow things down)
-let g:fuf_modesDisable = [ 'dir', 'mrufile', 'mrucmd', 'bookmarkfile', 'bookmarkdir', 'tag', 'buffertag', 'taggedfile', 'jumplist', 'changelist', 'line', 'help', 'given', 'givendir', 'givencmd', 'callback', 'callbackitem', ]
-" Set <CR> to open in a split window (instead of current window)
-let g:fuf_keyOpenSplit = '<CR>'
 
-"##### NAVIGATION ##################################
-
+"## 6b. Motions
 NeoBundle 'Lokaltog/vim-easymotion'
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<space>'
 
-"--------- WINDOWS --------------------------------
+"# 7. Window Management ###################################################
 
 
-"  " #### TODO: Folds #######
-"  " fold by indentation
-"  "set foldmethod=indent
-"  " set default fold level, 0=all minimized
-"  set foldlevel=2
-"  " do not show a column to indicate a fold
-"  set foldcolumn=2
-"  " prevent deep folding
-"  set foldnestmax=3
-"  
-"  " quick fold current block (brackets)
-"  nnoremap <leader>f $va{zf
-"  
-"  " custom fold text from http://dhruvasagar.com/2013/03/28/vim-better-foldtext
-"  function! NeatFoldText() "{{{2
-"    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-"    let lines_count = v:foldend - v:foldstart + 1
-"    let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-"    let foldchar = matchstr(&fillchars, 'fold:\zs.')
-"    let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-"    let foldtextend = lines_count_text . repeat(foldchar, 8)
-"    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-"    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-"  endfunction
-"  set foldtext=NeatFoldText()
-"  " }}}2
+" #### TODO: Folds #######
+" fold by indentation
+"set foldmethod=indent
+" set default fold level, 0=all minimized
+set foldlevel=2
+" do not show a column to indicate a fold
+set foldcolumn=2
+" prevent deep folding
+set foldnestmax=3
+
+" quick fold current block (brackets)
+nnoremap <leader>f $va{zf
+
+" custom fold text from http://dhruvasagar.com/2013/03/28/vim-better-foldtext
+function! NeatFoldText() "{{{2
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+" }}}2
+autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
 
 "###### UI ########################################
 
@@ -335,26 +339,26 @@ NeoBundle 'kamykaze/snipmate_for_django'
 " adding snippets directories
 let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
 
-"  " adding powerline
-"  
-"  if system('whoami') != "root\n"
-"  "else
-"      set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
-"  endif
-"  
-"  if ! has('gui_running')
-"      set ttimeoutlen=10
-"      augroup FastEscape
-"          autocmd!
-"          au InsertEnter * set timeoutlen=300
-"          au InsertLeave * set timeoutlen=750
-"      augroup END
-"  endif
-"  
-"  
-"  noremap <silent> <leader>t  :TlistToggle<CR>
-"  
-"  
+" adding powerline
+
+if system('whoami') != "root\n"
+"else
+    set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+endif
+
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=300
+        au InsertLeave * set timeoutlen=750
+    augroup END
+endif
+
+
+"noremap <silent> <leader>t  :TlistToggle<CR>
+  
+  
 "##### TOOLS ########################################
 "----- Tmux Integration ---------------------
 NeoBundle 'jgdavey/tslime.vim'
@@ -362,65 +366,80 @@ vmap <Leader>m <Plug>SendSelectionToTmux
 nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
-"  "---- CtrlP mapping ---------------------------
-"  let g:ctrlp_custom_ignore = {
-"      \ 'dir':  '\v[\/]public\/media$'
-"      \ }
-"  let g:ctrlp_working_path_mode = 0
-"  let g:ctrlp_follow_symlinks = 1
-"  let g:ctrlp_prompt_mappings = {
-"    \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
-"    \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
-"    \ }
-"  nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
-"  nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
-"  nnoremap <leader><space>. :CtrlP ..<cr>
-"  nnoremap <leader><space>r :CtrlP ~/ref/
-"  nnoremap <leader>/ :CtrlPLine %<cr>
-"  
-"  "---- Ack mapping ---------------------------
-"  nnoremap <C-A> :Ack 
-"  nnoremap <leader>a :Ack <cword><CR>
-"  nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
-"  nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
-"  nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
-"  nnoremap <leader><CR>a :Ack <cword> 
-"  
-"- #TODO replace CtrlP and Ack with Unite
-"---- Unite mapping ---------------------------
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'h1mesuke/unite-outline'
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -buffer-name=files   -start-insert file_rec<cr>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-"nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
+"---- CtrlP mapping ---------------------------
+NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]public\/media$'
+    \ }
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
+  \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
+  \ }
+nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
+nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
+nnoremap <leader><space>. :CtrlP ..<cr>
+nnoremap <leader><space>r :CtrlP ~/ref/
+nnoremap <leader>/ :CtrlPLine %<cr>
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+"---- Ack mapping ---------------------------
+NeoBundle 'mileszs/ack.vim'
+nnoremap <C-A> :Ack 
+nnoremap <leader>a :Ack <cword><CR>
+nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
+nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
+nnoremap <leader><CR>a :Ack <cword> 
+
+"---- Unite mapping ---------------------------
+" good reference: https://github.com/terryma/dotfiles/blob/master/.vimrc
+" NeoBundle 'Shougo/unite.vim'
+" NeoBundle 'Shougo/neomru.vim'
+" NeoBundle 'h1mesuke/unite-outline'
+
+" Use the fuzzy matcher for everything
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" 
+" " Set up some custom ignores
+" call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+"       \ 'ignore_pattern', join([
+"       \ '\.git/',
+"       \ 'git5/.*/review/',
+"       \ 'google/obj/',
+"       \ 'tmp/',
+"       \ '.sass-cache',
+"       \ 'node_modules/',
+"       \ 'bower_components/',
+"       \ 'dist/',
+"       \ '.git5_specs/',
+"       \ '.pyc',
+"       \ ], '\|'))
+
+
+" " General fuzzy search
+" nnoremap <silent> <leader><space> :<C-u>Unite
+"       \ -buffer-name=files buffer bookmark file_rec/async<CR>
+" 
+" " Quick registers
+" nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
+" 
+" " clear cache
+" nmap <buffer> <C-r> <Plug>(unite_redraw)
+" imap <buffer> <C-r> <Plug>(unite_redraw)
+" 
+
 
 
 " TODO: sort these
 NeoBundle 'clones/vim-l9'
-NeoBundle 'vim-scripts/django.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'KohPoll/vim-less'
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/livestyle-vim'
+"NeoBundle 'mattn/livestyle-vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'goldfeld/vim-seek'
 NeoBundle 'Yggdroot/indentLine'
@@ -431,3 +450,5 @@ NeoBundle 'Yggdroot/indentLine'
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+call neobundle#end()
