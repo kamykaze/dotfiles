@@ -90,11 +90,11 @@ set updatetime=10000
 set updatecount=500
 
 " configuration for Quickbuf plugin
-NeoBundle 'vim-scripts/QuickBuf'
 if mapcheck("<leader>b", "N") != ""
   nunmap <leader>b
   let g:qb_hotkey = "<leader>b"
 endif
+NeoBundle 'vim-scripts/QuickBuf'
   
 NeoBundle 'xolox/vim-session'
 " change default session directory to avoid showing up on dotfiles repo
