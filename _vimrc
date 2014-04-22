@@ -123,17 +123,19 @@ NeoBundle 'tpope/vim-surround'          "adds mappings for adding/changing/delet
 "# 5. Filetypes ############################################################
 
 "----- AUTO COMPLETION ----------------------------
-" map <tab> to either insert a tab, or use <C-N> depending on where the cursor is
-"function! CleverTab()
-"    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$' 
-"        return "\<Tab>"
-"    elseif strpart( getline('.'), col('.')-2, 1 ) =~ '\s$'
-"        return "\<Tab>"
-"    else
-"        return "\<C-N>"
-"    endif
-"endfunction
-"inoremap <Tab> <C-R>=CleverTab()<CR>
+NeoBundle 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "context"
+
+"----- Snippets -------------------------
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'honza/vim-snippets'
+" adding snippets directories
+let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
+
+"NeoBundle 'kamykaze/snipmate_for_django'
+"let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
 
 NeoBundle 'vim-scripts/django.vim'
 
@@ -333,14 +335,8 @@ map <leader>g :Gstatus<cr>
 "  
 NeoBundle 'airblade/vim-gitgutter'
 
-"----- Snippets -------------------------
-NeoBundle 'msanders/snipmate.vim'
-NeoBundle 'kamykaze/snipmate_for_django'
-" adding snippets directories
-let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
-
+"------ Powerline -----------------------
 " adding powerline
-
 if system('whoami') != "root\n"
 "else
     set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
@@ -414,5 +410,8 @@ NeoBundle 'Yggdroot/indentLine'
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+" Clean up removed bundles
+NeoBundleClean
 
 call neobundle#end()
