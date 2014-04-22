@@ -119,6 +119,8 @@ nnoremap <leader>v V`]
 NeoBundle 'tpope/vim-repeat'            "allows certain plugins to repeat the last command using .
 NeoBundle 'tpope/vim-surround'          "adds mappings for adding/changing/deleting surrounding characters like {}, [], '', and even html tags
 
+" auto close braces, parentheses, etc.
+NeoBundle 'Raimondi/delimitMate'
 
 "# 5. Filetypes ############################################################
 
@@ -150,18 +152,9 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
-autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
-autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
-
-"autocmd FileType css,scss,javascript imap <buffer> { {<CR>}<Esc>ko<tab>
-autocmd FileType css,scss,javascript inoremap <buffer> { {}<Left>
-autocmd FileType css,scss,javascript inoremap <buffer> {} {}
-autocmd FileType css,scss,javascript inoremap <buffer> {<CR> {<CR>}<Esc>O<Tab>
-autocmd FileType htmldjango inoremap <buffer> {{ {{<space><space>}}<Left><Left><Left>
-autocmd FileType htmldjango inoremap <buffer> {% {%<space><space>%}<Left><Left><Left>
-autocmd FileType css,scss nnoremap <buffer> <leader>} $%bt<space>v^yf{%A<space>/*<space><esc>pA<space>*/<esc>
-
+autocmd FileType javascript,html,htmldjango,scss,css set tabstop=4
+autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=4
+autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=4
 
 
 "# 6. Navigation ###########################################################
