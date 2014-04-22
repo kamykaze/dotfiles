@@ -163,6 +163,8 @@ autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=4
 NeoBundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['.pyc$[[file]]']
 nnoremap <leader><tab> :NERDTreeToggle<CR>
+" prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
+autocmd FileType nerdtree nnoremap <buffer> <leader>d :NERDTreeToggle<CR>
 
 "## 6b. Motions
 NeoBundle 'Lokaltog/vim-easymotion'
