@@ -175,6 +175,8 @@ nnoremap <leader><tab> :NERDTreeToggle<CR>
 NeoBundle 'Lokaltog/vim-easymotion'
 " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
 let g:EasyMotion_leader_key = '<space>'
+nmap <space>w <Plug>(easymotion-bd-w)
+nmap <space>; <Plug>(easymotion-repeat)
 
 "# 7. Window Management ###################################################
 
@@ -412,6 +414,8 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundleCheck
 
 " Clean up removed bundles
-NeoBundleClean
+    ""TODO: find a way to avoid 'Hit Enter' to continue. Only
+    "prompt when there's something to clean
+"NeoBundleClean 
 
 call neobundle#end()
