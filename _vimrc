@@ -392,42 +392,6 @@ nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<hom
 nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
 nnoremap <leader><CR>a :Ack <cword> 
 
-"---- Unite mapping ---------------------------
-" good reference: https://github.com/terryma/dotfiles/blob/master/.vimrc
-" NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/neomru.vim'
-" NeoBundle 'h1mesuke/unite-outline'
-
-" Use the fuzzy matcher for everything
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" 
-" " Set up some custom ignores
-" call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-"       \ 'ignore_pattern', join([
-"       \ '\.git/',
-"       \ 'git5/.*/review/',
-"       \ 'google/obj/',
-"       \ 'tmp/',
-"       \ '.sass-cache',
-"       \ 'node_modules/',
-"       \ 'bower_components/',
-"       \ 'dist/',
-"       \ '.git5_specs/',
-"       \ '.pyc',
-"       \ ], '\|'))
-
-
-" " General fuzzy search
-" nnoremap <silent> <leader><space> :<C-u>Unite
-"       \ -buffer-name=files buffer bookmark file_rec/async<CR>
-" 
-" " Quick registers
-" nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
-" 
-" " clear cache
-" nmap <buffer> <C-r> <Plug>(unite_redraw)
-" imap <buffer> <C-r> <Plug>(unite_redraw)
-" 
 
 
 
