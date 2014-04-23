@@ -32,7 +32,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 "# 2. Core ############################################################
 
-filetype plugin indent on
+filetype plugin on
 
 "## 2a. History ########################################################
 " Number of undos to save
@@ -120,9 +120,16 @@ NeoBundle 'tpope/vim-repeat'            "allows certain plugins to repeat the la
 NeoBundle 'tpope/vim-surround'          "adds mappings for adding/changing/deleting surrounding characters like {}, [], '', and even html tags
 
 " auto close braces, parentheses, etc.
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 NeoBundle 'Raimondi/delimitMate'
 
 "# 5. Filetypes ############################################################
+
+NeoBundle 'JulesWang/css.vim'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'KohPoll/vim-less'
+NeoBundle 'vim-scripts/django.vim'
 
 "----- AUTO COMPLETION ----------------------------
 NeoBundle 'ervandew/supertab'
@@ -139,22 +146,19 @@ let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
 "NeoBundle 'kamykaze/snipmate_for_django'
 "let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/,~/.vim/bundle/snipmate_for_django/snippets/'
 
-NeoBundle 'vim-scripts/django.vim'
 
 " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
 autocmd BufNewFile,BufRead *.less set filetype=less.css
-autocmd BufNewFile,BufRead *.scss set filetype=scss.css
+"autocmd BufNewFile,BufRead *.scss set filetype=scss.css
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
 autocmd BufNewFile,BufRead *.json set filetype=javascript
 autocmd BufNewFile,BufRead *.py set filetype=python.django
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType javascript,html,htmldjango,scss,css set tabstop=4
-autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=4
-autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=4
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType javascript,html,htmldjango,scss,css set tabstop=2
+"autocmd FileType javascript,html,htmldjango,scss,css set softtabstop=2
+"autocmd FileType javascript,html,htmldjango,scss,css set shiftwidth=2
 
 
 "# 6. Navigation ###########################################################
@@ -189,19 +193,30 @@ set foldnestmax=3
 " quick fold current block (brackets)
 nnoremap <leader>f $va{zf
 
-" custom fold text from http://dhruvasagar.com/2013/03/28/vim-better-foldtext
-function! NeatFoldText() "{{{2
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+" custom fold text from http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
+" keeps indentation visible and indicates how much content is in the fold as a percentage
+function! CustomFoldText()
+    "get first non-blank line
+    let fs = v:foldstart
+    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+    endwhile
+    if fs > v:foldend
+        let line = getline(v:foldstart)
+    else
+        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+    endif
+
+    let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+    let foldSize = 1 + v:foldend - v:foldstart
+    let foldSizeStr = " " . foldSize . " lines "
+    let foldLevelStr = repeat("+--", v:foldlevel)
+    let lineCount = line("$")
+    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+    let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+    return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
 endfunction
-set foldtext=NeatFoldText()
-" }}}2
+set foldtext=CustomFoldText()
+
 autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
 
 "###### UI ########################################
@@ -285,6 +300,7 @@ autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space
 " (eg: using at on a line like "body #content p {" will take the cursor before the { and go into isnert mode)
 autocmd FileType css map <Leader>ca f{i
 
+
 " adding emmet (http://emmet.io) support
 let g:user_emmet_leader_key = '<C-n>'
 let g:user_emmet_expandabbr_key = '<s-tab><s-tab>'
@@ -316,6 +332,7 @@ let g:user_emmet_settings = {
 \        },
 \    },
 \}
+NeoBundle 'mattn/emmet-vim'
 
 "------ GIT -----------------------------
 NeoBundle 'tpope/vim-fugitive'
@@ -390,9 +407,6 @@ nnoremap <leader><CR>a :Ack <cword>
 
 " TODO: sort these
 NeoBundle 'clones/vim-l9'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'KohPoll/vim-less'
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'mattn/webapi-vim'
