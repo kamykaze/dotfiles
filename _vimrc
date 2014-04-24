@@ -115,11 +115,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   "NERDTree for  File navigation
   NeoBundle 'scrooloose/nerdtree'
-  let NERDTreeIgnore=['.pyc$[[file]]']
+  let NERDTreeIgnore=['.pyc$[[file]]']          " hide certain files
   nnoremap <leader><tab> :NERDTreeToggle<CR>
+
+  "NeoBundle 'tpope/vim-vinegar'
 
   " prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
   autocmd FileType nerdtree nnoremap <buffer> <leader>d :NERDTreeToggle<CR>
+
+  "}}}2
+
+  "## 3d. Finder Integration ##### {{{2
 
   " reveals the current file in Finder
   NeoBundle 'henrik/vim-reveal-in-finder'
@@ -300,9 +306,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "set matchtime=2
 
   " color overflow region
-  set colorcolumn=80,120
-  let &colorcolumn=join(range(80,119),",")
-  highlight ColorColumn ctermbg=233 guibg=#181818
+  " set colorcolumn=80,120
+  " let &colorcolumn=join(range(80,119),",")
+  " highlight ColorColumn ctermbg=233 guibg=#181818
 
 
   "----- Rainbow Parentheses --------------------
