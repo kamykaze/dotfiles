@@ -7,18 +7,18 @@
 
 "# 1. Initialization ##### {{{1
 
-" load barebones vim settings (the one I curl onto a server I don't have my own user profile)
-source ~/.vimrc_bare
+  " load barebones vim settings (the one I curl onto a server I don't have my own user profile)
+  source ~/.vimrc_bare
 
-if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+  if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
 
-" Setup NeoBundle for plugin management (tells where plugins should be located)
-call neobundle#begin(expand('~/.vim/bundle/'))
+  " Setup NeoBundle for plugin management (tells where plugins should be located)
+  call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+  " Let NeoBundle manage NeoBundle
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
 " }}}1
 
@@ -168,8 +168,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   let g:SuperTabDefaultCompletionType = "context"
 
   "## 5a. Snippets ##### {{{2
-  NeoBundle 'tomtom/tlib_vim'
-  NeoBundle 'MarcWeber/vim-addon-mw-utils'
+  NeoBundle 'tomtom/tlib_vim'               " used by snipmate
+  NeoBundle 'MarcWeber/vim-addon-mw-utils'  " used by snipmate
   NeoBundle 'garbas/vim-snipmate'
   NeoBundle 'honza/vim-snippets'
   " adding snippets directories
@@ -295,9 +295,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
   "set matchtime=2
 
   " color overflow region
-  set colorcolumn=80,120
-  let &colorcolumn=join(range(80,119),",")
-  highlight ColorColumn ctermbg=233 guibg=#181818
+  "set colorcolumn=80,120
+  "let &colorcolumn=join(range(80,119),",")
+  "highlight ColorColumn ctermbg=233 guibg=#181818
 
 
   "----- Rainbow Parentheses --------------------
@@ -339,8 +339,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " }}}1
 
-
-"------ GIT -----------------------------
 NeoBundle 'tpope/vim-fugitive'
 map <leader>g :Gstatus<cr>
 

@@ -2,6 +2,8 @@
 - add bash_profile to repo
 - look into wemux
 - look into ctags and vim-taglist
+- rename all _files to .files for proper syntax highlighting in github
+  - update install.sh
 
 ## VIM
 - improving folding map to avoid nesting folds when using multiple times
