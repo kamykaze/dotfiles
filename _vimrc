@@ -120,6 +120,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
   " prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
   autocmd FileType nerdtree nnoremap <buffer> <leader>d :NERDTreeToggle<CR>
+
+  " reveals the current file in Finder
+  NeoBundle 'henrik/vim-reveal-in-finder'
+  nmap <leader>f :Reveal<cr>
+
   "}}}2
 
 " }}}1
