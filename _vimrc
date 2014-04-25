@@ -181,6 +181,14 @@
 
   "}}}2
 
+  "## 4c. Comments ##### {{{2
+
+  NeoBundle 'scrooloose/nerdcommenter'
+  map <c-_> <plug>NERDCommenterToggle       " on my mac, <C-/> gives <c-_>
+  vmap <c-?> <plug>NERDCommenterMinimal
+
+  "}}}2
+ 
 " }}}1
 
 "# 5. Filetypes ##### {{{1
@@ -215,7 +223,7 @@
   " adding emmet (http://emmet.io) support
   let g:user_emmet_leader_key = '<C-n>'
   let g:user_emmet_expandabbr_key = '<s-tab><s-tab>'
-  let g:user_emmet_togglecomment_key = '<c-_>'
+  "let g:user_emmet_togglecomment_key = '<c-_>'
   "let g:user_emmet_next_key = '<C-,>'
   "let g:user_emmet_prev_key = '<C-;>'
 
