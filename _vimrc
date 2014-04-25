@@ -24,7 +24,12 @@
 
 "# 2. Core ##### {{{1
 
+  " enables file type specific plugins (filetype detection will be turned on)
   filetype plugin on
+
+  " Enable mouse support
+  set mouse:a
+
 
   "## 2a. History ##### {{{2
   " Number of undos to save
@@ -115,11 +120,33 @@
 
   "NERDTree for  File navigation
   NeoBundle 'scrooloose/nerdtree'
-  let NERDTreeIgnore=['.pyc$[[file]]']
+  let NERDTreeIgnore=['.pyc$[[file]]']          " hide certain files
   nnoremap <leader><tab> :NERDTreeToggle<CR>
+
+  "NeoBundle 'tpope/vim-vinegar'
 
   " prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
   autocmd FileType nerdtree nnoremap <buffer> <leader>d :NERDTreeToggle<CR>
+
+  "}}}2
+
+  "## 3d. Finder Integration ##### {{{2
+
+  " reveals the current file in Finder
+  NeoBundle 'henrik/vim-reveal-in-finder'
+  nmap <leader>f :Reveal<cr>
+
+  "}}}2
+
+  "## 3e. Git Integration ##### {{{2
+
+  " multiple tools for performing git operations on current file/dir
+  NeoBundle 'tpope/vim-fugitive'
+  map <leader>g :Gstatus<cr>
+
+  " Indicates added/removed/modified lines of code in the gutter column
+  NeoBundle 'airblade/vim-gitgutter'
+
   "}}}2
 
 " }}}1
@@ -279,25 +306,34 @@
 
 "# 7. User Interface ##### {{{1
 
-  " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
-  set noshowmode
-
   " If 256 colors are supported
   set t_Co=256
   let g:hybrid_use_Xresources = 1
   colorscheme hybrid
 
-  " Enable mouse support
-  set mouse:a
+  "## 7a. Powerline ##### {{{2
+
+  " Enables powerline for fancier looking status line
+  set noshowmode          " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
+  let g:Powerline_colorscheme = 'solarized256'
+  let g:Powerline_symbols = 'fancy'
+
+  " starting vim with sudo doesn't give access to my powerline files
+  if system('whoami') != "root\n"
+      set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
+  endif
+
+  "}}}2
+
 
   " when closing a bracket, briefly flash the corresponding open bracket
   "set showmatch
   "set matchtime=2
 
   " color overflow region
-  "set colorcolumn=80,120
-  "let &colorcolumn=join(range(80,119),",")
-  "highlight ColorColumn ctermbg=233 guibg=#181818
+  " set colorcolumn=80,120
+  " let &colorcolumn=join(range(80,119),",")
+  " highlight ColorColumn ctermbg=233 guibg=#181818
 
 
   "----- Rainbow Parentheses --------------------
@@ -334,13 +370,9 @@
   nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
   nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
 
-  let g:Powerline_colorscheme = 'solarized256'
-  let g:Powerline_symbols = 'fancy'
 
 " }}}1
 
-NeoBundle 'tpope/vim-fugitive'
-map <leader>g :Gstatus<cr>
 
 " adding multiple cursors support
 " NeoBundle 'terryma/vim-multiple-cursors'
@@ -351,14 +383,6 @@ map <leader>g :Gstatus<cr>
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
 "  
-NeoBundle 'airblade/vim-gitgutter'
-
-"------ Powerline -----------------------
-" adding powerline
-if system('whoami') != "root\n"
-"else
-    set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
-endif
 
 if ! has('gui_running')
     set ttimeoutlen=10

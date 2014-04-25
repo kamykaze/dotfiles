@@ -7,12 +7,10 @@
 
 ## VIM
 - improving folding map to avoid nesting folds when using multiple times
-- show foldcolumn
 - remap keys that have default vim behavior 
     - remap <Leader> (currently , )
     - remap window moving (CTRL-K, CTRL-L)
     - remove <f1> mappings
-- get familiar with surround
 - add python support (and maybe Ruby)
 - find good multi cursor plugin:
     - vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
@@ -23,13 +21,5 @@
 - find good code outline plugin
     - mabye unite's outline plugin
 - auto complete brackets // TODO: find better alternative...these interfere when pasting code
-- look into SuperTab
+- find a good plugin to comment out lines of code
 
-" auto complete brackets // TODO: find better alternative...these interfere when pasting code
-"inoremap {      {}<Left>
-"inoremap {<CR>  {<CR>}<Esc>O<Tab>
-"inoremap {{     {
-"inoremap {}     {}
-"inoremap {%     {%%}<Left><Left>
-"inoremap {{     {{}}<Left><Left>
-"inoremap {}     {}
