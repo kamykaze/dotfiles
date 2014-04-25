@@ -263,6 +263,9 @@
   nmap <space>w <Plug>(easymotion-bd-w)
   nmap <space>; <Plug>(easymotion-repeat)
 
+  " jump like f,w,b,e but in the vertical direction
+  NeoBundle 'machakann/vim-columnmove'
+
   " }}}2
 
   "## 6b. Folds ##### {{{2
