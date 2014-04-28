@@ -322,17 +322,14 @@
   let g:hybrid_use_Xresources = 1
   colorscheme hybrid
 
-  "## 7a. Powerline ##### {{{2
+  "## 7a. Airline ##### {{{2
 
-  " Enables powerline for fancier looking status line
-  set noshowmode          " Do not Show the current mode (Normal/Visual/etc.) (already using powerline)
-  let g:Powerline_colorscheme = 'solarized256'
-  let g:Powerline_symbols = 'fancy'
-
-  " starting vim with sudo doesn't give access to my powerline files
-  if system('whoami') != "root\n"
-      set runtimepath+=~/dotfiles/utilities/powerline/powerline/bindings/vim
-  endif
+  " Lightweight statusline based on powerline, but 100% in vim script
+  let g:airline_theme='hybrid'
+  let g:airline_powerline_fonts = 1         " use nice symbols for powerline
+  let g:airline_inactive_collapse=0         " don't collapse airline sections to only filename
+  let g:airline#extensions#hunks#enabled = 0      " don't show git gutter
+  NeoBundle 'bling/vim-airline'
 
   "}}}2
 
