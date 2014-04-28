@@ -3,7 +3,7 @@
 " This .vimrc file requires a .vimrc_bare file in the user's home
 " directory. The .vimrc_bare is a stripped down bare bones vimrc file
 " with some essential mappings and configurations (it assumes you're
-" on a server with no home directory), but no extra plugins. 
+" on a server with no home directory), but no extra plugins.
 
 "# 1. Initialization ##### {{{1
 
@@ -108,7 +108,7 @@
   endif
   NeoBundle 'vim-scripts/QuickBuf'
   "}}}2
-    
+
   "## 3b. Session ##### {{{2
   NeoBundle 'xolox/vim-session'
   " change default session directory to avoid showing up on dotfiles repo
@@ -188,7 +188,7 @@
   vmap <c-?> <plug>NERDCommenterMinimal
 
   "}}}2
- 
+
 " }}}1
 
 "# 5. Filetypes ##### {{{1
@@ -393,7 +393,7 @@
 "let g:multi_cursor_prev_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
-"  
+"
 
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -406,8 +406,8 @@ endif
 
 
 "noremap <silent> <leader>t  :TlistToggle<CR>
-  
-  
+
+
 "##### TOOLS #####
 "----- Tmux Integration ---------------------
 NeoBundle 'jgdavey/tslime.vim'
@@ -434,12 +434,12 @@ nnoremap <leader>/ :CtrlPLine %<cr>
 
 "---- Ack mapping ---------------------------
 NeoBundle 'mileszs/ack.vim'
-nnoremap <C-A> :Ack 
+nnoremap <C-A> :Ack<space>
 nnoremap <leader>a :Ack <cword><CR>
 nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
 nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
 nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
-nnoremap <leader><CR>a :Ack <cword> 
+nnoremap <leader><CR>a :Ack <cword><space>
 
 
 
@@ -464,6 +464,6 @@ NeoBundleCheck
 " Clean up removed bundles
     ""TODO: find a way to avoid 'Hit Enter' to continue. Only
     "prompt when there's something to clean
-"NeoBundleClean 
+"NeoBundleClean
 
 call neobundle#end()
