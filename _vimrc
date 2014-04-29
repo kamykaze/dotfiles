@@ -209,6 +209,12 @@
   NeoBundle 'ervandew/supertab'
   let g:SuperTabDefaultCompletionType = "context"
 
+  NeoBundle 'Shougo/neocomplcache.vim'          " shows auto completion options without having to tab
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_enable_fuzzy_completion = 1
+  let g:neocomplcache_min_syntax_length = 3
+
   "## 5a. Snippets ##### {{{2
   NeoBundle 'tomtom/tlib_vim'               " used by snipmate
   NeoBundle 'MarcWeber/vim-addon-mw-utils'  " used by snipmate
