@@ -350,6 +350,11 @@
   " let &colorcolumn=join(range(80,119),",")
   " highlight ColorColumn ctermbg=233 guibg=#181818
 
+  "## 7b. CSS Colors ##### {{{2
+
+  NeoBundle 'runar/vim-css-color', {'rev' : 'scss-support'}         " shows a preview of the CSS color
+
+  "}}}2
 
   "----- Rainbow Parentheses --------------------
   " this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
