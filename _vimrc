@@ -364,6 +364,13 @@
 
   "}}}2
 
+  "## 7c. Indentation lines ##### {{{2
+
+  NeoBundle 'Yggdroot/indentLine'
+  nnoremap <Leader>i :IndentLinesToggle<cr>
+
+  "}}}2
+
   "----- Rainbow Parentheses --------------------
   " this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
   NeoBundle 'kien/rainbow_parentheses.vim'
@@ -469,7 +476,6 @@ NeoBundle 'mattn/webapi-vim'
 "NeoBundle 'mattn/livestyle-vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'goldfeld/vim-seek'
-NeoBundle 'Yggdroot/indentLine'
 "NeoBundle 'vim-scripts/taglist.vim'
 "NeoBundle 'mileszs/ag.vim'
 "NeoBundle 'Lokaltog/powerline'
