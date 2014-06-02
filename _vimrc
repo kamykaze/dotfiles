@@ -122,6 +122,7 @@
   NeoBundle 'scrooloose/nerdtree'
   let NERDTreeIgnore=['.pyc$[[file]]']          " hide certain files
   nnoremap <leader><tab> :NERDTreeToggle<CR>
+  nnoremap <leader><cr><cr> :NERDTreeFind<cr>
 
   "NeoBundle 'tpope/vim-vinegar'
 
@@ -208,6 +209,7 @@
   "----- AUTO COMPLETION ----------------------------
   NeoBundle 'ervandew/supertab'
   let g:SuperTabDefaultCompletionType = "context"
+  let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
   NeoBundle 'Shougo/neocomplcache.vim'          " shows auto completion options without having to tab
   let g:neocomplcache_enable_at_startup = 1
