@@ -770,6 +770,7 @@ nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
 nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
 nnoremap <leader><space>. :CtrlP ..<cr>
 nnoremap <leader><space>r :CtrlP ~/ref/
+nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
 nnoremap <leader>/ :CtrlPLine %<cr>
 
 "---- Ack mapping ---------------------------
@@ -779,6 +780,7 @@ nnoremap <leader>a :Ack <cword><CR>
 nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
 nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
 nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
+nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
 nnoremap <leader><CR>a :Ack <cword><space>
 
 
