@@ -165,6 +165,7 @@
     if s:uname == "Darwin\n"
       vmap <C-x> :!reattach-to-user-namespace pbcopy<CR>
       vmap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
+      nmap <C-c> :%w !reattach-to-user-namespace pbcopy<CR><CR>
       imap <C-v><C-v> <Esc>:r !reattach-to-user-namespace pbpaste<CR>
     endif
   endif
