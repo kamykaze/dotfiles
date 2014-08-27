@@ -759,7 +759,7 @@ nmap <Leader>z <Plug>SetTmuxVars
 "---- CtrlP mapping ---------------------------
 NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]public\/media$'
+    \ 'dir':  '\v[\/](public\/media|export)$'
     \ }
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 1
