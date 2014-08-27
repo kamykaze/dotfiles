@@ -208,9 +208,9 @@
   NeoBundle 'vim-scripts/django.vim'
 
   "----- AUTO COMPLETION ----------------------------
-  NeoBundle 'ervandew/supertab'
-  let g:SuperTabDefaultCompletionType = "context"
-  let g:SuperTabContextDefaultCompletionType = "<c-n>"
+  "NeoBundle 'ervandew/supertab'
+  "let g:SuperTabDefaultCompletionType = "context"
+  "let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
   NeoBundle 'Shougo/neocomplcache.vim'          " shows auto completion options without having to tab
   let g:neocomplcache_enable_at_startup = 1
@@ -219,12 +219,23 @@
   let g:neocomplcache_min_syntax_length = 3
 
   "## 5a. Snippets ##### {{{2
-  NeoBundle 'tomtom/tlib_vim'               " used by snipmate
-  NeoBundle 'MarcWeber/vim-addon-mw-utils'  " used by snipmate
-  NeoBundle 'garbas/vim-snipmate'
+  NeoBundle 'Shougo/neosnippet'
+  let g:neosnippet#enable_snipmate_compatibility = 1
+
+  NeoBundle 'Shougo/neosnippet-snippets'
+
   NeoBundle 'honza/vim-snippets'
   " adding snippets directories
   let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
+
+  " SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
+
   "}}}2
 
   " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
