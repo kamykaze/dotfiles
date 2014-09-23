@@ -194,7 +194,7 @@
   "## 4d. Utilities ##### {{{2
 
   NeoBundle 'AndrewRadev/switch.vim'          " toggles yes/no true/false, on/off, etc.
-  nnoremap <c-_> :Switch<cr>
+  nnoremap <c-\> :Switch<cr>
 
   "}}}2
 
