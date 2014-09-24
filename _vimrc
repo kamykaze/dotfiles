@@ -795,6 +795,9 @@ nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
 nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
 nnoremap <leader><CR>a :Ack <cword><space>
 
+"--- Browser Auto Reload --------------------
+NeoBundle 'tell-k/vim-browsereload-mac'
+let g:returnApp = "iTerm"
 
 
 
