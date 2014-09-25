@@ -21,5 +21,4 @@
 - find good code outline plugin
     - mabye unite's outline plugin
 - auto complete brackets // TODO: find better alternative...these interfere when pasting code
-- find a good plugin to comment out lines of code
-- look into browser reload plugin: https://github.com/tell-k/vim-browsereload-mac
+- look into https://github.com/tpope/vim-sensible for sensible defaults

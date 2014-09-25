@@ -246,7 +246,7 @@
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-  "------ Emmet --------------------------------
+  "## 5b. Emmet ##### {{{2
   " adding emmet (http://emmet.io) support
   let g:user_emmet_leader_key = '<C-n>'
   let g:user_emmet_expandabbr_key = '<s-tab><s-tab>'
@@ -595,6 +595,14 @@
   \    },
   \}
   NeoBundle 'mattn/emmet-vim'
+  "}}}2
+
+  "## 5c. JSHint ##### {{{2
+ 
+  NeoBundle 'Shutnik/jshint2.vim'
+  autocmd BufWritePost *.js silent :JSHint
+
+  "}}}2
 
   "------ HTML/CSS -----------------------------
   " Sort css properties (courtesy of Steve Losh)
@@ -699,7 +707,7 @@
 
   "}}}2
 
-  "----- Rainbow Parentheses --------------------
+  "## 7d. Rainbow Parentheses ##### {{{2
   " this makes it so parenthesis, brackets, etc. are colored differently depending on their nesting
   NeoBundle 'kien/rainbow_parentheses.vim'
   let g:rbpt_colorpairs = [
@@ -732,9 +740,46 @@
   nnoremap <leader>`s :RainbowParenthesesLoadSquare<cr>
   nnoremap <leader>`b :RainbowParenthesesLoadBraces<cr>
   nnoremap <leader>`c :RainbowParenthesesLoadBraces<cr>
+  "}}}2
 
 
-" }}}1
+"}}}1
+
+"# 8. Projects/File Sytem ##### {{{1
+
+  "## 8a. CtrlP mapping ##### {{{2
+  NeoBundle 'kien/ctrlp.vim'
+  let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](public\/media|export)$'
+      \ }
+  let g:ctrlp_working_path_mode = 0
+  let g:ctrlp_follow_symlinks = 1
+  let g:ctrlp_prompt_mappings = {
+    \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
+    \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
+    \ }
+  nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
+  nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
+  nnoremap <leader><space>. :CtrlP ..<cr>
+  nnoremap <leader><space>r :CtrlP ~/ref/
+  nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
+  nnoremap <leader>/ :CtrlPLine %<cr>
+
+  "}}}2
+
+  "## 8b. Ack mapping ##### {{{2
+  NeoBundle 'mileszs/ack.vim'
+  nnoremap <C-A> :Ack<space>
+  nnoremap <leader>a :Ack <cword><CR>
+  nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
+  nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+  nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
+  nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
+  nnoremap <leader><CR>a :Ack <cword><space>
+
+  "}}}2
+ 
+"}}}1
 
 
 " adding multiple cursors support
@@ -767,38 +812,10 @@ vmap <Leader>m <Plug>SendSelectionToTmux
 nmap <Leader>m <Plug>NormalModeSendToTmux
 nmap <Leader>z <Plug>SetTmuxVars
 
-"---- CtrlP mapping ---------------------------
-NeoBundle 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](public\/media|export)$'
-    \ }
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
-  \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
-  \ }
-nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
-nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
-nnoremap <leader><space>. :CtrlP ..<cr>
-nnoremap <leader><space>r :CtrlP ~/ref/
-nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
-nnoremap <leader>/ :CtrlPLine %<cr>
-
-"---- Ack mapping ---------------------------
-NeoBundle 'mileszs/ack.vim'
-nnoremap <C-A> :Ack<space>
-nnoremap <leader>a :Ack <cword><CR>
-nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
-nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
-nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
-nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
-nnoremap <leader><CR>a :Ack <cword><space>
 
 "--- Browser Auto Reload --------------------
 NeoBundle 'tell-k/vim-browsereload-mac'
 let g:returnApp = "iTerm"
-
 
 
 " TODO: sort these
