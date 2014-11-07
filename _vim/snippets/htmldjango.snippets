@@ -2,3 +2,11 @@ snippet todo
 	{# TODO: ${1:task} #}
 snippet TODO
 	{# TODO: ${1:task} #}
+snippet keytext
+	{% keytext '${1:key}' %}
+snippet cta
+alias showcta show_cta
+	{% show_cta '${1:key}' %}
+snippet custom_cta
+alias ccta customcta show_cta_custom show_cta_custom_template
+	{% show_cta_custom_template '${1:key}' '${2:classes}' '${3:template}' %}

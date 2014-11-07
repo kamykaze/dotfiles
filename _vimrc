@@ -193,6 +193,9 @@
 
   "## 4d. Utilities ##### {{{2
 
+  let g:switch_custom_definitions = [
+        \   ['left', 'right', 'top', 'bottom']
+        \ ]
   NeoBundle 'AndrewRadev/switch.vim'          " toggles yes/no true/false, on/off, etc.
   nnoremap <c-\> :Switch<cr>
 
@@ -273,8 +276,10 @@
   \            'c': 'color:|;',
   \            'hp': 'height:|px;',
   \            'hh': 'height:auto;',
+  \            'hhh': 'height:100%;',
   \            'wp': 'width:|px;',
   \            'ww': 'width:100%;|',
+  \            'www': 'width:auto;|',
   \            'pos.s': 'position:static;',
   \            'pos.a': 'position:absolute;',
   \            'pos.r': 'position:relative;',
@@ -611,6 +616,12 @@
   " Some people like merging all css definitions in one line. Use this to sPlit them into multiple lines
   autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
 
+  " Automatically comment the end of a css declartion
+  autocmd FileType css,scss map <Leader>C ^<tab>^yt{f{<tab>A<space>//<space><esc>p:,s/<space>$//ge<CR>
+
+  " Automatically comment the end of a html tag
+  autocmd FileType html,htmldjango map <Leader>C <esc>
+
 " }}}1
 
 "# 6. Navigation ##### {{{1
@@ -750,7 +761,7 @@
   "## 8a. CtrlP mapping ##### {{{2
   NeoBundle 'kien/ctrlp.vim'
   let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](public\/media|export)$'
+      \ 'dir':  '\v[\/](public\/media|export|cloud_projects)$'
       \ }
   let g:ctrlp_working_path_mode = 0
   let g:ctrlp_follow_symlinks = 1
@@ -760,6 +771,7 @@
     \ }
   nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
   nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
+  nnoremap <leader><space>c :CtrlP ~/dev/projects/webcube-cloud43/cloud<CR>
   nnoremap <leader><space>. :CtrlP ..<cr>
   nnoremap <leader><space>r :CtrlP ~/ref/
   nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/

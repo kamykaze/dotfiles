@@ -8,9 +8,28 @@ alias mmind mmid miwd
   @media (min-width: $break_desktop) {
     ${2}
   }
-
 snippet @minl
 alias mminl mmil miwl
+  @media (min-width: $break_large_desktop) {
+    ${2}
+  }
+snippet @monm
+alias monlym
+  @media (max-width: $break_tablet) {
+    ${2}
+  }
+snippet mont
+alias monlyt
+  @media (min-width: $break_tablet) and (max-width: $break_desktop){
+    ${2}
+  }
+snippet mond
+alias monlyd
+  @media (min-width: $break_desktop ) and (max-width: $break_large_desktop){
+    ${2}
+  }
+snippet monl
+alias monlyl
   @media (min-width: $break_large_desktop) {
     ${2}
   }

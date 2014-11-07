@@ -63,3 +63,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # and Terminus Medium 14pt for regular font
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# add tmuxinator autocompletion
+if [ -f ~/dotfiles/utilities/bin/tmuxinator.bash ]; then
+    . ~/dotfiles/utilities/bin/tmuxinator.bash
+fi
