@@ -177,9 +177,10 @@
 
   "## 4b. Brackets ##### {{{2
   " auto close braces, parentheses, etc.
-  let delimitMate_expand_cr = 1
-  let delimitMate_expand_space = 1
-  NeoBundle 'Raimondi/delimitMate'
+  "let delimitMate_expand_cr = 1
+  "let delimitMate_expand_space = 1
+  "NeoBundle 'Raimondi/delimitMate' " removed because it interferes with insertion repeat when auto closing
+  NeoBundle 'vim-scripts/AutoClose'
 
   "}}}2
 
@@ -617,7 +618,7 @@
   autocmd FileType css map <Leader>P :s/\([{;]\)<space>*\([^$]\)/\1\r<space><space><space><space>\2/g<CR>:noh<CR>
 
   " Automatically comment the end of a css declartion
-  autocmd FileType css,scss map <Leader>C ^<tab>^yt{f{<tab>A<space>//<space><esc>p:,s/<space>$//ge<CR>
+  autocmd FileType css,scss map <Leader>C ^<tab>^yt{f{<tab>A<space>//<space><esc>p:,s/<space>$//ge<CR>:noh<CR>
 
   " Automatically comment the end of a html tag
   autocmd FileType html,htmldjango map <Leader>C <esc>
@@ -782,7 +783,7 @@
   "## 8b. Ack mapping ##### {{{2
   NeoBundle 'mileszs/ack.vim'
   nnoremap <C-A> :Ack<space>
-  nnoremap <leader>a :Ack <cword><CR>
+  nnoremap <leader>aa :Ack <cword><CR>
   nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
   nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
   nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
