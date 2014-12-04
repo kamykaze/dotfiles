@@ -20,6 +20,47 @@
   " Let NeoBundle manage NeoBundle
   NeoBundleFetch 'Shougo/neobundle.vim'
 
+  "##### Using NeoBundle #####
+  "
+  "# Installing new vim plugin
+  "------------------------------
+  " If you are adding a new plugin, the easiest way is to find the git repo,
+  " and add it to your vimrc.
+  "
+  " NeoBundle 'somegituser/somevimplugin.vim'
+  "
+  " Once added, quit and reopen vim, or simply run
+  "
+  " :NeoBundleCheck<CR>
+  "
+  " Note: You can specify the repo in other ways, see the following for examples
+  " https://github.com/tekezo/dotfiles/blob/master/.vim/bundle/neobundle.vim/test/vimrc
+  "
+  "
+  "# Removing an existing plugin
+  "------------------------------
+  " If you decide that a plugin is no longer useful, simply comment/delete the
+  " line from your .vimrc file, then run the following command
+  "
+  " :NeoBundleClean<CR>
+  "
+  " Note: This command is not automatically run when you open vim to avoid
+  " unnecessary prompt messages
+  "
+  "
+  "# Updating a plugin
+  "------------------------------
+  " If you want to update all your plugins to the latest version, run
+  "
+  " :NeoBundleUpdate<CR>
+  "
+  " To update a specific plugin, simply add the plugin name (not repo)
+  "
+  " :NeoBundleUpdate 'somevimplugin.vim'<CR>
+  "
+  " Note: the plugin name does not include the full repo url
+
+
 " }}}1
 
 "# 2. Core ##### {{{1
@@ -107,6 +148,18 @@
     let g:qb_hotkey = "<leader>b"
   endif
   NeoBundle 'vim-scripts/QuickBuf'
+
+  "##### Using QuickBuf #####
+  "
+  " To bring up the quickbuf window, type ,b in normal mode. Once the list of
+  " buffers is open, use the following keys:
+  "
+	"  d : delete buffer
+	"  w : wipe out buffer
+	"  s : open buffer in a new horizontally split window
+	"  u : open buffer
+	"  <enter> : open buffer and leave QuickBuf; if the	buffer is already opened in a window, switch to that window.
+
   "}}}2
 
   "## 3b. Session ##### {{{2
@@ -114,6 +167,33 @@
   " change default session directory to avoid showing up on dotfiles repo
   let g:session_directory='~/.vim_sessions'
   let g:session_autosave = 'yes'
+
+  "##### Using vim session #####
+  "
+  " Sessions allows you to save each vim work instance as a 'project' and
+  " restore it later
+  "
+  "# Saving a new session
+  "------------------------------
+  " To create a new session, simply type
+  "
+  " :SaveSession mysession<CR>
+  "
+  " Now vim will automatically save its state (buffers, windows, markers,
+  " etc.) automatically to that session when you quit vim
+  "
+  "# Restoring a session
+  "------------------------------
+  " To load a session previously saved, use
+  "
+  " :OpenSession mysession<CR>
+  "
+  " You can also load  the session from the command line (useful for adding it
+  " to bash scripts or tmux configurations
+  "
+  " $ vim -c 'OpenSession mysession'
+  "
+
   "}}}2
 
   "## 3c. File Navigation ##### {{{2
@@ -124,10 +204,10 @@
   nnoremap <leader><tab> :NERDTreeToggle<CR>
   nnoremap <leader><cr><cr> :NERDTreeFind<cr>
 
-  "NeoBundle 'tpope/vim-vinegar'
-
   " prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
   autocmd FileType nerdtree nnoremap <buffer> <leader>d :NERDTreeToggle<CR>
+
+  "NeoBundle 'tpope/vim-vinegar'
 
   "}}}2
 
@@ -179,8 +259,10 @@
   " auto close braces, parentheses, etc.
   "let delimitMate_expand_cr = 1
   "let delimitMate_expand_space = 1
-  "NeoBundle 'Raimondi/delimitMate' " removed because it interferes with insertion repeat when auto closing
-  NeoBundle 'vim-scripts/AutoClose'
+  "NeoBundle 'Raimondi/delimitMate'     " removed: no repeat
+  "NeoBundle 'vim-scripts/AutoClose'    " removed: messes with scss indentation
+  "NeoBundle 'jiangmiao/auto-pairs'     " removed: no repeat
+
 
   "}}}2
 
@@ -604,7 +686,7 @@
   "}}}2
 
   "## 5c. JSHint ##### {{{2
- 
+
   NeoBundle 'Shutnik/jshint2.vim'
   autocmd BufWritePost *.js silent :JSHint
 
@@ -636,6 +718,9 @@
 
   " jump like f,w,b,e but in the vertical direction
   NeoBundle 'machakann/vim-columnmove'
+
+  " expands the % command to match other objects (eg: html tags)
+  NeoBundle 'tmhedberg/matchit'
 
   " }}}2
 
@@ -791,7 +876,7 @@
   nnoremap <leader><CR>a :Ack <cword><space>
 
   "}}}2
- 
+
 "}}}1
 
 
