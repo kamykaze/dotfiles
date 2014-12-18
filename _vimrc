@@ -722,6 +722,10 @@
   " expands the % command to match other objects (eg: html tags)
   NeoBundle 'tmhedberg/matchit'
 
+  " add custom text objects so you can select/delete them
+  NeoBundle 'kana/vim-textobj-user'
+  NeoBundle 'mjbrownie/django-template-textobjects'    " add django template text objects
+
   " }}}2
 
   "## 6b. Folds ##### {{{2
