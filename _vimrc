@@ -257,9 +257,17 @@
 
   "## 4b. Brackets ##### {{{2
   " auto close braces, parentheses, etc.
-  "let delimitMate_expand_cr = 1
-  "let delimitMate_expand_space = 1
-  "NeoBundle 'Raimondi/delimitMate'     " removed: no repeat
+  let delimitMate_expand_cr = 1
+  let delimitMate_expand_space = 1
+  NeoBundle 'Raimondi/delimitMate'
+  "au FileType htmldjango let b:delimitMate_matchpairs = "{%:%}"   " TODO: double character does not work
+  au FileType html let b:delimitMate_quotes = "%"
+  nnoremap <Leader>' :DelimitMateSwitch<cr>
+
+  " Note: delimitmate does not allow repeat (.) commands, but it's the best
+  " one right now. Just use the <leader>' mapping to toggle it off if repeat
+  " is needed. The following plugins have also been tried without success
+  "
   "NeoBundle 'vim-scripts/AutoClose'    " removed: messes with scss indentation
   "NeoBundle 'jiangmiao/auto-pairs'     " removed: no repeat
 
