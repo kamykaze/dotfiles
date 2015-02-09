@@ -718,6 +718,9 @@
 "# 6. Navigation ##### {{{1
 
   "## 6a. Motions ##### {{{2
+  " add - as a keyword so variables and classes that use dashes can be selected as a single word
+  set iskeyword+=-
+
   NeoBundle 'Lokaltog/vim-easymotion'
   " remap easymotion leader key to avoid conflict with my custom binding <Leader>,
   let g:EasyMotion_leader_key = '<space>'
@@ -883,6 +886,7 @@
   nnoremap <leader>aa :Ack <cword><CR>
   nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
   nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+  nnoremap <leader><CR>c :Ack  ~/dev/projects/webcube-cloud43/cloud/<home><right><right><right><right>
   nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
   nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
   nnoremap <leader><CR>a :Ack <cword><space>

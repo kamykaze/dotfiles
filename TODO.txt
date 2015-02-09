@@ -7,7 +7,7 @@
 
 ## VIM
 - improving folding map to avoid nesting folds when using multiple times
-- remap keys that have default vim behavior 
+- remap keys that have default vim behavior
     - remap <Leader> (currently , )
     - remap window moving (CTRL-K, CTRL-L)
     - remove <f1> mappings
