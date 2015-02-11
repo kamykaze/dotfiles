@@ -116,8 +116,8 @@ imap <C-SPACE> <ESC>
 imap <nul> <ESC>
 
 " make <tab> jump you to the matching bracket in normal or visual modes
-nnoremap <tab> %
-vnoremap <tab> %
+nmap <tab> %
+vmap <tab> %
 
 "--- windows ---
 " quick window switching
