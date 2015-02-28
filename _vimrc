@@ -693,10 +693,26 @@
   NeoBundle 'mattn/emmet-vim'
   "}}}2
 
-  "## 5c. JSHint ##### {{{2
+  "## 5c. Syntax Checkers ##### {{{2
 
+  " JSHint
   NeoBundle 'Shutnik/jshint2.vim'
   autocmd BufWritePost *.js silent :JSHint
+
+  NeoBundle 'scrooloose/syntastic'
+  "set statusline+=%#warningmsg#
+  "set statusline+=%{SyntasticStatuslineFlag()}
+  "set statusline+=%*
+
+  let g:syntastic_always_populate_loc_list = 0
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_check_on_wq = 1
+
+  let g:syntastic_python_checkers = ["python", "flake8"]
+  let g:syntastic_html_checkers = []
+  let g:syntastic_scss_checkers = ['sass']
+  let g:syntastic_scss_sass_args = "--trace --load-path ../bower_components/foundation/scss"
 
   "}}}2
 
@@ -802,9 +818,9 @@
   "set matchtime=2
 
   " color overflow region
-  " set colorcolumn=80,120
-  " let &colorcolumn=join(range(80,119),",")
-  " highlight ColorColumn ctermbg=233 guibg=#181818
+  set colorcolumn=80,120
+  "let &colorcolumn=join(range(80,119),",")
+  "highlight ColorColumn ctermbg=233 guibg=#181818
 
   "## 7b. CSS Colors ##### {{{2
 

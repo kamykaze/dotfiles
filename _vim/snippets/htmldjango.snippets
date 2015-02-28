@@ -10,3 +10,7 @@ alias showcta show_cta
 snippet custom_cta
 alias ccta customcta show_cta_custom show_cta_custom_template
 	{% show_cta_custom_template '${1:key}' '${2:classes}' '${3:template}' %}
+snippet block
+	{% block ${1:block_name} %}
+		${0}
+	{% endblock $1 %}
