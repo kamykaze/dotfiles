@@ -707,7 +707,7 @@
   let g:syntastic_always_populate_loc_list = 0
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 0
-  let g:syntastic_check_on_wq = 1
+  let g:syntastic_check_on_wq = 0
 
   let g:syntastic_python_checkers = ["python", "flake8"]
   let g:syntastic_html_checkers = []
@@ -789,6 +789,9 @@
   autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
   autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType python setlocal tabstop=4
+  autocmd FileType python setlocal softtabstop=4
+  autocmd FileType python setlocal shiftwidth=4
 
   "}}}2
 
