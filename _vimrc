@@ -68,6 +68,9 @@
   " enables file type specific plugins (filetype detection will be turned on)
   filetype plugin on
 
+  " enables file type indentation 
+  filetype indent on
+
   " Enable mouse support
   set mouse:a
 
