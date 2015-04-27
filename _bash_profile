@@ -1,0 +1,22 @@
+CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxEgEdabagacad
+export TERM=xterm-256color
+export FIGNORE=.svn:.pyc
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export INPUTRC=~/.inputrc
+export PATH="/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:${PATH}:/usr/local/mysql/bin:/Users/kam/tools"
+[ -r "${HOME}/.bashrc" ] && . "${HOME}/.bashrc"
+test -r /sw/bin/init.sh && . /sw/bin/init.sh
+export PYTHONSTARTUP=~/.pythonrc
+export MAGICK_HOME="/opt"
+export PATH="$MAGICK_HOME/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+function merge_check { 
+    CHECK_PATTERNS='REQUIREMENTS\|settings.py\|models.py\|migrations'
+    git diff @{1}..HEAD --name-status | grep -i $CHECK_PATTERNS; 
+    echo "------------";
+    cd `git rev-parse --show-toplevel`;
+    git diff @{1}..HEAD --name-only | grep -i $CHECK_PATTERNS | xargs git diff @{1}..HEAD
+    cd - 
+}

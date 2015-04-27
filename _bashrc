@@ -7,6 +7,7 @@ alias l='ls -l'
 alias lla='ls -ahl'
 alias ..='cd ..'
 alias mkdir='mkdir -pv'
+alias ql='qlmanage -p'
 
 # go to actual directory when CDing into a symlink
 set -P
