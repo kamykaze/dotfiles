@@ -46,6 +46,14 @@ server() {
     python -m SimpleHTTPServer $1
 }
 
+# pip should only run if there is a virtualenv currently activated
+export PIP_REQUIRE_VIRTUALENV=true
+
+# but in case we want to install a global pip package, use gpip
+gpip(){
+     PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
 # pythonbrew stuff
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 
