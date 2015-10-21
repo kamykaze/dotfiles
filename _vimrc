@@ -122,7 +122,7 @@
 
   " Centralize backups, swapfiles and undo history
   set backupdir=~/.vim/backups
-  set directory=~/.vim/swaps
+  "set directory=~/.vim/swaps
   if exists("&undodir")
       set undodir=~/.vim/undo
   endif
@@ -170,6 +170,7 @@
   " change default session directory to avoid showing up on dotfiles repo
   let g:session_directory='~/.vim_sessions'
   let g:session_autosave = 'yes'
+  let g:session_autoload = 'no'
 
   "##### Using vim session #####
   "
