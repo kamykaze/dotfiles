@@ -153,6 +153,9 @@ map <Leader>w :w<cr>
 " quicker closing of file
 map <Leader>q :q<cr>
 
+" quicker way to quit vim (if all files saved)
+map <c-d> :qa<cr>
+
 " close file and delete its buffer
 map <Leader>d :bd<cr>
 

@@ -4,6 +4,8 @@
 - look into ctags and vim-taglist
 - rename all _files to .files for proper syntax highlighting in github
   - update install.sh
+- powerline: add vim/shell indicator
+  http://bezhermoso.github.io/2015/10/02/vim-shell-indicator-in-powerline-theme/
 
 ## VIM
 - improving folding map to avoid nesting folds when using multiple times
