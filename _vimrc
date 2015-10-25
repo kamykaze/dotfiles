@@ -68,7 +68,7 @@
   " enables file type specific plugins (filetype detection will be turned on)
   filetype plugin on
 
-  " enables file type indentation 
+  " enables file type indentation
   filetype indent on
 
   " Enable mouse support
@@ -304,6 +304,7 @@
   NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'KohPoll/vim-less'
   NeoBundle 'vim-scripts/django.vim'
+  NeoBundle 'daneden/vim-autoprefixer'
 
   "----- AUTO COMPLETION ----------------------------
   "NeoBundle 'ervandew/supertab'
@@ -813,7 +814,7 @@
   " Lightweight statusline based on powerline, but 100% in vim script
   let g:airline_theme='hybrid'
   let g:airline_powerline_fonts = 1         " use nice symbols for powerline
-  let g:airline_inactive_collapse=1         " don't collapse airline sections to only filename
+  let g:airline_inactive_collapse=1         " collapse airline sections to only filename
   let g:airline#extensions#hunks#enabled = 0      " don't show git gutter
   let g:airline#extensions#branch#displayed_head_limit = 15 " truncate long branch names
   NeoBundle 'bling/vim-airline'
