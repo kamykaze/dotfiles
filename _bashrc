@@ -60,7 +60,12 @@ gpip(){
 export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages/:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
 # using powerline for nice prompt (custom powerline prompt below to add newlines)
-. /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh
+if [ -f /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+    export POWERLINE_SRC=/Library/Python/2.7/site-packages/powerline
+else
+    export POWERLINE_SRC=/usr/local/lib/python2.7/site-packages/powerline
+fi
+. ${POWERLINE_SRC}/bindings/bash/powerline.sh
 #_powerline_prompt() {
 #	local last_exit_code=$?
 #	[[ -z "$POWERLINE_OLD_PROMPT_COMMAND" ]] ||
