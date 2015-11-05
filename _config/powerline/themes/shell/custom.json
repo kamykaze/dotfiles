@@ -5,6 +5,14 @@
 				"function": "powerline.segments.shell.mode"
 			},
 			{
+				"function": "powerline.segments.common.time.date",
+				"priority": 30,
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			},
+			{
 				"function": "powerline.segments.common.env.environment",
 				"args": {
 					"variable": "POWERLINE_VIM_SHELL_INDICATOR"
