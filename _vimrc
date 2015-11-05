@@ -793,10 +793,10 @@
   " set fold methods automatically for certain filetypes
   autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
   autocmd FileType vim setlocal foldmethod=marker
-  autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType python setlocal tabstop=4
-  autocmd FileType python setlocal softtabstop=4
-  autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType javascript,python setlocal foldmethod=indent
+  autocmd FileType javascript,python setlocal tabstop=4
+  autocmd FileType javascript,python setlocal softtabstop=4
+  autocmd FileType javascript,python setlocal shiftwidth=4
 
   "}}}2
 
