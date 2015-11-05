@@ -12,14 +12,14 @@ alias ql='qlmanage -p'
 # go to actual directory when CDing into a symlink
 set -P
 
-# shortcut for finding a keyword in files 
+# shortcut for finding a keyword in files
 # (uses Ag or Ack depending on what's available)
 if hash ag 2>/dev/null; then
-    function f { 
+    function f {
         ag -i "$@"
     }
 else
-    function f { 
+    function f {
         ack "$@"
     }
 fi
@@ -66,17 +66,10 @@ else
     export POWERLINE_SRC=/usr/local/lib/python2.7/site-packages/powerline
 fi
 . ${POWERLINE_SRC}/bindings/bash/powerline.sh
-#_powerline_prompt() {
-#	local last_exit_code=$?
-#	[[ -z "$POWERLINE_OLD_PROMPT_COMMAND" ]] ||
-#		eval $POWERLINE_OLD_PROMPT_COMMAND
-#	PS1="\n$($POWERLINE_COMMAND shell left -r bash_prompt --last-exit-code=$last_exit_code)\r\n$ "
-#	_powerline_tmux_set_pwd
-#	return $last_exit_code
-#}
 if [[ -n "$VIMRUNTIME" ]]; then
   export POWERLINE_VIM_SHELL_INDICATOR='vim'
 fi
+. ${POWERLINE_SRC}/bindings/bash/powerline.sh
 
 
 # Env variables and functions for virtualenvwrapper.
