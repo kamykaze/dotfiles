@@ -839,6 +839,7 @@
 
   "## 7c. Indentation lines ##### {{{2
 
+  let g:indentLine_enabled = 1
   NeoBundle 'Yggdroot/indentLine'
   nnoremap <Leader>i :IndentLinesToggle<cr>
 
@@ -901,6 +902,7 @@
   nnoremap <leader><space>. :CtrlP ..<cr>
   nnoremap <leader><space>r :CtrlP ~/ref/
   nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
+  nnoremap <leader><space>p :CtrlP $REF_PROJECT<cr>
   nnoremap <leader>/ :CtrlPLine %<cr>
 
   "}}}2
@@ -968,6 +970,7 @@ NeoBundle 'goldfeld/vim-seek'
 "NeoBundle 'vim-scripts/taglist.vim'
 "NeoBundle 'mileszs/ag.vim'
 "NeoBundle 'Lokaltog/powerline'
+NeoBundle 'plasticboy/vim-markdown'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
