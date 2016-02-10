@@ -1,70 +1,135 @@
-# shortcuts
-alias ls='ls -G'
-alias ll='ls -hl'
-alias l='ls -l'
-alias lla='ls -ahl'
-alias ..='cd ..'
-alias mkdir='mkdir -pv'
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/kam/.oh-my-zsh
 
-export EDITOR="vim"
-bindkey -v 
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#export DEFAULT_USER=kam
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+#POWERLEVEL9K_STATUS_VERBOSE=false
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+ZSH_THEME=""
 
-# vi style incremental search
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# automatically CD into directory without typing "cd "
-setopt AUTO_CD
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Set up the prompt
-#autoload -Uz promptinit
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git tmux tmuxinator virtualenv virtualenvwrapper python django)
+
+# User configuration
+
+export PATH="/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages/:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
 # set nice colors
 CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxEgEdabagacad
-export TERM=xterm-color
+export TERM=xterm-256color
 
-# eliminate duplicates from history
-setopt histignorealldups sharehistory
+export EDITOR="vim"
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-#zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
-zstyle ':completion:*' menu select=2 eval ""
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# using powerline for nice prompt (custom is a copy with an \n to make command be at 2nd line)
-. /Users/kam/dotfiles/utilities/powerline/powerline/bindings/zsh/powerline.zsh
-# Note: you'll need a patched font to use with your terminal (iTerm2)
-# I use Inconsolata 13pt for non-ASCII (https://github.com/Lokaltog/powerline-fonts/tree/master/Inconsolata )
-# and Terminus Medium 14pt for regular font
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Env variables and functions for virtualenvwrapper.
+# virtualenv must be loaded after pythonbrew
+export WORKON_HOME=$HOME/dev/virtualenvs
+export PROJECT_HOME=$HOME/dev/projects
+if [ -f $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh ]; then
+    . $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
+else
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
 
 # add tmuxinator autocompletion
-if [ -f ~/dotfiles/utilities/bin/tmuxinator.bash ]; then
-    . ~/dotfiles/utilities/bin/tmuxinator.bash
+if [ -f ~/dotfiles/utilities/bin/tmuxinator.zsh ]; then
+    . ~/dotfiles/utilities/bin/tmuxinator.zsh
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+server() {
+    python -m SimpleHTTPServer $1
+}
+
+# using powerline for nice prompt (custom powerline prompt below to add newlines)
+if [ -f /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+    export POWERLINE_SRC=/Library/Python/2.7/site-packages/powerline
+else
+    export POWERLINE_SRC=/usr/local/lib/python2.7/site-packages/powerline
+fi
+if [[ -n "$VIMRUNTIME" ]]; then
+  export POWERLINE_VIM_SHELL_INDICATOR='vim'
+fi
+source ${POWERLINE_SRC}/bindings/zsh/powerline.zsh
+
+if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
+    source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
 fi
