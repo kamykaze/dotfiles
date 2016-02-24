@@ -325,7 +325,7 @@
 
   NeoBundle 'honza/vim-snippets'
   " adding snippets directories
-  let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
+  let g:snippets_dir = '~/.vim/snippets/'
 
   " SuperTab like snippets behavior.
   imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -818,6 +818,7 @@
   let g:airline#extensions#hunks#enabled = 0      " don't show git gutter
   let g:airline#extensions#branch#displayed_head_limit = 15 " truncate long branch names
   NeoBundle 'bling/vim-airline'
+  NeoBundle 'vim-airline/vim-airline-themes'
 
   "}}}2
 
