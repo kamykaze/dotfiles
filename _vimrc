@@ -890,8 +890,9 @@
   "## 8a. CtrlP mapping ##### {{{2
   NeoBundle 'kien/ctrlp.vim'
   let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](public\/media|export|cloud_projects)$'
+      \ 'dir':  '\v[\/](public\/media|export|cloud_projects|old_.*)$'
       \ }
+  let g:ctrlp_max_files = 5000
   let g:ctrlp_working_path_mode = 0
   let g:ctrlp_follow_symlinks = 1
   let g:ctrlp_prompt_mappings = {
