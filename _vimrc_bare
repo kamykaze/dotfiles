@@ -38,9 +38,9 @@ let mapleader = ","                "much easier than \, but you make the default
 "-- Spaces and Indenting --
 set backspace=indent,eol,start     "set backspace behavior (so it can backspace over auto-indent, newline, etc.)
 set expandtab                      "replace tabs with spaces
-set tabstop=4                      "use 4 spaces to represent a tab
-set softtabstop=4
-set shiftwidth=4                   "use 4 spaces for auto indent (use >> or << to indent current line)
+set tabstop=2                      "use 4 spaces to represent a tab
+set softtabstop=2
+set shiftwidth=2                   "use 4 spaces for auto indent (use >> or << to indent current line)
 set autoindent
 
 "-- UI --

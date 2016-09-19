@@ -704,7 +704,7 @@
   NeoBundle 'Shutnik/jshint2.vim'
   autocmd BufWritePost *.js silent :JSHint
 
-  NeoBundle 'scrooloose/syntastic'
+  "NeoBundle 'scrooloose/syntastic'
   "set statusline+=%#warningmsg#
   "set statusline+=%{SyntasticStatuslineFlag()}
   "set statusline+=%*
@@ -817,6 +817,7 @@
   let g:airline_inactive_collapse=1         " collapse airline sections to only filename
   let g:airline#extensions#hunks#enabled = 0      " don't show git gutter
   let g:airline#extensions#branch#displayed_head_limit = 15 " truncate long branch names
+  let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing']
   NeoBundle 'bling/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
 
@@ -828,9 +829,9 @@
   "set matchtime=2
 
   " color overflow region
-  set colorcolumn=80,120
+  set colorcolumn=80
   "let &colorcolumn=join(range(80,119),",")
-  "highlight ColorColumn ctermbg=233 guibg=#181818
+  highlight ColorColumn ctermbg=233 ctermfg=7 guibg=#181818
 
   "## 7b. CSS Colors ##### {{{2
 
