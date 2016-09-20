@@ -974,6 +974,7 @@ NeoBundle 'goldfeld/vim-seek'
 "NeoBundle 'mileszs/ag.vim'
 "NeoBundle 'Lokaltog/powerline'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'tpope/vim-abolish'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
