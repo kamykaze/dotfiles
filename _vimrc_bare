@@ -165,6 +165,18 @@ map <Leader>b :buffers<cr>              ".vimrc will overwrite this with a bette
 " edit completion with current file's dictory
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+" toggle diff mode for current buffer // thanks to http://www.bestofvim.com/tip/diff-diff/
+nnoremap <silent> <Leader>D :call DiffToggle()<CR>
+
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        diffthis
+    endif
+:endfunction
+
+
 
 "-- Command Line -- removed emacs binding. Now I'm using:
 "
