@@ -55,7 +55,7 @@ ZSH_THEME=""
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git tmux tmuxinator virtualenv virtualenvwrapper python django)
+plugins=(osx git tmux tmuxinator virtualenv virtualenvwrapper python django jump)
 
 # User configuration
 
@@ -140,4 +140,4 @@ if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
     source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

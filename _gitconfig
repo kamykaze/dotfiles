@@ -17,7 +17,7 @@
   untracked = red bold
 
 [push]
-    default = tracking
+	default = simple
 [core]
     editor = /usr/bin/vim
     page = less -R
@@ -45,6 +45,7 @@
     undo = reset --soft HEAD^
     amend = commit --amend -C HEAD
     check = !"git diff @{1}..HEAD --name-status"
+    last = diff @{1}..
 
     # alias gi to git for typos (eg: 'gi tst' instead of 'git st')
     tst = status
