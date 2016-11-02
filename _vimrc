@@ -205,7 +205,15 @@
   "NERDTree for  File navigation
   NeoBundle 'scrooloose/nerdtree'
   let NERDTreeIgnore=['.pyc$[[file]]']          " hide certain files
-  nnoremap <leader><tab> :NERDTreeToggle<CR>
+  function! ToggleNerdTree()
+    NERDTreeToggle
+    if g:NERDTree.IsOpen()
+      "resize nerdtree window
+      vertical resize 30
+    endif
+  endfunction
+  "nnoremap <leader><tab> :NERDTreeToggle<CR>
+  nnoremap <silent> <leader><tab> :call ToggleNerdTree()<CR>
   nnoremap <leader><cr><cr> :NERDTreeFind<cr>
 
   " prevent my <leader>d from deleting the Nerdtree buffer, or toggle will cause errors
