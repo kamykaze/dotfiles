@@ -204,6 +204,7 @@
 
   "NERDTree for  File navigation
   NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'Xuyuanp/nerdtree-git-plugin'
   let NERDTreeIgnore=['.pyc$[[file]]']          " hide certain files
   function! ToggleNerdTree()
     NERDTreeToggle
@@ -312,7 +313,8 @@
   NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'KohPoll/vim-less'
   NeoBundle 'vim-scripts/django.vim'
-  NeoBundle 'daneden/vim-autoprefixer'
+  "NeoBundle 'loannis-Kapoulas/vim-autoprefixer'
+  "NeoBundle 'mustache/mustache-handlebars'
 
   "----- AUTO COMPLETION ----------------------------
   "NeoBundle 'ervandew/supertab'
@@ -343,6 +345,9 @@
   \ "\<Plug>(neosnippet_expand_or_jump)"
   \: "\<TAB>"
 
+  " Handlebars shortcuts
+	let g:mustache_abbreviations = 1
+
   "}}}2
 
   " Note: to use these omnicomplete functions, use Ctrl-k, Ctrl-o, then Ctrl-o again to loop through the options
@@ -363,7 +368,7 @@
 
   let g:use_emmet_complete_tag = 1
   let g:user_emmet_settings = {
-  \    'indentation' : '  ',
+  \    'indentation' : '    ',
   \    'html' : {
   \        'snippets' : {
   \          'dbl' : "{% block %}\n\t${child}|\n{% endblock %}",
@@ -898,7 +903,7 @@
   "## 8a. CtrlP mapping ##### {{{2
   NeoBundle 'kien/ctrlp.vim'
   let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](public\/media|export|cloud_projects|old_.*)$'
+      \ 'dir':  '\v[\/](public\/media|export|cloud_projects|old_.*|tmp|dev|node_modules)$'
       \ }
   let g:ctrlp_max_files = 5000
   let g:ctrlp_working_path_mode = 0
@@ -983,6 +988,7 @@ NeoBundle 'goldfeld/vim-seek'
 "NeoBundle 'Lokaltog/powerline'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-unimpaired'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
