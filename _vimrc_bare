@@ -121,10 +121,11 @@ vmap <tab> %
 
 "--- windows ---
 " quick window switching
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+let g:C_Ctrl_j = 'off'
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
 
 " Zooms/maximize current window. If it's already zoomed, even size all windows
 let g:ZoomWin=0
