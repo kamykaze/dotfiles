@@ -5,13 +5,18 @@ export ZSH=/Users/kam/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#export DEFAULT_USER=kam
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-#POWERLEVEL9K_STATUS_VERBOSE=false
-#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-ZSH_THEME=""
+export DEFAULT_USER=kam
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vi_shell context virtualenv vcs dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_CUSTOM_VI_SHELL="[ -z \"$MYVIMRC\"  ] || { echo \"VI\" }"
+POWERLEVEL9K_CUSTOM_VI_SHELL_BACKGROUND="red"
+POWERLEVEL9K_CUSTOM_VI_SHELL_FOREGROUND="black"
+
+
+#ZSH_THEME="clean"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -61,6 +66,8 @@ plugins=(osx git tmux tmuxinator virtualenv virtualenvwrapper python django jump
 
 export PATH="/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages/:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 
@@ -82,10 +89,6 @@ else
     . /usr/local/bin/virtualenvwrapper.sh
 fi
 
-# add tmuxinator autocompletion
-if [ -f ~/dotfiles/utilities/bin/tmuxinator.zsh ]; then
-    . ~/dotfiles/utilities/bin/tmuxinator.zsh
-fi
 
 # ZMV
 autoload zmv
@@ -126,18 +129,37 @@ server() {
 }
 
 # using powerline for nice prompt (custom powerline prompt below to add newlines)
-if [ -f /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
-    export POWERLINE_SRC=/Library/Python/2.7/site-packages/powerline
-else
-    export POWERLINE_SRC=/usr/local/lib/python2.7/site-packages/powerline
-fi
-if [[ -n "$VIMRUNTIME" ]]; then
-  export POWERLINE_VIM_SHELL_INDICATOR='vim'
-fi
-source ${POWERLINE_SRC}/bindings/zsh/powerline.zsh
-
-if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
-    source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
-fi
+# if [ -f /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+#     export POWERLINE_SRC=/Library/Python/2.7/site-packages/powerline
+# else
+#     export POWERLINE_SRC=/Users/kam/Library/Python/2.7/lib/python/site-packages/powerline
+# fi
+# if [[ -n "$VIMRUNTIME" ]]; then
+#   export POWERLINE_VIM_SHELL_INDICATOR='vim'
+# fi
+# source ${POWERLINE_SRC}/bindings/zsh/powerline.zsh
+# 
+# if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
+#     source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
+# fi
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# add tmuxinator autocompletion
+if [ -f ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh ]; then
+    . ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
+else
+    if [ -f ~/dotfiles/utilities/bin/tmuxinator.zsh ]; then
+        . ~/dotfiles/utilities/bin/tmuxinator.zsh
+    fi
+fi 
+
+
+function merge_check { 
+    CHECK_PATTERNS='REQUIREMENTS\|settings.py\|models.py\|migrations'
+    git diff @{1}..HEAD --name-status | grep -i $CHECK_PATTERNS; 
+    echo "------------";
+    cd `git rev-parse --show-toplevel`;
+    git diff @{1}..HEAD --name-only | grep -i $CHECK_PATTERNS | xargs git diff @{1}..HEAD
+    cd - 
+}

@@ -1,3 +1,7 @@
+## New MacBook Pro
+- restore tmux powerline
+- fix vim background color in html files
+
 ## General
 - add bash_profile to repo
 - look into wemux
