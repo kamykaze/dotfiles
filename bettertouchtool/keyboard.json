@@ -1,0 +1,940 @@
+{
+  "BTTPresetName" : "keyboard",
+  "BTTPresetUUID" : "D52A1F78-AD3F-483B-BFAD-5EBA74A3BAAB",
+  "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTShortcutToSend" : "36",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 3
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTShortcutToSend" : "51",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 4,
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 2
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTShortcutToSend" : "124",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 35,
+          "BTTShortcutModifierKeys" : 1835008,
+          "BTTOrder" : 8,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "124",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 0
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.556294",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 1
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 124,
+              "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+              "BTTMenubarPath" : "Edit;Copy",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 2
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "1.018765",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 3
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "56,55,30",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 4
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,37",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 5
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,9",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 6
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "1.169843",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 7
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "36",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 8
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.671727",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 9
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "56,55,33",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 10
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "123",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 11
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 124,
+              "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+              "BTTMenubarPath" : "Edit;Copy",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 12
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.604868",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 13
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "123",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 14
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,50",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 15
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.743019",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 16
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,37",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 17
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,9",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 18
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.826684",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 19
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "36",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 20
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "55,50",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 21
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.382868",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 22
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "56,55,30",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : 10354688,
+              "BTTOrder" : 23
+            }
+          ]
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 91,
+          "BTTPredefinedActionName" : "Resize Window to Bottom Left Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 125,
+          "BTTShortcutModifierKeys" : 9306112,
+          "BTTOrder" : 17
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 93,
+          "BTTPredefinedActionName" : "Resize Window to Bottom Right Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 124,
+          "BTTShortcutModifierKeys" : 917504,
+          "BTTOrder" : 18
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 123,
+          "BTTShortcutModifierKeys" : 10223616,
+          "BTTOrder" : 10
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 96,
+          "BTTPredefinedActionName" : "Maximize Window to Top Half",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 126,
+          "BTTShortcutModifierKeys" : 10223616,
+          "BTTOrder" : 14
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 47,
+          "BTTPredefinedActionName" : "Move Window to Next Monitor",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 8,
+          "BTTShortcutModifierKeys" : 917504,
+          "BTTOrder" : 12
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 153,
+          "BTTPredefinedActionName" : "Move Mouse To Position",
+          "BTTMoveMouseToPosition" : "{1264, 685}",
+          "BTTMoveMouseRelative" : "0",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 53,
+          "BTTShortcutModifierKeys" : 131072,
+          "BTTOrder" : 6
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 153,
+          "BTTPredefinedActionName" : "Move Mouse To Position",
+          "BTTMoveMouseToPosition" : "{3437, 737}",
+          "BTTMoveMouseRelative" : "0",
+          "BTTEnabled" : 0,
+          "BTTShortcutKeyCode" : 49,
+          "BTTShortcutModifierKeys" : 393216,
+          "BTTOrder" : 5
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 123,
+          "BTTPredefinedActionName" : "Toggle Between Big and Normal Cursor",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 49,
+          "BTTShortcutModifierKeys" : 786432,
+          "BTTOrder" : 7
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 95,
+          "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 125,
+          "BTTShortcutModifierKeys" : 10223616,
+          "BTTOrder" : 13
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 141,
+          "BTTPredefinedActionName" : "Enable \/ Disable Leap Motion Gestures",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 6,
+          "BTTShortcutModifierKeys" : 786432,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTShortcutToSend" : "63,117",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 16,
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 4
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 124,
+          "BTTShortcutModifierKeys" : 10223616,
+          "BTTOrder" : 9
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 92,
+          "BTTPredefinedActionName" : "Resize Window to Top Right Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 126,
+          "BTTShortcutModifierKeys" : 9306112,
+          "BTTOrder" : 16
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 101,
+          "BTTPredefinedActionName" : "Enable \/ Disable BetterTouchTool",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 53,
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 21,
+          "BTTPredefinedActionName" : "Maximize Window",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 46,
+          "BTTShortcutModifierKeys" : 1835008,
+          "BTTOrder" : 11
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 90,
+          "BTTPredefinedActionName" : "Resize Window to Top Left Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 123,
+          "BTTShortcutModifierKeys" : 9306112,
+          "BTTOrder" : 15
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.google.Chrome",
+      "BTTAppName" : "Google Chrome",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTShortcutToSend" : "55,37",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 97,
+          "BTTShortcutModifierKeys" : 0,
+          "BTTOrder" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 129,
+              "BTTPredefinedActionName" : "Delay Next Action",
+              "BTTDelayNextActionBy" : "0.245272",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : -1,
+              "BTTOrder" : 0,
+              "BTTKeySequence" : {
+
+              }
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "38",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : -1,
+              "BTTOrder" : 1
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTPredefinedActionType" : 118,
+              "BTTPredefinedActionName" : "Insert \/ Paste Custom Text",
+              "BTTStringToType" : "avascript:window.open(window.location.protocol+'\/\/'+window.location.host+'\/admin\/','_blank')\n",
+              "BTTMoveCursorLeftBy" : "0",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : -1,
+              "BTTOrder" : 2,
+              "BTTKeySequence" : {
+
+              }
+            },
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTShortcutToSend" : "36",
+              "BTTEnabled" : 1,
+              "BTTShortcutKeyCode" : -1,
+              "BTTShortcutModifierKeys" : -1,
+              "BTTOrder" : 3
+            }
+          ],
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 2,
+            "BTTKeyCount" : 2,
+            "BTTKeySequenceDownKeys" : [
+              {
+                "BTTKEYCharacter" : "F6",
+                "BTTKEYCode" : 97,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 4.87792e+08
+              }
+            ],
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCharacter" : "F6",
+                "BTTKEYCode" : 97,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 4.87792e+08
+              },
+              {
+                "BTTKEYCharacter" : "F6",
+                "BTTKEYCode" : 97,
+                "BTTKEYTime" : 4.87792e+08
+              }
+            ],
+            "BTTKeySequenceUpKeys" : [
+              {
+                "BTTKEYCharacter" : "F6",
+                "BTTKEYCode" : 97,
+                "BTTKEYTime" : 4.87792e+08
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
+      "BTTAppName" : "iTerm",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 124,
+          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+          "BTTMenubarPath" : "Edit;Paste Special;Paste Faster",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 24,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 15,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 124,
+          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+          "BTTMenubarPath" : "Edit;Paste Special;Paste Slower",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 27,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 2
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.ActivityMonitor",
+      "BTTAppName" : "Activity Monitor",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    }
+  ],
+  "BTTPresetSnapAreas" : [
+    {
+      "BTTDisplayIsBuiltIn" : 1,
+      "BTTDisplayID" : 69992768,
+      "BTTDisplayIsMain" : 1,
+      "BTTDisplayModel" : 45061,
+      "BTTDisplayResolution" : "{2560, 1440}",
+      "BTTDisplayScreenFrame" : "{{0, 0}, {2560, 1440}}",
+      "BTTDisplayScreenSize" : "{596.55044975630733, 335.55962798792291}",
+      "BTTDisplaySerialNumber" : "0",
+      "BTTDisplayVendorID" : 1552,
+      "BTTDisplaySnappedDragpoints" : [
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
+          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
+          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
+          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
+          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
+          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
+          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
+          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
+          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
+          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
+          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
+          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
+          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
+          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
+          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
+          "BTTSnapAreaShowsForApps" : [
+            {
+              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
+              "BTTSnapAreaAppName" : "Google Chrome"
+            }
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
+          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
+          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        }
+      ],
+      "BTTDisplayDisplayedDragpoints" : [
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
+          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
+          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
+          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
+          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
+          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
+          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
+          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
+          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
+          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
+          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
+          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
+          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
+          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
+          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
+          "BTTSnapAreaShowsForApps" : [
+            {
+              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
+              "BTTSnapAreaAppName" : "Google Chrome"
+            }
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.3,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
+          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
+          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
+          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaModifierCTRL" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
+          "BTTSnapAreaPictogramSize" : 0.7,
+          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        }
+      ]
+    }
+  ]
+}
