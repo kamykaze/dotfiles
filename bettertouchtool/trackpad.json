@@ -10,26 +10,6 @@
       },
       "BTTTriggers" : [
         {
-          "BTTTriggerType" : 402,
-          "BTTTriggerTypeDescription" : "2 Finger Right",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 78,
-          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 345,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 346
-            }
-          ]
-        },
-        {
           "BTTRemoteTriggerName" : "Location Bar",
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
@@ -38,33 +18,10 @@
           "BTTOrder" : 0
         },
         {
-          "BTTTriggerType" : 401,
-          "BTTTriggerTypeDescription" : "2 Finger Left",
+          "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 77,
-          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 343,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 344
-            }
-          ]
-        },
-        {
-          "BTTGestureNotes" : "focus on location bar",
-          "BTTTriggerType" : 414,
-          "BTTTriggerTypeDescription" : "5 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "55,37",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 0
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1
         },
         {
           "BTTTriggerType" : -1,
@@ -161,10 +118,53 @@
           }
         },
         {
-          "BTTTriggerType" : -1,
+          "BTTTriggerType" : 401,
+          "BTTTriggerTypeDescription" : "2 Finger Left",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 1
+          "BTTPredefinedActionType" : 77,
+          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 343,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 344
+            }
+          ]
+        },
+        {
+          "BTTTriggerType" : 402,
+          "BTTTriggerTypeDescription" : "2 Finger Right",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 78,
+          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 345,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 346
+            }
+          ]
+        },
+        {
+          "BTTGestureNotes" : "focus on location bar",
+          "BTTTriggerType" : 414,
+          "BTTTriggerTypeDescription" : "5 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTShortcutToSend" : "55,37",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 0
         }
       ]
     },
@@ -194,6 +194,47 @@
           "BTTEnabled" : 0,
           "BTTRequiredModifierKeys" : 1048576,
           "BTTOrder" : 340
+        },
+        {
+          "BTTGestureNotes" : "1c. Application Expose",
+          "BTTTriggerType" : 418,
+          "BTTTriggerTypeDescription" : "3 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 332
+        },
+        {
+          "BTTGestureNotes" : "3a. Previous Tab",
+          "BTTTriggerType" : 419,
+          "BTTTriggerTypeDescription" : "3 Finger Left",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTShortcutToSend" : "56,55,33",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 339
+        },
+        {
+          "BTTGestureNotes" : "2h. Restore Window Size",
+          "BTTTriggerType" : 425,
+          "BTTTriggerTypeDescription" : "5 Finger Down",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 84,
+          "BTTPredefinedActionName" : "Restore Old Window Size",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 333
+        },
+        {
+          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
+          "BTTTriggerType" : 400,
+          "BTTTriggerTypeDescription" : "2 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTShortcutToSend" : "59,58,126",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 341
         },
         {
           "BTTGestureNotes" : "9b. Toggle Leap Mouse",
@@ -226,47 +267,6 @@
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 8388608,
           "BTTOrder" : 342
-        },
-        {
-          "BTTGestureNotes" : "3a. Previous Tab",
-          "BTTTriggerType" : 419,
-          "BTTTriggerTypeDescription" : "3 Finger Left",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "56,55,33",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 339
-        },
-        {
-          "BTTGestureNotes" : "1c. Application Expose",
-          "BTTTriggerType" : 418,
-          "BTTTriggerTypeDescription" : "3 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 6,
-          "BTTPredefinedActionName" : "Application Expose",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 332
-        },
-        {
-          "BTTGestureNotes" : "2h. Restore Window Size",
-          "BTTTriggerType" : 425,
-          "BTTTriggerTypeDescription" : "5 Finger Down",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 84,
-          "BTTPredefinedActionName" : "Restore Old Window Size",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 333
-        },
-        {
-          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
-          "BTTTriggerType" : 400,
-          "BTTTriggerTypeDescription" : "2 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "59,58,126",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 341
         }
       ]
     },
@@ -278,98 +278,15 @@
       },
       "BTTTriggers" : [
         {
-          "BTTTriggerType" : 110,
-          "BTTTriggerTypeDescription" : "4 Finger Tap",
+          "BTTGestureNotes" : "    8.2 Toggle Cursor Visibility",
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 155,
-          "BTTPredefinedActionName" : "Restore Saved Mouse Position",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 32
-        },
-        {
-          "BTTGestureNotes" : "8. PRESENTATION -----",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 36
-        },
-        {
-          "BTTGestureNotes" : "4e. Previous Track",
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 26,
-          "BTTPredefinedActionName" : "Previous",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 27
-        },
-        {
-          "BTTGestureNotes" : "1. OS GESTURES -----",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 0
-        },
-        {
-          "BTT4FingerTapSequence" : "13223144",
-          "BTTGestureNotes" : "2a. Close Tab (window if only one tab)",
-          "BTTTriggerType" : 164,
-          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "55,13",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 7
-        },
-        {
-          "BTTGestureNotes" : "2b. Close Window",
-          "BTTTriggerType" : 110,
-          "BTTTriggerTypeDescription" : "4 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "56,55,13",
+          "BTTPredefinedActionType" : 140,
+          "BTTPredefinedActionName" : "Show\/Hide Mouse Cursor",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 8
-        },
-        {
-          "BTTGestureNotes" : "2i. Send Window to Next Monitor",
-          "BTTTriggerType" : 137,
-          "BTTTriggerTypeDescription" : "TipTap Right (3 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 98,
-          "BTTPredefinedActionName" : "Center Window on Next Monitor",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 16
-        },
-        {
-          "BTTGestureNotes" : "2h. Restore Window Size",
-          "BTTTriggerType" : 142,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 84,
-          "BTTPredefinedActionName" : "Restore Old Window Size",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 14
-        },
-        {
-          "BTTGestureNotes" : "-- 2. Window Gestures --",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 6
-        },
-        {
-          "BTTGestureNotes" : "4f. Next Track",
-          "BTTTriggerType" : 101,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 27,
-          "BTTPredefinedActionName" : "Next",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 28
+          "BTTOrder" : 41
         },
         {
           "BTTGestureNotes" : "    1.2 Desktop",
@@ -382,14 +299,257 @@
           "BTTOrder" : 2
         },
         {
-          "BTTGestureNotes" : "3a. Previous Tab",
+          "BTTGestureNotes" : "1. OS GESTURES -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTGestureNotes" : "4a. Volume Down",
+          "BTTTriggerType" : 132,
+          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 25,
+          "BTTPredefinedActionName" : "Volume Down",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 26
+        },
+        {
+          "BTTGestureNotes" : "4f. Next Track",
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 27,
+          "BTTPredefinedActionName" : "Next",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 31
+        },
+        {
+          "BTTGestureNotes" : "2. WINDOW GESTURES -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 6
+        },
+        {
+          "BTTGestureNotes" : "1g. Minimize Window",
+          "BTTTriggerType" : 107,
+          "BTTTriggerTypeDescription" : "4 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,46",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 18
+        },
+        {
+          "BTTGestureNotes" : "    9.1 Middle Click",
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescription" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 1,
+          "BTTPredefinedActionName" : "Middle Click",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 43
+        },
+        {
+          "BTT4FingerTapSequence" : "14223341",
+          "BTTTriggerType" : 164,
+          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 153,
+          "BTTPredefinedActionName" : "Move Mouse To Position",
+          "BTTMoveMouseToPosition" : "{1239, 692}",
+          "BTTMoveMouseRelative" : "0",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 38
+        },
+        {
+          "BTTGestureNotes" : "    2.5.1 Close Tab (window if only one tab)",
+          "BTTTriggerType" : 169,
+          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,13",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 13
+        },
+        {
+          "BTTGestureNotes" : "    2.1.4 Window 1\/2 Left",
+          "BTTTriggerType" : 159,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 12
+        },
+        {
+          "BTTGestureNotes" : "2i. Send Window to Next Monitor",
+          "BTTTriggerType" : 137,
+          "BTTTriggerTypeDescription" : "TipTap Right (3 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 98,
+          "BTTPredefinedActionName" : "Center Window on Next Monitor",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 19
+        },
+        {
+          "BTTGestureNotes" : "9. HARDWARE SPECIFIC -----",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 42
+        },
+        {
+          "BTTGestureNotes" : "    2.1.3 Window 1\/2 RIght",
+          "BTTTriggerType" : 145,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Right (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 9
+        },
+        {
+          "BTTGestureNotes" : "    2.1.1 Maximize Window",
+          "BTTTriggerType" : 143,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 21,
+          "BTTPredefinedActionName" : "Maximize Window",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 7
+        },
+        {
+          "BTTGestureNotes" : "    2.5.2 Close Window",
+          "BTTTriggerType" : 169,
+          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,13",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 14
+        },
+        {
+          "BTTGestureNotes" : "4c. Mute",
+          "BTTTriggerType" : 138,
+          "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 22,
+          "BTTPredefinedActionName" : "Mute",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 28
+        },
+        {
+          "BTTGestureNotes" : "    2.1.4 Window 1\/2 Left",
+          "BTTTriggerType" : 146,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 11
+        },
+        {
+          "BTTGestureNotes" : "2h. Restore Window Size",
+          "BTTTriggerType" : 142,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 84,
+          "BTTPredefinedActionName" : "Restore Old Window Size",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 17
+        },
+        {
+          "BTTGestureNotes" : "    5.1.2 Back",
           "BTTTriggerType" : 100,
           "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "56,55,33",
+          "BTTPredefinedActionType" : 77,
+          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 34
+        },
+        {
+          "BTTGestureNotes" : "3b. Next Tab",
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,30",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 19
+          "BTTOrder" : 23
+        },
+        {
+          "BTTTriggerType" : 110,
+          "BTTTriggerTypeDescription" : "4 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 155,
+          "BTTPredefinedActionName" : "Restore Saved Mouse Position",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 35
+        },
+        {
+          "BTTGestureNotes" : "5. APP GESTURES -----",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 32
+        },
+        {
+          "BTTTriggerType" : 110,
+          "BTTTriggerTypeDescription" : "4 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 154,
+          "BTTPredefinedActionName" : "Save Current Mouse Position",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 36
+        },
+        {
+          "BTTGestureNotes" : "    5.1.1 Forward",
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 78,
+          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 33
+        },
+        {
+          "BTTGestureNotes" : "4b. Volume Up",
+          "BTTTriggerType" : 133,
+          "BTTTriggerTypeDescription" : "TipTap Right (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 24,
+          "BTTPredefinedActionName" : "Volume Up",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 27
+        },
+        {
+          "BTTGestureNotes" : "4e. Previous Track",
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 26,
+          "BTTPredefinedActionName" : "Previous",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 30
+        },
+        {
+          "BTTGestureNotes" : "2e. Half Top",
+          "BTTTriggerType" : 143,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 96,
+          "BTTPredefinedActionName" : "Maximize Window to Top Half",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 15
         },
         {
           "BTTGestureNotes" : "    8.1 Toggle Cursor Size",
@@ -400,86 +560,6 @@
           "BTTPredefinedActionName" : "Toggle Between Big and Normal Cursor",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 37
-        },
-        {
-          "BTTGestureNotes" : "4c. Mute",
-          "BTTTriggerType" : 138,
-          "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 22,
-          "BTTPredefinedActionName" : "Mute",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 25
-        },
-        {
-          "BTTGestureNotes" : "    1.4.1 Next Desktop\/Space",
-          "BTTTriggerType" : 105,
-          "BTTTriggerTypeDescription" : "4 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 114,
-          "BTTPredefinedActionName" : "Move Right a Space",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 4
-        },
-        {
-          "BTTGestureNotes" : "3c. Application Switcher",
-          "BTTTriggerType" : 136,
-          "BTTTriggerTypeDescription" : "TipTap Left (3 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 46,
-          "BTTPredefinedActionName" : "Application Switcher",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 21
-        },
-        {
-          "BTTTriggerType" : 151,
-          "BTTTriggerTypeDescription" : "5 Finger Touch\/Move",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 74,
-          "BTTPredefinedActionName" : "Start\/Stop Moving",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 17
-        },
-        {
-          "BTTGestureNotes" : "    8.2 Toggle Cursor Visibility",
-          "BTTTriggerType" : 103,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 140,
-          "BTTPredefinedActionName" : "Show\/Hide Mouse Cursor",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 38
-        },
-        {
-          "BTTGestureNotes" : "4a. Volume Down",
-          "BTTTriggerType" : 132,
-          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 25,
-          "BTTPredefinedActionName" : "Volume Down",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 23
-        },
-        {
-          "BTTGestureNotes" : "    5.1.2 Back",
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 77,
-          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 31
-        },
-        {
-          "BTTGestureNotes" : "    9.1 Middle Click",
-          "BTTTriggerType" : 104,
-          "BTTTriggerTypeDescription" : "3 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 1,
-          "BTTPredefinedActionName" : "Middle Click",
-          "BTTEnabled" : 1,
           "BTTOrder" : 40
         },
         {
@@ -493,57 +573,73 @@
           "BTTOrder" : 1
         },
         {
-          "BTTGestureNotes" : "9. HARDWARE SPECIFIC -----",
-          "BTTTriggerType" : -1,
+          "BTTGestureNotes" : "3c. Application Switcher",
+          "BTTTriggerType" : 136,
+          "BTTTriggerTypeDescription" : "TipTap Left (3 Fingers Fix)",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 39
-        },
-        {
-          "BTTTriggerType" : 110,
-          "BTTTriggerTypeDescription" : "4 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 154,
-          "BTTPredefinedActionName" : "Save Current Mouse Position",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 33
-        },
-        {
-          "BTTGestureNotes" : "-- 3. Utilities --",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 18
-        },
-        {
-          "BTTGestureNotes" : "4b. Volume Up",
-          "BTTTriggerType" : 133,
-          "BTTTriggerTypeDescription" : "TipTap Right (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 24,
-          "BTTPredefinedActionName" : "Volume Up",
+          "BTTPredefinedActionType" : 46,
+          "BTTPredefinedActionName" : "Application Switcher",
           "BTTEnabled" : 1,
           "BTTOrder" : 24
         },
         {
-          "BTTGestureNotes" : "5. APP GESTURES -----",
-          "BTTTriggerType" : -1,
+          "BTTGestureNotes" : "    2.1.3 Window 1\/2 RIght",
+          "BTTTriggerType" : 160,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Right",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
           "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 10
+        },
+        {
+          "BTTGestureNotes" : "    1.4.1 Next Desktop\/Space",
+          "BTTTriggerType" : 105,
+          "BTTTriggerTypeDescription" : "4 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 114,
+          "BTTPredefinedActionName" : "Move Right a Space",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 4
+        },
+        {
+          "BTTGestureNotes" : "4d. Play\/Pause",
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescription" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 23,
+          "BTTPredefinedActionName" : "Play\/Pause",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
           "BTTOrder" : 29
         },
         {
-          "BTTGestureNotes" : "2f. Half Bottom",
-          "BTTTriggerType" : 142,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
+          "BTTTriggerType" : 151,
+          "BTTTriggerTypeDescription" : "5 Finger Touch\/Move",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 95,
-          "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
+          "BTTPredefinedActionType" : 74,
+          "BTTPredefinedActionName" : "Start\/Stop Moving",
           "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 12
+          "BTTOrder" : 20
+        },
+        {
+          "BTTGestureNotes" : "3a. Previous Tab",
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,33",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 22
+        },
+        {
+          "BTTGestureNotes" : "-- 4. Media --",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 25
         },
         {
           "BTTGestureNotes" : "    1.3 Application Expose",
@@ -566,77 +662,6 @@
           "BTTOrder" : 5
         },
         {
-          "BTT4FingerTapSequence" : "14223341",
-          "BTTTriggerType" : 164,
-          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 153,
-          "BTTPredefinedActionName" : "Move Mouse To Position",
-          "BTTMoveMouseToPosition" : "{1239, 692}",
-          "BTTMoveMouseRelative" : "0",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 35
-        },
-        {
-          "BTTGestureNotes" : "4d. Play\/Pause",
-          "BTTTriggerType" : 104,
-          "BTTTriggerTypeDescription" : "3 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 23,
-          "BTTPredefinedActionName" : "Play\/Pause",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 26
-        },
-        {
-          "BTTGestureNotes" : "2e. Half Top",
-          "BTTTriggerType" : 143,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 96,
-          "BTTPredefinedActionName" : "Maximize Window to Top Half",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 11
-        },
-        {
-          "BTTGestureNotes" : "-- 4. Media --",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 22
-        },
-        {
-          "BTTGestureNotes" : "2d. Half Right",
-          "BTTTriggerType" : 145,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Right (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 20,
-          "BTTPredefinedActionName" : "Maximize Window Right",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 10
-        },
-        {
-          "BTTGestureNotes" : "1g. Minimize Window",
-          "BTTTriggerType" : 107,
-          "BTTTriggerTypeDescription" : "4 Finger Swipe Down",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "55,46",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 15
-        },
-        {
-          "BTTGestureNotes" : "2c. Half Left",
-          "BTTTriggerType" : 146,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Left (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 19,
-          "BTTPredefinedActionName" : "Maximize Window Left",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 9
-        },
-        {
           "BTT4FingerTapSequence" : "11233244",
           "BTTTriggerType" : 164,
           "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
@@ -646,37 +671,44 @@
           "BTTMoveMouseToPosition" : "{3419, 706}",
           "BTTMoveMouseRelative" : "0",
           "BTTEnabled" : 1,
-          "BTTOrder" : 34
+          "BTTOrder" : 37
         },
         {
-          "BTTGestureNotes" : "3b. Next Tab",
-          "BTTTriggerType" : 101,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "56,55,30",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 20
-        },
-        {
-          "BTTGestureNotes" : "    5.1.1 Forward",
-          "BTTTriggerType" : 101,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 78,
-          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 30
-        },
-        {
-          "BTTGestureNotes" : "2g. Maximize Window",
-          "BTTTriggerType" : 143,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
+          "BTTGestureNotes" : "    2.1.1 Maximize Window",
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTPredefinedActionType" : 21,
           "BTTPredefinedActionName" : "Maximize Window",
           "BTTEnabled" : 1,
-          "BTTOrder" : 13
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 8
+        },
+        {
+          "BTTGestureNotes" : "8. PRESENTATION -----",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 39
+        },
+        {
+          "BTTGestureNotes" : "-- 3. Utilities --",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 21
+        },
+        {
+          "BTTGestureNotes" : "2f. Half Bottom",
+          "BTTTriggerType" : 142,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 95,
+          "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 16
         }
       ]
     },
@@ -687,17 +719,6 @@
 
       },
       "BTTTriggers" : [
-        {
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTPredefinedActionType" : 124,
-          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
-          "BTTMenubarPath" : "Edit;Paste Special;Paste Slower",
-          "BTTEnabled" : 1,
-          "BTTShortcutKeyCode" : 27,
-          "BTTShortcutModifierKeys" : 1179648,
-          "BTTOrder" : 2
-        },
         {
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -716,343 +737,22 @@
           "BTTShortcutKeyCode" : 24,
           "BTTShortcutModifierKeys" : 1179648,
           "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 124,
+          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+          "BTTMenubarPath" : "Edit;Paste Special;Paste Slower",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 27,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 2
         }
       ]
     }
   ],
   "BTTPresetSnapAreas" : [
-    {
-      "BTTDisplayIsBuiltIn" : 1,
-      "BTTDisplayID" : 69992768,
-      "BTTDisplayIsMain" : 1,
-      "BTTDisplayModel" : 45061,
-      "BTTDisplayResolution" : "{2560, 1440}",
-      "BTTDisplayScreenFrame" : "{{0, 0}, {2560, 1440}}",
-      "BTTDisplayScreenSize" : "{596.55044975630733, 335.55962798792291}",
-      "BTTDisplaySerialNumber" : "0",
-      "BTTDisplayVendorID" : 1552,
-      "BTTDisplaySnappedDragpoints" : [
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
-          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
-          "BTTSnapAreaShowsForApps" : [
 
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
-          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
-          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
-          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
-          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
-          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
-          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
-          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
-          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
-          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
-          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
-          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
-          "BTTSnapAreaShowsForApps" : [
-            {
-              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
-              "BTTSnapAreaAppName" : "Google Chrome"
-            }
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        }
-      ],
-      "BTTDisplayDisplayedDragpoints" : [
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
-          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
-          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
-          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
-          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
-          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
-          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
-          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
-          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
-          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
-          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
-          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
-          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
-          "BTTSnapAreaShowsForApps" : [
-            {
-              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
-              "BTTSnapAreaAppName" : "Google Chrome"
-            }
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        }
-      ]
-    }
   ]
 }
