@@ -10,20 +10,6 @@
       },
       "BTTTriggers" : [
         {
-          "BTTRemoteTriggerName" : "Location Bar",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTShortcutToSend" : "55,37",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 0
-        },
-        {
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 1
-        },
-        {
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
           "BTTShortcutToSend" : "55,37",
@@ -118,24 +104,12 @@
           }
         },
         {
-          "BTTTriggerType" : 401,
-          "BTTTriggerTypeDescription" : "2 Finger Left",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 77,
-          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 343,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 344
-            }
-          ]
+          "BTTRemoteTriggerName" : "Location Bar",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
+          "BTTShortcutToSend" : "55,37",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
         },
         {
           "BTTTriggerType" : 402,
@@ -158,6 +132,26 @@
           ]
         },
         {
+          "BTTTriggerType" : 401,
+          "BTTTriggerTypeDescription" : "2 Finger Left",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 77,
+          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 343,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 344
+            }
+          ]
+        },
+        {
           "BTTGestureNotes" : "focus on location bar",
           "BTTTriggerType" : 414,
           "BTTTriggerTypeDescription" : "5 Finger Tap",
@@ -165,6 +159,12 @@
           "BTTShortcutToSend" : "55,37",
           "BTTEnabled" : 0,
           "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1
         }
       ]
     },
@@ -186,26 +186,6 @@
       },
       "BTTTriggers" : [
         {
-          "BTTGestureNotes" : "3b. Next Tab",
-          "BTTTriggerType" : 420,
-          "BTTTriggerTypeDescription" : "3 Finger Right",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "56,55,30",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 340
-        },
-        {
-          "BTTGestureNotes" : "1c. Application Expose",
-          "BTTTriggerType" : 418,
-          "BTTTriggerTypeDescription" : "3 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 6,
-          "BTTPredefinedActionName" : "Application Expose",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 332
-        },
-        {
           "BTTGestureNotes" : "3a. Previous Tab",
           "BTTTriggerType" : 419,
           "BTTTriggerTypeDescription" : "3 Finger Left",
@@ -214,6 +194,16 @@
           "BTTEnabled" : 0,
           "BTTRequiredModifierKeys" : 1048576,
           "BTTOrder" : 339
+        },
+        {
+          "BTTGestureNotes" : "4i. Musicality: Thumbs Down",
+          "BTTTriggerType" : 403,
+          "BTTTriggerTypeDescription" : "2 Finger Down",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTShortcutToSend" : "59,58,125",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 342
         },
         {
           "BTTGestureNotes" : "2h. Restore Window Size",
@@ -225,16 +215,6 @@
           "BTTEnabled" : 0,
           "BTTRequiredModifierKeys" : 1048576,
           "BTTOrder" : 333
-        },
-        {
-          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
-          "BTTTriggerType" : 400,
-          "BTTTriggerTypeDescription" : "2 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "59,58,126",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 341
         },
         {
           "BTTGestureNotes" : "9b. Toggle Leap Mouse",
@@ -259,14 +239,34 @@
           ]
         },
         {
-          "BTTGestureNotes" : "4i. Musicality: Thumbs Down",
-          "BTTTriggerType" : 403,
-          "BTTTriggerTypeDescription" : "2 Finger Down",
+          "BTTGestureNotes" : "3b. Next Tab",
+          "BTTTriggerType" : 420,
+          "BTTTriggerTypeDescription" : "3 Finger Right",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "59,58,125",
-          "BTTEnabled" : 1,
+          "BTTShortcutToSend" : "56,55,30",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 340
+        },
+        {
+          "BTTGestureNotes" : "1c. Application Expose",
+          "BTTTriggerType" : 418,
+          "BTTTriggerTypeDescription" : "3 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 332
+        },
+        {
+          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
+          "BTTTriggerType" : 400,
+          "BTTTriggerTypeDescription" : "2 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTShortcutToSend" : "59,58,126",
+          "BTTEnabled" : 0,
           "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 342
+          "BTTOrder" : 341
         }
       ]
     },
@@ -278,15 +278,119 @@
       },
       "BTTTriggers" : [
         {
-          "BTTGestureNotes" : "    8.2 Toggle Cursor Visibility",
-          "BTTTriggerType" : 103,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTGestureNotes" : "    2.1.5 Window 1\/2 Top",
+          "BTTTriggerType" : 161,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Up",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 140,
-          "BTTPredefinedActionName" : "Show\/Hide Mouse Cursor",
           "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 41
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 13
+        },
+        {
+          "BTTGestureNotes" : "    2.1.8 Move Window",
+          "BTTTriggerType" : 155,
+          "BTTTriggerTypeDescription" : "3 Finger Clickswipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 74,
+          "BTTPredefinedActionName" : "Start\/Stop Moving",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 24
+        },
+        {
+          "BTTGestureNotes" : "    --- One Handed TipSwipe Set ---",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 15
+        },
+        {
+          "BTTGestureNotes" : "    2.1.4 Window 1\/2 RIght",
+          "BTTTriggerType" : 160,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 12
+        },
+        {
+          "BTTGestureNotes" : "4d. Play\/Pause",
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescription" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 23,
+          "BTTPredefinedActionName" : "Play\/Pause",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 36
+        },
+        {
+          "BTTGestureNotes" : "9. HARDWARE SPECIFIC -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 47
+        },
+        {
+          "BTTGestureNotes" : "4f. Next Track",
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 27,
+          "BTTPredefinedActionName" : "Next",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 38
+        },
+        {
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 155,
+          "BTTPredefinedActionName" : "Restore Saved Mouse Position",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 42
+        },
+        {
+          "BTTGestureNotes" : "-- 3. Utilities --",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 28
+        },
+        {
+          "BTTGestureNotes" : "    2.1.0 Restore Window Size",
+          "BTTTriggerType" : 110,
+          "BTTTriggerTypeDescription" : "4 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 84,
+          "BTTPredefinedActionName" : "Restore Old Window Size",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 16
+        },
+        {
+          "BTTGestureNotes" : "    2.2 Send Window to Next Monitor",
+          "BTTTriggerType" : 137,
+          "BTTTriggerTypeDescription" : "TipTap Right (3 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 98,
+          "BTTPredefinedActionName" : "Center Window on Next Monitor",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 25
+        },
+        {
+          "BTTGestureNotes" : "3c. Application Switcher",
+          "BTTTriggerType" : 136,
+          "BTTTriggerTypeDescription" : "TipTap Left (3 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 46,
+          "BTTPredefinedActionName" : "Application Switcher",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 31
         },
         {
           "BTTGestureNotes" : "    1.2 Desktop",
@@ -299,181 +403,6 @@
           "BTTOrder" : 2
         },
         {
-          "BTTGestureNotes" : "1. OS GESTURES -----",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 0
-        },
-        {
-          "BTTGestureNotes" : "4a. Volume Down",
-          "BTTTriggerType" : 132,
-          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 25,
-          "BTTPredefinedActionName" : "Volume Down",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 26
-        },
-        {
-          "BTTGestureNotes" : "4f. Next Track",
-          "BTTTriggerType" : 101,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 27,
-          "BTTPredefinedActionName" : "Next",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 31
-        },
-        {
-          "BTTGestureNotes" : "2. WINDOW GESTURES -----",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 6
-        },
-        {
-          "BTTGestureNotes" : "1g. Minimize Window",
-          "BTTTriggerType" : 107,
-          "BTTTriggerTypeDescription" : "4 Finger Swipe Down",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "55,46",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 18
-        },
-        {
-          "BTTGestureNotes" : "    9.1 Middle Click",
-          "BTTTriggerType" : 104,
-          "BTTTriggerTypeDescription" : "3 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 1,
-          "BTTPredefinedActionName" : "Middle Click",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 43
-        },
-        {
-          "BTT4FingerTapSequence" : "14223341",
-          "BTTTriggerType" : 164,
-          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 153,
-          "BTTPredefinedActionName" : "Move Mouse To Position",
-          "BTTMoveMouseToPosition" : "{1239, 692}",
-          "BTTMoveMouseRelative" : "0",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 38
-        },
-        {
-          "BTTGestureNotes" : "    2.5.1 Close Tab (window if only one tab)",
-          "BTTTriggerType" : 169,
-          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "55,13",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 13
-        },
-        {
-          "BTTGestureNotes" : "    2.1.4 Window 1\/2 Left",
-          "BTTTriggerType" : 159,
-          "BTTTriggerTypeDescription" : "2 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 19,
-          "BTTPredefinedActionName" : "Maximize Window Left",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 12
-        },
-        {
-          "BTTGestureNotes" : "2i. Send Window to Next Monitor",
-          "BTTTriggerType" : 137,
-          "BTTTriggerTypeDescription" : "TipTap Right (3 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 98,
-          "BTTPredefinedActionName" : "Center Window on Next Monitor",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 19
-        },
-        {
-          "BTTGestureNotes" : "9. HARDWARE SPECIFIC -----",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 42
-        },
-        {
-          "BTTGestureNotes" : "    2.1.3 Window 1\/2 RIght",
-          "BTTTriggerType" : 145,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Right (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 20,
-          "BTTPredefinedActionName" : "Maximize Window Right",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 9
-        },
-        {
-          "BTTGestureNotes" : "    2.1.1 Maximize Window",
-          "BTTTriggerType" : 143,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 21,
-          "BTTPredefinedActionName" : "Maximize Window",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 7
-        },
-        {
-          "BTTGestureNotes" : "    2.5.2 Close Window",
-          "BTTTriggerType" : 169,
-          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "56,55,13",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 14
-        },
-        {
-          "BTTGestureNotes" : "4c. Mute",
-          "BTTTriggerType" : 138,
-          "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 22,
-          "BTTPredefinedActionName" : "Mute",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 28
-        },
-        {
-          "BTTGestureNotes" : "    2.1.4 Window 1\/2 Left",
-          "BTTTriggerType" : 146,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Left (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 19,
-          "BTTPredefinedActionName" : "Maximize Window Left",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 11
-        },
-        {
-          "BTTGestureNotes" : "2h. Restore Window Size",
-          "BTTTriggerType" : 142,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 84,
-          "BTTPredefinedActionName" : "Restore Old Window Size",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 17
-        },
-        {
-          "BTTGestureNotes" : "    5.1.2 Back",
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 77,
-          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 34
-        },
-        {
           "BTTGestureNotes" : "3b. Next Tab",
           "BTTTriggerType" : 101,
           "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
@@ -481,23 +410,7 @@
           "BTTShortcutToSend" : "56,55,30",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 23
-        },
-        {
-          "BTTTriggerType" : 110,
-          "BTTTriggerTypeDescription" : "4 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 155,
-          "BTTPredefinedActionName" : "Restore Saved Mouse Position",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 35
-        },
-        {
-          "BTTGestureNotes" : "5. APP GESTURES -----",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 32
+          "BTTOrder" : 30
         },
         {
           "BTTTriggerType" : 110,
@@ -507,17 +420,28 @@
           "BTTPredefinedActionName" : "Save Current Mouse Position",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 36
+          "BTTOrder" : 43
         },
         {
-          "BTTGestureNotes" : "    5.1.1 Forward",
-          "BTTTriggerType" : 101,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTGestureNotes" : "    2.1.6 Window 1\/2 Bottom",
+          "BTTTriggerType" : 162,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Down",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 78,
-          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTPredefinedActionType" : 95,
+          "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
           "BTTEnabled" : 1,
-          "BTTOrder" : 33
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 14
+        },
+        {
+          "BTTGestureNotes" : "    5.1.2 Back",
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 77,
+          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 41
         },
         {
           "BTTGestureNotes" : "4b. Volume Up",
@@ -527,129 +451,7 @@
           "BTTPredefinedActionType" : 24,
           "BTTPredefinedActionName" : "Volume Up",
           "BTTEnabled" : 1,
-          "BTTOrder" : 27
-        },
-        {
-          "BTTGestureNotes" : "4e. Previous Track",
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 26,
-          "BTTPredefinedActionName" : "Previous",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 30
-        },
-        {
-          "BTTGestureNotes" : "2e. Half Top",
-          "BTTTriggerType" : 143,
-          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 96,
-          "BTTPredefinedActionName" : "Maximize Window to Top Half",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 15
-        },
-        {
-          "BTTGestureNotes" : "    8.1 Toggle Cursor Size",
-          "BTTTriggerType" : 102,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 123,
-          "BTTPredefinedActionName" : "Toggle Between Big and Normal Cursor",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 40
-        },
-        {
-          "BTTGestureNotes" : "    1.1 Mission Control",
-          "BTTTriggerType" : 102,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 5,
-          "BTTPredefinedActionName" : "Mission Control",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 1
-        },
-        {
-          "BTTGestureNotes" : "3c. Application Switcher",
-          "BTTTriggerType" : 136,
-          "BTTTriggerTypeDescription" : "TipTap Left (3 Fingers Fix)",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 46,
-          "BTTPredefinedActionName" : "Application Switcher",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 24
-        },
-        {
-          "BTTGestureNotes" : "    2.1.3 Window 1\/2 RIght",
-          "BTTTriggerType" : 160,
-          "BTTTriggerTypeDescription" : "2 Finger Swipe Right",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 20,
-          "BTTPredefinedActionName" : "Maximize Window Right",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 10
-        },
-        {
-          "BTTGestureNotes" : "    1.4.1 Next Desktop\/Space",
-          "BTTTriggerType" : 105,
-          "BTTTriggerTypeDescription" : "4 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 114,
-          "BTTPredefinedActionName" : "Move Right a Space",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 4
-        },
-        {
-          "BTTGestureNotes" : "4d. Play\/Pause",
-          "BTTTriggerType" : 104,
-          "BTTTriggerTypeDescription" : "3 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 23,
-          "BTTPredefinedActionName" : "Play\/Pause",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 29
-        },
-        {
-          "BTTTriggerType" : 151,
-          "BTTTriggerTypeDescription" : "5 Finger Touch\/Move",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 74,
-          "BTTPredefinedActionName" : "Start\/Stop Moving",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 20
-        },
-        {
-          "BTTGestureNotes" : "3a. Previous Tab",
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTShortcutToSend" : "56,55,33",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 22
-        },
-        {
-          "BTTGestureNotes" : "-- 4. Media --",
-          "BTTTriggerType" : 202,
-          "BTTTriggerTypeDescription" : "",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 25
-        },
-        {
-          "BTTGestureNotes" : "    1.3 Application Expose",
-          "BTTTriggerType" : 103,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 6,
-          "BTTPredefinedActionName" : "Application Expose",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 3
+          "BTTOrder" : 34
         },
         {
           "BTTGestureNotes" : "    1.4.2 Previous Desktop\/Space",
@@ -662,16 +464,20 @@
           "BTTOrder" : 5
         },
         {
-          "BTT4FingerTapSequence" : "11233244",
-          "BTTTriggerType" : 164,
-          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
+          "BTTGestureNotes" : "    --- Cmd + Swipe Set ---",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : 153,
-          "BTTPredefinedActionName" : "Move Mouse To Position",
-          "BTTMoveMouseToPosition" : "{3419, 706}",
-          "BTTMoveMouseRelative" : "0",
           "BTTEnabled" : 1,
-          "BTTOrder" : 37
+          "BTTOrder" : 7
+        },
+        {
+          "BTTGestureNotes" : "8. PRESENTATION -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 44
         },
         {
           "BTTGestureNotes" : "    2.1.1 Maximize Window",
@@ -682,33 +488,302 @@
           "BTTPredefinedActionName" : "Maximize Window",
           "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 8
+          "BTTOrder" : 9
         },
         {
-          "BTTGestureNotes" : "8. PRESENTATION -----",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 39
-        },
-        {
-          "BTTGestureNotes" : "-- 3. Utilities --",
+          "BTTGestureNotes" : "2. WINDOW GESTURES -----",
           "BTTTriggerType" : 202,
           "BTTTriggerTypeDescription" : "",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTEnabled" : 1,
-          "BTTOrder" : 21
+          "BTTOrder" : 6
         },
         {
-          "BTTGestureNotes" : "2f. Half Bottom",
+          "BTTGestureNotes" : "    2.1.1 Maximize Window",
+          "BTTTriggerType" : 108,
+          "BTTTriggerTypeDescription" : "4 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 21,
+          "BTTPredefinedActionName" : "Maximize Window",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 17
+        },
+        {
+          "BTTGestureNotes" : "1. OS GESTURES -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTGestureNotes" : "    8.2 Toggle Cursor Visibility",
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 140,
+          "BTTPredefinedActionName" : "Show\/Hide Mouse Cursor",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 46
+        },
+        {
+          "BTTGestureNotes" : "    1.1 Mission Control",
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 5,
+          "BTTPredefinedActionName" : "Mission Control",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTGestureNotes" : "    8.1 Toggle Cursor Size",
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 123,
+          "BTTPredefinedActionName" : "Toggle Between Big and Normal Cursor",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 45
+        },
+        {
+          "BTTGestureNotes" : "4c. Mute",
+          "BTTTriggerType" : 138,
+          "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 22,
+          "BTTPredefinedActionName" : "Mute",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 35
+        },
+        {
+          "BTTGestureNotes" : "    1.4.1 Next Desktop\/Space",
+          "BTTTriggerType" : 105,
+          "BTTTriggerTypeDescription" : "4 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 114,
+          "BTTPredefinedActionName" : "Move Right a Space",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 4
+        },
+        {
+          "BTTGestureNotes" : "    2.1.6 Window 1\/2 Bottom",
           "BTTTriggerType" : 142,
           "BTTTriggerTypeDescription" : "TipSwipe Left Finger Down (2 Fingers Fix)",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTPredefinedActionType" : 95,
           "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
           "BTTEnabled" : 1,
+          "BTTOrder" : 22
+        },
+        {
+          "BTTGestureNotes" : "-- 4. Media --",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 32
+        },
+        {
+          "BTTGestureNotes" : "    2.1.5 Window 1\/2 Top",
+          "BTTTriggerType" : 143,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Up (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 96,
+          "BTTPredefinedActionName" : "Maximize Window to Top Half",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 21
+        },
+        {
+          "BTTGestureNotes" : "    1.3 Application Expose",
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 3
+        },
+        {
+          "BTTGestureNotes" : "4e. Previous Track",
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 26,
+          "BTTPredefinedActionName" : "Previous",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 37
+        },
+        {
+          "BTTGestureNotes" : "    5.1.1 Forward",
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 78,
+          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 40
+        },
+        {
+          "BTTGestureNotes" : "    2.1.2 Minimize Window",
+          "BTTTriggerType" : 107,
+          "BTTTriggerTypeDescription" : "4 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,46",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 18
+        },
+        {
+          "BTT4FingerTapSequence" : "14233241",
+          "BTTTriggerType" : 164,
+          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 153,
+          "BTTPredefinedActionName" : "Move Mouse To Position",
+          "BTTMoveMouseToPosition" : "{827.08001708984375, 507.5}",
+          "BTTMoveMouseRelative" : "0",
+          "BTTEnabled" : 1,
           "BTTRequiredModifierKeys" : 131072,
-          "BTTOrder" : 16
+          "BTTOrder" : 50
+        },
+        {
+          "BTTGestureNotes" : "    9.1 Middle Click",
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescription" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 1,
+          "BTTPredefinedActionName" : "Middle Click",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 48
+        },
+        {
+          "BTTGestureNotes" : "    2.1.2 Minimize Window",
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,46",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 10
+        },
+        {
+          "BTTGestureNotes" : "    2.1.3 Window 1\/2 Left",
+          "BTTTriggerType" : 146,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 19
+        },
+        {
+          "BTT4FingerTapSequence" : "11223344",
+          "BTTTriggerType" : 164,
+          "BTTTriggerTypeDescription" : "Custom Tap Sequence (4 Fingers)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 153,
+          "BTTPredefinedActionName" : "Move Mouse To Position",
+          "BTTMoveMouseToPosition" : "{2509.75, 407.89999389648438}",
+          "BTTMoveMouseRelative" : "0",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 49
+        },
+        {
+          "BTTGestureNotes" : "    2.1.0 Window Restore",
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescription" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 84,
+          "BTTPredefinedActionName" : "Restore Old Window Size",
+          "BTTTriggerOnDown" : 0,
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 8,
+          "BTTTriggerConfig" : {
+            "BTTHUDText" : "start moving"
+          }
+        },
+        {
+          "BTTGestureNotes" : "    2.1.3 Window 1\/2 Left",
+          "BTTTriggerType" : 159,
+          "BTTTriggerTypeDescription" : "2 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 11
+        },
+        {
+          "BTTGestureNotes" : "    2.1.4 Window 1\/2 RIght",
+          "BTTTriggerType" : 145,
+          "BTTTriggerTypeDescription" : "TipSwipe Left Finger Right (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 20
+        },
+        {
+          "BTTGestureNotes" : "    2.5.2 Close Window",
+          "BTTTriggerType" : 169,
+          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,13",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 131072,
+          "BTTOrder" : 27
+        },
+        {
+          "BTTGestureNotes" : "4a. Volume Down",
+          "BTTTriggerType" : 132,
+          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 25,
+          "BTTPredefinedActionName" : "Volume Down",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 33
+        },
+        {
+          "BTTGestureNotes" : "    2.5.1 Close Tab (window if only one tab)",
+          "BTTTriggerType" : 169,
+          "BTTTriggerTypeDescription" : "4 Finger Double Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,13",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 26
+        },
+        {
+          "BTTGestureNotes" : "5. APP GESTURES -----",
+          "BTTTriggerType" : 202,
+          "BTTTriggerTypeDescription" : "",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 39
+        },
+        {
+          "BTTGestureNotes" : "    2.1.7 Resize Window",
+          "BTTTriggerType" : 151,
+          "BTTTriggerTypeDescription" : "5 Finger Touch\/Move",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 73,
+          "BTTPredefinedActionName" : "Start\/Stop Resizing",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 23
+        },
+        {
+          "BTTGestureNotes" : "3a. Previous Tab",
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,33",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 29
         }
       ]
     },
@@ -722,10 +797,13 @@
         {
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 124,
+          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+          "BTTMenubarPath" : "Edit;Paste Special;Paste Slower",
           "BTTEnabled" : 1,
-          "BTTShortcutKeyCode" : 15,
-          "BTTShortcutModifierKeys" : 1048576,
-          "BTTOrder" : 0
+          "BTTShortcutKeyCode" : 27,
+          "BTTShortcutModifierKeys" : 1179648,
+          "BTTOrder" : 2
         },
         {
           "BTTTriggerType" : -1,
@@ -741,13 +819,10 @@
         {
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTPredefinedActionType" : 124,
-          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
-          "BTTMenubarPath" : "Edit;Paste Special;Paste Slower",
           "BTTEnabled" : 1,
-          "BTTShortcutKeyCode" : 27,
-          "BTTShortcutModifierKeys" : 1179648,
-          "BTTOrder" : 2
+          "BTTShortcutKeyCode" : 15,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 0
         }
       ]
     }
