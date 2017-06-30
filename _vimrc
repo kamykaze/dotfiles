@@ -197,6 +197,22 @@
   "
   " $ vim -c 'OpenSession mysession'
   "
+  function! CheckSession(session_name)
+    let lock = g:session_directory.'/'.a:session_name.'.vim.lock'
+    "echo "checking for session lock: ".lock
+    "echo "glob: ".glob(lock)
+    if !empty(glob(lock))
+      "echo "Found lock: ".lock
+      let choice = confirm("Session ".a:session_name." is locked. Load anyways?", "&Yes\n&No")
+      "echo "Choice: ".choice
+      if choice == 1
+        execute "OpenSession! ".a:session_name
+      endif
+    else
+      execute "OpenSession ".a:session_name
+    endif
+  endfunction
+
 
   "}}}2
 
