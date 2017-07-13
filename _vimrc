@@ -137,6 +137,7 @@
   " Quickly edit/reload the vimrc file
   nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
   nmap <silent> <leader>sv :so $MYVIMRC<CR>
+  nmap <silent> <leader>sh :sh<CR>
 
   "}}}2
 
@@ -835,7 +836,8 @@
 
   " If 256 colors are supported
   set t_Co=256
-  let g:hybrid_use_Xresources = 1
+  "let g:hybrid_use_Xresources = 1
+  let g:hybrid_custom_term_colors = 1
   colorscheme hybrid
 
   "## 7a. Airline ##### {{{2
@@ -858,9 +860,9 @@
   "set matchtime=2
 
   " color overflow region
-  set colorcolumn=80
+  "set colorcolumn=80
   "let &colorcolumn=join(range(80,119),",")
-  highlight ColorColumn ctermbg=233 ctermfg=7 guibg=#181818
+  "highlight ColorColumn ctermbg=233 ctermfg=7 guibg=#181818
 
   "## 7b. CSS Colors ##### {{{2
 
