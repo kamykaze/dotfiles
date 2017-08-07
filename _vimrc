@@ -328,6 +328,10 @@
   NeoBundle 'AndrewRadev/switch.vim'          " toggles yes/no true/false, on/off, etc.
   nnoremap <c-\> :Switch<cr>
 
+
+  " replace selection or motion with register
+  NeoBundle 'vim-scripts/ReplaceWithRegister'
+
   "}}}2
 
 " }}}1
