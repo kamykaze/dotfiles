@@ -955,14 +955,14 @@
 
   "## 8b. Ack mapping ##### {{{2
   NeoBundle 'mileszs/ack.vim'
-  nnoremap <C-A> :Ack<space>
-  nnoremap <leader>aa :Ack <cword><CR>
-  nnoremap <leader><CR>w :Ack  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
-  nnoremap <leader><CR>d :Ack  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
-  nnoremap <leader><CR>c :Ack  ~/dev/projects/webcube-cloud43/cloud/<home><right><right><right><right>
-  nnoremap <leader><CR>r :Ack  ~/ref/<home><right><right><right><right>
-  nnoremap <leader><CR>s :Ack  ~/src/<home><right><right><right><right>
-  nnoremap <leader><CR>a :Ack <cword><space>
+  nnoremap <C-A> :Ack!<space>
+  nnoremap <leader>aa :Ack! <cword><CR>
+  nnoremap <leader><CR>w :Ack!  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
+  nnoremap <leader><CR>d :Ack!  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
+  nnoremap <leader><CR>c :Ack!  ~/dev/projects/webcube-cloud43/cloud/<home><right><right><right><right>
+  nnoremap <leader><CR>r :Ack!  ~/ref/<home><right><right><right><right>
+  nnoremap <leader><CR>s :Ack!  ~/src/<home><right><right><right><right>
+  nnoremap <leader><CR>a :Ack! <cword><space>
 
   "}}}2
 
