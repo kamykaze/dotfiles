@@ -222,7 +222,7 @@
           "BTTOrder" : 44
         },
         {
-          "BTTGestureNotes" : "4a. Volume Down",
+          "BTTGestureNotes" : "    4.1.1 Volume Down",
           "BTTTriggerType" : 132,
           "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -435,7 +435,7 @@
           "BTTOrder" : 16
         },
         {
-          "BTTGestureNotes" : "-- 4. Media --",
+          "BTTGestureNotes" : "4. MEDIA -----",
           "BTTTriggerType" : 202,
           "BTTTriggerTypeDescription" : "",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -453,7 +453,7 @@
           "BTTOrder" : 4
         },
         {
-          "BTTGestureNotes" : "4b. Volume Up",
+          "BTTGestureNotes" : "    4.1.2 Volume Up",
           "BTTTriggerType" : 133,
           "BTTTriggerTypeDescription" : "TipTap Right (2 Fingers Fix)",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -473,7 +473,7 @@
           "BTTOrder" : 22
         },
         {
-          "BTTGestureNotes" : "4f. Next Track",
+          "BTTGestureNotes" : "    4.2.3 Next Track",
           "BTTTriggerType" : 101,
           "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -484,7 +484,7 @@
           "BTTOrder" : 41
         },
         {
-          "BTTGestureNotes" : "4e. Previous Track",
+          "BTTGestureNotes" : "    4.2.2 Previous Track",
           "BTTTriggerType" : 100,
           "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -588,7 +588,7 @@
           "BTTOrder" : 20
         },
         {
-          "BTTGestureNotes" : "4c. Mute",
+          "BTTGestureNotes" : "    4.1.3 Mute",
           "BTTTriggerType" : 138,
           "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -673,7 +673,7 @@
           "BTTOrder" : 21
         },
         {
-          "BTTGestureNotes" : "-- 3. Utilities --",
+          "BTTGestureNotes" : "3. UTILITIES -----",
           "BTTTriggerType" : 202,
           "BTTTriggerTypeDescription" : "",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -720,7 +720,7 @@
           "BTTOrder" : 9
         },
         {
-          "BTTGestureNotes" : "4d. Play\/Pause",
+          "BTTGestureNotes" : "    4.2.1 Play\/Pause",
           "BTTTriggerType" : 104,
           "BTTTriggerTypeDescription" : "3 Finger Tap",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
