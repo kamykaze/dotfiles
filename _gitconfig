@@ -36,6 +36,7 @@
     gr = log --graph --date=short
     gra = log --graph --date=short --all
     mg = merge
+    pdf = diff @{1}..
     ps = push
     pu = pull
     sh = stash
