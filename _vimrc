@@ -954,6 +954,8 @@
   "}}}2
 
   "## 8b. Ack mapping ##### {{{2
+  let g:ack_autofold_results = 1
+  let g:ack_autoclose = 1
   NeoBundle 'mileszs/ack.vim'
   nnoremap <C-A> :Ack!<space>
   nnoremap <leader>aa :Ack! <cword><CR>
@@ -963,7 +965,6 @@
   nnoremap <leader><CR>r :Ack!  ~/ref/<home><right><right><right><right>
   nnoremap <leader><CR>s :Ack!  ~/src/<home><right><right><right><right>
   nnoremap <leader><CR>a :Ack! <cword><space>
-
   "}}}2
 
 "}}}1
