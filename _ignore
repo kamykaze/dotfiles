@@ -1,0 +1,10 @@
+wc
+log
+.sass-cache
+tmp
+doc
+coverage
+public/media
+trash
+tags
+TAGS

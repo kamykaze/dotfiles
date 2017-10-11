@@ -389,8 +389,9 @@
 
   "## 5b. Emmet ##### {{{2
   " adding emmet (http://emmet.io) support
-  let g:user_emmet_leader_key = '<C-n>'
+  let g:user_emmet_leader_key = '<s-tab>'
   let g:user_emmet_expandabbr_key = '<s-tab><s-tab>'
+  let g:user_emmet_update_tag = '<s-tab>u'
   "let g:user_emmet_togglecomment_key = '<c-_>'
   "let g:user_emmet_next_key = '<C-,>'
   "let g:user_emmet_prev_key = '<C-;>'
@@ -954,16 +955,20 @@
   "}}}2
 
   "## 8b. Ack mapping ##### {{{2
+	if executable('ag')
+		"let g:ackprg = 'ag --vimgrep'
+		let g:ackprg = 'ag --nogroup --nocolor --column --path-to-ignore ~/.ignore'
+	endif
   let g:ack_autofold_results = 1
   let g:ack_autoclose = 1
   NeoBundle 'mileszs/ack.vim'
   nnoremap <C-A> :Ack!<space>
   nnoremap <leader>aa :Ack! <cword><CR>
-  nnoremap <leader><CR>w :Ack!  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right>
-  nnoremap <leader><CR>d :Ack!  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right>
-  nnoremap <leader><CR>c :Ack!  ~/dev/projects/webcube-cloud43/cloud/<home><right><right><right><right>
-  nnoremap <leader><CR>r :Ack!  ~/ref/<home><right><right><right><right>
-  nnoremap <leader><CR>s :Ack!  ~/src/<home><right><right><right><right>
+  nnoremap <leader><CR>w :Ack!  $VIRTUAL_ENV/src/django-webcube<home><right><right><right><right><right>
+  nnoremap <leader><CR>d :Ack!  $VIRTUAL_ENV/lib/python2.7/site-packages/django<home><right><right><right><right><right>
+  nnoremap <leader><CR>c :Ack!  ~/dev/projects/webcube-cloud43/cloud/<home><right><right><right><right><right>
+  nnoremap <leader><CR>r :Ack!  ~/ref/<home><right><right><right><right><right>
+  nnoremap <leader><CR>s :Ack!  ~/src/<home><right><right><right><right><right>
   nnoremap <leader><CR>a :Ack! <cword><space>
   "}}}2
 
