@@ -6,14 +6,22 @@ export ZSH=/Users/kam/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 export DEFAULT_USER=kam
+wc_appname() {
+  if [ -n "$APPNAME"  ]; then 
+    echo "$APPNAME"
+  fi
+}
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vi_shell context virtualenv vcs dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vi_shell context virtualenv custom_wc_appname vcs dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 POWERLEVEL9K_STATUS_VERBOSE=false
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_CUSTOM_VI_SHELL="[ -z \"$MYVIMRC\"  ] || { echo \"VI\" }"
 POWERLEVEL9K_CUSTOM_VI_SHELL_BACKGROUND="red"
 POWERLEVEL9K_CUSTOM_VI_SHELL_FOREGROUND="black"
+POWERLEVEL9K_CUSTOM_WC_APPNAME="wc_appname"
+POWERLEVEL9K_CUSTOM_WC_APPNAME_BACKGROUND="black"
+POWERLEVEL9K_CUSTOM_WC_APPNAME_FOREGROUND="white"
 
 
 #ZSH_THEME="clean"
