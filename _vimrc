@@ -172,6 +172,7 @@
   let g:session_directory='~/.vim_sessions'
   let g:session_autosave = 'yes'
   let g:session_autoload = 'no'
+  let g:session_persist_colors = 0
 
   "##### Using vim session #####
   "
@@ -850,13 +851,20 @@
   " If 256 colors are supported
   set t_Co=256
   "let g:hybrid_use_Xresources = 1
-  let g:hybrid_custom_term_colors = 1
-  colorscheme hybrid
+	if !empty($TERM_SCHEME) && $TERM_SCHEME == 'hybrid'
+    let g:hybrid_custom_term_colors = 1
+    colorscheme hybrid
+  else
+    colorscheme default
+	endif
+  "set bg=light
 
   "## 7a. Airline ##### {{{2
 
   " Lightweight statusline based on powerline, but 100% in vim script
-  let g:airline_theme='hybrid'
+  if !empty($TERM_SCHEME) 
+    let g:airline_theme=$TERM_SCHEME
+	endif
   let g:airline_powerline_fonts = 1         " use nice symbols for powerline
   let g:airline_inactive_collapse=1         " collapse airline sections to only filename
   let g:airline#extensions#hunks#enabled = 0      " don't show git gutter
@@ -959,7 +967,7 @@
 		"let g:ackprg = 'ag --vimgrep'
 		let g:ackprg = 'ag --nogroup --nocolor --column --path-to-ignore ~/.ignore'
 	endif
-  let g:ack_autofold_results = 1
+  let g:ack_autofold_results = 0
   let g:ack_autoclose = 1
   NeoBundle 'mileszs/ack.vim'
   nnoremap <C-A> :Ack!<space>

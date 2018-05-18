@@ -46,7 +46,7 @@ set autoindent
 "-- UI --
 set shortmess=atI                  " Don't show the intro message when starting vim
 set title                          " set the terminal title
-set background=dark
+"set background=dark
 set ruler                          "show status line
 set rulerformat=%10(%l,%c%V%)
 set laststatus=2                   "always show status line
