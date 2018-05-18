@@ -28,3 +28,7 @@
     - mabye unite's outline plugin
 - auto complete brackets // TODO: find better alternative...these interfere when pasting code
 - look into https://github.com/tpope/vim-sensible for sensible defaults
+
+## NEOVIM
+- look into plugins that use neovim's features
+  - Grepper (https://github.com/mhinz/vim-grepper)

@@ -152,6 +152,11 @@
     let g:qb_hotkey = "<leader>b"
   endif
   NeoBundle 'vim-scripts/QuickBuf'
+  if mapcheck("<leader>B", "N") != ""
+    nunmap <leader>B
+  endif
+  nnoremap <Leader>B :BufOnly<cr>
+  NeoBundle 'vim-scripts/BufOnly.vim'
 
   "##### Using QuickBuf #####
   "
@@ -343,6 +348,7 @@
   NeoBundle 'cakebaker/scss-syntax.vim'
   NeoBundle 'KohPoll/vim-less'
   NeoBundle 'vim-scripts/django.vim'
+  NeoBundle 'posva/vim-vue'
   "NeoBundle 'loannis-Kapoulas/vim-autoprefixer'
   "NeoBundle 'mustache/mustache-handlebars'
 
@@ -385,6 +391,7 @@
   autocmd BufNewFile,BufRead *.html set filetype=htmldjango.html
   autocmd BufNewFile,BufRead *.json set filetype=javascript
   autocmd BufNewFile,BufRead *.py set filetype=python.django
+  autocmd BufNewFile,BufRead *.vue set filetype=vue
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
