@@ -857,10 +857,8 @@
 
   " If 256 colors are supported
   set t_Co=256
-  "let g:hybrid_use_Xresources = 1
-	if !empty($TERM_SCHEME) && $TERM_SCHEME == 'hybrid'
-    let g:hybrid_custom_term_colors = 1
-    colorscheme hybrid
+	if !empty($VIM_COLORSCHEME)
+    colorscheme $VIM_COLORSCHEME
   else
     colorscheme default
 	endif
@@ -869,8 +867,8 @@
   "## 7a. Airline ##### {{{2
 
   " Lightweight statusline based on powerline, but 100% in vim script
-  if !empty($TERM_SCHEME) 
-    let g:airline_theme=$TERM_SCHEME
+	if !empty($AIRLINE_THEME)
+    let g:airline_theme=$AIRLINE_THEME
 	endif
   let g:airline_powerline_fonts = 1         " use nice symbols for powerline
   let g:airline_inactive_collapse=1         " collapse airline sections to only filename
@@ -1040,6 +1038,7 @@ NeoBundle 'goldfeld/vim-seek'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'chriskempson/base16-vim'
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
