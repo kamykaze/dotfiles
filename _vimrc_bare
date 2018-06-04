@@ -32,7 +32,7 @@ filetype on                        "auto detect filetype
 syntax on                          "syntax highlighting
 
 "-- Custom leader key mapping --
-let mapleader = ","                "much easier than \, but you make the default command 'Repeat 
+let mapleader = ","                "much easier than \, but you make the default command 'Repeat
                                    "latest f, t, F or T in opposite direction' slower, but that's ok
 
 "-- Spaces and Indenting --
@@ -52,20 +52,41 @@ set rulerformat=%10(%l,%c%V%)
 set laststatus=2                   "always show status line
 set cursorline                     "highlight current line
 set number                         "show line numbers
-set numberwidth=5
+set numberwidth=3
 set hlsearch                       "highlight search keywords
 
 " automatic set relative number for current buffer, and absolute numbers for inactive ones
 function! UpdateNumbers(state)
-  if a:state == 'enter'
-    if buffer_name('%') !~# 'NERD_tree_.\+'
-      if exists('&relativenumber')
-        set relativenumber
-      endif
-    endif
-  else
-    if buffer_name('%') !~# 'NERD_tree_.\+'
+
+  " don't do anything if it's Nerdtree or numbers are off
+  if buffer_name('%') =~# 'NERD_tree_.\+'
+    return
+  endif
+
+  " no numbers, so hide any if there was one previously
+  if (g:numberformat=='none')
+    set norelativenumber
+    set nonumber
+    return
+  endif
+
+  " if absolute numbers, both enter/leave state display
+  " the same numbers
+  if (g:numberformat=='absolute')
+    set norelativenumber
+    set number
+    return
+  endif
+
+  " if relative numbers, active buffer shows relative
+  " but inactive still show absolute numbers
+  if (g:numberformat=='relative')
+    if a:state == 'enter'
       set number
+      set relativenumber
+    else
+      set number
+      set norelativenumber
     endif
   endif
 endfunc
@@ -73,23 +94,55 @@ endfunc
 autocmd BufEnter * call UpdateNumbers('enter')
 autocmd BufLeave * call UpdateNumbers('leave')
 
+let g:numberformat='relative'
 " toggle line numbers (loops between relative, absolute, and no numbers)
 function! NumberToggle()
-  if(&relativenumber == 1)
+
+  " no numbers displayed, show relative numbers
+  "if (&number==0) && (&relativenumber==0)
+  if (g:numberformat=='none')
+    set relativenumber
     set number
-  else
-    if(&number == 1)
-        set invnumber
-    else
-        set relativenumber
-    endif
+    let g:numberformat='relative'
+    return
   endif
+
+  " relative numbers, show absolute numbers
+  "if (&number==1) && (&relativenumber==1)
+  if (g:numberformat=='relative')
+    set number
+    set norelativenumber
+    let g:numberformat='absolute'
+    return
+  endif
+
+  " absolute line numbers, hide numbers
+  "if (&number==1) && (&relativenumber==0)
+  if (g:numberformat=='absolute')
+    set nonumber
+    set norelativenumber
+    let g:numberformat='none'
+    return
+  endif
+
+  "if(&relativenumber == 1)
+  "  set number
+  "else
+  "  if(&number == 1)
+  "      set invnumber
+  "  else
+  "      set relativenumber
+  "  endif
+  "endif
 endfunc
 nnoremap <silent> <leader>r :call NumberToggle()<cr>
 
 " show trailing spaces, tabs, and end of lines
 set listchars=tab:>-,trail:.,eol:$,nbsp:_
 nmap <silent> <leader>s :set nolist!<CR>
+
+" find and replace all trailing spaces
+nmap <leader>sc :%s/\s\+$//gc
 
 " easier completion mode
 imap <c-k> <c-x>
@@ -139,7 +192,7 @@ function! ToggleZoom()
       let g:ZoomWin = 0
       exe "normal \<c-w>="
     endif
-  endif 
+  endif
 endfunction
 map <silent> <Leader>, :call ToggleZoom()<cr>
 
@@ -213,7 +266,7 @@ function! TwiddleCase(str)
 endfunction
 vnoremap ~ ygv"=TwiddleCase(@")<CR>Pgv
 
-" map 'Oo' to return to a newline above your current position 
+" map 'Oo' to return to a newline above your current position
 " (useful when you want to close brackets and still continue editing)
 inoremap Oo <ESC>ko
 
@@ -223,7 +276,7 @@ nnoremap - <c-x>
 
 " creates a line separator  line below the current line
 " use any character key after calling this to pick which char to fill the line
-" eg: using <leader>1= will create a line like 
+" eg: using <leader>1= will create a line like
 " =============
 nnoremap <leader>1 yypVr
 

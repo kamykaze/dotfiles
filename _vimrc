@@ -271,6 +271,21 @@
 
   " Indicates added/removed/modified lines of code in the gutter column
   NeoBundle 'airblade/vim-gitgutter'
+  function! GitGutterNumberToggle()
+
+    call NumberToggle()
+
+    if (g:numberformat=='none')
+      :GitGutterDisable
+    endif
+
+    if (g:numberformat=='relative') || (g:numberformat=='relative')
+      :GitGutterEnable
+    endif
+
+  endfunc
+  nunmap <silent> <leader>r
+  nnoremap <silent> <leader>r :call GitGutterNumberToggle()<cr>
 
   "}}}2
 
