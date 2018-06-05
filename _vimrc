@@ -973,7 +973,7 @@
     \ }
   nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
   nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
-  nnoremap <leader><space>c :CtrlP ~/dev/projects/webcube-cloud43/cloud<CR>
+  nnoremap <leader><space>c :CtrlP ~/dev/projects/wc44-webcubecloud/cloud<CR>
   nnoremap <leader><space>f :CtrlP $VIRTUAL_ENV/src/django-webcube/webcube/webcubecore/static_src/node_modules/zurb-foundation-5<CR>
   nnoremap <leader><space>r :CtrlP ~/ref/
   nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
