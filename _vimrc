@@ -829,7 +829,7 @@
   "## 6b. Folds ##### {{{2
   set foldmethod=marker           " fold by markers
   set foldlevel=2                 " set default fold level, 0=all minimized
-  set foldcolumn=2                " do not show a column to indicate a fold
+  "set foldcolumn=2                " do not show a column to indicate a fold
   set foldnestmax=3               " prevent deep folding
 
   " custom fold text from http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
@@ -854,7 +854,7 @@
       let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
       return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
   endfunction
-  set foldtext=CustomFoldText()
+  "set foldtext=CustomFoldText()
 
   " set fold methods automatically for certain filetypes
   autocmd FileType css,scss,javascript setlocal foldmethod=marker foldmarker={,}
