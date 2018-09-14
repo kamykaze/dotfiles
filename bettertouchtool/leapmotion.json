@@ -1,28 +1,103 @@
 {
   "BTTPresetName" : "leapmotion",
-  "BTTPresetUUID" : "E538AFAD-21ED-4D18-9A8E-11B8C554E4BC",
+  "BTTPresetUUID" : "7AD57C17-314C-4A46-964D-5A7752BEA83C",
   "BTTPresetContent" : [
     {
-      "BTTAppBundleIdentifier" : "com.google.Chrome",
-      "BTTAppName" : "Google Chrome",
+      "BTTAppBundleIdentifier" : "com.apple.ActivityMonitor",
+      "BTTAppName" : "Activity Monitor",
       "BTTAppSpecificSettings" : {
 
       },
       "BTTTriggers" : [
         {
-          "BTTTriggerType" : -1,
+          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
+          "BTTTriggerType" : 400,
+          "BTTTriggerTypeDescription" : "2 Finger Up",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 1
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "59,58,126",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "C507C3B8-E328-4EC6-95AB-69F94DA411DA",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 341,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTTriggerType" : 402,
-          "BTTTriggerTypeDescription" : "2 Finger Right",
+          "BTTGestureNotes" : "4i. Musicality: Thumbs Down",
+          "BTTTriggerType" : 403,
+          "BTTTriggerTypeDescription" : "2 Finger Down",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 78,
-          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "59,58,125",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "7CBB3D8A-D19F-4285-B60F-FDDB687DF2AF",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 342,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "1c. Application Expose",
+          "BTTTriggerType" : 418,
+          "BTTTriggerTypeDescription" : "3 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "A61D5770-DE8E-4395-95AC-096A9729E0EF",
           "BTTEnabled" : 0,
-          "BTTOrder" : 345,
+          "BTTOrder" : 332,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "2h. Restore Window Size",
+          "BTTTriggerType" : 425,
+          "BTTTriggerTypeDescription" : "5 Finger Down",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 84,
+          "BTTPredefinedActionName" : "Restore Old Window Size",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "01BB557D-7E48-43AA-882E-70A719826724",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 333,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "3b. Next Tab",
+          "BTTTriggerType" : 420,
+          "BTTTriggerTypeDescription" : "3 Finger Right",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "56,55,30",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "B9A7325D-2926-47DA-89AD-BEB79A4F6293",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 340,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "9b. Toggle Leap Mouse",
+          "BTTTriggerType" : 427,
+          "BTTTriggerTypeDescription" : "3 Finger Circles Counter Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 143,
+          "BTTPredefinedActionName" : "Enable \/ Disable Leap Motion Mouse Control",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "1535E2EF-5955-42E8-865F-1529EB8FF02F",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 8388608,
+          "BTTOrder" : 337,
           "BTTAdditionalActions" : [
             {
               "BTTTriggerType" : -1,
@@ -30,19 +105,194 @@
               "BTTPredefinedActionType" : 144,
               "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
               "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "2F0403A0-CB8B-4D79-A5EB-9C942068E3D1",
               "BTTEnabled" : 1,
-              "BTTOrder" : 346
+              "BTTOrder" : 338,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
             }
-          ]
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
+          "BTTGestureNotes" : "3a. Previous Tab",
+          "BTTTriggerType" : 419,
+          "BTTTriggerTypeDescription" : "3 Finger Left",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "56,55,33",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "A3B4FF22-67F3-4EE5-97AD-5334BD15BE4E",
+          "BTTEnabled" : 0,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 339,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : 410,
+          "BTTTriggerTypeDescription" : "1 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "126",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "AB103E9C-E58E-4D5F-B919-93C1E23CC65E",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 11,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "3c. Application Switcher",
+          "BTTTriggerType" : 426,
+          "BTTTriggerTypeDescription" : "3 Finger Circles Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 46,
+          "BTTPredefinedActionName" : "Application Switcher",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "6C9EB8BC-670E-436C-BC78-424C689446EC",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 7,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 411,
+          "BTTTriggerTypeDescription" : "1 Finger Down",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "125",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "537A2F6B-CF32-4131-BFD5-B67D8B9C86B9",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 12,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 416,
+          "BTTTriggerTypeDescription" : "1 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "49",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "D80DBCCD-46B3-4555-805D-7FC422E7D270",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 15,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "4c. Mute",
+          "BTTTriggerType" : 403,
+          "BTTTriggerTypeDescription" : "2 Finger Down",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 22,
+          "BTTPredefinedActionName" : "Mute",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "407B4320-74B8-4B91-B20A-2E787524178A",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 4,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "02713D8E-B62B-4974-9175-CC665065F377",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 0,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
+            }
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 422,
+          "BTTTriggerTypeDescription" : "5 Finger Up",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 115,
+          "BTTPredefinedActionName" : "Open Launchpad",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "CE2826F3-394D-4ADD-A70C-01F03D80E747",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "E1C8F5C1-2CAA-461D-AFE5-04CAAEE44882",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 0,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
+            }
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 413,
+          "BTTTriggerTypeDescription" : "1 Finger Right",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "124",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "CAB2E798-0C44-48D3-B864-2FF9CCE66E4E",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 9,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 404,
+          "BTTTriggerTypeDescription" : "1 Finger (Small) Circle Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "63,121",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "F34BE18C-1148-4CAB-B6DC-FB08DCD89A18",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 13,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "4e. Previous Track",
           "BTTTriggerType" : 401,
           "BTTTriggerTypeDescription" : "2 Finger Left",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 77,
-          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTPredefinedActionType" : 26,
+          "BTTPredefinedActionName" : "Previous",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "AC2AA997-298C-424A-8D63-F0EAC4E3F6EB",
           "BTTEnabled" : 0,
-          "BTTOrder" : 343,
+          "BTTOrder" : 5,
           "BTTAdditionalActions" : [
             {
               "BTTTriggerType" : -1,
@@ -50,19 +300,144 @@
               "BTTPredefinedActionType" : 144,
               "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
               "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "6F082B49-5DFD-4EC0-93B2-F7D0FEF0B68F",
               "BTTEnabled" : 1,
-              "BTTOrder" : 344
+              "BTTOrder" : 0,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
             }
-          ]
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTGestureNotes" : "focus on location bar",
-          "BTTTriggerType" : 414,
-          "BTTTriggerTypeDescription" : "5 Finger Tap",
+          "BTTGestureNotes" : "4d. Play\/Pause",
+          "BTTTriggerType" : 400,
+          "BTTTriggerTypeDescription" : "2 Finger Up",
           "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "55,37",
+          "BTTPredefinedActionType" : 23,
+          "BTTPredefinedActionName" : "Play\/Pause",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "C05FA717-3F51-4583-868F-E5B7CE52F88C",
           "BTTEnabled" : 0,
-          "BTTOrder" : 0
+          "BTTOrder" : 3,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "C57EB748-A9B3-43A5-8CC5-C800EBFC97AF",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 0,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
+            }
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 412,
+          "BTTTriggerTypeDescription" : "1 Finger Left",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "123",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "7B232BDE-5C5E-4552-B7D6-97E8DFD74717",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 10,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "4a. Volume Down",
+          "BTTTriggerType" : 407,
+          "BTTTriggerTypeDescription" : "2 Finger (Small) Circles Counter Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 25,
+          "BTTPredefinedActionName" : "Volume Down",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "57959D2B-E9D3-4240-A7B4-900C36A5C55E",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 1,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 405,
+          "BTTTriggerTypeDescription" : "1 Finger (Small) Circle Counter Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "63,116",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "8B6BAE0D-B0D7-4CD3-8333-D1076ED3C9DB",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 14,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "3c. Application Switcher (backward)",
+          "BTTTriggerType" : 427,
+          "BTTTriggerTypeDescription" : "3 Finger Circles Counter Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 142,
+          "BTTPredefinedActionName" : "Application Switcher Backward (After Forward)",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "30CE2F18-468A-48EC-BDB6-E5813BF0BDCF",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 8,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "4f. Next Track",
+          "BTTTriggerType" : 402,
+          "BTTTriggerTypeDescription" : "2 Finger Right",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 27,
+          "BTTPredefinedActionName" : "Next",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "41C5498A-6D68-4D7B-B3F4-ADCD87C59241",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 6,
+          "BTTAdditionalActions" : [
+            {
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "D3CD38BE-5E9C-4EDB-96D4-0F76F0F9FAA3",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 0,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
+            }
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTGestureNotes" : "4b. Volume Up",
+          "BTTTriggerType" : 406,
+          "BTTTriggerTypeDescription" : "2 Finger (Small) Circles Clockwise",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 24,
+          "BTTPredefinedActionName" : "Volume Up",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "933ADB7C-4A2E-49DE-B6E9-64A0347F7CE8",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 2,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         }
       ]
     },
@@ -77,307 +452,6 @@
       ]
     },
     {
-      "BTTAppBundleIdentifier" : "com.apple.ActivityMonitor",
-      "BTTAppName" : "Activity Monitor",
-      "BTTAppSpecificSettings" : {
-
-      },
-      "BTTTriggers" : [
-        {
-          "BTTGestureNotes" : "3a. Previous Tab",
-          "BTTTriggerType" : 419,
-          "BTTTriggerTypeDescription" : "3 Finger Left",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "56,55,33",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 339
-        },
-        {
-          "BTTGestureNotes" : "4h. Musicality: Thumbs Up",
-          "BTTTriggerType" : 400,
-          "BTTTriggerTypeDescription" : "2 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "59,58,126",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 341
-        },
-        {
-          "BTTGestureNotes" : "4i. Musicality: Thumbs Down",
-          "BTTTriggerType" : 403,
-          "BTTTriggerTypeDescription" : "2 Finger Down",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "59,58,125",
-          "BTTEnabled" : 1,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 342
-        },
-        {
-          "BTTGestureNotes" : "1c. Application Expose",
-          "BTTTriggerType" : 418,
-          "BTTTriggerTypeDescription" : "3 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 6,
-          "BTTPredefinedActionName" : "Application Expose",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 332
-        },
-        {
-          "BTTGestureNotes" : "3b. Next Tab",
-          "BTTTriggerType" : 420,
-          "BTTTriggerTypeDescription" : "3 Finger Right",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "56,55,30",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 340
-        },
-        {
-          "BTTGestureNotes" : "2h. Restore Window Size",
-          "BTTTriggerType" : 425,
-          "BTTTriggerTypeDescription" : "5 Finger Down",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 84,
-          "BTTPredefinedActionName" : "Restore Old Window Size",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 1048576,
-          "BTTOrder" : 333
-        },
-        {
-          "BTTGestureNotes" : "9b. Toggle Leap Mouse",
-          "BTTTriggerType" : 427,
-          "BTTTriggerTypeDescription" : "3 Finger Circles Counter Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 143,
-          "BTTPredefinedActionName" : "Enable \/ Disable Leap Motion Mouse Control",
-          "BTTEnabled" : 0,
-          "BTTRequiredModifierKeys" : 8388608,
-          "BTTOrder" : 337,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 338
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "BT.G",
-      "BTTAppName" : "Global",
-      "BTTAppSpecificSettings" : {
-
-      },
-      "BTTTriggers" : [
-        {
-          "BTTGestureNotes" : "4c. Mute",
-          "BTTTriggerType" : 403,
-          "BTTTriggerTypeDescription" : "2 Finger Down",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 22,
-          "BTTPredefinedActionName" : "Mute",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 4,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 0
-            }
-          ]
-        },
-        {
-          "BTTGestureNotes" : "4d. Play\/Pause",
-          "BTTTriggerType" : 400,
-          "BTTTriggerTypeDescription" : "2 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 23,
-          "BTTPredefinedActionName" : "Play\/Pause",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 3,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 0
-            }
-          ]
-        },
-        {
-          "BTTTriggerType" : 410,
-          "BTTTriggerTypeDescription" : "1 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "126",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 11
-        },
-        {
-          "BTTGestureNotes" : "4b. Volume Up",
-          "BTTTriggerType" : 406,
-          "BTTTriggerTypeDescription" : "2 Finger (Small) Circles Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 24,
-          "BTTPredefinedActionName" : "Volume Up",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 2
-        },
-        {
-          "BTTGestureNotes" : "4a. Volume Down",
-          "BTTTriggerType" : 407,
-          "BTTTriggerTypeDescription" : "2 Finger (Small) Circles Counter Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 25,
-          "BTTPredefinedActionName" : "Volume Down",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 1
-        },
-        {
-          "BTTTriggerType" : 411,
-          "BTTTriggerTypeDescription" : "1 Finger Down",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "125",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 12
-        },
-        {
-          "BTTGestureNotes" : "3c. Application Switcher (backward)",
-          "BTTTriggerType" : 427,
-          "BTTTriggerTypeDescription" : "3 Finger Circles Counter Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 142,
-          "BTTPredefinedActionName" : "Application Switcher Backward (After Forward)",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 8
-        },
-        {
-          "BTTTriggerType" : 404,
-          "BTTTriggerTypeDescription" : "1 Finger (Small) Circle Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "63,121",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 13
-        },
-        {
-          "BTTGestureNotes" : "3c. Application Switcher",
-          "BTTTriggerType" : 426,
-          "BTTTriggerTypeDescription" : "3 Finger Circles Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 46,
-          "BTTPredefinedActionName" : "Application Switcher",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 7
-        },
-        {
-          "BTTTriggerType" : 413,
-          "BTTTriggerTypeDescription" : "1 Finger Right",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "124",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 9
-        },
-        {
-          "BTTTriggerType" : 416,
-          "BTTTriggerTypeDescription" : "1 Finger Tap",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "49",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 15
-        },
-        {
-          "BTTTriggerType" : 422,
-          "BTTTriggerTypeDescription" : "5 Finger Up",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 115,
-          "BTTPredefinedActionName" : "Open Launchpad",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 0,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 0
-            }
-          ]
-        },
-        {
-          "BTTGestureNotes" : "4f. Next Track",
-          "BTTTriggerType" : 402,
-          "BTTTriggerTypeDescription" : "2 Finger Right",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 27,
-          "BTTPredefinedActionName" : "Next",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 6,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 0
-            }
-          ]
-        },
-        {
-          "BTTGestureNotes" : "4e. Previous Track",
-          "BTTTriggerType" : 401,
-          "BTTTriggerTypeDescription" : "2 Finger Left",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTPredefinedActionType" : 26,
-          "BTTPredefinedActionName" : "Previous",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 5,
-          "BTTAdditionalActions" : [
-            {
-              "BTTTriggerType" : -1,
-              "BTTTriggerClass" : "BTTTriggerTypeLeap",
-              "BTTPredefinedActionType" : 144,
-              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
-              "BTTDisableGestureRecognitionFor" : "0.50",
-              "BTTEnabled" : 1,
-              "BTTOrder" : 0
-            }
-          ]
-        },
-        {
-          "BTTTriggerType" : 405,
-          "BTTTriggerTypeDescription" : "1 Finger (Small) Circle Counter Clockwise",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "63,116",
-          "BTTEnabled" : 0,
-          "BTTOrder" : 14
-        },
-        {
-          "BTTTriggerType" : 412,
-          "BTTTriggerTypeDescription" : "1 Finger Left",
-          "BTTTriggerClass" : "BTTTriggerTypeLeap",
-          "BTTShortcutToSend" : "123",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 10
-        }
-      ]
-    },
-    {
       "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
       "BTTAppName" : "iTerm",
       "BTTAppSpecificSettings" : {
@@ -386,341 +460,101 @@
       "BTTTriggers" : [
 
       ]
-    }
-  ],
-  "BTTPresetSnapAreas" : [
+    },
     {
-      "BTTDisplayIsBuiltIn" : 1,
-      "BTTDisplayID" : 69992768,
-      "BTTDisplayIsMain" : 1,
-      "BTTDisplayModel" : 45061,
-      "BTTDisplayResolution" : "{2560, 1440}",
-      "BTTDisplayScreenFrame" : "{{0, 0}, {2560, 1440}}",
-      "BTTDisplayScreenSize" : "{596.55044975630733, 335.55962798792291}",
-      "BTTDisplaySerialNumber" : "0",
-      "BTTDisplayVendorID" : 1552,
-      "BTTDisplaySnappedDragpoints" : [
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
-          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
-          "BTTSnapAreaShowsForApps" : [
+      "BTTAppBundleIdentifier" : "com.google.Chrome",
+      "BTTAppName" : "Google Chrome",
+      "BTTAppSpecificSettings" : {
 
-          ]
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "C53A719D-CF2F-4615-ADFF-E938B9474422",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
-          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
-          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
-          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
-          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
-          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
-          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
-          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
-          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
-          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
-          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
-          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
-          "BTTSnapAreaShowsForApps" : [
+          "BTTTriggerType" : 402,
+          "BTTTriggerTypeDescription" : "2 Finger Right",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 78,
+          "BTTPredefinedActionName" : "3F Swipe Right (Page Forward)",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "4FBB082C-667B-49B6-8FFC-734FDD60D487",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 345,
+          "BTTAdditionalActions" : [
             {
-              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
-              "BTTSnapAreaAppName" : "Google Chrome"
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "02F6FFDD-E24D-4A1E-8FA5-48034DDA2AD8",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 346,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
             }
-          ]
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        }
-      ],
-      "BTTDisplayDisplayedDragpoints" : [
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.976627, 141.841160, 189.510788, 104.550003",
-          "BTTSnapAreaFrame" : "{{1028, 741}, {662, 68}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{479, 11}, {2080, 1406}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "B1BEF721-F975-4742-80DC-396A3C09EBFE",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
+          "BTTGestureNotes" : "focus on location bar",
+          "BTTTriggerType" : 414,
+          "BTTTriggerTypeDescription" : "5 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "55,37",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "9961820B-B96F-494D-8081-7F583A7820DB",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 0,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "42.188695, 101.419187, 159.715371, 104.550003",
-          "BTTSnapAreaFrame" : "{{1292, 819}, {400, 164}}",
-          "BTTSnapAreaHighlightColor" : "20.072039, 24.067168, 53.156583, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1280, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "1B963600-3C44-43B2-AA17-A41E6DA739FC",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 102.000000",
-          "BTTSnapAreaFrame" : "{{870, 741}, {140, 157}}",
-          "BTTSnapAreaHighlightColor" : "10.752585, 10.439888, 13.027712, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwZtb2JpbGWGhAJpSQEGkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{0, 4}, {400, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "00700C61-B454-4AC3-9824-4A855FA8D864",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "52.871237, 121.318028, 175.443380, 104.550003",
-          "BTTSnapAreaFrame" : "{{874, 920}, {400, 58}}",
-          "BTTSnapAreaHighlightColor" : "25.886105, 33.599518, 69.059265, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKwM1MCWGhAJpSQEDkoSEhAxOU0RpY3Rpb25hcnkAlIQBaQKShJaWBk5TRm9udIaShISEBk5TRm9udB6UmTSEBVs1MmNdBgAAACoAAAD\/\/i4AUwBGAE4AUwBEAGkAcwBwAGwAYQB5AC0AUgBlAGcAdQBsAGEAcgAAAIQBZhmEAWMAnQGdAJ0AhpKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGhoY=",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{-0, 4}, {1280, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "766F8E17-DE9C-4A8A-8843-47BBC69F488F",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{1379, 623}, {310, 66}}",
-          "BTTSnapAreaHighlightColor" : "45.190044, 63.128486, 106.271314, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1541, 70}, {1018, 1347}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "354786ED-3B84-43C7-ACA9-8F9AC8D4B1D0",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "65.743951, 141.089469, 189.398405, 104.550003",
-          "BTTSnapAreaFrame" : "{{1029, 821}, {242, 78}}",
-          "BTTSnapAreaHighlightColor" : "16.230208, 17.806855, 40.044197, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{400, 4}, {882, 1413}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5A30365F-3B0D-4F14-8FA1-B90EDA213655",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "26.232696, 61.100167, 123.300116, 104.550003",
-          "BTTSnapAreaFrame" : "{{1953, 384}, {404, 170}}",
-          "BTTSnapAreaHighlightColor" : "13.819742, 14.094451, 29.980304, 56.099998",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{1540, 0}, {1020, 700}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "6F54783B-9BAE-45D2-A193-A2A0D45232A1",
-          "BTTSnapAreaShowsForApps" : [
+          "BTTTriggerType" : 401,
+          "BTTTriggerTypeDescription" : "2 Finger Left",
+          "BTTTriggerClass" : "BTTTriggerTypeLeap",
+          "BTTPredefinedActionType" : 77,
+          "BTTPredefinedActionName" : "3F Swipe Left (Page Back)",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "DF6F879D-A33E-4769-903E-23624C944984",
+          "BTTEnabled" : 0,
+          "BTTOrder" : 343,
+          "BTTAdditionalActions" : [
             {
-              "BTTSnapAreaAppBundleIdentifier" : "\/Applications\/Google Chrome.app",
-              "BTTSnapAreaAppName" : "Google Chrome"
+              "BTTTriggerType" : -1,
+              "BTTTriggerClass" : "BTTTriggerTypeLeap",
+              "BTTPredefinedActionType" : 144,
+              "BTTPredefinedActionName" : "Disable Gesture Recognition for X Seconds",
+              "BTTDisableGestureRecognitionFor" : "0.50",
+              "BTTEnabled2" : 1,
+              "BTTUUID" : "55B0EB51-DA07-45D7-831D-10BEC58C81D9",
+              "BTTEnabled" : 1,
+              "BTTOrder" : 344,
+              "BTTIconData" : "",
+              "BTTAlternateIconData" : ""
             }
-          ]
-        },
-        {
-          "BTTSnapAreaAnimationDuration" : 0.3,
-          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-          "BTTSnapAreaColor" : "252.260317, 106.452732, 8.120529, 127.500000",
-          "BTTSnapAreaFrame" : "{{874, 621}, {487, 67}}",
-          "BTTSnapAreaHighlightColor" : "34.163036, 46.713265, 87.076979, 56.099998",
-          "BTTSnapAreaLabelData" : "BAtzdHJlYW10eXBlZIHoA4QBQISEhBJOU0F0dHJpYnV0ZWRTdHJpbmcAhIQITlNPYmplY3QAhZKEhIQITlNTdHJpbmcBlIQBKxFyZXNwb25zaXZlIGVtYWlsc4aEAmlJARGShISEDE5TRGljdGlvbmFyeQCUhAFpApKElpYQTlNQYXJhZ3JhcGhTdHlsZYaShISEF05TTXV0YWJsZVBhcmFncmFwaFN0eWxlAISEEE5TUGFyYWdyYXBoU3R5bGUAlIQEQ0NAUwIAhQCGkoSWlgZOU0ZvbnSGkoSEhAZOU0ZvbnQelJk0hAVbNTJjXQYAAAAqAAAA\/\/4uAFMARgBOAFMARABpAHMAcABsAGEAeQAtAFIAZQBnAHUAbABhAHIAAACEAWYZhAFjAKABoACgAIaGhg==",
-          "BTTSnapAreaModifierCMD" : 1,
-          "BTTSnapAreaModifierCTRL" : 1,
-          "BTTSnapAreaPictogramDistanceFromLeft" : 0.1,
-          "BTTSnapAreaPictogramDistanceFromBottom" : 0.1,
-          "BTTSnapAreaPictogramSize" : 0.7,
-          "BTTSnapAreaPreviewFrame" : "{{2, 58}, {1540, 1358}}",
-          "BTTSnapAreaBorderWidth" : 3,
-          "BTTSnapAreaCornerRadius" : 20,
-          "BTTSnapAreaUUID" : "5506B5D9-E8FF-4D60-B23D-F5036FF35DAB",
-          "BTTSnapAreaShowsForApps" : [
-
-          ]
+          ],
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         }
       ]
     }
+  ],
+  "BTTPresetSnapAreas" : [
+
   ]
 }
