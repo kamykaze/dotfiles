@@ -364,6 +364,8 @@
   NeoBundle 'KohPoll/vim-less'
   NeoBundle 'vim-scripts/django.vim'
   NeoBundle 'posva/vim-vue'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'mxw/vim-jsx'
   "NeoBundle 'loannis-Kapoulas/vim-autoprefixer'
   "NeoBundle 'mustache/mustache-handlebars'
 
@@ -407,8 +409,17 @@
   autocmd BufNewFile,BufRead *.json set filetype=javascript
   autocmd BufNewFile,BufRead *.py set filetype=python.django
   autocmd BufNewFile,BufRead *.vue set filetype=vue
+  autocmd BufNewFile,BufRead site.cfg.* set filetype=yaml
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+  " javascript folding for panglostt/vim-javascript
+	augroup javascript_folding
+		au!
+		au FileType javascript setlocal foldmethod=syntax
+	augroup END
+  let g:jsx_ext_required = 1
+
 
   "## 5b. Emmet ##### {{{2
   " adding emmet (http://emmet.io) support
