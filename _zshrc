@@ -174,3 +174,5 @@ function merge_check {
     git diff @{1}..HEAD --name-only | grep -i $CHECK_PATTERNS | xargs git diff @{1}..HEAD
     cd - 
 }
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

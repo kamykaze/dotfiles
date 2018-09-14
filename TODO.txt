@@ -32,3 +32,6 @@
 ## NEOVIM
 - look into plugins that use neovim's features
   - Grepper (https://github.com/mhinz/vim-grepper)
+
+## Tmux
+- set user variable 'tmuxSession' to current tmux session name
