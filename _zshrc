@@ -151,7 +151,10 @@ server() {
 #     source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
 # fi
 
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # add tmuxinator autocompletion
 if [ -f ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh ]; then
