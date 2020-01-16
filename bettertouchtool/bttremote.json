@@ -1,49 +1,66 @@
 {
   "BTTPresetName" : "bttremote",
-  "BTTPresetUUID" : "791FA296-4841-4951-A881-7A183730387C",
+  "BTTPresetUUID" : "37BB30CF-397D-4989-99A6-692E004C44F2",
   "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "com.google.Chrome",
+      "BTTAppName" : "Google Chrome",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    },
     {
       "BTTAppBundleIdentifier" : "BT.G",
       "BTTAppName" : "Global",
+      "BTTAppAutoInvertIcon" : 1,
       "BTTAppSpecificSettings" : {
 
       },
       "BTTTriggers" : [
         {
-          "BTTTriggerType" : 305,
-          "BTTTriggerTypeDescription" : "Press Volume Button Up",
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : -1,
-          "BTTPredefinedActionName" : "No Action",
-          "BTTShortcutToSend" : "58,55,24",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "82DA05BC-3B4F-4F54-ACBE-8A66523B3452",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 7,
-          "BTTIconData" : "",
-          "BTTAlternateIconData" : ""
-        },
-        {
-          "BTTRemoteTriggerName" : "Window Max Next Monitor",
+          "BTTRemoteTriggerName" : "Window Max",
           "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 48,
-          "BTTPredefinedActionName" : "Maximize Window to Next Monitor",
+          "BTTPredefinedActionType" : 21,
+          "BTTPredefinedActionName" : "Maximize Window",
           "BTTEnabled2" : 1,
-          "BTTUUID" : "BC750A9D-AA1D-4E25-8625-10B3EC01E158",
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "B501D6AD-D20B-4FA5-A34C-83F8FC16C568",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
-          "BTTOrder" : 10
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 9,
+          "BTTDisplayOrder" : 0
         },
         {
-          "BTTTriggerType" : 301,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTRemoteTriggerName" : "Application Expose",
+          "BTTTriggerType" : -1,
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 19,
-          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
           "BTTEnabled2" : 1,
-          "BTTUUID" : "4C61F562-ADAC-426D-9600-E85DCEA3BE23",
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "AD2DAD7F-E8F3-4543-ACFE-C8834517018C",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
-          "BTTOrder" : 5,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 2,
+          "BTTDisplayOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
         },
@@ -54,35 +71,13 @@
           "BTTPredefinedActionType" : 5,
           "BTTPredefinedActionName" : "Mission Control",
           "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
           "BTTUUID" : "BA5E3B33-0774-44A7-AE05-4E45E901922E",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
           "BTTOrder" : 0,
-          "BTTIconData" : "",
-          "BTTAlternateIconData" : ""
-        },
-        {
-          "BTTTriggerType" : 300,
-          "BTTTriggerTypeDescription" : "Shake Device",
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 22,
-          "BTTPredefinedActionName" : "Mute",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "2D2FCE07-6CBE-4978-8704-4E885439D5E0",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 3,
-          "BTTIconData" : "",
-          "BTTAlternateIconData" : ""
-        },
-        {
-          "BTTRemoteTriggerName" : "Show Desktop",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 45,
-          "BTTPredefinedActionName" : "Show Desktop",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "0906E432-0015-4D42-B5C7-F5C9786F8D2A",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 1,
+          "BTTDisplayOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
         },
@@ -93,9 +88,77 @@
           "BTTPredefinedActionType" : 20,
           "BTTPredefinedActionName" : "Maximize Window Right",
           "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
           "BTTUUID" : "4DB26CE4-00BC-4158-A4D6-A2733C3549EC",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
           "BTTOrder" : 4,
+          "BTTDisplayOrder" : 0,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 304,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
+          "BTTPredefinedActionType" : 48,
+          "BTTPredefinedActionName" : "Maximize Window to Next Monitor",
+          "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "BE10E2B0-1331-4F11-ABEC-44DBF5BDF789",
+          "BTTNotesInsteadOfDescription" : 0,
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 6,
+          "BTTDisplayOrder" : 0
+        },
+        {
+          "BTTRemoteTriggerName" : "Show Desktop",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
+          "BTTPredefinedActionType" : 45,
+          "BTTPredefinedActionName" : "Show Desktop",
+          "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "0906E432-0015-4D42-B5C7-F5C9786F8D2A",
+          "BTTNotesInsteadOfDescription" : 0,
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 1,
+          "BTTDisplayOrder" : 0,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTRemoteTriggerName" : "Window Max Next Monitor",
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
+          "BTTPredefinedActionType" : 48,
+          "BTTPredefinedActionName" : "Maximize Window to Next Monitor",
+          "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "BC750A9D-AA1D-4E25-8625-10B3EC01E158",
+          "BTTNotesInsteadOfDescription" : 0,
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 10,
+          "BTTDisplayOrder" : 0
+        },
+        {
+          "BTTTriggerType" : 301,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "4C61F562-ADAC-426D-9600-E85DCEA3BE23",
+          "BTTNotesInsteadOfDescription" : 0,
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 5,
+          "BTTDisplayOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
         },
@@ -105,64 +168,61 @@
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
           "BTTPredefinedActionType" : -1,
           "BTTPredefinedActionName" : "No Action",
+          "BTTAutoAdaptActionToKeyboardLayout" : true,
           "BTTShortcutToSend" : "58,55,27",
           "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
           "BTTUUID" : "A5616FAB-4F8C-40AF-9C65-87FCC2CE79F0",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
           "BTTOrder" : 8,
+          "BTTDisplayOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
         },
         {
-          "BTTRemoteTriggerName" : "Window Max",
-          "BTTTriggerType" : -1,
+          "BTTTriggerType" : 305,
+          "BTTTriggerTypeDescription" : "Press Volume Button Up",
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 21,
-          "BTTPredefinedActionName" : "Maximize Window",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTAutoAdaptActionToKeyboardLayout" : true,
+          "BTTShortcutToSend" : "58,55,24",
           "BTTEnabled2" : 1,
-          "BTTUUID" : "B501D6AD-D20B-4FA5-A34C-83F8FC16C568",
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "82DA05BC-3B4F-4F54-ACBE-8A66523B3452",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
-          "BTTOrder" : 9
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 7,
+          "BTTDisplayOrder" : 0,
+          "BTTIconData" : "",
+          "BTTAlternateIconData" : ""
         },
         {
-          "BTTTriggerType" : 304,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerType" : 300,
+          "BTTTriggerTypeDescription" : "Shake Device",
           "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 48,
-          "BTTPredefinedActionName" : "Maximize Window to Next Monitor",
+          "BTTPredefinedActionType" : 22,
+          "BTTPredefinedActionName" : "Mute",
           "BTTEnabled2" : 1,
-          "BTTUUID" : "BE10E2B0-1331-4F11-ABEC-44DBF5BDF789",
+          "BTTAlternateModifierKeys" : 0,
+          "BTTUUID" : "2D2FCE07-6CBE-4978-8704-4E885439D5E0",
+          "BTTNotesInsteadOfDescription" : 0,
           "BTTEnabled" : 1,
-          "BTTOrder" : 6
-        },
-        {
-          "BTTRemoteTriggerName" : "Application Expose",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : 6,
-          "BTTPredefinedActionName" : "Application Expose",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "AD2DAD7F-E8F3-4543-ACFE-C8834517018C",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 2,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 3,
+          "BTTDisplayOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
         }
       ]
     },
     {
-      "BTTAppBundleIdentifier" : "com.apple.finder",
-      "BTTAppName" : "Finder",
-      "BTTAppSpecificSettings" : {
-
-      },
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
       "BTTAppBundleIdentifier" : "com.apple.ActivityMonitor",
       "BTTAppName" : "Activity Monitor",
+      "BTTAppAutoInvertIcon" : 1,
       "BTTAppSpecificSettings" : {
 
       },
@@ -173,34 +233,12 @@
     {
       "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
       "BTTAppName" : "iTerm",
+      "BTTAppAutoInvertIcon" : 1,
       "BTTAppSpecificSettings" : {
 
       },
       "BTTTriggers" : [
 
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "com.google.Chrome",
-      "BTTAppName" : "Google Chrome",
-      "BTTAppSpecificSettings" : {
-
-      },
-      "BTTTriggers" : [
-        {
-          "BTTRemoteTriggerName" : "Location Bar",
-          "BTTTriggerType" : -1,
-          "BTTTriggerClass" : "BTTTriggerTypeBTTRemote",
-          "BTTPredefinedActionType" : -1,
-          "BTTPredefinedActionName" : "No Action",
-          "BTTShortcutToSend" : "55,37",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "35D8A3F1-CEED-43E7-B811-D036608742DC",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 0,
-          "BTTIconData" : "",
-          "BTTAlternateIconData" : ""
-        }
       ]
     }
   ],
