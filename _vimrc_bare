@@ -203,6 +203,7 @@ nnoremap <leader>] :tabnext<CR>
 "--- Files/Buffers ---
 " quicker saving
 map <Leader>w :w<cr>
+map <Leader>a :saveas <C-R>=expand("%:p:h") . "/" <CR>
 
 " quicker closing of file
 map <Leader>q :q<cr>

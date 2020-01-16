@@ -975,20 +975,21 @@
   let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](public\/media|export|cloud_projects|old_.*|tmp|dev|node_modules)$'
       \ }
-  let g:ctrlp_max_files = 5000
+  let g:ctrlp_max_files = 9000
   let g:ctrlp_working_path_mode = 0
   let g:ctrlp_follow_symlinks = 1
   let g:ctrlp_prompt_mappings = {
     \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
     \ 'AcceptSelection("h")': ['<c-x>', '<c-cr>', '<c-s>', '<c-h>']
     \ }
-  nnoremap <leader><space>w :CtrlP $VIRTUAL_ENV/src/django-webcube<CR>
+  nnoremap <leader><space>w :CtrlP $WC_PROJECT<CR>
   nnoremap <leader><space>d :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/django<CR>
   nnoremap <leader><space>c :CtrlP ~/dev/projects/wc44-webcubecloud/cloud<CR>
   nnoremap <leader><space>f :CtrlP $VIRTUAL_ENV/src/django-webcube/webcube/webcubecore/static_src/node_modules/zurb-foundation-5<CR>
   nnoremap <leader><space>r :CtrlP ~/ref/
   nnoremap <leader><space>s :CtrlP $VIRTUAL_ENV/src/
   nnoremap <leader><space>p :CtrlP $REF_PROJECT<cr>
+  nnoremap <leader><space>a :CtrlP <cword><cr>
   nnoremap <leader>/ :CtrlPLine %<cr>
 
   "}}}2
