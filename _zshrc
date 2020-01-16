@@ -68,7 +68,7 @@ POWERLEVEL9K_CUSTOM_WC_APPNAME_FOREGROUND="white"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git tmux tmuxinator virtualenv virtualenvwrapper python django jump zsh-navigation-tools)
+plugins=(osx git gitfast tmux tmuxinator virtualenv virtualenvwrapper python django jump zsh-navigation-tools)
 
 # User configuration
 
