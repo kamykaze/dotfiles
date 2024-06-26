@@ -1,5 +1,5 @@
 (defcfg
-  input  (iokit-name)
+  input (iokit-name "Apple Internal Keyboard / Trackpad")  ;; Macbook keyboard
   output (kext)
 
   ;; Comment this if you want unhandled events not to be emitted
@@ -68,7 +68,7 @@
 
     ;; ----- winres layer
     win (layer-toggle winres)
-    qt_win (tap-hold-next-release 200 ' @win)
+    n_win (tap-hold-next-release 200 n @win)
 
     ;; ----- time tracking layer
     tim (layer-toggle time)
@@ -120,8 +120,8 @@
 				@esc_mcr          brdn    brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
 				          _       _        _        _        _        _        _        _        _        _        _        _        @bspc_bkwrd
 				@tab_num  _       _        _        _        _        _        _        _        _        _        _        _        _
-				@esc_sym  @ctl_a  @alt_s   @met_d   @sft_f   @g_tim   @h_apps  @sft_j   @met_k   @alt_l   @ctl_;   @qt_win  @ret_sym
-				@sft_lp   _       _        _        _        _        _        _        _        _        _        @sft_rp
+				@esc_sym  @ctl_a  @alt_s   @met_d   @sft_f   @g_tim   @h_apps  @sft_j   @met_k   @alt_l   @ctl_;   _        @ret_sym
+				@sft_lp   _       _        _        _        _        @n_win   _        _        _        _        @sft_rp
 				@fn_und   _       _        @met_lb                    @spc_nav          @met_rb  _        _        _        _        _
 )
 ;; ---------------- }}}
