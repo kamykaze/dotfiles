@@ -4,7 +4,7 @@ While not all features will be applicable to you, I have tried to document them 
 ## Features
 * pathogen (for easy plugin management in vim)
 * custom key mappings for faster/easier navigation
-    * <C-hjkl> instead of <C-w>hkl for navigating through windows
+    * <C-hjkl> instead of <C-w>hjkl for navigating through windows
     * ,, and ,. to maximize or even window sizes
     * ,r to toggle line numbers (relative, absolute, no numbers)
     * ,p to toggle paste mode

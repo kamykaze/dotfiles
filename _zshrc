@@ -72,7 +72,7 @@ plugins=(osx git gitfast tmux tmuxinator virtualenv virtualenvwrapper python dja
 
 # User configuration
 
-export PATH="/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin"
+export PATH="$PATH:/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin:/usr/local/sessionmanagerplugin/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-export SSH_KEY_PATH="~/.ssh/id_rsa"
+export SSH_KEY_PATH="~/.ssh/id_ed25519"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -153,8 +153,8 @@ server() {
 
 
 # Base16 Shell
-# BASE16_SHELL="$HOME/.config/base16-shell/"
-# [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # add tmuxinator autocompletion
 if [ -f ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh ]; then
@@ -174,5 +174,13 @@ function merge_check {
     git diff @{1}..HEAD --name-only | grep -i $CHECK_PATTERNS | xargs git diff @{1}..HEAD
     cd - 
 }
+
+# shortcuts
+alias ls='ls -G'
+alias ll='ls -hl'
+alias l='ls -l'
+alias lla='ls -ahl'
+alias ..='cd ..'
+alias mkdir='mkdir -pv'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -924,9 +924,9 @@
 
   "## 7c. Indentation lines ##### {{{2
 
-  let g:indentLine_enabled = 1
-  NeoBundle 'Yggdroot/indentLine'
-  nnoremap <Leader>i :IndentLinesToggle<cr>
+  "let g:indentLine_enabled = 1
+  "NeoBundle 'Yggdroot/indentLine'
+  "nnoremap <Leader>i :IndentLinesToggle<cr>
 
   "}}}2
 
