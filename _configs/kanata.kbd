@@ -1,13 +1,17 @@
 ;; Kanata Keyboard Layout
 ;; This configuration file allows me to enhance a standard laptop keyboard layout.
+;; https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
 ;;
 ;; [X] Caps lock as escape when tapped, hyper when held
 ;; [X] Return when held also acts as a hyper key
 ;; [X] Home row modifiers
-;; [X] hold Tab to access a Numeric Keypad
+;; [X] hold Tab to access Numbers layer
+;; [X] hold RMeta to access Navigation layer
 ;; [X] Add disabled layer
-;; [ ] Hold Esc for 1s to return to base layer 
-;; [ ] Fix Fn keys
+;; [X] Hold Esc for 1s to return to base layer 
+;; [X] Fix Fn/Media keys
+;; [ ] hold fn to access Function layer
+;; [X] hold Space to access Mirror layer
 
 (defcfg
   process-unmapped-keys yes
@@ -28,9 +32,6 @@
   ;;cap (tap-hold 50 200 esc hyper)
   res (tap-hold 50 1000 ∅ (layer-switch base))
 
-  meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
-  meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
-
   ;; Home row modifiers
   a (tap-hold-release $tap-time $hold-time a lctl)
   s (tap-hold-release $tap-time $hold-time s lalt)
@@ -42,7 +43,14 @@
   l (tap-hold-release $tap-time $hold-time l lalt)
   ; (tap-hold-release $tap-time $hold-time ; rctl)
 
-  tab (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
+  ;; Layer triggers
+  num (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
+  nav (tap-hold-release $tap-time $hold-time rmet (layer-toggle navigation))
+  mirr (tap-hold-release $tap-time $hold-time spc (layer-toggle mirror))
+
+  ;; Hyper or Meh keys for shortcuts
+  meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
+  meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
 
 )
 
@@ -57,14 +65,15 @@
 )
 
 (deflayer base
-  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
   _    _    _    _    _    _    _    _    _    _    _   _    _    _
-  @tab  _    _    _    _    _    _    _    _    _    _    _    _    _
+  @num  _    _    _    _    _    _    _    _    _    _    _    _    _
   @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
   _       _    _    _    _    _    _    _    _    _    _    _
-    _    _    _              _               _    _    _    _    _    _
+    _    _    _            @mirr           @nav   _    _    _    _    _
 )
 
+;; Numbers layer is used to access the number keys, which is using a numpad layout.
 (deflayer numbers
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   _    _    _    _    _    _    _   del   =    /    kp* _    _    _       ;; Numbers
@@ -72,6 +81,27 @@
   _      _    _    _    _    _    _    4    5    6    +    _    _         ;; Home row
   _       _    _    _    _    _    _    1    2    3   ret   _             ;; Bottom row
     _    _    _              0               _    .    _    _    _    _   ;; Modifiers Row
+)
+
+;; Navigation layer is used to access the arrow keys and other navigation keys.
+(deflayer navigation
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
+  _     _    _    _    _    _    _     _   up    _   -    _    _    _     ;; Top row 
+  _      _    _    _    _    _    _   left down rght  _    _    _         ;; Home row
+  _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
+    _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
+)
+
+;; Mirror layer is used to mirror the keyboard, allowing one hand to type the opposite side.
+;; This is useful when one hand is injured or when one hand is busy with the mouse/trackpad.
+(deflayer mirror
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  bspc  -   0    9    8    7    6    5    4    3    2   1    _   grv      ;; Numbers
+  \     p    o    i    u    y    t    r    e    w    q    _    _   tab    ;; Top row
+  ret    ;    l    k    j    h    g    f    d    s    a    _    _         ;; Home row
+  /       .    ,    m    n    b    v    c    x    z    _    _             ;; Bottom row
+    _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Disable layer is used to disable the keyboard, preventing any key presses from being registered.
