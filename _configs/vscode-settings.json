@@ -1,0 +1,14 @@
+{
+    "git.autofetch": true,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "workbench.colorTheme": "Default Light Modern",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.external.osxExec": "Warp.app",
+    "window.autoDetectColorScheme": true,
+    "github.copilot.advanced": {},
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd"
+}

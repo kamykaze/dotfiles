@@ -1,0 +1,103 @@
+;; Kanata Keyboard Layout
+;; This configuration file allows me to enhance a standard laptop keyboard layout.
+;;
+;; [X] Caps lock as escape when tapped, hyper when held
+;; [X] Return when held also acts as a hyper key
+;; [X] Home row modifiers
+;; [X] hold Tab to access a Numeric Keypad
+;; [X] Add disabled layer
+;; [ ] Hold Esc for 1s to return to base layer 
+;; [ ] Fix Fn keys
+
+(defcfg
+  process-unmapped-keys yes
+  log-layer-changes yes
+  concurrent-tap-hold yes
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
+)
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  ;; Caps lock as escape when tapped, control when held
+  ;;cap (tap-hold 50 200 esc hyper)
+  res (tap-hold 50 1000 ∅ (layer-switch base))
+
+  meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
+  meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
+
+  ;; Home row modifiers
+  a (tap-hold-release $tap-time $hold-time a lctl)
+  s (tap-hold-release $tap-time $hold-time s lalt)
+  d (tap-hold-release $tap-time $hold-time d lmet)
+  f (tap-hold-release $tap-time $hold-time f lsft)
+
+  j (tap-hold-release $tap-time $hold-time j rsft)
+  k (tap-hold-release $tap-time $hold-time k rmet)
+  l (tap-hold-release $tap-time $hold-time l lalt)
+  ; (tap-hold-release $tap-time $hold-time ; rctl)
+
+  tab (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
+
+)
+
+
+(defsrc
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0   -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft    z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl lalt lmet           spc             rmet ralt left down up   rght
+)
+
+(deflayer base
+  _      _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _
+  @tab  _    _    _    _    _    _    _    _    _    _    _    _    _
+  @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
+  _       _    _    _    _    _    _    _    _    _    _    _
+    _    _    _              _               _    _    _    _    _    _
+)
+
+(deflayer numbers
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  _    _    _    _    _    _    _   del   =    /    kp* _    _    _       ;; Numbers
+  _     _    _    _    _    _    _    7    8    9    -    _    _    _     ;; Top row
+  _      _    _    _    _    _    _    4    5    6    +    _    _         ;; Home row
+  _       _    _    _    _    _    _    1    2    3   ret   _             ;; Bottom row
+    _    _    _              0               _    .    _    _    _    _   ;; Modifiers Row
+)
+
+;; Disable layer is used to disable the keyboard, preventing any key presses from being registered.
+;; This is useful if you have an external keyboard and want to place it on top of the internal 
+;; keyboard, or if you want to secure your laptop by disabling the keyboard when not in use.
+(deflayer disabled
+  @res   ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅
+  ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅   ∅    ∅    ∅
+  ∅     ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅
+  ∅      ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅
+  ∅       ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅    ∅
+    ∅    ∅    ∅              ∅               ∅    ∅    ∅    ∅    ∅    ∅
+)
+
+(defchordsv2
+  ;;(caps tab)  (layer-switch splitcolemak) 300 all-released ()
+  (esc caps) (layer-switch disabled) 300 all-released ()
+)
+
+#|
+(deflayer layerX
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
+  _     _    _    _    _    _    _    _    _    _    _    _    _    _     ;; Top row
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Home row
+  _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
+    _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
+)
+|#
