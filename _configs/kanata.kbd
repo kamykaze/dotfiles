@@ -13,8 +13,8 @@
 ;; [ ] hold fn to access Function layer
 ;; [X] hold Space to access Mirror layer
 ;; [ ] Symbols layer for special characters
-;; [ ] jump layer to access other layers
-;; [ ] angle mod
+;; [X] jump layer to access other layers
+;; [X] angle mod
 
 (defcfg
   process-unmapped-keys yes
@@ -50,10 +50,16 @@
   l (tap-hold-release $tap-time $hold-time l lalt)
   ; (tap-hold-release $tap-time $hold-time ; rctl)
 
-  ;; Layer triggers
+  ;; Layer toggle triggers
+  jum (tap-hold-release $tap-time $hold-time e (layer-toggle jump))
   num (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
   nav (tap-hold-release $tap-time $hold-time rmet (layer-toggle navigation))
   mirr (tap-hold-release $tap-time $hold-time spc (layer-toggle mirror))
+
+  ;; Layer switch triggers
+  sbas  (layer-switch base)
+  smirr (layer-switch mirror)
+  sang  (layer-switch angle)
 
   ;; Hyper or Meh keys for shortcuts
   meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
@@ -78,9 +84,28 @@
 (deflayer base
   _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
   _    _    _    _    _    _    _    _    _    _    _   _    _    _
-  @num  _    _    _    _    _    _    _    _    _    _    _    _    _
+  @num  _    _  @jum   _    _    _    _    _    _    _    _    _    _
   @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
   @sbspc  _    _    _    _    _    _    _    _    _    _    @sbspc
+    _    _    _            @mirr           @nav   _    _    _    _    _
+)
+
+;; Jump layer is used to access the jump keys, which are used to quickly switch between layers.
+(deflayer jump
+ @sbas   _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+ @sbas _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
+  _     _    _    _    _    _    _    _    _    _    _    _    _    _     ;; Top row
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Home row
+ @sang    _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
+    _    _    _           @smirr             _    _    _    _    _    _   ;; Modifiers Row
+)
+
+(deflayer angle
+  _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _
+  @num  _    _  @jum   _    _    _    _    _    _    _    _    _    _
+  @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
+    z     x    c    v    b    _    _    _    _    _    _    @sbspc
     _    _    _            @mirr           @nav   _    _    _    _    _
 )
 
@@ -107,7 +132,7 @@
 ;; Mirror layer is used to mirror the keyboard, allowing one hand to type the opposite side.
 ;; This is useful when one hand is injured or when one hand is busy with the mouse/trackpad.
 (deflayer mirror
-  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  @res   _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   bspc  -   0    9    8    7    6    5    4    3    2   1    _   grv      ;; Numbers
   \     p    o    i    u    y    t    r    e    w    q    _    _   tab    ;; Top row
   ret    ;    l    k    j    h    g    f    d    s    a    _    _         ;; Home row
