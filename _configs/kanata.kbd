@@ -12,6 +12,9 @@
 ;; [X] Fix Fn/Media keys
 ;; [ ] hold fn to access Function layer
 ;; [X] hold Space to access Mirror layer
+;; [ ] Symbols layer for special characters
+;; [ ] jump layer to access other layers
+;; [ ] angle mod
 
 (defcfg
   process-unmapped-keys yes
@@ -32,6 +35,10 @@
   ;;cap (tap-hold 50 200 esc hyper)
   res (tap-hold 50 1000 ∅ (layer-switch base))
 
+  ;; Accessible Keys
+  sbspc (tap-hold-press $tap-time $hold-time bspc lsft)
+  sesc (tap-hold-press $tap-time $hold-time esc lsft)
+  
   ;; Home row modifiers
   a (tap-hold-release $tap-time $hold-time a lctl)
   s (tap-hold-release $tap-time $hold-time s lalt)
@@ -52,6 +59,10 @@
   meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
   meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
 
+  ;; Specialty keys
+  pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
+  nwrd (tap-hold-press $tap-time $hold-time (multi lalt right) (multi lmet right))
+
 )
 
 
@@ -69,7 +80,7 @@
   _    _    _    _    _    _    _    _    _    _    _   _    _    _
   @num  _    _    _    _    _    _    _    _    _    _    _    _    _
   @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
-  _       _    _    _    _    _    _    _    _    _    _    _
+  @sbspc  _    _    _    _    _    _    _    _    _    _    @sbspc
     _    _    _            @mirr           @nav   _    _    _    _    _
 )
 
@@ -87,8 +98,8 @@
 (deflayer navigation
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
-  _     _    _    _    _    _    _     _   up    _   -    _    _    _     ;; Top row 
-  _      _    _    _    _    _    _   left down rght  _    _    _         ;; Home row
+  _     _    _    _    _    _    _   @pwrd up @nwrd pgup  _    _    _     ;; Top row 
+  _      _    _    _    _    _    _   left down rght pgdn  _    _         ;; Home row
   _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
     _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
 )
