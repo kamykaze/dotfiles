@@ -1,0 +1,23 @@
+<!-- This file needs to be placed in `/Library/LaunchDaemons/` and should be owned by `root:wheel` with permissions set to `644`. It will run the Kanata service at system startup. -->
+<!-- Make sure to adjust the path to your kanata-runner.sh script accordingly. -->
+<!-- The kanata-runner.sh script can be symlinked to your desired location, such as `/Users/kam/bin/kanata-runner.sh` -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.github.jtroo.kanata</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/kam/bin/kanata-runner.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/kanata.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/kanata.log</string>
+</dict>
+</plist>
