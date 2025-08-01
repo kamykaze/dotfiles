@@ -15,6 +15,8 @@
 ;; [ ] Symbols layer for special characters
 ;; [X] jump layer to access other layers
 ;; [X] angle mod
+;; [X] repeat key
+;; [ ] Shortcuts layer
 
 (defcfg
   process-unmapped-keys yes
@@ -26,8 +28,8 @@
 )
 
 (defvar
-  tap-time 150
-  hold-time 200
+  tap-time 120
+  hold-time 150
 )
 
 (defalias
@@ -68,6 +70,7 @@
   ;; Specialty keys
   pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
   nwrd (tap-hold-press $tap-time $hold-time (multi lalt right) (multi lmet right))
+  mrpt (tap-hold-release $tap-time $hold-time rpt lmet)
 
 )
 
@@ -86,8 +89,8 @@
   _    _    _    _    _    _    _    _    _    _    _   _    _    _
   @num  _    _  @jum   _    _    _    _    _    _    _    _    _    _
   @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
-  @sbspc  _    _    _    _    _    _    _    _    _    _    @sbspc
-    _    _    _            @mirr           @nav   _    _    _    _    _
+  @sbspc   _    _    _    _    _    _    _    _    _    _    @sbspc
+    _    _   @mrpt         @mirr           @nav   _    _    _    _    _
 )
 
 ;; Jump layer is used to access the jump keys, which are used to quickly switch between layers.
