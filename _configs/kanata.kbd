@@ -16,7 +16,7 @@
 ;; [X] jump layer to access other layers
 ;; [X] angle mod
 ;; [X] repeat key
-;; [ ] Shortcuts layer
+;; [X] Shortcuts layer
 
 (defcfg
   process-unmapped-keys yes
@@ -29,7 +29,7 @@
 
 (defvar
   tap-time 120
-  hold-time 150
+  hold-time 180
 )
 
 (defalias
@@ -57,15 +57,58 @@
   num (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
   nav (tap-hold-release $tap-time $hold-time rmet (layer-toggle navigation))
   mirr (tap-hold-release $tap-time $hold-time spc (layer-toggle mirror))
+  shrt (layer-toggle shortcuts)
 
   ;; Layer switch triggers
   sbas  (layer-switch base)
   smirr (layer-switch mirror)
   sang  (layer-switch angle)
 
-  ;; Hyper or Meh keys for shortcuts
-  meh1 (tap-hold-press $tap-time $hold-time esc (multi lsft lctl lalt))
+  ;; Shortcuts layer trigger and Meh key for return
+  meh1 (tap-hold-press $tap-time $hold-time esc @shrt)
   meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
+
+  ;; Shortcuts layer keys (meh on tap, meh+meta on hold)
+  s1 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 1) (multi lsft lctl lalt lmet 1))
+  s2 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 2) (multi lsft lctl lalt lmet 2))
+  s3 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 3) (multi lsft lctl lalt lmet 3))
+  s4 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 4) (multi lsft lctl lalt lmet 4))
+  s5 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 5) (multi lsft lctl lalt lmet 5))
+  s6 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 6) (multi lsft lctl lalt lmet 6))
+  s7 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 7) (multi lsft lctl lalt lmet 7))
+  s8 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 8) (multi lsft lctl lalt lmet 8))
+  s9 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 9) (multi lsft lctl lalt lmet 9))
+  s0 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 0) (multi lsft lctl lalt lmet 0))
+  sq (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt q) (multi lsft lctl lalt lmet q))
+  sw (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt w) (multi lsft lctl lalt lmet w))
+  se (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt e) (multi lsft lctl lalt lmet e))
+  sr (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt r) (multi lsft lctl lalt lmet r))
+  st (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt t) (multi lsft lctl lalt lmet t))
+  sy (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt y) (multi lsft lctl lalt lmet y))
+  su (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt u) (multi lsft lctl lalt lmet u))
+  si (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt i) (multi lsft lctl lalt lmet i))
+  so (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt o) (multi lsft lctl lalt lmet o))
+  sp (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt p) (multi lsft lctl lalt lmet p))
+  sa (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt a) (multi lsft lctl lalt lmet a))
+  ss (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt s) (multi lsft lctl lalt lmet s))
+  sd (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt d) (multi lsft lctl lalt lmet d))
+  sf (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt f) (multi lsft lctl lalt lmet f))
+  sg (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt g) (multi lsft lctl lalt lmet g))
+  sh (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt h) (multi lsft lctl lalt lmet h))
+  sj (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt j) (multi lsft lctl lalt lmet j))
+  sk (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt k) (multi lsft lctl lalt lmet k))
+  sl (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt l) (multi lsft lctl lalt lmet l))
+  sz (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt z) (multi lsft lctl lalt lmet z))
+  sx (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt x) (multi lsft lctl lalt lmet x))
+  sc (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt c) (multi lsft lctl lalt lmet c))
+  sv (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt v) (multi lsft lctl lalt lmet v))
+  sb (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt b) (multi lsft lctl lalt lmet b))
+  sn (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt n) (multi lsft lctl lalt lmet n))
+  sm (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt m) (multi lsft lctl lalt lmet m))
+  scomma (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt ,) (multi lsft lctl lalt lmet ,))
+  sdot (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt .) (multi lsft lctl lalt lmet .))
+  sspc (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt spc) (multi lsft lctl lalt lmet spc))
+  sret (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt ret) (multi lsft lctl lalt lmet ret))
 
   ;; Specialty keys
   pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
@@ -130,6 +173,17 @@
   _      _    _    _    _    _    _   left down rght pgdn  _    _         ;; Home row
   _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
     _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
+)
+
+;; Shortcuts layer is used to send Shift+Ctrl+Alt+key on tap and Shift+Ctrl+Alt+Meta+key on hold.
+;; This layer is activated by holding the Esc key.
+(deflayer shortcuts
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  @s0  _    _    _   ;; Numbers
+  _     @sq  @sw  @se  @sr  @st  @sy  @su  @si  @so  @sp  _    _    _   ;; Top row
+  _      @sa  @ss  @sd  @sf  @sg  @sh  @sj  @sk  @sl  _    _    @sret   ;; Home row
+  _       @sz  @sx  @sc  @sv  @sb  @sn  @sm  @scomma @sdot _    _       ;; Bottom row
+    _    _    _              @sspc           _    _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Mirror layer is used to mirror the keyboard, allowing one hand to type the opposite side.
