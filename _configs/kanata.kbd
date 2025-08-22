@@ -157,7 +157,19 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   ;; Specialty keys
   pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
   nwrd (tap-hold-press $tap-time $hold-time (multi lalt right) (multi lmet right))
-  srpt (tap-hold-release $tap-time $hold-time rpt lsft)
+  
+  ;; Safe repeat - prevents repeating dangerous keys  
+  ;; This custom action checks if the last key was dangerous before repeating
+  safe-rpt (switch
+    ((key-history bspc 1)) ∅ break      ;; If last key was backspace, do nothing
+    ((key-history ret 1)) ∅ break       ;; If last key was return/enter, do nothing
+    ((key-history esc 1)) ∅ break       ;; If last key was escape, do nothing  
+    ((key-history tab 1)) ∅ break       ;; If last key was tab, do nothing
+    ((key-history del 1)) ∅ break       ;; If last key was delete, do nothing
+    () rpt break                         ;; Otherwise, repeat the last key
+  )
+  
+  srpt (tap-hold-release $tap-time $hold-time @safe-rpt lsft)
 
 )
 
