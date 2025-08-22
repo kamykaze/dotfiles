@@ -1,22 +1,48 @@
-;; Kanata Keyboard Layout
-;; This configuration file allows me to enhance a standard laptop keyboard layout.
-;; https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
-;;
-;; [X] Caps lock as escape when tapped, hyper when held
-;; [X] Return when held also acts as a hyper key
-;; [X] Home row modifiers
-;; [X] hold Tab to access Numbers layer
-;; [X] hold RMeta to access Navigation layer
-;; [X] Add disabled layer
-;; [X] Hold Esc for 1s to return to base layer 
-;; [X] Fix Fn/Media keys
-;; [ ] hold fn to access Function layer
-;; [X] hold Space to access Mirror layer
-;; [ ] Symbols layer for special characters
-;; [X] jump layer to access other layers
-;; [X] angle mod
-;; [X] repeat key
-;; [X] Shortcuts layer
+#| 
+# Kam's Laptop Keyboard Layout
+
+This configuration file allows me to enhance a standard laptop keyboard layout.
+
+It uses a standard QWERTY layout on a Macbook keyboard
+
+## Features:
+
+  - Keeps normal keyboard behavior for most keys, except
+      - hardly used Caps Lock
+      - holding keys to repeat the same key (not possible due to layer triggers)
+  - Makes keys more accessible and convenient
+  - Home row modifiers
+  - Layer toggles for numbers, navigation, shortcuts, 
+  - Special layers accessible via a Jump layer key
+      - standard keyboard behavior in the Plain layer
+
+## Mappings:
+
+[X] Accessible / Convenient Keys
+    [X] tap Caps        for Esc
+    [X] tap L-Shift     for Backspace 
+    [X] tap R-Shift     for repeat key (repeats the last key pressed, useful for speed typing double letters)
+[X] Home row modifiers (tap for normal letter, hold for modifier)
+    [X] hold A, S, D, F     for L-Ctrl, L-Alt, L-Meta, L-Shift
+    [X] hold G              for L-Ctrl + L-Meta
+    [X] hold J, K, L, ;     for R-Shift, R-Meta, L-Alt, R-Ctrl
+    [X] hold H              for L-Alt + R-Shift
+[X] hold Tab            to toggle Numbers layer
+[X] hold Caps or Return to toggle Shortcuts layer
+[X] hold Space          to toggle Navigation layer
+[X] hold V or N         to toggle Symbols layer (brings special characters to home row)
+    [X] need mappings for -, =, and `
+    [ ] need mapping for \
+[X] hold E or I         to toggle Jump layer (allows access to special modes; once you press/hold the next trigger, you can let go of E or I)
+    [X] hold Space          to toggle Mirror layer
+    [X] press E or I        to jump to Plain layer (no home row or layer triggers, for gaming or normal typing)
+    [X] tap Caps            to trigger disabled layer (disables the keyboard, great for security or around kids)
+    ------ Once in one of the special layers, you can ------
+    [X] Hold Esc (> 1s )    to return to base layer 
+
+https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
+
+|#
 
 (defcfg
   process-unmapped-keys yes
@@ -33,20 +59,19 @@
 )
 
 (defalias
-  ;; Caps lock as escape when tapped, control when held
-  ;;cap (tap-hold 50 200 esc hyper)
-  res (tap-hold 50 1000 ∅ (layer-switch base))
 
   ;; Accessible Keys
-  sbspc (tap-hold-press $tap-time $hold-time bspc lsft)
-  sesc (tap-hold-press $tap-time $hold-time esc lsft)
-  
+  mbsp (tap-hold-press $tap-time $hold-time bspc lmet)
+  cbsp (tap-hold-press $tap-time $hold-time bspc lctl)
+
   ;; Home row modifiers
   a (tap-hold-release $tap-time $hold-time a lctl)
   s (tap-hold-release $tap-time $hold-time s lalt)
   d (tap-hold-release $tap-time $hold-time d lmet)
   f (tap-hold-release $tap-time $hold-time f lsft)
+  g (tap-hold-release $tap-time $hold-time g (multi lctl lmet))
 
+  h (tap-hold-release $tap-time $hold-time h (multi lalt rsft))
   j (tap-hold-release $tap-time $hold-time j rsft)
   k (tap-hold-release $tap-time $hold-time k rmet)
   l (tap-hold-release $tap-time $hold-time l lalt)
@@ -54,19 +79,23 @@
 
   ;; Layer toggle triggers
   jum (tap-hold-release $tap-time $hold-time e (layer-toggle jump))
+  mju (tap-hold-release $tap-time $hold-time i (layer-toggle jump))
   num (tap-hold-release $tap-time $hold-time tab (layer-toggle numbers))
-  nav (tap-hold-release $tap-time $hold-time rmet (layer-toggle navigation))
+  nav (tap-hold-release $tap-time $hold-time spc (layer-toggle navigation))
   mirr (tap-hold-release $tap-time $hold-time spc (layer-toggle mirror))
-  shrt (layer-toggle shortcuts)
+  shrt (tap-hold-release $tap-time $hold-time esc (layer-toggle shortcuts))
+  rsht (tap-hold-release $tap-time $hold-time ret (layer-toggle shortcuts))
+  vsym (tap-hold-release $tap-time $hold-time v (layer-toggle Symbols))
+  nsym (tap-hold-release $tap-time $hold-time n (layer-toggle Symbols))
 
   ;; Layer switch triggers
+  sdis  (layer-switch disabled)
   sbas  (layer-switch base)
   smirr (layer-switch mirror)
-  sang  (layer-switch angle)
+  spln  (layer-switch plain)
+  res (tap-hold 50 1000 esc (layer-switch base))
 
   ;; Shortcuts layer trigger and Meh key for return
-  meh1 (tap-hold-press $tap-time $hold-time esc @shrt)
-  meh2 (tap-hold-press $tap-time $hold-time ret (multi lsft lctl lalt))
 
   ;; Shortcuts layer keys (meh on tap, meh+meta on hold)
   s1 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 1) (multi lsft lctl lalt lmet 1))
@@ -110,10 +139,25 @@
   sspc (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt spc) (multi lsft lctl lalt lmet spc))
   sret (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt ret) (multi lsft lctl lalt lmet ret))
 
+  ;; Symbols layer keys 
+  zti (multi lsft grv)
+  z1 (multi lsft 1)
+  z2 (multi lsft 2)
+  z3 (multi lsft 3)
+  z4 (multi lsft 4)
+  z5 (multi lsft 5)
+  z6 (multi lsft 6)
+  z7 (multi lsft 7)
+  z8 (multi lsft 8)
+  z9 (multi lsft 9)
+  z0 (multi lsft 0)
+  zun (multi lsft -)
+  zpl (multi lsft =)
+
   ;; Specialty keys
   pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
   nwrd (tap-hold-press $tap-time $hold-time (multi lalt right) (multi lmet right))
-  mrpt (tap-hold-release $tap-time $hold-time rpt lmet)
+  srpt (tap-hold-release $tap-time $hold-time rpt lsft)
 
 )
 
@@ -129,30 +173,21 @@
 
 (deflayer base
   _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
-  _    _    _    _    _    _    _    _    _    _    _   _    _    _
-  @num  _    _  @jum   _    _    _    _    _    _    _    _    _    _
-  @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
-  @sbspc   _    _    _    _    _    _    _    _    _    _    @sbspc
-    _    _   @mrpt         @mirr           @nav   _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Function keys
+  @num  _    _  @jum   _    _    _    _   @mju  _    _    _    _    _     ;; Numbers
+  @shrt  @a    @s   @d   @f  @g    @h   @j   @k   @l   @;   _    @rsht    ;; Top row
+  @srpt    _    _    _  @vsym   _  @nsym  _    _    _    _    @srpt       ;; Bottom row
+  @cbsp  _     _           @nav            @mbsp  _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Jump layer is used to access the jump keys, which are used to quickly switch between layers.
 (deflayer jump
  @sbas   _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
- @sbas _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
-  _     _    _    _    _    _    _    _    _    _    _    _    _    _     ;; Top row
-  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Home row
- @sang    _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
-    _    _    _           @smirr             _    _    _    _    _    _   ;; Modifiers Row
-)
-
-(deflayer angle
-  _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
-  _    _    _    _    _    _    _    _    _    _    _   _    _    _
-  @num  _    _  @jum   _    _    _    _    _    _    _    _    _    _
-  @meh1  @a    @s   @d   @f   _    _    @j   @k   @l   @;   _    @meh2
-    z     x    c    v    b    _    _    _    _    _    _    @sbspc
-    _    _    _            @mirr           @nav   _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
+  _   @sbas  _   @spln _    _    _    _  @spln  _    _    _    _    _     ;; Top row
+ @sdis   _    _    _    _    _    _    _    _    _    _    _    _         ;; Home row
+  _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
+    _    _    _           @mirr              _    _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Numbers layer is used to access the number keys, which is using a numpad layout.
@@ -163,6 +198,16 @@
   _      _    _    _    _    _    _    4    5    6    +    _    _         ;; Home row
   _       _    _    _    _    _    _    1    2    3   ret   _             ;; Bottom row
     _    _    _              0               _    .    _    _    _    _   ;; Modifiers Row
+)
+
+;; Symbols layer is used to access special characters on the home row.
+(deflayer Symbols
+  _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
+  _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
+  `     _    _    =    -    _    _    _    _    _    _    _    _    _     ;; Top row
+@zti    @z1  @z2  @z3  @z4  @z5  @z6  @z7  @z8  @z9  @z0  @zun @zpl       ;; Home row
+  _       _    _    _    _    _    _    _    _    _    _    _             ;; Bottom row
+    _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Navigation layer is used to access the arrow keys and other navigation keys.
@@ -191,10 +236,21 @@
 (deflayer mirror
   @res   _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   bspc  -   0    9    8    7    6    5    4    3    2   1    _   grv      ;; Numbers
-  \     p    o    i    u    y    t    r    e    w    q    _    _   tab    ;; Top row
+  \     p    o   @mju  u    y    t    r   @jum  w    q    _    _   tab    ;; Top row
   ret    ;    l    k    j    h    g    f    d    s    a    _    _         ;; Home row
   /       .    ,    m    n    b    v    c    x    z    _    _             ;; Bottom row
     _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
+)
+
+;; Plain layer is a simplified layer with no home row or layer triggers.
+;; This layer is useful for gaming or normal typing without the complexity of home row modifiers.
+(deflayer plain
+  @res   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0   -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft    z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl lalt lmet           spc             rmet ralt left down up   rght
 )
 
 ;; Disable layer is used to disable the keyboard, preventing any key presses from being registered.
@@ -209,12 +265,12 @@
     ∅    ∅    ∅              ∅               ∅    ∅    ∅    ∅    ∅    ∅
 )
 
-(defchordsv2
-  ;;(caps tab)  (layer-switch splitcolemak) 300 all-released ()
-  (esc caps) (layer-switch disabled) 300 all-released ()
-)
+;; (defchordsv2
+;;   (esc caps) (layer-switch disabled) 300 all-released ()
+;; )
 
-#|
+#| Copy this to create a new layer, then replace keys as needed.
+
 (deflayer layerX
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
