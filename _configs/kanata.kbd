@@ -1,9 +1,16 @@
-#| 
+#|
 # Kam's Laptop Keyboard Layout
 
 This configuration file allows me to enhance a standard laptop keyboard layout.
 
 It uses a standard QWERTY layout on a Macbook keyboard
+
+## Visual Layer Reference
+
+A real-time visual keyboard display is available to see the current layer and key mappings:
+  - Start Kanata with TCP: sudo kanata -c ~/.configs/kanata.kbd -p 12321
+  - Run visualizer: python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py
+  - See: utilities/scripts/KANATA_VISUALIZER_README.md for details
 
 ## Features:
 
@@ -12,7 +19,7 @@ It uses a standard QWERTY layout on a Macbook keyboard
       - holding keys to repeat the same key (not possible due to layer triggers)
   - Makes keys more accessible and convenient
   - Home row modifiers
-  - Layer toggles for numbers, navigation, shortcuts, 
+  - Layer toggles for numbers, navigation, shortcuts,
   - Special layers accessible via a Jump layer key
       - standard keyboard behavior in the Plain layer
 
@@ -20,8 +27,8 @@ It uses a standard QWERTY layout on a Macbook keyboard
 
 [X] Accessible / Convenient Keys
     [X] tap Caps        for Esc
-    [X] tap L-Shift     for Backspace 
-    [X] tap R-Shift     for repeat key (repeats the last key pressed, useful for speed typing double letters)
+    [X] tap L/R-Meta    for Backspace 
+    [X] tap L/R-Shift   for repeat key (repeats the last key pressed, useful for speed typing double letters)
 [X] Home row modifiers (tap for normal letter, hold for modifier)
     [X] hold A, S, D, F     for L-Ctrl, L-Alt, L-Meta, L-Shift
     [X] hold G              for L-Ctrl + L-Meta
@@ -202,7 +209,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   @num  _    _  @jum   _    _    _    _   @mju  _    _    _    _    _     ;; Numbers
   @shrt  @a    @s   @d   @f  @g    @h   @j   @k   @l   @;   _    @rsht    ;; Top row
   @srpt    _    _    _  @vsym   _  @nsym  _    _    _    _    @srpt       ;; Bottom row
-  @cbsp  _     _           @nav            @mbsp  _    _    _    _    _   ;; Modifiers Row
+  @cbsp  _    @mbsp        @nav            @mbsp  _    _    _    _    _   ;; Modifiers Row
 )
 
 ;; Jump layer is used to access the jump keys, which are used to quickly switch between layers.

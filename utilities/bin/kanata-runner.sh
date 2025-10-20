@@ -7,7 +7,7 @@
 KANATA_BIN="/opt/homebrew/bin/kanata"
 
 # Path to kanata configuration file (moved from ~/.config/kanata/config.kbd)
-CONFIG_FILE="/Users/kam/dev/projects/dotfiles/_configs/kanata.kbd"
+CONFIG_FILE="/Users/kam/personal/projects/dotfiles/_configs/kanata.kbd"
 
 # Check if kanata binary exists
 if [ ! -f "$KANATA_BIN" ]; then
@@ -22,4 +22,4 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 # Start kanata with the configuration file using -c flag
-exec "$KANATA_BIN" -c "$CONFIG_FILE"
+exec "$KANATA_BIN" -c "$CONFIG_FILE" -p 12321
