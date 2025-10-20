@@ -1,76 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/kam/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-export DEFAULT_USER=kam
-wc_appname() {
-  if [ -n "$APPNAME"  ]; then 
-    echo "$APPNAME"
-  fi
-}
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_vi_shell context virtualenv custom_wc_appname vcs dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_CUSTOM_VI_SHELL="[ -z \"$MYVIMRC\"  ] || { echo \"VI\" }"
-POWERLEVEL9K_CUSTOM_VI_SHELL_BACKGROUND="red"
-POWERLEVEL9K_CUSTOM_VI_SHELL_FOREGROUND="black"
-POWERLEVEL9K_CUSTOM_WC_APPNAME="wc_appname"
-POWERLEVEL9K_CUSTOM_WC_APPNAME_BACKGROUND="black"
-POWERLEVEL9K_CUSTOM_WC_APPNAME_FOREGROUND="white"
-
-
-#ZSH_THEME="clean"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git gitfast tmux tmuxinator virtualenv virtualenvwrapper python django jump zsh-navigation-tools)
-
-# User configuration
 
 export PATH="$PATH:/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin:/usr/local/sessionmanagerplugin/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -87,83 +14,30 @@ export TERM=xterm-256color
 export EDITOR="vim"
 
 
-# Env variables and functions for virtualenvwrapper.
-# virtualenv must be loaded after pythonbrew
-export WORKON_HOME=$HOME/dev/virtualenvs
-export PROJECT_HOME=$HOME/dev/projects
-if [ -f $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh ]; then
-    . $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
-else
-    . /usr/local/bin/virtualenvwrapper.sh
-fi
-
-
 # ZMV
 autoload zmv
 alias zmv='noglob zmv -W'
 
-source $ZSH/oh-my-zsh.sh
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 export SSH_KEY_PATH="~/.ssh/id_ed25519"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias ohmyzsh="vim ~/.oh-my-zsh"
 
 server() {
     python -m SimpleHTTPServer $1
 }
-
-# using powerline for nice prompt (custom powerline prompt below to add newlines)
-# if [ -f /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
-#     export POWERLINE_SRC=/Library/Python/2.7/site-packages/powerline
-# else
-#     export POWERLINE_SRC=/Users/kam/Library/Python/2.7/lib/python/site-packages/powerline
-# fi
-# if [[ -n "$VIMRUNTIME" ]]; then
-#   export POWERLINE_VIM_SHELL_INDICATOR='vim'
-# fi
-# source ${POWERLINE_SRC}/bindings/zsh/powerline.zsh
-# 
-# if [ -f $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh ] ; then
-#     source $HOME/dotfiles/_configs/shellcolors/base16-eighties.dark.sh
-# fi
 
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# add tmuxinator autocompletion
-if [ -f ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh ]; then
-    . ~/.rvm/gems/ruby-2.4.0/gems/tmuxinator-0.9.0/completion/tmuxinator.zsh
-else
-    if [ -f ~/dotfiles/utilities/bin/tmuxinator.zsh ]; then
-        . ~/dotfiles/utilities/bin/tmuxinator.zsh
-    fi
-fi 
+
+autoload -Uz compinit && compinit
 
 
 function merge_check { 
@@ -182,5 +56,8 @@ alias l='ls -l'
 alias lla='ls -ahl'
 alias ..='cd ..'
 alias mkdir='mkdir -pv'
+alias kanata-viz='python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py'
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+#ssource <(fzf --zsh)
