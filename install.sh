@@ -23,3 +23,10 @@ git submodule foreach git pull origin master
 git submodule foreach git submodule init
 git submodule foreach git submodule update
 
+# Setup VS Code configuration
+if [ -f utilities/scripts/setup-vscode.sh ]; then
+    echo ""
+    echo "Setting up VS Code configuration..."
+    bash utilities/scripts/setup-vscode.sh
+fi
+

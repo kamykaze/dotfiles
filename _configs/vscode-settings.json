@@ -10,5 +10,6 @@
     "window.autoDetectColorScheme": true,
     "github.copilot.advanced": {},
     "editor.minimap.enabled": false,
-    "editor.multiCursorModifier": "ctrlCmd"
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.accessibilitySupport": "off"
 }

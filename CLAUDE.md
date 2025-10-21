@@ -14,6 +14,7 @@ This is a personal dotfiles repository for configuring macOS development environ
 
 ### Installation System
 - `install.sh` creates symlinks for all `_*` files and initializes git submodules
+- Automatically runs `utilities/scripts/setup-vscode.sh` to symlink VS Code configs
 - Run `./install.sh` to install all configurations
 
 ## Essential Configuration Files
@@ -48,8 +49,8 @@ This is a personal dotfiles repository for configuring macOS development environ
 - `_configs/karabiner.json` - Karabiner-Elements configuration for keyboard customization
 - `_configs/com.googlecode.iterm2.plist` - iTerm2 terminal emulator settings
 - `_configs/vscode-settings.json` - Visual Studio Code settings
+- `_configs/vscode-keybindings.json` - Visual Studio Code keybindings
 - `_configs/vscode-extensions.txt` - List of installed VS Code extensions
-- `_configs/Default.code-profile` - VS Code profile configuration
 - `_configs/itermcolors/` - Color schemes for iTerm2
 - `chrome/` - Chrome browser extensions and configurations
 - `_config/powerline/` - Powerline status line configuration
@@ -63,7 +64,10 @@ This is a personal dotfiles repository for configuring macOS development environ
 
 ### Installation
 ```bash
-./install.sh  # Install all dotfiles via symlinks
+./install.sh  # Install all dotfiles via symlinks (includes VS Code setup)
+
+# Manually install VS Code extensions (optional)
+cat _configs/vscode-extensions.txt | xargs -L 1 code --install-extension
 ```
 
 ### Keyboard Layout Management
