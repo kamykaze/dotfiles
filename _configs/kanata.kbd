@@ -10,6 +10,7 @@ It uses a standard QWERTY layout on a Macbook keyboard
 A real-time visual keyboard display is available to see the current layer and key mappings:
   - Start Kanata with TCP: sudo kanata -c ~/.configs/kanata.kbd -p 12321
   - Run visualizer: python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py
+  - or create an alias: alias kanata-viz='python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py'
   - See: utilities/scripts/KANATA_VISUALIZER_README.md for details
 
 ## Features:
@@ -20,23 +21,25 @@ A real-time visual keyboard display is available to see the current layer and ke
   - Makes keys more accessible and convenient
   - Home row modifiers
   - Layer toggles for numbers, navigation, shortcuts,
+  - Mirror layer and symmetry in numbers and nav layer for one-handed use
   - Special layers accessible via a Jump layer key
       - standard keyboard behavior in the Plain layer
 
 ## Mappings:
 
 [X] Accessible / Convenient Keys
-    [X] tap Caps        for Esc
-    [X] tap L/R-Meta    for Backspace 
-    [X] tap L/R-Shift   for repeat key (repeats the last key pressed, useful for speed typing double letters)
-[X] Home row modifiers (tap for normal letter, hold for modifier)
+    [X] tap Caps            for Esc
+    [X] tap L/R-Meta        for Backspace 
+    [X] tap L/R-Shift       for repeat key (repeats the last key pressed, useful for speed typing double letters)
+    [X] tab D+F or J+K      for Enter
+[X] Home row modifiers   (tap for normal letter, hold for modifier)
     [X] hold A, S, D, F     for L-Ctrl, L-Alt, L-Meta, L-Shift
     [X] hold G              for L-Ctrl + L-Meta
     [X] hold J, K, L, ;     for R-Shift, R-Meta, L-Alt, R-Ctrl
     [X] hold H              for L-Alt + R-Shift
-[X] hold Tab            to toggle Numbers layer
-[X] hold Caps or Return to toggle Shortcuts layer
-[X] hold Space          to toggle Navigation layer
+[X] hold Tab             to toggle Numbers layer
+[X] hold Caps            to toggle Shortcuts layer (requires external app to configure shortcuts)
+[X] hold Space           to toggle Navigation layer
     [X] tap J, K, I, L      for Left, Down, Up, Right arrows
     [X] tap U, O            for Prev/Next Word
     [X] hold U, O           for Home/End
@@ -44,10 +47,10 @@ A real-time visual keyboard display is available to see the current layer and ke
     [X] tap M, .            for Prev/Next Tab
     [X] tap Caps            for Caps Word (triggers capitalization for next word, stops after 2s of inactivity or punctuation/space)
     [X] hold Caps           for Caps Lock
-[X] hold V or N         to toggle Symbols layer (brings special characters to home row)
-    [X] tap R, E, Tab   for -, =, and `
-    [X] tap Q           for \
-[X] hold E or I         to toggle Jump layer (allows access to special modes; once you press/hold the next trigger, you can let go of E or I)
+[X] hold Return          to toggle Symbols layer (brings special characters to home row)
+    [X] tap R, E, Tab       for -, =, and `
+    [X] tap Q               for \
+[X] hold E or I          to toggle Jump layer (allows access to special modes; once you press/hold the next trigger, you can let go of E or I)
     [X] hold Space          to toggle Mirror layer
     [X] press E or I        to jump to Plain layer (no home row or layer triggers, for gaming or normal typing)
     [X] tap Caps            to trigger disabled layer (disables the keyboard, great for security or around kids)
@@ -62,6 +65,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   process-unmapped-keys yes
   log-layer-changes yes
   concurrent-tap-hold yes
+  chords-v2-min-idle-experimental 50
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
   )
@@ -98,9 +102,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   nav (tap-hold-release $tap-time $hold-time spc (layer-toggle navigation))
   mirr (tap-hold-release $tap-time $hold-time spc (layer-toggle mirror))
   shrt (tap-hold-release $tap-time $hold-time esc (layer-toggle shortcuts))
-  rsht (tap-hold-release $tap-time $hold-time ret (layer-toggle shortcuts))
-  vsym (tap-hold-release $tap-time $hold-time v (layer-toggle Symbols))
-  nsym (tap-hold-release $tap-time $hold-time n (layer-toggle Symbols))
+  rsym (tap-hold-release $tap-time $hold-time ret (layer-toggle Symbols))
 
   ;; Layer switch triggers
   sdis  (layer-switch disabled)
@@ -112,6 +114,14 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   ;; Shortcuts layer trigger and Meh key for return
 
   ;; Shortcuts layer keys (meh on tap, meh+meta on hold)
+  ;; 
+  ;; This requires an external application to configure the shortcuts.
+  ;; I use BetterTouchTool on MacOS to configure the shortcuts. 
+  ;; The left side of the keyboard is used for quick access to apps 
+  ;; (eg: shift+ctrl+alt+a for Spotify (Audio), shift+ctrl+alt+e for VSCode (Editor), etc). 
+  ;; The right side of the keyboard is used for window resizing
+  ;; (eg: shift+ctrl+alt+j for window half left, shift+ctrl+alt+l for window half right, etc).
+
   s1 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 1) (multi lsft lctl lalt lmet 1))
   s2 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 2) (multi lsft lctl lalt lmet 2))
   s3 (tap-hold-press $tap-time $hold-time (multi lsft lctl lalt 3) (multi lsft lctl lalt lmet 3))
@@ -207,8 +217,8 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
   _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Function keys
   @num  _    _  @jum   _    _    _    _   @mju  _    _    _    _    _     ;; Numbers
-  @shrt  @a    @s   @d   @f  @g    @h   @j   @k   @l   @;   _    @rsht    ;; Top row
-  @srpt    _    _    _  @vsym   _  @nsym  _    _    _    _    @srpt       ;; Bottom row
+  @shrt  @a    @s   @d   @f  @g    @h   @j   @k   @l   @;   _    @rsym    ;; Top row
+  @srpt    _    _    _    _     _    _    _    _    _    _    @srpt       ;; Bottom row
   @cbsp  _    @mbsp        @nav            @mbsp  _    _    _    _    _   ;; Modifiers Row
 )
 
@@ -225,10 +235,10 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
 ;; Numbers layer is used to access the number keys, which is using a numpad layout.
 (deflayer numbers
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
-  _    _    _    _    _    _    _   del   =    /    kp* _    _    _       ;; Numbers
-  _     _    _    _    _    _    _    7    8    9    -    _    _    _     ;; Top row
-  _      _    _    _    _    _    _    4    5    6    +    _    _         ;; Home row
-  _       _    _    _    _    _    _    1    2    3   ret   _             ;; Bottom row
+  _   kp*  del   =    /    _    _   del   =    /    kp* _    _    _       ;; Numbers
+  _     -    7    8    9    _    _    7    8    9    -    _    _    _     ;; Top row
+  _      +    4    5    6    _    _    4    5    6    +    _    _         ;; Home row
+  _      ret   1    2    3    _    _    1    2    3   ret   _             ;; Bottom row
     _    _    _              0               _    .    _    _    _    _   ;; Modifiers Row
 )
 
@@ -246,9 +256,9 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
 (deflayer navigation
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
   _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Numbers
-  _     _    _    _    _    _    _   @pwrd up @nwrd pgup  _    _    _     ;; Top row 
-  @cwcl  _    _    _    _    _    _   left down rght pgdn  _    _         ;; Home row
-  _       _    _    _    _    _    _   @ptab _  @ntab  _    _             ;; Bottom row
+  _   pgup @pwrd up @nwrd   _    _   @pwrd up @nwrd pgup  _    _    _     ;; Top row 
+  @cwcl pgdn left down rght  _    _   left down rght pgdn  _    _         ;; Home row
+  _       _   @ptab _  @ntab  _    _   @ptab _  @ntab  _    _             ;; Bottom row
     _    _    _              _               _    _    _    _    _    _   ;; Modifiers Row
 )
 
@@ -256,10 +266,10 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
 ;; This layer is activated by holding the Esc key.
 (deflayer shortcuts
   _      _    _    _    _    _    _    _    _    _    _    _    _         ;; Function keys
-  _    @s1  @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  @s0  _    _    _   ;; Numbers
-  _     @sq  @sw  @se  @sr  @st  @sy  @su  @si  @so  @sp  _    _    _   ;; Top row
-  _      @sa  @ss  @sd  @sf  @sg  @sh  @sj  @sk  @sl  _    _    @sret   ;; Home row
-  _       @sz  @sx  @sc  @sv  @sb  @sn  @sm  @scomma @sdot _    _       ;; Bottom row
+  _   @s1   @s2  @s3  @s4  @s5  @s6  @s7  @s8  @s9  @s0  _    _    _      ;; Numbers
+  _     @sq  @sw  @se  @sr  @st  @sy  @su  @si  @so  @sp   _    _    _    ;; Top row
+  _      @sa  @ss  @sd  @sf  @sg  @sh  @sj  @sk  @sl  _     _    @sret    ;; Home row
+  _       @sz  @sx  @sc  @sv  @sb  @sn  @sm  @scomma @sdot _    _         ;; Bottom row
     _    _    _              @sspc           _    _    _    _    _    _   ;; Modifiers Row
 )
 
@@ -297,9 +307,10 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
     ∅    ∅    ∅              ∅               ∅    ∅    ∅    ∅    ∅    ∅
 )
 
-;; (defchordsv2
-;;   (esc caps) (layer-switch disabled) 300 all-released ()
-;; )
+(defchordsv2
+  (d f) ret 100 first-release ()
+  (j k) ret 100 first-release ()
+)
 
 #| Copy this to create a new layer, then replace keys as needed.
 
