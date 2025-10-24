@@ -6,3 +6,4 @@ _atom/.node-gyp
 _atom/config.cson
 _atom/projects.cson
 _vim/bundle/
+_configs/kanata-private.kbd

@@ -1,0 +1,16 @@
+;; kanata-private.kbd
+;;
+;; This file contains private/personal configuration that you don't want in your public dotfiles.
+;; Copy this file to kanata-private.kbd and customize it with your personal settings.
+;; The kanata-private.kbd file is gitignored and won't be committed to your repo.
+;;
+;; Usage:
+;;   cp kanata-private.kbd.template kanata-private.kbd
+;;   Edit kanata-private.kbd with your personal settings
+
+(defalias
+  ;; Email domain completion
+  ;; After typing "@;", this will complete to your email domain
+  ;; Example: Change "gmail.com" to "yourdomain.com"
+  email-domain (macro g m a i l . c o m)
+)
