@@ -34,6 +34,7 @@ class KanataConfigParser:
         self.layers = {}
         self.aliases = {}
         self.source_layout = []
+        self.completions = {}
         self.parse_config()
 
     def parse_config(self):
@@ -49,6 +50,9 @@ class KanataConfigParser:
 
         # Parse layers
         self._parse_layers(content)
+
+        # Parse smart completions
+        self._parse_completions(content)
 
     def _parse_source(self, content):
         """Extract defsrc layout (the physical keyboard layout)"""
@@ -99,6 +103,50 @@ class KanataConfigParser:
                         rows.append(keys)
 
             self.layers[layer_name] = rows
+
+    def _parse_completions(self, content):
+        """Extract smart completion mappings from smart-comp alias"""
+        # Find the smart-comp alias - need to match the whole switch block with balanced parens
+        match = re.search(r'smart-comp\s+\(switch\s+(.*?)\n\s+\)', content, re.DOTALL)
+        if not match:
+            return
+
+        comp_content = match.group(1)
+
+        # Parse completion patterns
+        # Format: ((key-history X Y)) (macro ...) break
+        # Or: ((and (key-history X Y) (key-history Z W))) (macro ...) break
+
+        # Two-key patterns: ((and (key-history t 2) (key-history h 1))) (macro i s) break
+        two_key_pattern = r'\(\(and \(key-history (\w+) 2\) \(key-history (\w+) 1\)\)\)\s+\(macro ([^)]+)\)'
+        for m in re.finditer(two_key_pattern, comp_content):
+            first_key, second_key, macro_keys = m.groups()
+            completion = macro_keys.strip()
+            trigger = f"{first_key}{second_key}"
+            full_word = trigger + completion.replace(' ', '')
+            self.completions[trigger] = full_word
+
+        # Single-key patterns: ((key-history t 1)) (macro h e) break
+        single_key_pattern = r'\(\(key-history (\w+) 1\)\)\s+\(macro ([^)]+)\)'
+        for m in re.finditer(single_key_pattern, comp_content):
+            key, macro_keys = m.groups()
+            completion = macro_keys.strip()
+            full_word = key + completion.replace(' ', '')
+            self.completions[key] = full_word
+
+        # Email and special alias patterns: ((key-history X 1)) @alias-name break
+        alias_pattern = r'\(\(key-history (\w+) 1\)\)\s+@([\w-]+)'
+        for m in re.finditer(alias_pattern, comp_content):
+            key, alias_name = m.groups()
+            if 'email-address' in alias_name:
+                self.completions['e'] = '[email]'
+            elif 'email-domain' in alias_name and 'secondary' not in alias_name:
+                self.completions['2'] = '@domain'
+
+        # Special double-key pattern for email domains
+        # ((and (key-history 2 2) (key-history 2 1))) @email-secondary-domain
+        if '@email-secondary-domain' in comp_content:
+            self.completions['22'] = '@secondary'
 
     def get_layer_keys(self, layer_name):
         """Get the key layout for a specific layer"""
@@ -186,6 +234,38 @@ class VisualKeyboard:
             ['lctl', 'lalt', 'lmet', 'spc', 'rmet', 'ralt', 'left', 'down', 'up', 'rght'],
         ]
 
+    def _get_key_color(self, key):
+        """Get the color code for a key based on its type"""
+        t = self.term
+
+        # Passthrough key
+        if key == '_':
+            return t.dim
+
+        # Blocked key
+        if key == '∅':
+            return t.red
+
+        # Alias (starts with @)
+        if key.startswith('@'):
+            alias_def = self.parser.resolve_alias(key)
+            # Color code by type
+            if 'layer-toggle' in alias_def or 'layer-switch' in alias_def:
+                return t.cyan
+            elif 'tap-hold' in alias_def:
+                return t.yellow
+            elif 'multi' in alias_def:
+                return t.magenta
+            else:
+                return t.green
+
+        # Number or special key
+        if key.isdigit() or key in ['kp*', 'del', 'pgup', 'pgdn', 'left', 'right', 'up', 'down']:
+            return t.bright_blue
+
+        # Regular key
+        return t.white
+
     def _format_key(self, key, base_label):
         """Format a single key for display with color coding"""
         t = self.term
@@ -200,16 +280,8 @@ class VisualKeyboard:
 
         # Alias (starts with @)
         if key.startswith('@'):
-            alias_def = self.parser.resolve_alias(key)
-            # Color code by type
-            if 'layer-toggle' in alias_def or 'layer-switch' in alias_def:
-                return f'{t.cyan}{key[1:]:^8s}{t.normal}'
-            elif 'tap-hold' in alias_def:
-                return f'{t.yellow}{key[1:]:^8s}{t.normal}'
-            elif 'multi' in alias_def:
-                return f'{t.magenta}{key[1:]:^8s}{t.normal}'
-            else:
-                return f'{t.green}{key[1:]:^8s}{t.normal}'
+            color = self._get_key_color(key)
+            return f'{color}{key[1:]:^8s}{t.normal}'
 
         # Number or special key
         if key.isdigit() or key in ['kp*', 'del', 'pgup', 'pgdn', 'left', 'right', 'up', 'down']:
@@ -239,10 +311,10 @@ class VisualKeyboard:
                 if actual_key.startswith('@'):
                     alias_def = self.parser.resolve_alias(actual_key)
                     readable = self.parser.get_human_readable_mapping(alias_def)
-                    mappings.append((base_key, actual_key[1:], readable))
+                    mappings.append((base_key, actual_key, actual_key[1:], readable))
                 elif actual_key != base_key and actual_key != '∅':
                     # Direct remapping
-                    mappings.append((base_key, actual_key, f"→ {actual_key}"))
+                    mappings.append((base_key, actual_key, actual_key, f"→ {actual_key}"))
 
         return mappings
 
@@ -289,6 +361,62 @@ class VisualKeyboard:
         print(t.bold + "Legend:" + t.normal)
         print(f"  {t.dim}unchanged{t.normal}  {t.cyan}layer{t.normal}  {t.yellow}tap-hold{t.normal}  {t.magenta}combo{t.normal}  {t.bright_blue}number/nav{t.normal}  {t.red}[X] blocked{t.normal}")
 
+        # Smart Completions (show only on base layer)
+        if layer_name == 'base' and self.parser.completions:
+            print()
+            print(t.bold + t.green + "Smart Completions " + t.dim + "(press ; after these keys, double-tap ; for semicolon):" + t.normal)
+            print(t.dim + '─' * 100 + t.normal)
+
+            # Organize completions by category
+            word_completions = []
+            two_key_completions = []
+            special_completions = []
+
+            for trigger, result in sorted(self.parser.completions.items()):
+                if len(trigger) == 2 and trigger.isalpha():
+                    two_key_completions.append((trigger, result))
+                elif trigger in ['e', '2', '22']:
+                    special_completions.append((trigger, result))
+                else:
+                    word_completions.append((trigger, result))
+
+            # Display in three columns
+            # Calculate max rows needed
+            max_rows = max(len(word_completions), len(two_key_completions), len(special_completions))
+
+            # Column headers
+            col1_header = f"{t.yellow}Word Completions{t.normal}"
+            col2_header = f"{t.cyan}Two-Key Patterns{t.normal}"
+            col3_header = f"{t.magenta}Email/Special{t.normal}"
+
+            print(f"  {col1_header:30s}  {col2_header:30s}  {col3_header:30s}")
+            print(t.dim + "  " + "─" * 30 + "  " + "─" * 30 + "  " + "─" * 30 + t.normal)
+
+            # Display rows
+            for i in range(max_rows):
+                # Column 1: Word completions
+                if i < len(word_completions):
+                    trigger, result = word_completions[i]
+                    col1 = f"{t.yellow}{trigger:3s}{t.normal} → {result:20s}"
+                else:
+                    col1 = " " * 30
+
+                # Column 2: Two-key patterns
+                if i < len(two_key_completions):
+                    trigger, result = two_key_completions[i]
+                    col2 = f"{t.cyan}{trigger:3s}{t.normal} → {result:20s}"
+                else:
+                    col2 = " " * 30
+
+                # Column 3: Email/special
+                if i < len(special_completions):
+                    trigger, result = special_completions[i]
+                    col3 = f"{t.magenta}{trigger:3s}{t.normal} → {result:20s}"
+                else:
+                    col3 = " " * 30
+
+                print(f"  {col1}  {col2}  {col3}")
+
         # Detailed key mappings
         mappings = self._get_interesting_mappings(layer_name)
         if mappings:
@@ -304,15 +432,17 @@ class VisualKeyboard:
             for i in range(max(len(col1), len(col2))):
                 # Left column
                 if i < len(col1):
-                    base_key, _, readable = col1[i]
-                    left = f"  {t.bold}{base_key:6s}{t.normal} → {readable:40s}"
+                    base_key, actual_key, _, readable = col1[i]
+                    key_color = self._get_key_color(actual_key)
+                    left = f"  {key_color}{base_key:6s}{t.normal} → {readable:40s}"
                 else:
                     left = " " * 50
 
                 # Right column
                 if i < len(col2):
-                    base_key, _, readable = col2[i]
-                    right = f"{t.bold}{base_key:6s}{t.normal} → {readable}"
+                    base_key, actual_key, _, readable = col2[i]
+                    key_color = self._get_key_color(actual_key)
+                    right = f"{key_color}{base_key:6s}{t.normal} → {readable}"
                 else:
                     right = ""
 
