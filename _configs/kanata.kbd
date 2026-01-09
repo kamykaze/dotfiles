@@ -31,7 +31,7 @@ A real-time visual keyboard display is available to see the current layer and ke
     [X] tap Caps            for Esc
     [X] tap L/R-Meta        for Backspace 
     [X] tap L/R-Shift       for repeat key (repeats the last key pressed, useful for speed typing double letters)
-    [X] tab G+H             for Enter
+    [ ] tap F+V             for Enter
 [X] Home row modifiers   (tap for normal letter, hold for modifier)
     [X] hold A, S, D, F     for L-Ctrl, L-Alt, L-Meta, L-Shift
     [X] hold G              for L-Ctrl + L-Meta
@@ -211,6 +211,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   smart-comp (switch
     ;; Two-key history patterns (check these first for more specific matches)
     ((and (key-history t 2) (key-history h 1))) (macro i s) break  ;; th + comp = "this"
+    ((and (key-history t 2) (key-history i 1))) (macro o n) break  ;; ti + comp = "tion"
 
     ;; Single-key history patterns
     ((key-history t 1)) (macro h e) break     ;; t + comp = "the"
@@ -223,11 +224,12 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
     ((key-history f 1)) (macro o r) break     ;; f + comp = "for"
 
     ;; SFB/Same Finger Bigrams (they don't save keystrokes, but make it easier to type)
-    ((key-history e 1)) (macro d) break       ;; e + comp = "ed"
     ((key-history u 1)) (macro n) break       ;; u + comp = "un"
 
     ;; Special sequences
-    ((and (key-history ; 1) (key-history 2 2))) @email-domain break  ;; @; + comp = "@yourdomain.com" (checks for ; then 2)
+    ((and (key-history 2 2) (key-history 2 1))) @email-secondary-domain break  ;; @@ + comp = "@secondarydomain.com" (checks for 2 then 2)
+    ((key-history 2 1)) @email-domain break         ;; @; + comp = "@yourdomain.com" (checks for ; then 2)
+    ((key-history e 1)) @email-address break        ;; e + comp = "your@emailaddress.com"
 
     () ; break                                ;; Default: output semicolon (normal behavior)
   )
@@ -345,7 +347,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
 )
 
 (defchordsv2
-  (g h) ret 100 first-release ()  ;; Tap G+H for Enter (useful for one-handed typing and won't accidentally trigger)
+  (f v) ret 100 first-release ()  ;; Tap F+V for Enter (useful for one-handed typing and won't accidentally trigger)
 )
 
 #| Copy this to create a new layer, then replace keys as needed.
