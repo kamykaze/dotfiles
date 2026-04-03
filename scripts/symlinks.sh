@@ -19,13 +19,31 @@ link_file() {
 
 echo "-> Symlinking dotfiles..."
 
-# Link all top-level _* files and directories (except _ssh_config, handled below)
+# Link all top-level _* files and directories
+# Exceptions handled separately: _ssh_config, _config (see below)
 for item in "${DOTFILES_DIR}"/_*; do
     name="$(basename "${item}")"
-    if [ "${name}" = "_ssh_config" ]; then
+    if [ "${name}" = "_ssh_config" ] || [ "${name}" = "_config" ]; then
         continue
     fi
     link_file "${name}"
+done
+
+# _config/ subdirectories -> ~/.config/<name>/
+# Can't symlink _config -> ~/.config wholesale because ~/.config already exists.
+echo "-> Symlinking ~/.config/ subdirectories..."
+mkdir -p "${HOME}/.config"
+for subdir in "${DOTFILES_DIR}/_config"/*/; do
+    name="$(basename "${subdir}")"
+    target="${HOME}/.config/${name}"
+    if [ -L "${target}" ]; then
+        echo "  [skip] ~/.config/${name} (already linked)"
+    elif [ -e "${target}" ]; then
+        echo "  [skip] ~/.config/${name} (exists as non-symlink, skipping)"
+    else
+        ln -s "${subdir%/}" "${target}"
+        echo "  [link] _config/${name} -> ~/.config/${name}"
+    fi
 done
 
 # SSH config: _ssh_config -> ~/.ssh/config

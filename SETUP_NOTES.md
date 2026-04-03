@@ -144,6 +144,58 @@ Sign in to the Mac App Store first with your Apple ID.
 
 ---
 
+---
+
+## Keeping the repo up to date
+
+### Synced automatically (symlinked files)
+
+`~/.zshrc`, `~/.gitconfig`, `~/.tmux.conf`, and all other `_*` dotfiles are
+symlinks into the repo. Editing them **is** editing the repo — just `git commit`
+when you're happy with a change.
+
+### Synced via `scripts/sync.sh` (non-symlinked configs)
+
+Apps that own their config files (iTerm2, Karabiner, etc.) need to be exported
+into the repo manually. A LaunchAgent runs this daily automatically:
+
+```bash
+# Run manually anytime
+./scripts/sync.sh
+
+# Then review and commit
+git diff
+git add -p
+git commit -m "chore: sync configs"
+```
+
+The sync script copies: iTerm2 plist, Karabiner JSON, VS Code extensions list.
+It will never touch `claude_desktop_config.json` (sensitive).
+
+### Adding a new app config
+
+**Pattern A — config lives at `~/.*`** (e.g., `~/.newrc`):
+
+1. Copy the live file into the repo root: `cp ~/.newrc _newrc`
+2. `git add _newrc`
+3. Run `./scripts/symlinks.sh` to create the `~/.newrc` symlink
+4. The file is now always in sync via the symlink
+
+**Pattern B — config lives at `~/Library/...`** (e.g., a new app's plist):
+
+1. Copy the file into `_configs/`: `cp ~/Library/.../App.plist _configs/`
+2. Add a `sync_file` entry to `scripts/sync.sh` so it stays updated
+3. Add a symlink or copy step to `scripts/symlinks.sh` for new machine installs
+4. If the file contains secrets, add it to `.gitignore` and create a `.template` version instead
+
+**Pattern C — config lives at `~/.config/<app>/`**:
+
+1. Copy the directory into `_config/`: `cp -r ~/.config/myapp _config/myapp`
+2. `git add _config/myapp`
+3. Run `./scripts/symlinks.sh` — it will symlink `_config/myapp` → `~/.config/myapp`
+
+---
+
 ## Quick Reference
 
 | Credential | Where to find it |

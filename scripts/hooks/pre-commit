@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# Pre-commit hook: blocks commits that may contain sensitive data.
+# Install via: scripts/install-hooks.sh
+# Override with: git commit --no-verify (use with care)
+
+set -e
+
+FAILED=0
+
+# ============================================================
+# Block known sensitive filenames
+# ============================================================
+SENSITIVE_NAMES=(
+    "claude_desktop_config.json"
+    "id_rsa"
+    "id_ed25519"
+    "*.pem"
+    "*.key"
+    "*.p12"
+    ".env"
+)
+
+for pattern in "${SENSITIVE_NAMES[@]}"; do
+    # Check staged files against pattern
+    if git diff --cached --name-only | grep -qE "(^|/)(${pattern//\*/.*})$" 2>/dev/null; then
+        echo "  [BLOCKED] Staged file matches sensitive pattern: ${pattern}"
+        FAILED=1
+    fi
+done
+
+# ============================================================
+# Scan staged file contents for common API key patterns
+# ============================================================
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+for file in ${STAGED_FILES}; do
+    # Skip binary files and templates
+    [[ "${file}" == *.template ]] && continue
+    [[ "${file}" == *.png || "${file}" == *.jpg || "${file}" == *.plist ]] && continue
+
+    content=$(git show ":${file}" 2>/dev/null) || continue
+
+    # OpenAI / Anthropic style keys: sk-... (20+ chars)
+    if echo "${content}" | grep -qE 'sk-[A-Za-z0-9]{20,}'; then
+        echo "  [BLOCKED] ${file}: possible API key (sk-... pattern)"
+        FAILED=1
+    fi
+
+    # GitHub tokens: ghp_, gho_, github_pat_
+    if echo "${content}" | grep -qE '(ghp_|gho_|github_pat_)[A-Za-z0-9_]{20,}'; then
+        echo "  [BLOCKED] ${file}: possible GitHub token"
+        FAILED=1
+    fi
+
+    # JSON token/key fields with long values (40+ chars)
+    if echo "${content}" | grep -qE '"(token|api_key|apikey|secret|password|access_token|refresh_token)"\s*:\s*"[A-Za-z0-9/+_\-]{40,}"'; then
+        echo "  [BLOCKED] ${file}: possible secret in JSON key/token field"
+        FAILED=1
+    fi
+done
+
+# ============================================================
+# Result
+# ============================================================
+if [ "${FAILED}" -eq 1 ]; then
+    echo ""
+    echo "Commit blocked: possible sensitive data detected."
+    echo "Review the files above. If this is a false positive, use:"
+    echo "  git commit --no-verify"
+    exit 1
+fi
+
+exit 0

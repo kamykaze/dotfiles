@@ -50,4 +50,27 @@ else
     echo "  System Settings -> Privacy & Security -> Accessibility"
 fi
 
+# ============================================================
+# Dotfiles daily sync
+# ============================================================
+SYNC_PLIST_SRC="${DOTFILES_DIR}/utilities/launchdaemons/com.dotfiles.sync.plist"
+SYNC_PLIST_DEST="${LAUNCH_AGENTS_DIR}/com.dotfiles.sync.plist"
+
+if [ ! -f "${SYNC_PLIST_SRC}" ]; then
+    echo "  [warn] Sync plist not found at ${SYNC_PLIST_SRC}, skipping"
+else
+    if [ -f "${SYNC_PLIST_DEST}" ]; then
+        echo "  [skip] Dotfiles sync LaunchAgent (already installed)"
+    else
+        # Substitute __DOTFILES_DIR__ with the actual repo path
+        sed "s|__DOTFILES_DIR__|${DOTFILES_DIR}|g" "${SYNC_PLIST_SRC}" > "${SYNC_PLIST_DEST}"
+        chmod 644 "${SYNC_PLIST_DEST}"
+        echo "  [copy] Dotfiles sync plist -> ~/Library/LaunchAgents/ (dir: ${DOTFILES_DIR})"
+    fi
+
+    launchctl unload "${SYNC_PLIST_DEST}" 2>/dev/null || true
+    launchctl load "${SYNC_PLIST_DEST}"
+    echo "  [ok] Dotfiles sync LaunchAgent loaded (runs daily)"
+fi
+
 echo "  Done."

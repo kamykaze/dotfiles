@@ -57,7 +57,13 @@ if [ -f "${DOTFILES_DIR}/utilities/scripts/setup-vscode.sh" ]; then
 fi
 
 # ============================================================
-# Launch Agents (Kanata, etc.)
+# Git hooks (pre-commit sensitive data scanner)
+# ============================================================
+bash "${SCRIPTS_DIR}/install-hooks.sh"
+echo ""
+
+# ============================================================
+# Launch Agents (Kanata, daily sync, etc.)
 # ============================================================
 bash "${SCRIPTS_DIR}/launchagents.sh"
 echo ""
