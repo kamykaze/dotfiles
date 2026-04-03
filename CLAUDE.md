@@ -6,23 +6,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a personal dotfiles repository for configuring macOS development environment. It contains configuration files for various tools including Vim, shell environments, keyboard customization, and window management.
 
+The long-term goal is a **full bootstrap system** — clone repo, run `install.sh`, and have a new machine configured with minimal manual steps.
+
+---
+
 ## Key Architecture
 
 ### File Naming Convention
 - Files prefixed with `_` are symlinked to `$HOME` with the prefix replaced by `.`
 - Example: `_bashrc` becomes `~/.bashrc`
+- `_configs/` is symlinked to `~/.configs/`
+- Non-home paths (eg: `~/Library/...`) are handled explicitly in `scripts/`
 
 ### Installation System
-- `install.sh` creates symlinks for all `_*` files and initializes git submodules
-- Automatically runs `utilities/scripts/setup-vscode.sh` to symlink VS Code configs
+- `install.sh` is the main entry point — it delegates to scripts in `scripts/`
+- `scripts/symlinks.sh` — handles all symlinking (`_*` files and `_configs/`)
+- `scripts/homebrew.sh` — installs Homebrew and runs Brewfile
+- `scripts/macos.sh` — applies system preferences via `defaults write`
+- `scripts/launchagents.sh` — installs launchd services (eg: Kanata auto-start)
 - Run `./install.sh` to install all configurations
+
+### Script Conventions
+- Every script uses `set -e` at the top (stop on first error)
+- Every script is **idempotent** — safe to run multiple times without breaking anything
+- Every step prints clear output: `echo "-> doing thing..."` and `echo "✓ done"`
+- Never put logic directly in `install.sh` — it delegates to `scripts/`
+
+---
 
 ## Essential Configuration Files
 
 ### Keyboard Customization
 - `_configs/kanata.kbd` - Kanata keyboard layout configuration with:
   - Home row modifiers (ASDF/JKL;)
-  - Layer switching (numbers, navigation, mirror)
+  - Layer switching (numbers, navigation, symbols, shortcuts, mirror, plain, disabled)
   - Custom key mappings and shortcuts
 - `qmk_mappings/` - QMK keyboard firmware layouts for physical keyboards
 
@@ -55,10 +72,18 @@ This is a personal dotfiles repository for configuring macOS development environ
 - `chrome/` - Chrome browser extensions and configurations
 - `_config/powerline/` - Powerline status line configuration
 
+### Sensitive Config Templates
+- `_configs/*.template` files contain configs with sensitive data redacted
+- Placeholders look like: `"token": "YOUR_API_KEY"  // stored in LastPass: <note name>`
+- **Never commit the real config file** — only the `.template` version
+- Real values are stored in **LastPass**
+
 ### Launch Daemons
 - `utilities/launchdaemons/com.github.jtroo.kanata.plist` - Kanata launch daemon
 - `utilities/scripts/` - Automation scripts and helper utilities
 - `utilities/bin/` - Custom executable scripts
+
+---
 
 ## Common Commands
 
@@ -79,6 +104,48 @@ sudo kanata -c _configs/kanata.kbd
 ### Vim Plugin Management
 The repository uses Pathogen for plugin management. All plugins are included as git submodules in `_vim/bundle/`.
 
+---
+
+## Sensitive Data Rules
+
+These are non-negotiable. Follow them for every file touched in this repo.
+
+- **Nothing sensitive ever goes in this repo** — not even in a private repo
+- API keys and tokens → use `.template` files with placeholder comments
+- SSH private keys → LastPass only, never the repo
+- Only `~/.ssh/config` (host aliases) goes in the repo, never key files
+- `.gitignore` must block: `.env`, `*.pem`, `*_rsa`, `*.key`, `id_ed25519`,
+  and any real config file that has a `.template` counterpart
+- Sensitive data is stored in: **LastPass**
+
+---
+
+## Key Apps and Config Strategy
+
+| App | Config approach |
+|-----|----------------|
+| Kanata | `_configs/kanata.kbd` symlinked to `~/.configs/kanata.kbd` |
+| BetterTouchTool | `.bttpreset` export in `bettertouchtool/` |
+| Claude Desktop | `.template` file in `_configs/`, real keys in LastPass |
+| VS Code | Built-in Settings Sync (GitHub account) — nothing extra needed |
+| Warp | Cloud sync via Warp account — local themes/configs in `_configs/` if needed |
+| SSH | `_ssh_config` symlinked to `~/.ssh/config` — private keys in LastPass |
+| AeroSpace | `_config/aerospace/aerospace.toml` symlinked |
+
+---
+
+## Adding New Configs
+
+When you add a new app or tool to your setup:
+
+1. If installable via Homebrew Cask → add to `Brewfile`
+2. If manual install → add to `apps.md` with download link
+3. If it has config files → add to `_configs/` and update `scripts/symlinks.sh`
+4. If it has post-install steps → add to `SETUP_NOTES.md`
+5. If config has sensitive data → use a `.template` file, store real values in LastPass
+
+---
+
 ## Development Notes
 
 ### Vim Configuration
@@ -90,14 +157,18 @@ The repository uses Pathogen for plugin management. All plugins are included as 
 ### Keyboard Layout Features
 - **Kanata configuration** includes:
   - Home row modifiers for ergonomic typing
-  - Layer system for numbers, navigation, and symbols
+  - Layer system for numbers, navigation, symbols, and shortcuts
   - Mirror layer for one-handed typing
   - Jump layer for quick layer switching
+  - Plain layer for gaming or standard typing
+  - Disabled layer for securing keyboard when not in use
 
 ### Window Management
 - AeroSpace provides i3-like tiling window management for macOS
 - Named workspaces with automatic application assignment
 - Multi-monitor workspace distribution
+
+---
 
 ## File Structure
 
@@ -105,6 +176,7 @@ The repository uses Pathogen for plugin management. All plugins are included as 
 - `_config/` and `_configs/`: Application-specific configurations
   - `_config/`: System-level configs (aerospace, powerline)
   - `_configs/`: User application configs (kanata, karabiner, iTerm2, VS Code)
+- `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
   - `bin/`: Custom executable scripts
   - `scripts/`: Automation and helper scripts

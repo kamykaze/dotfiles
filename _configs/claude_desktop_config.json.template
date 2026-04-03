@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "clickup": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.clickup.com/mcp"
+      ]
+    },
+    "ticktick": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-ticktick"],
+      "env": {
+        "TICKTICK_CLIENT_ID": "YOUR_TICKTICK_CLIENT_ID",
+        "TICKTICK_CLIENT_SECRET": "YOUR_TICKTICK_CLIENT_SECRET",
+        "TICKTICK_ACCESS_TOKEN": "YOUR_TICKTICK_ACCESS_TOKEN"
+      }
+    }
+    // Add other MCP server configs here
+    // API keys/tokens are stored in LastPass: "MCP API Keys"
+  },
+  "preferences": {
+    "menuBarEnabled": true,
+    "quickEntryShortcut": {
+      "accelerator": "Alt+Space"
+    },
+    "coworkScheduledTasksEnabled": false,
+    "ccdScheduledTasksEnabled": true,
+    "sidebarMode": "chat",
+    "coworkWebSearchEnabled": true
+  }
+}

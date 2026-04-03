@@ -11,5 +11,9 @@
     "github.copilot.advanced": {},
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "chat.useAgentSkills": true,
+    "claudeCode.preferredLocation": "panel"
 }

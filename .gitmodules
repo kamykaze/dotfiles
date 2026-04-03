@@ -1,6 +1,6 @@
 [submodule "chrome/chrome-devtools-theme"]
     path = chrome/chrome-devtools-theme
-    url = git://github.com/kamykaze/chrome-devtools-theme.git
+    url = https://github.com/kamykaze/chrome-devtools-theme.git
 [submodule "utilities/powerline"]
 	path = utilities/powerline
 	url = https://github.com/Lokaltog/powerline.git

@@ -6,8 +6,9 @@
 # Path to kanata binary
 KANATA_BIN="/opt/homebrew/bin/kanata"
 
-# Path to kanata configuration file (moved from ~/.config/kanata/config.kbd)
-CONFIG_FILE="/Users/kam/personal/projects/dotfiles/_configs/kanata.kbd"
+# Path to kanata configuration file
+# Resolves via the symlink ~/.configs -> dotfiles/_configs/
+CONFIG_FILE="${HOME}/.configs/kanata.kbd"
 
 # Check if kanata binary exists
 if [ ! -f "$KANATA_BIN" ]; then
