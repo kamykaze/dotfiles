@@ -38,7 +38,7 @@ A real-time visual keyboard display is available to see the current layer and ke
     [X] hold J, K, L, ;     for R-Shift, R-Meta, L-Alt, R-Ctrl
     [X] hold H              for L-Alt + R-Shift
 [X] hold Tab             to toggle Numbers layer
-[ ] hold Caps            to toggle Shortcuts layer (requires external app to configure shortcuts)
+[X] hold Caps            to toggle Shortcuts layer (requires external app to configure shortcuts)
 [X] hold Space           to toggle Navigation layer
     [X] tap J, K, I, L      for Left, Down, Up, Right arrows
     [X] tap U, O            for Prev/Next Word
@@ -47,7 +47,7 @@ A real-time visual keyboard display is available to see the current layer and ke
     [X] tap M, .            for Prev/Next Tab
     [X] tap Caps            for Caps Word (triggers capitalization for next word, stops after 2s of inactivity or punctuation/space)
     [X] hold Caps           for Caps Lock
-[X] hold Caps/Return          to toggle Symbols layer (brings special characters to home row)
+[X] hold Return          to toggle Symbols layer (brings special characters to home row)
     [X] tap R, E, Tab       for -, =, and `
     [X] tap Q               for \
 [X] hold E or I          to toggle Jump layer (allows access to special modes; once you press/hold the next trigger, you can let go of E or I)
@@ -200,8 +200,11 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
     ((key-history del 1)) ∅ break       ;; If last key was delete, do nothing
     () rpt break                         ;; Otherwise, repeat the last key
   )
-  
   srpt (tap-hold-release $tap-time $hold-time @safe-rpt lsft)
+
+  ;; Dictation Trigger 
+  dict (multi lctl lmet)
+
 
   ;; Caps Word feature - automatically capitalizes typed words until space/punctuation
   cw (caps-word 2000)
@@ -257,7 +260,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   _    brdn bru  mctl  sls  dtn  dnd  prev  pp next mute  vold  volu
   _    _    _    _    _    _    _    _    _    _    _   _    _    _       ;; Function keys
   @num  _    _  @jum   _    _    _    _   @mju  _    _    _    _    _     ;; Numbers
-  @esym  @a    @s   @d   @f  @g    @h   @j   @k   @l  @cmpl  _    @rsym   ;; Top row
+  @shrt  @a    @s   @d   @f  @g    @h   @j   @k   @l  @cmpl  _    @rsym   ;; Top row
   @srpt    _    _    _    _     _    _    _    _    _    _    @srpt       ;; Bottom row
   @cbsp  _    @mbsp        @nav            @mbsp  _    _    _    _    _   ;; Modifiers Row
 )
