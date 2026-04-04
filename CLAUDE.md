@@ -63,7 +63,6 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `_ignore` - Universal ignore patterns
 
 ### Additional Configurations
-- `_configs/karabiner.json` - Karabiner-Elements configuration for keyboard customization
 - `_configs/com.googlecode.iterm2.plist` - iTerm2 terminal emulator settings
 - `_configs/vscode-settings.json` - Visual Studio Code settings
 - `_configs/vscode-keybindings.json` - Visual Studio Code keybindings
@@ -175,7 +174,7 @@ When you add a new app or tool to your setup:
 - `_*` files: Main configuration files (get symlinked to `~/.`)
 - `_config/` and `_configs/`: Application-specific configurations
   - `_config/`: System-level configs (aerospace, powerline)
-  - `_configs/`: User application configs (kanata, karabiner, iTerm2, VS Code)
+  - `_configs/`: User application configs (kanata, iTerm2, VS Code)
 - `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
   - `bin/`: Custom executable scripts
@@ -184,7 +183,6 @@ When you add a new app or tool to your setup:
 - `qmk_mappings/`: Physical keyboard firmware configurations for QMK keyboards
 - `bettertouchtool/`: BetterTouchTool presets for trackpad, keyboard, and touchbar
 - `assets/`: Documentation images and design files
-- `karabiner_mods/`: Additional Karabiner-Elements modifications
 - `chrome/`: Chrome browser extensions and settings
 - `misc/`: Miscellaneous files and resources
 - `deprecated/`: Archived configuration files no longer in use (bash configs, Atom editor, KMonad)

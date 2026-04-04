@@ -74,14 +74,6 @@ sync_file \
     "iTerm2 preferences"
 
 # ============================================================
-# Karabiner-Elements
-# ============================================================
-sync_file \
-    "${HOME}/.config/karabiner/karabiner.json" \
-    "${DOTFILES_DIR}/_configs/karabiner.json" \
-    "Karabiner config"
-
-# ============================================================
 # VS Code extensions list
 # ============================================================
 if command -v code &>/dev/null; then
