@@ -1,65 +1,118 @@
-This repository stores all my vim customizations. It is targeted towards web developer using html/css/js on a python/django platform.
-While not all features will be applicable to you, I have tried to document them as clearly as possible. Feel free to pick only the things that work for you.
+# dotfiles
 
-## Features
-* pathogen (for easy plugin management in vim)
-* custom key mappings for faster/easier navigation
-    * <C-hjkl> instead of <C-w>hjkl for navigating through windows
-    * ,, and ,. to maximize or even window sizes
-    * ,r to toggle line numbers (relative, absolute, no numbers)
-    * ,p to toggle paste mode
-    * H and L instead of ^ and $ to go to beginning/end of line
-    * <C-k> instead of <C-x> to enter completion submodes inside 'insert' modes
-    * Smart <Tab> completion depending on whether you're at the beginning of a line or completing a word
-    * <S-Tab> to trigger emmett/zen coding expansion
-    * ss and sb to open Fuzzyfinder's Coverage File (search all files within cur dir) and Buffer modes (search currently opened files)
-* case-insensitive search (unless there's an uppercase letter in your keywords)
-* syntax and color coding
-    * django syntax for html templates
-    * html
-    * javascript
-    * css
-    * scss/sass
-    * less
-* [zen coding](http://code.google.com/p/zen-coding/) plugin (Zen Coding is now known as Emmett) for expanding html/css
-* [surround](https://github.com/tpope/vim-surround) plugin for quickly changing quotes, brackets, tags, etc.
-* [snipmate](https://github.com/msanders/snipmate.vim) plugin for easy code expansion
-    * [snipmate for django](https://github.com/robhudson/snipmate_for_django.git) snippets for django expansion
-* [repeat](http://www.vim.org/scripts/script.php?script_id=2136) plugin (for using . to repeat a plugin command)
-* [fugitive](https://github.com/tpope/vim-fugitive) plugin for Git integration
-* [easymotion](http://www.vim.org/scripts/script.php?script_id=3526) plugin for improved navigation
-* [fuzzyfinder](http://www.vim.org/scripts/script.php?script_id=1984) plugin and the required [L9](http://www.vim.org/scripts/script.php?script_id=3252) library for finding files using fuzzy match
-* [powerline](https://github.com/Lokaltog/vim-powerline) plugin for nicer status line
+Personal macOS development environment — clone and run `install.sh` to get a fully configured machine.
 
+## Quick Start
 
-## Files
-### .vim 
-directory of file type configurations and plugins
+```bash
+git clone https://github.com/kamykaze/dotfiles.git ~/personal/projects/dotfiles
+cd ~/personal/projects/dotfiles
+./install.sh
+```
 
-### .vimrc_bare
-my bare minimal vim configuration. It provides remapping and other settings without the use of plugins
+`install.sh` will:
 
-### .vimrc
-my vim configuration
+- Install Xcode Command Line Tools (if missing)
+- Install Homebrew and all packages from `Brewfile`
+- Create all dotfile symlinks (`_*` → `~/.`)
+- Set up VS Code settings and extensions
+- Wire up the Kanata keyboard LaunchAgent
 
-## Instructions
-### Creating source files
-Any file which matches the shell glob `_*` will be linked into `$HOME` as a symlink with the first `_`  replaced with a `.`
+After running `install.sh`, see [SETUP_NOTES.md](SETUP_NOTES.md) for manual steps (SSH keys, app licenses, first-time app setup).
 
-For example:
+---
 
-    _bashrc
+## How It Works
 
-becomes
+### File Naming Convention
 
-    ${HOME}/.bashrc
+Files prefixed with `_` are symlinked into `$HOME` with the prefix replaced by `.`:
 
-### Installing source files
-It's as simple as running:
+```text
+_zshrc        →  ~/.zshrc
+_gitconfig    →  ~/.gitconfig
+_tmux.conf    →  ~/.tmux.conf
+_configs/     →  ~/.configs/
+```
 
-    ./install.sh
+### Scripts
 
-From this top-level directory.
+| Script | Purpose |
+| --- | --- |
+| `install.sh` | Main entry point — delegates to all scripts below |
+| `scripts/symlinks.sh` | Creates all dotfile symlinks |
+| `scripts/homebrew.sh` | Installs Homebrew and runs Brewfile |
+| `scripts/macos.sh` | Applies macOS system preferences via `defaults write` |
+| `scripts/launchagents.sh` | Installs launchd services (Kanata auto-start) |
+| `scripts/sync.sh` | Exports configs from apps that own their files (run daily via LaunchAgent) |
 
-## Requirements
-* bash
+All scripts are idempotent — safe to run multiple times.
+
+---
+
+## Key Configurations
+
+### Shell & Terminal
+
+- `_zshrc` — Zsh configuration (primary shell)
+- `_tmux.conf` — Tmux configuration
+
+### Editor
+
+- `_vimrc` — Full Vim config with Pathogen plugin management, focused on web development (HTML/CSS/JS, Python/Django)
+- `_vimrc_bare` — Minimal Vim config without plugins
+- `_vim/` — Vim plugins (git submodules via Pathogen)
+
+### Git
+
+- `_gitconfig` — Git aliases and settings
+- `_gitignore` — Global ignore patterns
+
+### Keyboard
+
+- `_configs/kanata.kbd` — [Kanata](https://github.com/jtroo/kanata) keyboard remapping:
+  - Home row modifiers (ASDF / JKL;)
+  - Layers: numbers, navigation, symbols, shortcuts, mirror, plain, disabled
+- `qmk_mappings/` — QMK firmware layouts for physical keyboards
+
+### Applications
+
+- `_configs/vscode-settings.json` / `vscode-keybindings.json` — VS Code settings (symlinked by install.sh)
+- `_configs/vscode-extensions.txt` — VS Code extensions list
+- `_configs/com.googlecode.iterm2.plist` — iTerm2 settings
+- `bettertouchtool/` — BetterTouchTool presets (trackpad, keyboard, touchbar)
+
+### Sensitive Configs
+
+Files with secrets are kept out of the repo. Instead:
+
+- `_configs/*.template` files contain the structure with placeholders like `"token": "YOUR_API_KEY"`
+- Real values are stored in **LastPass**
+- See [SETUP_NOTES.md](SETUP_NOTES.md) for which LastPass notes to use
+
+---
+
+## Keeping Configs in Sync
+
+Symlinked files (`~/.zshrc`, `~/.gitconfig`, etc.) are always in sync — editing them **is** editing the repo. Just `git commit` when ready.
+
+For apps that own their config files (iTerm2, VS Code extensions, etc.), run:
+
+```bash
+./scripts/sync.sh   # copies latest app configs into the repo
+git diff            # review changes
+git add -p && git commit -m "chore: sync configs"
+```
+
+---
+
+## Adding a New Config
+
+See [SETUP_NOTES.md](SETUP_NOTES.md) for the full patterns. Quick summary:
+
+- Config at `~/.*` → copy to `_*`, run `scripts/symlinks.sh`
+- Config at `~/Library/...` → copy to `_configs/`, add to `sync.sh` and `symlinks.sh`
+- Config at `~/.config/<app>/` → copy to `_config/<app>/`, run `scripts/symlinks.sh`
+- New Homebrew app → add to `Brewfile`
+- Manual-install app → add to `apps.md`
+- Config with secrets → `.template` file only, real values in LastPass
