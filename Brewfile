@@ -52,6 +52,7 @@ brew "stripe/stripe-cli/stripe"
 # GUI Apps (Casks)
 # ============================================================
 cask "nikitabobko/tap/aerospace"   # Tiling window manager
+cask "karabiner-elements"          # Required: provides the virtual HID driver that Kanata depends on
 cask "visual-studio-code"          # Editor (required for vscode entries below)
 cask "bettertouchtool"             # Trackpad / keyboard customization
 cask "claude"                      # Claude Desktop (MCP integrations)

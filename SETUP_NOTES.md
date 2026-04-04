@@ -108,15 +108,29 @@ Kanata shortcuts layer mapping.
 
 ---
 
-## 7. Kanata — Accessibility Permission
+## 7. Kanata — First-time Setup
 
-Kanata requires macOS accessibility access to intercept keyboard events.
+Kanata on macOS depends on the **Karabiner virtual HID driver** for keyboard output.
+`karabiner-elements` is in the Brewfile and installs the driver, but you must
+activate it manually on first launch.
+
+**Step 1 — Activate the Karabiner driver:**
+
+1. Open Karabiner-Elements (installed via Brewfile)
+2. Follow the prompt to activate the DriverKit virtual HID device
+3. Go to **System Settings → Privacy & Security** and approve the driver if prompted
+4. You do not need to configure Karabiner itself — just the driver needs to be active
+
+If you skip this, Kanata will fail with:
+`failed to open keyboard device(s): Karabiner-VirtualHIDDevice driver is not activated`
+
+**Step 2 — Grant Accessibility permission:**
 
 1. Open **System Settings → Privacy & Security → Accessibility**
-2. Add `kanata` (or the launcher script) to the allowed list
+2. Add `kanata` (or `~/bin/kanata-runner.sh`) to the allowed list
 
 The LaunchAgent is installed by `scripts/launchagents.sh`. If Kanata silently
-fails to run after reboot, this is usually the cause.
+fails to run after reboot, one of the above two permissions is usually the cause.
 
 ---
 

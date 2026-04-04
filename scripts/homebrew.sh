@@ -20,7 +20,7 @@ fi
 # Install all packages from Brewfile
 if [ -f "${DOTFILES_DIR}/Brewfile" ]; then
     echo "  Installing packages from Brewfile..."
-    brew bundle --file="${DOTFILES_DIR}/Brewfile" --no-lock
+    brew bundle --file="${DOTFILES_DIR}/Brewfile"
     echo "  Done."
 else
     echo "  [warn] No Brewfile found at ${DOTFILES_DIR}/Brewfile"
