@@ -7,6 +7,45 @@ echo "-> Syncing configs into dotfiles repo..."
 
 changed=0
 
+# Update a single `defaults write` value in macos.sh to match the live system.
+# Usage: sync_default DOMAIN KEY TYPE
+#   DOMAIN: plist domain, or "NSGlobalDomain" / "-g" for global
+#   KEY:    defaults key (e.g. "Clicking")
+#   TYPE:   float | int | bool
+sync_default() {
+    local domain="$1"
+    local key="$2"
+    local type="$3"
+    local macos_sh="${DOTFILES_DIR}/scripts/macos.sh"
+
+    # Read from global domain using -g flag
+    local read_args=("${domain}" "${key}")
+    [ "${domain}" = "NSGlobalDomain" ] && read_args=("-g" "${key}")
+
+    local value
+    value=$(defaults read "${read_args[@]}" 2>/dev/null) || return 0
+
+    # Normalise bool: 0->false, 1->true
+    local write_value="${value}"
+    if [ "${type}" = "bool" ]; then
+        [ "${value}" = "1" ] && write_value="true" || write_value="false"
+    fi
+
+    # Check what value macos.sh currently has for this key
+    local escaped_key
+    escaped_key=$(printf '%s' "${key}" | sed 's/[]\/$*.^[]/\\&/g')
+    local current
+    current=$(grep -m1 "${escaped_key} -${type} " "${macos_sh}" \
+        | grep -oE "\-${type} [^ ]+" | awk '{print $2}' || true)
+
+    if [ "${current}" != "${write_value}" ]; then
+        # Replace old value with new value on every matching line
+        sed -i '' "s/\(${escaped_key} -${type} \)[^ ]*/\1${write_value}/g" "${macos_sh}"
+        echo "  [update] ${key}: ${current:-?} -> ${write_value}"
+        changed=1
+    fi
+}
+
 sync_file() {
     local src="$1"
     local dest="$2"
@@ -65,6 +104,42 @@ fi
 # Edit _configs/claude_desktop_config.json.template manually.
 # ============================================================
 echo "  [skip] Claude Desktop config (sensitive — edit .template manually)"
+
+# ============================================================
+# macOS system preferences -> scripts/macos.sh
+# Reads live defaults and updates the values in macos.sh in-place.
+# Add new settings here whenever you add a defaults write to macos.sh.
+# ============================================================
+echo "-> Syncing macOS preferences into scripts/macos.sh..."
+
+# Trackpad — tracking & click
+sync_default "-g"                                    "com.apple.trackpad.scaling"               "float"
+sync_default "com.apple.AppleMultitouchTrackpad"     "FirstClickThreshold"                      "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "SecondClickThreshold"                     "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "Clicking"                                 "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "ForceSuppressed"                          "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "ActuationStrength"                        "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadRightClick"                       "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadCornerSecondaryClick"             "int"
+
+# Trackpad — scroll & gestures
+sync_default "NSGlobalDomain"                        "com.apple.swipescrolldirection"           "bool"
+sync_default "NSGlobalDomain"                        "AppleEnableSwipeNavigateWithScrolls"      "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadPinch"                            "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadTwoFingerDoubleTapGesture"        "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadRotate"                           "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadThreeFingerTapGesture"            "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadThreeFingerHorizSwipeGesture"     "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadThreeFingerVertSwipeGesture"      "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadFourFingerHorizSwipeGesture"      "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadFourFingerVertSwipeGesture"       "int"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadFourFingerPinchGesture"           "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadFiveFingerPinchGesture"           "bool"
+sync_default "com.apple.AppleMultitouchTrackpad"     "TrackpadTwoFingerFromRightEdgeSwipeGesture" "int"
+
+# Keyboard
+sync_default "NSGlobalDomain"                        "KeyRepeat"                                "int"
+sync_default "NSGlobalDomain"                        "InitialKeyRepeat"                         "int"
 
 # ============================================================
 # Summary

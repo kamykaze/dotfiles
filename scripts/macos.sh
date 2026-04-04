@@ -25,12 +25,60 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # ============================================================
 # Trackpad
+# Most multi-finger gestures are disabled here because BetterTouchTool
+# handles custom gestures. Enable them in BTT instead of System Settings.
 # ============================================================
-echo "  Trackpad: tap to click..."
+echo "  Trackpad: preferences..."
+
+# Tracking speed (0=slow, 3=fast; live value: 2.012896)
+defaults write -g com.apple.trackpad.scaling -float 2.012896
+
+# Click threshold: 0=light, 1=medium, 2=firm
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
+defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 0
+
+# Tap to click
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-# Natural scroll direction (matches iOS — disable if you prefer classic)
+
+# Force click: suppressed (silent click only)
+defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool true
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
+
+# Secondary click: two-finger click (1=enabled), no corner click (0)
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+
+# Natural scroll: off (classic direction — BetterTouchTool manages scroll behavior)
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# --- Gestures disabled (managed by BetterTouchTool instead) ---
+
+# Pinch to zoom: off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool false
+# Smart zoom (two-finger double-tap): off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -bool false
+# Rotate: off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool false
+# Look up / data detectors (three-finger tap): off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
+# Swipe between pages (two-finger horizontal): off
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
+# Swipe between full-screen apps (three-finger horizontal): off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+# Mission Control / App Expose (three-finger vertical): off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+# Four-finger horizontal swipe: off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 0
+# Four-finger vertical swipe: off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
+# Launchpad pinch (four/five finger): off
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -bool false
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -bool false
+
+# Notification Centre swipe (two-finger from right edge): on (value 3)
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
 # ============================================================
 # Dock
