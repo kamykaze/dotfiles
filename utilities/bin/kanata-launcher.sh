@@ -4,7 +4,7 @@
 # This script manages the kanata service via LaunchDaemons (requires sudo)
 
 PLIST_PATH="/Library/LaunchDaemons/com.github.jtroo.kanata.plist"
-RUNNER_PATH="/Users/kam/bin/kanata-runner.sh"
+RUNNER_PATH="${HOME}/bin/kanata-runner.sh"
 
 if [ -z "$1" ]; then
     echo "Loading kanata service..."

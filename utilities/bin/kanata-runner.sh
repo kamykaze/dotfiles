@@ -7,8 +7,9 @@
 KANATA_BIN="/opt/homebrew/bin/kanata"
 
 # Path to kanata configuration file
+# Uses __USER__ placeholder, substituted during install by scripts/launchagents.sh
 # Resolves via the symlink ~/.configs -> dotfiles/_configs/
-CONFIG_FILE="${HOME}/.configs/kanata.kbd"
+CONFIG_FILE="/Users/__USER__/.configs/kanata.kbd"
 
 # Check if kanata binary exists
 if [ ! -f "$KANATA_BIN" ]; then

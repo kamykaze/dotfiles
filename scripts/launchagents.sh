@@ -9,40 +9,38 @@ echo "-> Setting up Launch Agents..."
 mkdir -p "${LAUNCH_AGENTS_DIR}"
 
 # ============================================================
-# Kanata keyboard daemon
+# Kanata keyboard daemon (LaunchDaemon — runs as root)
 # ============================================================
 KANATA_PLIST_SRC="${DOTFILES_DIR}/utilities/launchdaemons/com.github.jtroo.kanata.plist"
-KANATA_PLIST_DEST="${LAUNCH_AGENTS_DIR}/com.github.jtroo.kanata.plist"
+KANATA_PLIST_DEST="/Library/LaunchDaemons/com.github.jtroo.kanata.plist"
 KANATA_RUNNER_SRC="${DOTFILES_DIR}/utilities/bin/kanata-runner.sh"
 KANATA_RUNNER_DEST="${HOME}/bin/kanata-runner.sh"
 
 if [ ! -f "${KANATA_PLIST_SRC}" ]; then
     echo "  [warn] Kanata plist not found at ${KANATA_PLIST_SRC}, skipping"
 else
-    # Ensure ~/bin exists and kanata-runner.sh is in place
+    # Ensure ~/bin exists and kanata-runner.sh is in place (substitute __USER__)
+    # Always overwrite since it's generated from a template
     mkdir -p "${HOME}/bin"
-    if [ ! -f "${KANATA_RUNNER_DEST}" ]; then
-        cp "${KANATA_RUNNER_SRC}" "${KANATA_RUNNER_DEST}"
-        chmod +x "${KANATA_RUNNER_DEST}"
-        echo "  [copy] kanata-runner.sh -> ~/bin/"
-    else
-        echo "  [skip] ~/bin/kanata-runner.sh (already exists)"
-    fi
+    sed "s/__USER__/$(whoami)/g" "${KANATA_RUNNER_SRC}" > "${KANATA_RUNNER_DEST}"
+    chmod +x "${KANATA_RUNNER_DEST}"
+    echo "  [copy] kanata-runner.sh -> ~/bin/"
 
-    # Install the plist, substituting __USER__ with the real username
+    # Install the plist to /Library/LaunchDaemons/ (requires sudo, must be root:wheel)
     if [ -f "${KANATA_PLIST_DEST}" ]; then
-        echo "  [skip] Kanata LaunchAgent plist (already installed)"
+        echo "  [skip] Kanata LaunchDaemon plist (already installed)"
     else
-        sed "s/__USER__/$(whoami)/g" "${KANATA_PLIST_SRC}" > "${KANATA_PLIST_DEST}"
-        chmod 644 "${KANATA_PLIST_DEST}"
-        echo "  [copy] Kanata plist -> ~/Library/LaunchAgents/ (username: $(whoami))"
+        sed "s/__USER__/$(whoami)/g" "${KANATA_PLIST_SRC}" | sudo tee "${KANATA_PLIST_DEST}" > /dev/null
+        sudo chown root:wheel "${KANATA_PLIST_DEST}"
+        sudo chmod 644 "${KANATA_PLIST_DEST}"
+        echo "  [copy] Kanata plist -> /Library/LaunchDaemons/ (username: $(whoami))"
     fi
 
-    # Load the agent (unload first to be safe/idempotent)
-    echo "  Loading Kanata LaunchAgent..."
-    launchctl unload "${KANATA_PLIST_DEST}" 2>/dev/null || true
-    launchctl load "${KANATA_PLIST_DEST}"
-    echo "  [ok] Kanata LaunchAgent loaded"
+    # Load the daemon (unload first to be safe/idempotent)
+    echo "  Loading Kanata LaunchDaemon..."
+    sudo launchctl unload "${KANATA_PLIST_DEST}" 2>/dev/null || true
+    sudo launchctl load "${KANATA_PLIST_DEST}"
+    echo "  [ok] Kanata LaunchDaemon loaded"
 
     echo ""
     echo "  NOTE: Kanata requires accessibility permissions."
