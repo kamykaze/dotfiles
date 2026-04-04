@@ -4,7 +4,6 @@
         "editor.formatOnType": true
     },
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "workbench.colorTheme": "Default Light Modern",
     "diffEditor.ignoreTrimWhitespace": false,
     "terminal.external.osxExec": "Warp.app",
     "window.autoDetectColorScheme": true,
@@ -15,5 +14,6 @@
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "chat.useAgentSkills": true,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "workbench.colorTheme": "Light Modern"
 }
