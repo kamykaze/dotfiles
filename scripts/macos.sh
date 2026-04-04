@@ -54,31 +54,43 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # --- Gestures disabled (managed by BetterTouchTool instead) ---
+# Note: must write to both domains — macOS prefers the bluetooth trackpad domain for built-in trackpads
 
 # Pinch to zoom: off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -bool false
 # Smart zoom (two-finger double-tap): off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -bool false
 # Rotate: off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate -bool false
 # Look up / data detectors (three-finger tap): off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
 # Swipe between pages (two-finger horizontal): off
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 # Swipe between full-screen apps (three-finger horizontal): off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
 # Mission Control / App Expose (three-finger vertical): off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
 # Four-finger horizontal swipe: off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 0
 # Four-finger vertical swipe: off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
 # Launchpad pinch (four/five finger): off
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -bool false
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -bool false
 
 # Notification Centre swipe (two-finger from right edge): on (value 3)
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
 # ============================================================
 # Dock
