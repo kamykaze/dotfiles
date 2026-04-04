@@ -30,7 +30,7 @@ echo "  Trackpad: tap to click..."
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 # Natural scroll direction (matches iOS — disable if you prefer classic)
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # ============================================================
 # Dock
