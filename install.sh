@@ -75,6 +75,22 @@ echo ""
 # bash "${SCRIPTS_DIR}/macos.sh"
 # echo ""
 
+# ============================================================
+# Switch remote origin from HTTPS to SSH (if needed)
+# ============================================================
+cd "${DOTFILES_DIR}"
+CURRENT_REMOTE="$(git remote get-url origin 2>/dev/null || true)"
+if [[ "${CURRENT_REMOTE}" == https://github.com/* ]]; then
+    SSH_REMOTE="${CURRENT_REMOTE/https:\/\/github.com\//git@github.com:}"
+    echo "-> Switching remote origin from HTTPS to SSH..."
+    echo "   ${CURRENT_REMOTE} -> ${SSH_REMOTE}"
+    git remote set-url origin "${SSH_REMOTE}"
+    echo "   Done."
+else
+    echo "-> Remote origin is already using SSH (or non-GitHub). No change needed."
+fi
+echo ""
+
 echo "============================================"
 echo "  Bootstrap complete!"
 echo ""
