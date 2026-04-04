@@ -134,16 +134,7 @@ fails to run after reboot, one of the above two permissions is usually the cause
 
 ---
 
-## 8. AeroSpace — Window Manager
-
-AeroSpace starts automatically. On first launch:
-
-1. Approve the accessibility permission prompt
-2. Review workspaces in `~/.config/aerospace/aerospace.toml`
-
----
-
-## 9. Granola — Meeting Notes
+## 8. Granola — Meeting Notes
 
 1. Open Granola
 2. Sign in with Google

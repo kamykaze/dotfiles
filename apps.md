@@ -28,7 +28,6 @@ All of these are installed automatically by `scripts/homebrew.sh` via `Brewfile`
 ### GUI Apps (Casks)
 | App | Cask | Notes |
 |-----|------|-------|
-| AeroSpace | `nikitabobko/tap/aerospace` | Tiling window manager |
 | BetterTouchTool | `bettertouchtool` | Trackpad/keyboard customization — needs license key (LastPass) |
 | Claude Desktop | `claude` | AI assistant — needs MCP config (see SETUP_NOTES.md) |
 | Google Drive | `google-drive` | Cloud storage |

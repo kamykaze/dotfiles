@@ -44,10 +44,7 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `qmk_mappings/` - QMK keyboard firmware layouts for physical keyboards
 
 ### Window Management
-- `_config/aerospace/aerospace.toml` - AeroSpace window manager configuration with:
-  - Named workspaces (Main, Comm, Desktop, Media, etc.)
-  - Multi-monitor support
-  - Application-specific workspace assignments
+
 - `bettertouchtool/` - BetterTouchTool presets and configurations for trackpad, touchbar, keyboard shortcuts
 
 ### Development Environment
@@ -129,7 +126,6 @@ These are non-negotiable. Follow them for every file touched in this repo.
 | VS Code | Built-in Settings Sync (GitHub account) — nothing extra needed |
 | Warp | Cloud sync via Warp account — local themes/configs in `_configs/` if needed |
 | SSH | `_ssh_config` symlinked to `~/.ssh/config` — private keys in LastPass |
-| AeroSpace | `_config/aerospace/aerospace.toml` symlinked |
 
 ---
 
@@ -162,18 +158,13 @@ When you add a new app or tool to your setup:
   - Plain layer for gaming or standard typing
   - Disabled layer for securing keyboard when not in use
 
-### Window Management
-- AeroSpace provides i3-like tiling window management for macOS
-- Named workspaces with automatic application assignment
-- Multi-monitor workspace distribution
-
 ---
 
 ## File Structure
 
 - `_*` files: Main configuration files (get symlinked to `~/.`)
 - `_config/` and `_configs/`: Application-specific configurations
-  - `_config/`: System-level configs (aerospace, powerline)
+  - `_config/`: System-level configs (powerline)
   - `_configs/`: User application configs (kanata, iTerm2, VS Code)
 - `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
