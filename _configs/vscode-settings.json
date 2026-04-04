@@ -15,5 +15,6 @@
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "chat.useAgentSkills": true,
     "claudeCode.preferredLocation": "panel",
-    "workbench.colorTheme": "Light Modern"
+    "workbench.colorTheme": "Light Modern",
+    "git.confirmSync": false
 }
