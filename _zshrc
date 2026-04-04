@@ -1,4 +1,4 @@
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/local/heroku/bin:/Users/kam/local/bin:/Users/kam/.local/bin:/usr/local/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/php5/bin:/opt/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/mysql/bin:/Users/kam/tools:/Users/kam/.rvm/bin:/usr/local/sessionmanagerplugin/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
