@@ -59,6 +59,8 @@ cask "google-drive"                # Cloud storage
 cask "granola"                     # AI meeting notes
 cask "jumpcut"                     # Clipboard manager
 cask "session-manager-plugin"      # AWS SSM
+cask "spotify"                     # Music streaming
+cask "ticktick"                    # Task manager
 cask "warp"                        # Terminal (with cloud sync)
 # cask "whispr-flow"               # Voice dictation — install manually if not available
 
