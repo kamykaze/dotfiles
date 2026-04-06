@@ -124,6 +124,7 @@ These are non-negotiable. Follow them for every file touched in this repo.
 | VS Code | Built-in Settings Sync (GitHub account) — nothing extra needed |
 | Warp | Cloud sync via Warp account — local themes/configs in `_configs/` if needed |
 | SSH | `_ssh_config` symlinked to `~/.ssh/config` — private keys in LastPass |
+| Chrome Web Apps | Toggled via `utilities/scripts/chrome-app-toggle.sh`, triggered by BetterTouchTool shortcuts |
 
 ---
 

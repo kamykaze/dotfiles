@@ -63,6 +63,7 @@ cask "spotify"                     # Music streaming
 cask "ticktick"                    # Task manager
 cask "warp"                        # Terminal (with cloud sync)
 cask "prusaslicer"                 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
+cask "brainfm"                     # Focus music
 # cask "whispr-flow"               # Voice dictation — install manually if not available
 
 # ============================================================

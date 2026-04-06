@@ -34,6 +34,7 @@ All of these are installed automatically by `scripts/homebrew.sh` via `Brewfile`
 | Granola | `granola` | AI meeting notes |
 | Jumpcut | `jumpcut` | Clipboard manager |
 | Warp | `warp` | Terminal — has cloud sync |
+| Brain.fm | `brainfm` | Focus music |
 
 ### VS Code Extensions
 Managed via Brewfile vscode entries — installed automatically by `brew bundle`.
@@ -47,8 +48,9 @@ These apps are not available via Homebrew and require a direct download.
 
 | App | Download | Notes |
 |-----|----------|-------|
-| Whispr Flow | https://www.whisprflow.ai | Voice dictation — change trigger key after install (see SETUP_NOTES.md) |
-| Brain.fm | https://www.brain.fm | Focus music — web or App Store |
+| Whispr Flow | <https://www.whisprflow.ai> | Voice dictation — change trigger key after install (see SETUP_NOTES.md) |
+| Pomofocus | <https://pomofocus.io> | Pomodoro timer — web app only |
+| Harvest Time Tracker | <https://www.getharvest.com/apps> | Time tracking — download Mac app from site |
 
 ---
 
@@ -58,8 +60,7 @@ These apps must be installed manually from the Mac App Store and cannot be scrip
 
 | App | Notes |
 |-----|-------|
-| Brain.fm | Focus music (also available as web app) |
-| Any other App Store exclusives | Check your purchase history |
+| Any App Store exclusives | Check your purchase history |
 
 ---
 
