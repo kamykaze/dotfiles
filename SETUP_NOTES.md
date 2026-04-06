@@ -161,7 +161,7 @@ when you're happy with a change.
 
 ### Synced via `scripts/sync.sh` (non-symlinked configs)
 
-Apps that own their config files (iTerm2, Karabiner, etc.) need to be exported
+Apps that own their config files (Karabiner, etc.) need to be exported
 into the repo manually. A LaunchAgent runs this daily automatically:
 
 ```bash
@@ -174,7 +174,7 @@ git add -p
 git commit -m "chore: sync configs"
 ```
 
-The sync script copies: iTerm2 plist, Karabiner JSON, VS Code extensions list.
+The sync script copies: VS Code extensions list.
 It will never touch `claude_desktop_config.json` (sensitive).
 
 ### Adding a new app config

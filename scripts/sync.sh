@@ -66,14 +66,6 @@ sync_file() {
 }
 
 # ============================================================
-# iTerm2
-# ============================================================
-sync_file \
-    "${HOME}/Library/Preferences/com.googlecode.iterm2.plist" \
-    "${DOTFILES_DIR}/_configs/com.googlecode.iterm2.plist" \
-    "iTerm2 preferences"
-
-# ============================================================
 # VS Code extensions list
 # ============================================================
 if command -v code &>/dev/null; then

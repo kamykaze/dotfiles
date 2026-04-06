@@ -49,7 +49,6 @@ These apps are not available via Homebrew and require a direct download.
 |-----|----------|-------|
 | Whispr Flow | https://www.whisprflow.ai | Voice dictation — change trigger key after install (see SETUP_NOTES.md) |
 | Brain.fm | https://www.brain.fm | Focus music — web or App Store |
-| iTerm2 | https://iterm2.com | Terminal alternative — config in `_configs/com.googlecode.iterm2.plist` |
 
 ---
 

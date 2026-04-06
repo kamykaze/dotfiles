@@ -79,7 +79,6 @@ All scripts are idempotent — safe to run multiple times.
 
 - `_configs/vscode-settings.json` / `vscode-keybindings.json` — VS Code settings (symlinked by install.sh)
 - `_configs/vscode-extensions.txt` — VS Code extensions list
-- `_configs/com.googlecode.iterm2.plist` — iTerm2 settings
 - `bettertouchtool/` — BetterTouchTool presets (trackpad, keyboard, touchbar)
 
 ### Sensitive Configs
@@ -96,7 +95,7 @@ Files with secrets are kept out of the repo. Instead:
 
 Symlinked files (`~/.zshrc`, `~/.gitconfig`, etc.) are always in sync — editing them **is** editing the repo. Just `git commit` when ready.
 
-For apps that own their config files (iTerm2, VS Code extensions, etc.), run:
+For apps that own their config files (VS Code extensions, etc.), run:
 
 ```bash
 ./scripts/sync.sh   # copies latest app configs into the repo

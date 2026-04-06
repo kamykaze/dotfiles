@@ -60,11 +60,9 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `_ignore` - Universal ignore patterns
 
 ### Additional Configurations
-- `_configs/com.googlecode.iterm2.plist` - iTerm2 terminal emulator settings
 - `_configs/vscode-settings.json` - Visual Studio Code settings
 - `_configs/vscode-keybindings.json` - Visual Studio Code keybindings
 - `_configs/vscode-extensions.txt` - List of installed VS Code extensions
-- `_configs/itermcolors/` - Color schemes for iTerm2
 - `chrome/` - Chrome browser extensions and configurations
 - `_config/powerline/` - Powerline status line configuration
 
@@ -165,7 +163,7 @@ When you add a new app or tool to your setup:
 - `_*` files: Main configuration files (get symlinked to `~/.`)
 - `_config/` and `_configs/`: Application-specific configurations
   - `_config/`: System-level configs (powerline)
-  - `_configs/`: User application configs (kanata, iTerm2, VS Code)
+  - `_configs/`: User application configs (kanata, VS Code)
 - `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
   - `bin/`: Custom executable scripts
