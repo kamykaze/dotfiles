@@ -80,7 +80,7 @@ All scripts are idempotent — safe to run multiple times.
 - `_configs/vscode-settings.json` / `vscode-keybindings.json` — VS Code settings (symlinked by install.sh)
 - `_configs/vscode-extensions.txt` — VS Code extensions list
 - `bettertouchtool/` — BetterTouchTool presets (trackpad, keyboard, touchbar)
-- `utilities/scripts/chrome-app-toggle.sh` — Toggles Chrome web apps (Gmail, Docs, Sheets, etc.) via minimize/restore, called by BetterTouchTool shortcuts
+- `utilities/scripts/chrome-tab-focus.sh` — Focuses Chrome tabs (Gmail, Docs, Sheets, etc.) by URL and title, called by BetterTouchTool shortcuts
 
 ### Sensitive Configs
 
