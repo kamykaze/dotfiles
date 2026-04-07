@@ -57,6 +57,23 @@ if [ -f "${DOTFILES_DIR}/utilities/scripts/setup-vscode.sh" ]; then
 fi
 
 # ============================================================
+# BetterTouchTool preset import (requires socket server enabled)
+# ============================================================
+BTTCLI="/Applications/BetterTouchTool.app/Contents/SharedSupport/bin/bttcli"
+BTT_PRESET="${DOTFILES_DIR}/bettertouchtool/kam_btt_presets.bttpreset"
+if [ -x "${BTTCLI}" ] && [ -f "${BTT_PRESET}" ]; then
+    echo "-> Importing BetterTouchTool preset..."
+    if "${BTTCLI}" import_preset path="${BTT_PRESET}" 2>/dev/null; then
+        echo "   Done."
+    else
+        echo "   [warn] Failed — ensure BTT is running with socket server enabled"
+    fi
+else
+    echo "-> Skipping BetterTouchTool (bttcli or preset not found)"
+fi
+echo ""
+
+# ============================================================
 # Git hooks (pre-commit sensitive data scanner)
 # ============================================================
 bash "${SCRIPTS_DIR}/install-hooks.sh"

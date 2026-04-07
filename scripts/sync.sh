@@ -84,6 +84,34 @@ else
 fi
 
 # ============================================================
+# BetterTouchTool preset export (requires socket server enabled)
+# ============================================================
+BTTCLI="/Applications/BetterTouchTool.app/Contents/SharedSupport/bin/bttcli"
+BTT_PRESET="${DOTFILES_DIR}/bettertouchtool/kam_btt_presets.bttpreset"
+if [ -x "${BTTCLI}" ]; then
+    BTT_EXPORT_TMP="${BTT_PRESET}.tmp"
+    if "${BTTCLI}" export_preset name=kam_btt_presets "outputPath=${BTT_EXPORT_TMP}" includeSettings=true compress=false 2>/dev/null; then
+        # bttcli returns before the file is fully written — wait briefly
+        for _ in 1 2 3 4 5; do [ -f "${BTT_EXPORT_TMP}" ] && break; sleep 1; done
+        # BTT generates a new BTTPresetUUID on every export; strip it before comparing
+        btt_strip_uuid() { grep -v '"BTTPresetUUID"' "$1"; }
+        if diff -q <(btt_strip_uuid "${BTT_EXPORT_TMP}") <(btt_strip_uuid "${BTT_PRESET}") &>/dev/null; then
+            rm -f "${BTT_EXPORT_TMP}"
+            echo "  [skip] BetterTouchTool preset (unchanged)"
+        else
+            mv "${BTT_EXPORT_TMP}" "${BTT_PRESET}"
+            echo "  [copy] BetterTouchTool preset"
+            changed=1
+        fi
+    else
+        rm -f "${BTT_EXPORT_TMP}"
+        echo "  [skip] BetterTouchTool (socket server not enabled or BTT not running)"
+    fi
+else
+    echo "  [skip] BetterTouchTool (bttcli not found)"
+fi
+
+# ============================================================
 # Claude Desktop — SKIPPED (contains API keys)
 # Edit _configs/claude_desktop_config.json.template manually.
 # ============================================================
@@ -122,6 +150,9 @@ sync_default "com.apple.driver.AppleBluetoothMultitouch.trackpad"   "TrackpadFou
 sync_default "com.apple.driver.AppleBluetoothMultitouch.trackpad"   "TrackpadFourFingerPinchGesture"             "bool"
 sync_default "com.apple.driver.AppleBluetoothMultitouch.trackpad"   "TrackpadFiveFingerPinchGesture"             "bool"
 sync_default "com.apple.driver.AppleBluetoothMultitouch.trackpad"   "TrackpadTwoFingerFromRightEdgeSwipeGesture" "int"
+
+# Dock
+sync_default "com.apple.dock"                        "mineffect"                                "string"
 
 # Keyboard
 sync_default "NSGlobalDomain"                        "KeyRepeat"                                "int"

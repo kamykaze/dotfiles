@@ -68,9 +68,17 @@ cp ~/.configs/claude_desktop_config.json.template \
 
 ## 3. BetterTouchTool
 
-1. Open BetterTouchTool
-2. Go to **File → Import Preset** and select `bettertouchtool/*.bttpreset`
-3. Enter your license key from LastPass
+`install.sh` imports the preset automatically via `bttcli`, but BTT needs
+two things set up first:
+
+1. Open BetterTouchTool and enter your license key from LastPass
+2. Go to **Settings → Scripting → Command Line / Socket Server** and enable it
+3. Restart BetterTouchTool
+4. Re-run `./install.sh` (or just the import step: `bttcli import_preset path=bettertouchtool/kam_btt_presets.bttpreset`)
+
+The socket server setting is stored in BTT's own preferences, not in the
+preset file, so it must be enabled manually on each new machine. It is also
+required for `scripts/sync.sh` to export preset changes back to the repo.
 
 **LastPass note:** BetterTouchTool License
 
@@ -174,8 +182,8 @@ git add -p
 git commit -m "chore: sync configs"
 ```
 
-The sync script copies: VS Code extensions list.
-It will never touch `claude_desktop_config.json` (sensitive).
+The sync script copies: VS Code extensions list, BetterTouchTool presets,
+and macOS system preferences. It will never touch `claude_desktop_config.json` (sensitive).
 
 ### Adding a new app config
 

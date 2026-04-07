@@ -102,6 +102,8 @@ defaults write com.apple.dock tilesize -int 48
 defaults write com.apple.dock show-recents -bool false
 # Don't animate opening applications
 defaults write com.apple.dock launchanim -bool false
+# Minimize window animation (genie or scale)
+defaults write com.apple.dock mineffect -string scale
 # Minimize windows into their application icon
 defaults write com.apple.dock minimize-to-application -bool true
 # Auto-hide dock (set to false if you want it always visible)
