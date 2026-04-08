@@ -1,37 +1,14 @@
-## New MacBook Pro
-- restore tmux powerline
-- fix vim background color in html files
+# Dotfiles TODO
 
-## General
-- add bash_profile to repo
-- look into wemux
-- look into ctags and vim-taglist
-- rename all _files to .files for proper syntax highlighting in github
-  - update install.sh
-- powerline: add vim/shell indicator
-  http://bezhermoso.github.io/2015/10/02/vim-shell-indicator-in-powerline-theme/
+## Cleanup
+- Remove powerline — using Warp Terminal now, so Bash/ZSH prompt theming via powerline is no longer needed
+- Setup a decent PS1 prompt for zsh and bash, using community examples for reference
 
-## VIM
-- improving folding map to avoid nesting folds when using multiple times
-- remap keys that have default vim behavior
-    - remap <Leader> (currently , )
-    - remap window moving (CTRL-K, CTRL-L)
-    - remove <f1> mappings
-- add python support (and maybe Ruby)
-- find good multi cursor plugin:
-    - vim-multiple-cursors (https://github.com/terryma/vim-multiple-cursors)
-    - vim-multicursor instead https://github.com/paradigm/vim-multicursor
-- remap keys for consistency among plugins:
-    eg: open in new split for CtrlP, QuickBuf, Ack
-    - maybe unite.vim ? https://github.com/Shougo/unite.vim
-- find good code outline plugin
-    - mabye unite's outline plugin
-- auto complete brackets // TODO: find better alternative...these interfere when pasting code
-- look into https://github.com/tpope/vim-sensible for sensible defaults
+## Keyboard
+- Fix Kanata Visualizer
+- Update MacBook Pro keyboard mapping image and add it to the README
+- Make shortcuts layer tap-only (no holds) and use the entire keyboard
+- Move window resize shortcuts to its own layer
 
-## NEOVIM
-- look into plugins that use neovim's features
-  - Grepper (https://github.com/mhinz/vim-grepper)
-
-## Tmux
-- set user variable 'tmuxSession' to current tmux session name
+## BetterTouchTool
+- Display overlay for triggered shortcuts
