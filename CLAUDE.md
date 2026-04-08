@@ -50,13 +50,11 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 ### Development Environment
 - `_vimrc` - Full Vim configuration with extensive plugin setup
 - `_vimrc_bare` - Minimal Vim configuration without plugins
-- `_gvimrc` - GUI Vim specific configuration
 - `_vim/` - Vim plugin directory using Pathogen for plugin management
 - `_zshrc` - Zsh shell configuration (primary shell)
 - `_tmux.conf` - Terminal multiplexer configuration
 - `_gitconfig`, `_gitignore` - Git configuration and global ignore patterns
 - `_inputrc` - Readline library configuration
-- `_ackrc`, `_sackrc` - Code search tool configurations
 - `_ignore` - Universal ignore patterns
 
 ### Additional Configurations

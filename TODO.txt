@@ -3,6 +3,10 @@
 ## Cleanup
 - Remove powerline — using Warp Terminal now, so Bash/ZSH prompt theming via powerline is no longer needed
 - Setup a decent PS1 prompt for zsh and bash, using community examples for reference
+- Remove/deprecate powerline files: powerline_instructions.md, misc/powerline_bash.png, utilities/powerline_custom/, _config/powerline/, utilities/powerline submodule
+- Remove/deprecate tmux setup: _tmux.conf, utilities/bin/tmuxinator.bash, utilities/bin/tmuxinator.zsh, utilities/tmux-MacOSX-pasteboard submodule
+- Clean up old BTT JSON exports (base.json, bttremote.json, keyboard.json, magicmouse.json, other.json, touchbar.json, trackpad.json) — may be replaced by kam_btt_presets.bttpreset
+- Remove/deprecate chrome/ directory — old Chrome DevTools theming, likely no longer functional
 
 ## Keyboard
 - Fix Kanata Visualizer
