@@ -170,7 +170,7 @@
     "BTTNotchBarMiniItemsOnTop" : true,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C2EB8E86-6DCD-4AC8-BA5A-8B9616F7B04F",
+  "BTTPresetUUID" : "54B12916-3A7D-447E-A842-48B60D909943",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "jp.fuji.1PiecePreferences",
@@ -1056,13 +1056,13 @@
               "BTTOrder" : 6,
               "BTTActionsToExecute" : [
                 {
-                  "BTTLastUpdatedAt" : 1775586217.414861,
+                  "BTTLastUpdatedAt" : 1775598808.778847,
                   "BTTTriggerParentUUID" : "4AA92D21-DE1A-4C4F-8666-06E550F790FB",
                   "BTTIsPureAction" : true,
                   "BTTUUID" : "2CF4D41B-47DF-426A-9B98-F3ECB82707B2",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/r\" \"work\" \"Cuker - Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"work\" \"Cuker - Calendar\"",
                   "BTTOrder" : 0
                 }
               ]
