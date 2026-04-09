@@ -170,7 +170,7 @@
     "BTTNotchBarMiniItemsOnTop" : true,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "54B12916-3A7D-447E-A842-48B60D909943",
+  "BTTPresetUUID" : "18C85E0D-E57C-4ED5-8F79-07C5BFF1491E",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "jp.fuji.1PiecePreferences",
@@ -1303,14 +1303,13 @@
               "BTTOrder" : 17,
               "BTTActionsToExecute" : [
                 {
-                  "BTTLastUpdatedAt" : 1775586217.414948,
+                  "BTTLastUpdatedAt" : 1775756270.3643041,
                   "BTTTriggerParentUUID" : "8EBED2C1-45A0-4130-8BCC-F6D65085F7D7",
                   "BTTIsPureAction" : true,
                   "BTTUUID" : "246F7F94-D1D5-4A89-BED4-170AEF63CD8C",
-                  "BTTPredefinedActionType" : 177,
-                  "BTTPredefinedActionName" : "Show  or  Hide Specific Application",
-                  "BTTAppToShowOrHide" : "/Applications/Harvest.app",
-                  "BTTShowHideAppConfig" : "{\"BTTShowHideSpecificAppMoveToSpace\":\"BTTShowHideSpecificAppHiddenToCurrentSpace\",\"BTTShowHideSpecificAppOnlyShow\":false,\"BTTShowHideSpecificAppOnlyHide\":false,\"BTTShowHideSpecificAffectedWindow\":\"BTTShowHideSpecificAppAffectLastUsedWindow\",\"BTTShowHideSpecificMinimizeInstead\":false,\"BTTShowHideSpecificAppRegex\":\"\",\"BTTShowHideSpecificAppOnlyTreatActiveAsVisible\":true,\"BTTShowHideSpecificAppOnlyIfRunning\":false,\"BTTShowHideSpecificAppCMDN\":false,\"BTTShowHideSpecificAppMoveToCurrentSpace\":false,\"BTTShowHideSpecificAppMoveAllToCurrentSpace\":false}",
+                  "BTTPredefinedActionType" : 137,
+                  "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
+                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://cuker1.harvestapp.com/time\" \"work\" \"Timesheet – Cuker Agency – Harvest\"",
                   "BTTOrder" : 0
                 }
               ]
