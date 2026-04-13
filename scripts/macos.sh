@@ -150,6 +150,27 @@ defaults write com.apple.menuextra.battery ShowPercent -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # ============================================================
+# Hot Corners
+# ============================================================
+echo "  Hot Corners: preferences..."
+# Action codes: 0=none, 2=Mission Control, 3=App Windows, 4=Desktop,
+#   5=Start Screensaver, 6=Disable Screensaver, 10=Sleep Display,
+#   11=Launchpad, 12=Notification Center, 13=Lock Screen, 14=Quick Note
+# Modifier codes: 0=none, 131072=Shift, 262144=Ctrl, 524288=Opt, 1048576=Cmd
+# Top-left: none
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top-right: Cmd + Quick Note
+defaults write com.apple.dock wvous-tr-corner -int 14
+defaults write com.apple.dock wvous-tr-modifier -int 1048576
+# Bottom-left: Cmd + Launchpad
+defaults write com.apple.dock wvous-bl-corner -int 11
+defaults write com.apple.dock wvous-bl-modifier -int 1048576
+# Bottom-right: Cmd + Desktop
+defaults write com.apple.dock wvous-br-corner -int 4
+defaults write com.apple.dock wvous-br-modifier -int 1048576
+
+# ============================================================
 # Restart affected apps
 # ============================================================
 echo "  Restarting Finder and Dock..."
