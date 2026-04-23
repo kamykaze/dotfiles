@@ -45,7 +45,7 @@
     "optResize" : true,
     "showDrawingsTab" : true,
     "BTTTouchBarVisible" : false,
-    "BTTSavedMousePosition" : "{340.7421875, 27.2265625}",
+    "BTTSavedMousePosition" : "{912, 781}",
     "BSTDontShowSnapAreasWhileModMoving" : 0,
     "BTTDrawingAreaHeight" : 626,
     "BTTNumberOfStarts" : 4430,
@@ -170,18 +170,12 @@
     "BTTNotchBarMiniItemsOnTop" : true,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "18C85E0D-E57C-4ED5-8F79-07C5BFF1491E",
+  "BTTPresetUUID" : "F8ED5E47-599D-4894-A778-5CB4363D363E",
   "BTTPresetContent" : [
     {
-      "BTTAppBundleIdentifier" : "jp.fuji.1PiecePreferences",
-      "BTTAppName" : "1Piece Preferences",
+      "BTTAppBundleIdentifier" : "BT.L",
+      "BTTAppName" : "Recently Used",
       "BTTAppAutoInvertIcon" : 1,
-      "BTTAppProcessMatchMode" : 2,
-      "BTTAppProcessName" : "1Piece Preferences",
-      "BTTAppSpecificSettings" : {
-        "BTTDisableBTT" : 1,
-        "BTTDisableGlobalTriggers" : false
-      },
       "BTTTriggers" : [
 
       ]
@@ -190,26 +184,6 @@
       "BTTAppBundleIdentifier" : "com.apple.finder",
       "BTTAppName" : "Finder",
       "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "com.googlecode.iterm2",
-      "BTTAppName" : "iTerm2",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTAppProcessMatchMode" : 2,
-      "BTTAppProcessName" : "iTerm2",
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "com.adobe.Photoshop",
-      "BTTAppName" : "Adobe Photoshop 2023",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTAppProcessMatchMode" : 2,
-      "BTTAppProcessName" : "Adobe Photoshop 2023",
       "BTTTriggers" : [
 
       ]
@@ -510,7 +484,7 @@
               "BTTOrder" : 1
             },
             {
-              "BTTLastUpdatedAt" : 1775586217.4152269,
+              "BTTLastUpdatedAt" : 1776437205.9863,
               "BTTTriggerType" : 102,
               "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Up",
               "BTTTriggerParentUUID" : "BD1C6310-0E74-4700-A8D7-B4F90B70B4BF",
@@ -1404,13 +1378,13 @@
           "BTTOrder" : 3,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1775586217.4156229,
+              "BTTLastUpdatedAt" : 1776437630.6333079,
               "BTTTriggerParentUUID" : "B50E5386-4F99-4F0F-BAEA-7D59327EC239",
               "BTTIsPureAction" : true,
               "BTTUUID" : "5C1FF93D-0AED-4D87-A423-50EC2CF482D7",
-              "BTTPredefinedActionType" : 162,
-              "BTTPredefinedActionName" : "Trigger Context Menu Item",
-              "BTTTriggerContextMenuPath" : "Open With; Adobe Photoshop 2025",
+              "BTTPredefinedActionType" : 519,
+              "BTTPredefinedActionName" : "Trigger macOS Functionality From System Settings => Keyboard => Keyboard Shortcuts",
+              "BTTGenericActionConfig" : "231",
               "BTTOrder" : 0
             }
           ]
@@ -3386,14 +3360,6 @@
       ]
     },
     {
-      "BTTAppBundleIdentifier" : "BT.L",
-      "BTTAppName" : "Recently Used",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
-      ]
-    },
-    {
       "BTTAppBundleIdentifier" : "dev.warp.Warp-Stable",
       "BTTAppName" : "Warp",
       "BTTAppAutoInvertIcon" : 1,
@@ -3446,6 +3412,95 @@
     }
   ],
   "BTTPresetSnapAreas" : [
+    {
+      "BTTDisplayID" : 2,
+      "BTTDisplayModel" : 4088,
+      "BTTDisplayResolution" : "{1920, 1080}",
+      "BTTDisplayScreenFrame" : "{{-73, 1117}, {1920, 1080}}",
+      "BTTDisplayScreenSize" : "{1413.5651961616848, 795.13042284094774}",
+      "BTTDisplaySerialNumber" : "16780800",
+      "BTTDisplayVendorID" : 19501,
+      "BTTDisplaySnappedDragpoints" : [
+        {
+          "BTTSnapAreaAnimationDuration" : 0.30000001192092896,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "129.991359, 201.122828, 227.012328, 104.550003",
+          "BTTSnapAreaFrame" : "{{556, 898}, {1331, 123}}",
+          "BTTSnapAreaHighlightColor" : "92.625563, 122.647964, 161.664347, 56.099998",
+          "BTTSnapAreaModifierOPT" : 1,
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.10000000149011612,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.10000000149011612,
+          "BTTSnapAreaPictogramSize" : 0.69999998807907104,
+          "BTTSnapAreaPreviewFrame" : "{{516, 0}, {1404, 1049}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "A09486AD-A502-45D8-AA83-D7FC03EA094E",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.30000001192092896,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "129.991359, 201.122828, 227.012328, 104.550003",
+          "BTTSnapAreaFrame" : "{{35, 899}, {439, 121}}",
+          "BTTSnapAreaHighlightColor" : "92.625563, 122.647964, 161.664347, 56.099998",
+          "BTTSnapAreaModifierOPT" : 1,
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.10000000149011612,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.10000000149011612,
+          "BTTSnapAreaPictogramSize" : 0.69999998807907104,
+          "BTTSnapAreaPreviewFrame" : "{{0, 0}, {515, 1049}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "B77627F5-8696-4878-B1D1-D7843F499598",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        }
+      ],
+      "BTTDisplayDisplayedDragpoints" : [
+        {
+          "BTTSnapAreaAnimationDuration" : 0.30000001192092896,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "129.991359, 201.122828, 227.012328, 104.550003",
+          "BTTSnapAreaFrame" : "{{556, 898}, {1331, 123}}",
+          "BTTSnapAreaHighlightColor" : "92.625563, 122.647964, 161.664347, 56.099998",
+          "BTTSnapAreaModifierOPT" : 1,
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.10000000149011612,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.10000000149011612,
+          "BTTSnapAreaPictogramSize" : 0.69999998807907104,
+          "BTTSnapAreaPreviewFrame" : "{{516, 0}, {1404, 1049}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "A09486AD-A502-45D8-AA83-D7FC03EA094E",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        },
+        {
+          "BTTSnapAreaAnimationDuration" : 0.30000001192092896,
+          "BTTSnapAreaPreviewBorderColor" : "0.000000, 0.000000, 0.000000, 255.000000",
+          "BTTSnapAreaColor" : "129.991359, 201.122828, 227.012328, 104.550003",
+          "BTTSnapAreaFrame" : "{{35, 899}, {439, 121}}",
+          "BTTSnapAreaHighlightColor" : "92.625563, 122.647964, 161.664347, 56.099998",
+          "BTTSnapAreaModifierOPT" : 1,
+          "BTTSnapAreaModifierCMD" : 1,
+          "BTTSnapAreaPictogramDistanceFromLeft" : 0.10000000149011612,
+          "BTTSnapAreaPictogramDistanceFromBottom" : 0.10000000149011612,
+          "BTTSnapAreaPictogramSize" : 0.69999998807907104,
+          "BTTSnapAreaPreviewFrame" : "{{0, 0}, {515, 1049}}",
+          "BTTSnapAreaBorderWidth" : 3,
+          "BTTSnapAreaCornerRadius" : 20,
+          "BTTSnapAreaUUID" : "B77627F5-8696-4878-B1D1-D7843F499598",
+          "BTTSnapAreaShowsForApps" : [
+
+          ]
+        }
+      ]
+    },
     {
       "BTTDisplayID" : 2,
       "BTTDisplayModel" : 4089,

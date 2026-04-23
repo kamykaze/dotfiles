@@ -11,10 +11,11 @@
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.accessibilitySupport": "off",
-    "gitlens.ai.model": "vscode",
+    "gitlens.ai.model": "anthropic:claude-haiku-4-5",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "chat.useAgentSkills": true,
     "claudeCode.preferredLocation": "panel",
     "workbench.colorTheme": "Light Modern",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "python.terminal.useEnvFile": true
 }
