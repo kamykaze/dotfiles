@@ -12,10 +12,8 @@ charliermarsh.ruff
 codezombiech.gitignore
 davidanson.vscode-markdownlint
 docker.docker
-eamodio.gitlens
 ecmel.vscode-html-css
 editorconfig.editorconfig
-github.copilot-chat
 github.vscode-github-actions
 github.vscode-pull-request-github
 kawamataryo.copy-python-dotted-path

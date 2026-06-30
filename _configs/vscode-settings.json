@@ -17,5 +17,7 @@
     "claudeCode.preferredLocation": "panel",
     "workbench.colorTheme": "Light Modern",
     "git.confirmSync": false,
-    "python.terminal.useEnvFile": true
+    "python.terminal.useEnvFile": true,
+    "chat.viewSessions.orientation": "stacked",
+    "markdown-preview-enhanced.enablePreviewZenMode": false
 }
