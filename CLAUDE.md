@@ -119,6 +119,7 @@ These are non-negotiable. Follow them for every file touched in this repo.
 | Kanata | `_configs/kanata.kbd` symlinked to `~/.configs/kanata.kbd` |
 | BetterTouchTool | `.bttpreset` export in `bettertouchtool/` |
 | Claude Desktop | `.template` file in `_configs/`, real keys in LastPass |
+| Claude Code (global) | `claude/CLAUDE.md` symlinked to `~/.claude/CLAUDE.md` (handled in `scripts/symlinks.sh`) |
 | VS Code | Built-in Settings Sync (GitHub account) — nothing extra needed |
 | Warp | Cloud sync via Warp account — local themes/configs in `_configs/` if needed |
 | SSH | `_ssh_config` symlinked to `~/.ssh/config` — private keys in LastPass |
@@ -157,12 +158,20 @@ When you add a new app or tool to your setup:
 
 ---
 
+## Searching the Repo
+
+- **Scope Glob/Grep searches.** Exclude `_vim/bundle/` (Vim plugin submodules — dozens of vendored repos) and `deprecated/` to avoid noise. Prefer `path` parameters or specific patterns over searching the repo root blindly.
+- Reading a specific file with Read has no such restriction — any file may be needed for troubleshooting.
+
+---
+
 ## File Structure
 
 - `_*` files: Main configuration files (get symlinked to `~/.`)
 - `_config/` and `_configs/`: Application-specific configurations
   - `_config/`: System-level configs (powerline)
   - `_configs/`: User application configs (kanata, VS Code)
+- `claude/`: Global Claude Code instructions — `CLAUDE.md` symlinked to `~/.claude/CLAUDE.md`
 - `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
   - `bin/`: Custom executable scripts

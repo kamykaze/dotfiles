@@ -61,4 +61,19 @@ if [ -f "${DOTFILES_DIR}/_ssh_config" ]; then
     fi
 fi
 
+# Claude global instructions: claude/CLAUDE.md -> ~/.claude/CLAUDE.md
+# ~/.claude holds session/memory data we don't track, so link just this one file.
+if [ -f "${DOTFILES_DIR}/claude/CLAUDE.md" ]; then
+    echo "-> Symlinking Claude global instructions..."
+    mkdir -p "${HOME}/.claude"
+    if [ -L "${HOME}/.claude/CLAUDE.md" ]; then
+        echo "  [skip] ~/.claude/CLAUDE.md (already linked)"
+    elif [ -e "${HOME}/.claude/CLAUDE.md" ]; then
+        echo "  [skip] ~/.claude/CLAUDE.md (exists as non-symlink, skipping)"
+    else
+        ln -s "${DOTFILES_DIR}/claude/CLAUDE.md" "${HOME}/.claude/CLAUDE.md"
+        echo "  [link] claude/CLAUDE.md -> ~/.claude/CLAUDE.md"
+    fi
+fi
+
 echo "   Done."
