@@ -174,7 +174,7 @@ When you add a new app or tool to your setup:
 - `claude/`: Global Claude Code instructions — `CLAUDE.md` symlinked to `~/.claude/CLAUDE.md`
 - `scripts/`: Bootstrap scripts called by `install.sh`
 - `utilities/`: Scripts, launch daemons, and helper tools
-  - `bin/`: Custom executable scripts
+  - `bin/`: Custom executable scripts (eg: `lidguard` — lid-close "travel mode" with thermal-pressure/battery safety cutoffs; symlinked to `~/.local/bin/`)
   - `scripts/`: Automation and helper scripts
   - `launchdaemons/`: macOS launch daemon configurations
 - `qmk_mappings/`: Physical keyboard firmware configurations for QMK keyboards

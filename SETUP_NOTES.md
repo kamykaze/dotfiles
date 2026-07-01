@@ -150,6 +150,48 @@ fails to run after reboot, one of the above two permissions is usually the cause
 
 ---
 
+## 9. Travel Mode — `lidguard`
+
+Keeps the MacBook awake with the **lid closed** so it stays reachable remotely
+(e.g. Claude dispatch) while you carry it, with automatic safety cutoffs.
+
+`install.sh` symlinks `utilities/bin/lidguard` → `~/.local/bin/lidguard` (on PATH).
+Nothing runs in the background — it's an on-demand script you start when traveling.
+
+```bash
+sudo lidguard          # enter travel mode + monitor (prompts for password once)
+                       # ...close the lid. Press Ctrl-C to end travel mode.
+lidguard status        # one-shot readout (add sudo to also read thermal pressure)
+```
+
+**What it does:** sets `pmset disablesleep 1` (the only reliable way to stop
+lid-close sleep) plus `womp`/`tcpkeepalive` for network wake, then every 30s
+checks thermal pressure and battery:
+
+- **Thermal pressure reaches the trigger level** → forces `pmset sleepnow`, keeps
+  travel mode on, resumes monitoring after wake. macOS 26 removed the raw °C sensor
+  (`smc` sampler) on Apple Silicon, so `lidguard` uses macOS's own **thermal pressure**
+  signal instead — the ladder is `Nominal < Fair/Moderate < Serious/Heavy <
+  Critical/Trapping < Sleeping`. Default trigger: **Critical** — lets heavy
+  jobs run and bails just before macOS's own thermal-emergency sleep (override
+  with `LIDGUARD_THERMAL_TRIGGER`, e.g. `serious` to bail earlier).
+- **Battery < 15%** (on battery power) → restores normal sleep, sleeps, and **exits**
+  travel mode so the Mac stays asleep and protects the battery.
+
+An exit trap **always** restores normal sleep (`disablesleep 0`) on Ctrl-C or crash,
+so the Mac is never left unable to sleep.
+
+**Tuning** (env overrides): `LIDGUARD_THERMAL_TRIGGER`, `LIDGUARD_BATT_MIN`,
+`LIDGUARD_INTERVAL`. **Log:** `~/Library/Logs/lidguard.log` records what triggered
+each sleep, so it's visible after the fact.
+
+**First-run check (Apple Silicon):** confirm the thermal sampler works with
+`sudo powermetrics -n 1 -i 500 --samplers thermal`. It should print a
+`Current pressure level:` line. If not, `lidguard` logs a warning and runs
+battery-only.
+
+---
+
 ## 10. App Store Apps
 
 See `apps.md` section (c) for apps that must be installed from the App Store.

@@ -76,4 +76,19 @@ if [ -f "${DOTFILES_DIR}/claude/CLAUDE.md" ]; then
     fi
 fi
 
+# lidguard travel-mode CLI: utilities/bin/lidguard -> ~/.local/bin/lidguard
+# (~/.local/bin is already on PATH; symlinked so repo edits take effect live.)
+if [ -f "${DOTFILES_DIR}/utilities/bin/lidguard" ]; then
+    echo "-> Symlinking lidguard CLI..."
+    mkdir -p "${HOME}/.local/bin"
+    if [ -L "${HOME}/.local/bin/lidguard" ]; then
+        echo "  [skip] ~/.local/bin/lidguard (already linked)"
+    elif [ -e "${HOME}/.local/bin/lidguard" ]; then
+        echo "  [skip] ~/.local/bin/lidguard (exists as non-symlink, skipping)"
+    else
+        ln -s "${DOTFILES_DIR}/utilities/bin/lidguard" "${HOME}/.local/bin/lidguard"
+        echo "  [link] utilities/bin/lidguard -> ~/.local/bin/lidguard"
+    fi
+fi
+
 echo "   Done."

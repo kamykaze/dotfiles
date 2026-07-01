@@ -1,0 +1,193 @@
+#!/usr/bin/env bash
+#
+# lidguard — "travel mode": keep this Mac awake with the lid CLOSED, with
+# thermal and battery safety cutoffs.
+#
+# Why this exists:
+#   `sudo pmset -a disablesleep 1` is the only reliable way to stop clamshell
+#   (lid-close) sleep — caffeinate/Amphetamine can't intercept it. But it ALSO
+#   disables macOS's built-in low-battery safe sleep, so this script compensates
+#   by watching thermal pressure and battery level, and forcing a graceful
+#   `pmset sleepnow` if either crosses a safety threshold.
+#
+# Thermal signal:
+#   macOS 26 removed powermetrics' raw temperature ("smc") sampler on Apple
+#   Silicon, so instead of a °C reading we use macOS's own THERMAL PRESSURE
+#   level — the OS's assessment of how thermally stressed it is. Ladder:
+#     Nominal < Fair/Moderate < Serious/Heavy < Critical/Trapping < Sleeping
+#   We sleep the Mac when pressure reaches LIDGUARD_THERMAL_TRIGGER (see below).
+#
+# Usage:
+#   sudo lidguard [start]   Enter travel mode and monitor. Ctrl-C to stop.
+#   lidguard status         One-shot readout (no changes). Add sudo to read thermal.
+#
+# The monitor loop runs as root (the script re-execs itself via sudo, so you're
+# prompted for a password once). An exit trap ALWAYS restores normal sleep, so
+# Ctrl-C or a crash can never leave the Mac unable to sleep.
+#
+# Lives in the dotfiles repo at utilities/bin/lidguard, symlinked onto PATH at
+# ~/.local/bin/lidguard by scripts/symlinks.sh.
+
+set -euo pipefail
+
+# ---- Tunables (environment overrides in parentheses) ----
+THERMAL_TRIGGER="${LIDGUARD_THERMAL_TRIGGER:-critical}"  # pressure level that sleeps the Mac
+BATT_MIN_PCT="${LIDGUARD_BATT_MIN:-15}"                 # battery cutoff, % (only on battery)
+INTERVAL_SEC="${LIDGUARD_INTERVAL:-30}"                 # seconds between checks
+
+# ---- Resolve the invoking user's home for a persistent, user-owned log ----
+# Under sudo, $SUDO_USER is the real user; the log stays readable as that user
+# even though the loop runs as root.
+real_user="${SUDO_USER:-${USER}}"
+real_home="$(dscl . -read "/Users/${real_user}" NFSHomeDirectory 2>/dev/null | awk '{print $2}' || true)"
+[ -z "${real_home}" ] && real_home="${HOME}"
+LOG="${LIDGUARD_LOG:-${real_home}/Library/Logs/lidguard.log}"
+
+# ---- Logging: timestamped line to both stdout and the persistent log file ----
+log() {
+    local line
+    line="$(date '+%Y-%m-%d %H:%M:%S')  $*"
+    echo "${line}"
+    mkdir -p "$(dirname "${LOG}")" 2>/dev/null || true
+    echo "${line}" >> "${LOG}" 2>/dev/null || true
+    chown "${real_user}" "${LOG}" 2>/dev/null || true   # keep it user-owned, not root
+}
+
+# ---- Map a thermal-pressure level name to a severity rank (higher = hotter) ----
+# Handles both vocabularies macOS may emit (Fair/Serious/Critical and
+# Moderate/Heavy/Trapping/Sleeping). Unknown/empty -> -1.
+thermal_severity() {
+    case "$(printf '%s' "${1:-}" | tr '[:upper:]' '[:lower:]')" in
+        nominal)            echo 0 ;;
+        fair|moderate)      echo 1 ;;
+        serious|heavy)      echo 2 ;;
+        critical|trapping)  echo 3 ;;
+        sleeping)           echo 4 ;;
+        *)                  echo -1 ;;
+    esac
+}
+
+# ---- Read current thermal pressure level (requires root) ----
+# Echoes e.g. "Nominal", or nothing if unavailable.
+read_thermal_level() {
+    powermetrics -n 1 -i 500 --samplers thermal 2>/dev/null \
+        | awk -F': *' '/[Pp]ressure level/{print $2; exit}' \
+        | tr -d '[:space:]'
+}
+
+# ---- Read battery percentage from a captured `pmset -g batt` blob ----
+batt_pct_from() { printf '%s' "${1:-}" | grep -oE '[0-9]+%' | head -1 | tr -d '%' || true; }
+is_on_ac()      { printf '%s' "${1:-}" | grep -qi 'AC Power'; }
+
+# ---- One-shot status readout ----
+cmd_status() {
+    local sd batt_raw batt src level
+    sd="$(pmset -g 2>/dev/null | awk '/SleepDisabled/{print $2}' || true)"
+    batt_raw="$(pmset -g batt 2>/dev/null || true)"
+    batt="$(batt_pct_from "${batt_raw}")"
+    if is_on_ac "${batt_raw}"; then src="AC"; else src="battery"; fi
+
+    echo "lidguard status"
+    echo "  travel mode  : $([ "${sd:-0}" = "1" ] && echo "ON (disablesleep=1)" || echo "off (disablesleep=0)")"
+    echo "  power source : ${src}"
+    echo "  battery      : ${batt:-?}%"
+    if [ "$(id -u)" -eq 0 ]; then
+        level="$(read_thermal_level || true)"
+        echo "  thermal      : ${level:-unavailable}"
+    else
+        echo "  thermal      : (run 'sudo lidguard status' to read)"
+    fi
+    echo "  triggers     : thermal >= ${THERMAL_TRIGGER}   |   battery < ${BATT_MIN_PCT}%"
+    echo "  log          : ${LOG}"
+}
+
+# ---- Enter travel mode and monitor ----
+cmd_start() {
+    # Re-exec as root so pmset + powermetrics work, with a single password
+    # prompt. Forward the resolved tunables so overrides survive the sudo hop.
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "lidguard: travel mode needs root — re-running with sudo (one password prompt)…"
+        exec sudo \
+            LIDGUARD_THERMAL_TRIGGER="${THERMAL_TRIGGER}" \
+            LIDGUARD_BATT_MIN="${BATT_MIN_PCT}" \
+            LIDGUARD_INTERVAL="${INTERVAL_SEC}" \
+            LIDGUARD_LOG="${LOG}" \
+            "$0" start
+    fi
+
+    local trigger_sev
+    trigger_sev="$(thermal_severity "${THERMAL_TRIGGER}")"
+    if [ "${trigger_sev}" -lt 0 ]; then
+        echo "lidguard: invalid LIDGUARD_THERMAL_TRIGGER='${THERMAL_TRIGGER}' — using 'critical'." >&2
+        THERMAL_TRIGGER="critical"; trigger_sev=3
+    fi
+
+    # Capture the AC-power womp value so we can restore it on exit.
+    local orig_womp
+    orig_womp="$(pmset -g custom 2>/dev/null | awk '/AC Power/{ac=1} ac && /womp/{print $2; exit}' || true)"
+    [ -z "${orig_womp}" ] && orig_womp=1
+
+    # Critical safety net: ALWAYS re-enable normal sleep on the way out.
+    restore() {
+        pmset -a disablesleep 0 2>/dev/null || true
+        pmset -a womp "${orig_womp}" 2>/dev/null || true
+        log "travel mode ENDED — disablesleep restored to 0 (normal sleep re-enabled)"
+    }
+    trap 'restore; exit 0' INT TERM
+    trap 'restore' EXIT
+
+    # Enter travel mode.
+    pmset -a disablesleep 1
+    pmset -a womp 1
+    pmset -a tcpkeepalive 1
+    log "travel mode STARTED — lid-close sleep disabled. triggers: thermal>=${THERMAL_TRIGGER}, batt<${BATT_MIN_PCT}%, every ${INTERVAL_SEC}s"
+    echo "Lid can now be closed. Press Ctrl-C to end travel mode."
+
+    local thermal_warned=0
+    while true; do
+        local batt_raw batt src level sev
+        batt_raw="$(pmset -g batt 2>/dev/null || true)"
+        batt="$(batt_pct_from "${batt_raw}")"
+        if is_on_ac "${batt_raw}"; then src="AC"; else src="battery"; fi
+        level="$(read_thermal_level || true)"
+        sev="$(thermal_severity "${level}")"
+
+        # Heartbeat (stdout only — not logged, to avoid flooding the log file).
+        echo "$(date '+%H:%M:%S')  thermal=${level:-NA}  batt=${batt:-NA}%  ${src}"
+
+        # --- Thermal guard ---
+        if [ "${sev}" -ge 0 ] && [ "${sev}" -ge "${trigger_sev}" ]; then
+            log "TRIGGER thermal pressure '${level}' (>= '${THERMAL_TRIGGER}') — sleeping now (travel mode stays ON; resumes on wake)"
+            pmset sleepnow
+        elif [ "${sev}" -lt 0 ] && [ "${thermal_warned}" -eq 0 ]; then
+            log "WARN could not read thermal pressure (got '${level:-empty}') — thermal guard disabled this session (battery guard still active)"
+            thermal_warned=1
+        fi
+
+        # --- Battery guard (only meaningful while on battery) ---
+        if [ -n "${batt}" ] && [ "${src}" = "battery" ] && [ "${batt}" -lt "${BATT_MIN_PCT}" ]; then
+            log "TRIGGER battery ${batt}% < ${BATT_MIN_PCT}% — restoring normal sleep and sleeping now (travel mode OFF)"
+            trap - EXIT INT TERM   # avoid double restore
+            restore
+            pmset sleepnow
+            exit 0
+        fi
+
+        sleep "${INTERVAL_SEC}"
+    done
+}
+
+# ---- Dispatch ----
+case "${1:-start}" in
+    start|"") cmd_start ;;
+    status)   cmd_status ;;
+    -h|--help|help)
+        # Print the contiguous comment header (skip the shebang, stop at code).
+        awk 'NR==1{next} /^#/{sub(/^# ?/,""); print; next} {exit}' "$0"
+        ;;
+    *)
+        echo "lidguard: unknown command '${1}'" >&2
+        echo "usage: sudo lidguard [start] | lidguard status" >&2
+        exit 1
+        ;;
+esac
