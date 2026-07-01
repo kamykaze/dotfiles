@@ -170,7 +170,7 @@
     "BTTNotchBarMiniItemsOnTop" : true,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C9EFB848-4E63-443A-A80D-C35246541862",
+  "BTTPresetUUID" : "97414836-5380-44AF-AA9C-027336917EF3",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "dev.warp.Warp-Stable",
@@ -2392,7 +2392,7 @@
           }
         },
         {
-          "BTTLastUpdatedAt" : 1777649892.465704,
+          "BTTLastUpdatedAt" : 1782850738.911104,
           "BTTTriggerType" : 630,
           "BTTTriggerTypeDescriptionReadOnly" : "Group",
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2405,7 +2405,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1777649892.46523,
+              "BTTLastUpdatedAt" : 1782850738.910954,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2426,7 +2426,7 @@
               "BTTGestureNotes" : "Spotify"
             },
             {
-              "BTTLastUpdatedAt" : 1775586217.4155059,
+              "BTTLastUpdatedAt" : 1782850738.911011,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2447,7 +2447,7 @@
               "BTTGestureNotes" : "Slack"
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4651709,
+              "BTTLastUpdatedAt" : 1782850738.910979,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2467,7 +2467,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4651198,
+              "BTTLastUpdatedAt" : 1782850738.9108319,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2486,7 +2486,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.46597,
+              "BTTLastUpdatedAt" : 1782850738.9109139,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2505,7 +2505,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465692,
+              "BTTLastUpdatedAt" : 1782850738.911068,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2538,7 +2538,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1776881624.1888142,
+              "BTTLastUpdatedAt" : 1782850738.910929,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2566,7 +2566,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465178,
+              "BTTLastUpdatedAt" : 1782850738.910938,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2594,7 +2594,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4659519,
+              "BTTLastUpdatedAt" : 1782850738.911123,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2622,7 +2622,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4657822,
+              "BTTLastUpdatedAt" : 1782850738.910995,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2651,7 +2651,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4658442,
+              "BTTLastUpdatedAt" : 1782850738.91084,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2684,7 +2684,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465764,
+              "BTTLastUpdatedAt" : 1782850738.9110031,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2717,7 +2717,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4660358,
+              "BTTLastUpdatedAt" : 1782850738.9108481,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2749,7 +2749,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465735,
+              "BTTLastUpdatedAt" : 1782850738.9111381,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2781,7 +2781,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4658151,
+              "BTTLastUpdatedAt" : 1782850738.911092,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2809,7 +2809,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4659581,
+              "BTTLastUpdatedAt" : 1782850738.9110179,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2837,7 +2837,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4658089,
+              "BTTLastUpdatedAt" : 1782850738.91113,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2865,7 +2865,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465256,
+              "BTTLastUpdatedAt" : 1782850738.9109049,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2893,7 +2893,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465981,
+              "BTTLastUpdatedAt" : 1782850738.9110761,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2926,7 +2926,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465975,
+              "BTTLastUpdatedAt" : 1782850738.91082,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2954,7 +2954,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4658499,
+              "BTTLastUpdatedAt" : 1782850738.9109869,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -2982,7 +2982,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465754,
+              "BTTLastUpdatedAt" : 1782850738.9111152,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -3010,7 +3010,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1776881624.188911,
+              "BTTLastUpdatedAt" : 1782850738.9110842,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -3038,7 +3038,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.480428,
+              "BTTLastUpdatedAt" : 1782850738.9109621,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -3066,7 +3066,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.4659309,
+              "BTTLastUpdatedAt" : 1782850738.9109459,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -3094,7 +3094,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649892.465724,
+              "BTTLastUpdatedAt" : 1782850738.9109712,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -3118,6 +3118,34 @@
                   "BTTPredefinedActionName" : "Trigger Named Trigger (Configured in Other Tab)",
                   "BTTNamedTriggerToTrigger" : "app_call_notes",
                   "BTTOrder" : 25
+                }
+              ]
+            },
+            {
+              "BTTLastUpdatedAt" : 1782850746.2484322,
+              "BTTTriggerType" : 0,
+              "BTTTriggerParentUUID" : "19CE7EF6-7188-4ECD-A235-60DD678A4AED",
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "B207F93D-CFC9-40D0-AD12-12B0B2751696",
+              "BTTAdditionalConfiguration" : "917539",
+              "BTTShortcutKeyboardType" : 2302,
+              "BTTTriggerOnDown" : 1,
+              "BTTLayoutIndependentChar" : "p",
+              "BTTShortcutKeyCode" : 35,
+              "BTTShortcutAdvancedModifierKeys" : "917539",
+              "BTTShortcutModifierKeys" : 917504,
+              "BTTOrder" : 26,
+              "BTTAutoAdaptToKeyboardLayout" : 0,
+              "BTTActionsToExecute" : [
+                {
+                  "BTTLastUpdatedAt" : 1782850760.6760569,
+                  "BTTTriggerParentUUID" : "B207F93D-CFC9-40D0-AD12-12B0B2751696",
+                  "BTTIsPureAction" : true,
+                  "BTTUUID" : "525739F8-1A52-4EDE-917B-E83C1A3AE0DE",
+                  "BTTPredefinedActionType" : 248,
+                  "BTTPredefinedActionName" : "Trigger Named Trigger (Configured in Other Tab)",
+                  "BTTNamedTriggerToTrigger" : "app_daily_planning",
+                  "BTTOrder" : 30
                 }
               ]
             }
@@ -3159,7 +3187,7 @@
           }
         },
         {
-          "BTTLastUpdatedAt" : 1777649920.3715811,
+          "BTTLastUpdatedAt" : 1782850575.152102,
           "BTTTriggerType" : 630,
           "BTTTriggerTypeDescriptionReadOnly" : "Group",
           "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
@@ -3168,7 +3196,7 @@
           "BTTOrder" : 3,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1777649920.3713899,
+              "BTTLastUpdatedAt" : 1782850575.1519489,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_messaging",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3185,7 +3213,7 @@
               }
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3714252,
+              "BTTLastUpdatedAt" : 1782850575.1518669,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_messaging2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3223,7 +3251,7 @@
               "BTTOrder" : 2
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371696,
+              "BTTLastUpdatedAt" : 1782850575.151932,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_terminal",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3237,7 +3265,7 @@
               "BTTOrder" : 3
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371701,
+              "BTTLastUpdatedAt" : 1782850575.152081,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_notes",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3251,7 +3279,7 @@
               "BTTOrder" : 4
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3715301,
+              "BTTLastUpdatedAt" : 1782850575.1519241,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_calendar",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3261,19 +3289,19 @@
               "BTTOrder" : 5,
               "BTTActionsToExecute" : [
                 {
-                  "BTTLastUpdatedAt" : 1775586217.4158649,
+                  "BTTLastUpdatedAt" : 1782850832.834074,
                   "BTTTriggerParentUUID" : "E0E68D6A-4BB2-4D36-8AE9-DB4AA7D7466A",
                   "BTTIsPureAction" : true,
                   "BTTUUID" : "4915E4A1-DB4A-41D4-B3E4-D9A64C53D846",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://docs.google.com/spreadsheets/d/1OPpdCOMTSSvF4Uor45FSaJR_9bYTTLBsg8K8FUTXe4k/edit?gid=502320290#gid=502320290\" \"work\" \"Production Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"work\" \"Cuker - Calendar\"",
                   "BTTOrder" : 0
                 }
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371567,
+              "BTTLastUpdatedAt" : 1782850575.1518879,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_calendar2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3286,19 +3314,19 @@
               "BTTOrder" : 6,
               "BTTActionsToExecute" : [
                 {
-                  "BTTLastUpdatedAt" : 1775598808.778847,
+                  "BTTLastUpdatedAt" : 1782850857.920243,
                   "BTTTriggerParentUUID" : "4AA92D21-DE1A-4C4F-8666-06E550F790FB",
                   "BTTIsPureAction" : true,
                   "BTTUUID" : "2CF4D41B-47DF-426A-9B98-F3ECB82707B2",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"work\" \"Cuker - Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"personal\" \"Google Calendar\"",
                   "BTTOrder" : 0
                 }
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371541,
+              "BTTLastUpdatedAt" : 1782850575.1519399,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_tasks2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3321,7 +3349,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371665,
+              "BTTLastUpdatedAt" : 1782850575.1519079,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_tasks",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3344,7 +3372,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3715482,
+              "BTTLastUpdatedAt" : 1782850575.1520729,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_browser",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3367,7 +3395,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3716779,
+              "BTTLastUpdatedAt" : 1782850575.152046,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_files",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3389,7 +3417,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.37169,
+              "BTTLastUpdatedAt" : 1782850575.1519721,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_reference",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3412,7 +3440,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3717351,
+              "BTTLastUpdatedAt" : 1782850575.1519809,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_email",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3434,7 +3462,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371707,
+              "BTTLastUpdatedAt" : 1782850575.1517339,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_email2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3459,7 +3487,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.371721,
+              "BTTLastUpdatedAt" : 1782850575.1518769,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: show_desktop",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3481,7 +3509,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3717299,
+              "BTTLastUpdatedAt" : 1782850575.1520901,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_typing",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3503,7 +3531,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3715539,
+              "BTTLastUpdatedAt" : 1782850575.1517501,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_typing2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3547,7 +3575,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3715169,
+              "BTTLastUpdatedAt" : 1782850575.1518989,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_timer",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3573,7 +3601,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3714151,
+              "BTTLastUpdatedAt" : 1782850575.152055,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_focus",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3622,7 +3650,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649912.777597,
+              "BTTLastUpdatedAt" : 1782850575.151989,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_ai2",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3647,7 +3675,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1777649920.3717141,
+              "BTTLastUpdatedAt" : 1782850575.152113,
               "BTTTriggerType" : 643,
               "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_call_notes",
               "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
@@ -3669,6 +3697,31 @@
                   "BTTAppToShowOrHide" : "/Applications/Granola.app",
                   "BTTShowHideAppConfig" : "{\"BTTShowHideSpecificAppMoveToSpace\":\"BTTShowHideSpecificAppHiddenToCurrentSpace\",\"BTTShowHideSpecificAppOnlyShow\":false,\"BTTShowHideSpecificAppOnlyHide\":false,\"BTTShowHideSpecificAffectedWindow\":\"BTTShowHideSpecificAppAffectLastUsedWindow\",\"BTTShowHideSpecificMinimizeInstead\":false,\"BTTShowHideSpecificAppRegex\":\"\",\"BTTShowHideSpecificAppOnlyTreatActiveAsVisible\":true,\"BTTShowHideSpecificAppOnlyIfRunning\":false,\"BTTShowHideSpecificAppCMDN\":false,\"BTTShowHideSpecificAppMoveToCurrentSpace\":false,\"BTTShowHideSpecificAppMoveAllToCurrentSpace\":false}",
                   "BTTOrder" : 26
+                }
+              ]
+            },
+            {
+              "BTTLastUpdatedAt" : 1782850617.029942,
+              "BTTTriggerType" : 643,
+              "BTTTriggerTypeDescriptionReadOnly" : "Named Trigger: app_daily_planning",
+              "BTTTriggerParentUUID" : "C5A57D7E-0619-4EAB-9645-B2473BC7E3FF",
+              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+              "BTTUUID" : "DF5652CB-2D8D-4CC5-8A42-AE29B776B9B0",
+              "BTTCustomContextMenuItemConfig" : {
+
+              },
+              "BTTTriggerName" : "app_daily_planning",
+              "BTTOrder" : 23,
+              "BTTActionsToExecute" : [
+                {
+                  "BTTLastUpdatedAt" : 1782850726.866262,
+                  "BTTTriggerParentUUID" : "DF5652CB-2D8D-4CC5-8A42-AE29B776B9B0",
+                  "BTTIsPureAction" : true,
+                  "BTTUUID" : "0FC637CA-1BFB-4D4C-BD28-4DC048CED5AA",
+                  "BTTPredefinedActionType" : 137,
+                  "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
+                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://docs.google.com/spreadsheets/d/1OPpdCOMTSSvF4Uor45FSaJR_9bYTTLBsg8K8FUTXe4k/edit?gid=502320290#gid=502320290\" \"work\" \"Production Calendar\"",
+                  "BTTOrder" : 29
                 }
               ]
             }
@@ -3934,7 +3987,7 @@
     },
     {
       "BTTDisplayID" : 3,
-      "BTTDisplayModel" : 4089,
+      "BTTDisplayModel" : 4088,
       "BTTDisplayResolution" : "{1920, 1080}",
       "BTTDisplayScreenFrame" : "{{-73, 1117}, {1920, 1080}}",
       "BTTDisplayScreenSize" : "{1413.5651961616848, 795.13042284094774}",
