@@ -3,7 +3,7 @@
 " This file can be used on a remote server that you don't have a home directory.
 " Simply do the following on the server:
 "
-"$ curl https://raw.github.com/kamykaze/dotfiles/master/_vimrc_bare -o /tmp/_vimrc
+"$ curl https://raw.github.com/kamykaze/dotfiles/main/_vimrc_bare -o /tmp/_vimrc
 "
 " This might work if you don't have a .vim/ or .viminfo in the current user's
 " home directory
