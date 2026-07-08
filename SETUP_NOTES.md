@@ -164,9 +164,10 @@ sudo lidguard          # enter travel mode + monitor (prompts for password once)
 lidguard status        # one-shot readout (add sudo to also read thermal pressure)
 ```
 
-**What it does:** sets `pmset disablesleep 1` (the only reliable way to stop
-lid-close sleep) plus `womp`/`tcpkeepalive` for network wake, then every 30s
-checks thermal pressure and battery:
+**What it does:** switches Wi-Fi to your iPhone hotspot (see below), sets
+`pmset disablesleep 1` (the only reliable way to stop lid-close sleep) plus
+`womp`/`tcpkeepalive` for network wake, then every 30s checks thermal pressure
+and battery:
 
 - **Thermal pressure reaches the trigger level** → forces `pmset sleepnow`, keeps
   travel mode on, resumes monitoring after wake. macOS 26 removed the raw °C sensor
@@ -181,9 +182,31 @@ checks thermal pressure and battery:
 An exit trap **always** restores normal sleep (`disablesleep 0`) on Ctrl-C or crash,
 so the Mac is never left unable to sleep.
 
+**Wi-Fi auto-switch:** since travel mode usually means leaving the Wi-Fi you're on,
+start also joins your iPhone hotspot (`Kam's iPhone 17 PX`) via `networksetup`, and
+stop cycles Wi-Fi off/on so macOS auto-rejoins whatever preferred network is in range
+(the legacy `airport -z` disassociate was removed in macOS 26, so a power cycle is the
+reliable way back). Requirements/notes:
+
+- **Expect an admin-password prompt on start.** Joining the hotspot reads its saved
+  Wi-Fi password from the macOS **System keychain**, and macOS gates that read with an
+  admin-password dialog *every time* — there is no "remember" option for System-keychain
+  reads, and the login-keychain workaround doesn't help because the root monitor process
+  can't reach the GUI login keychain. So each `sudo lidguard` pops a password prompt when
+  it switches Wi-Fi. Known limitation of `networksetup` on macOS 26; accepted for now.
+- The hotspot must already be a **saved network** (join it once manually so macOS
+  remembers the password). If it isn't, `lidguard` logs a warning and skips the switch.
+- Make sure Personal Hotspot is on / in range when you start — `networksetup` can't wake
+  a dormant Instant Hotspot over Bluetooth the way the Wi-Fi menu does; if it's not
+  broadcasting, the join just warns and travel mode continues.
+- Turn the whole Wi-Fi behavior off with `LIDGUARD_HOTSPOT=0` (no prompt, no switch);
+  point it at a different hotspot with `LIDGUARD_HOTSPOT_MATCH` (a regex matched against
+  saved networks).
+
 **Tuning** (env overrides): `LIDGUARD_THERMAL_TRIGGER`, `LIDGUARD_BATT_MIN`,
-`LIDGUARD_INTERVAL`. **Log:** `~/Library/Logs/lidguard.log` records what triggered
-each sleep, so it's visible after the fact.
+`LIDGUARD_INTERVAL`, `LIDGUARD_HOTSPOT`, `LIDGUARD_HOTSPOT_MATCH`. **Log:**
+`~/Library/Logs/lidguard.log` records what triggered each sleep and each Wi-Fi
+switch, so it's visible after the fact.
 
 **First-run check (Apple Silicon):** confirm the thermal sampler works with
 `sudo powermetrics -n 1 -i 500 --samplers thermal`. It should print a

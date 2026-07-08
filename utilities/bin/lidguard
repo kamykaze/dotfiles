@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # lidguard — "travel mode": keep this Mac awake with the lid CLOSED, with
-# thermal and battery safety cutoffs.
+# thermal and battery safety cutoffs, and an automatic Wi-Fi switch to your
+# iPhone hotspot.
 #
 # Why this exists:
 #   `sudo pmset -a disablesleep 1` is the only reliable way to stop clamshell
@@ -16,6 +17,12 @@
 #   level — the OS's assessment of how thermally stressed it is. Ladder:
 #     Nominal < Fair/Moderate < Serious/Heavy < Critical/Trapping < Sleeping
 #   We sleep the Mac when pressure reaches LIDGUARD_THERMAL_TRIGGER (see below).
+#
+# Wi-Fi:
+#   Travel mode usually means leaving the Wi-Fi you're on, so on START it
+#   switches Wi-Fi to your iPhone hotspot (must already be a saved network), and
+#   on STOP it flips Wi-Fi off/on so macOS auto-rejoins whatever preferred
+#   network is in range. Disable the whole Wi-Fi behavior with LIDGUARD_HOTSPOT=0.
 #
 # Usage:
 #   sudo lidguard [start]   Enter travel mode and monitor. Ctrl-C to stop.
@@ -32,8 +39,11 @@ set -euo pipefail
 
 # ---- Tunables (environment overrides in parentheses) ----
 THERMAL_TRIGGER="${LIDGUARD_THERMAL_TRIGGER:-critical}"  # pressure level that sleeps the Mac
-BATT_MIN_PCT="${LIDGUARD_BATT_MIN:-15}"                 # battery cutoff, % (only on battery)
-INTERVAL_SEC="${LIDGUARD_INTERVAL:-30}"                 # seconds between checks
+BATT_MIN_PCT="${LIDGUARD_BATT_MIN:-15}"                  # battery cutoff, % (only on battery)
+INTERVAL_SEC="${LIDGUARD_INTERVAL:-30}"                  # seconds between checks
+HOTSPOT_ENABLE="${LIDGUARD_HOTSPOT:-1}"                  # 1=switch Wi-Fi to hotspot on start, 0=leave Wi-Fi alone
+HOTSPOT_MATCH="${LIDGUARD_HOTSPOT_MATCH:-Kam.s iPhone 17 PX}"  # regex to find the hotspot among saved nets ('.' matches the curly apostrophe)
+WIFI_IF="${LIDGUARD_WIFI_IF:-}"                          # Wi-Fi interface (auto-detected if empty)
 
 # ---- Resolve the invoking user's home for a persistent, user-owned log ----
 # Under sudo, $SUDO_USER is the real user; the log stays readable as that user
@@ -79,9 +89,65 @@ read_thermal_level() {
 batt_pct_from() { printf '%s' "${1:-}" | grep -oE '[0-9]+%' | head -1 | tr -d '%' || true; }
 is_on_ac()      { printf '%s' "${1:-}" | grep -qi 'AC Power'; }
 
+# ---- Wi-Fi helpers ----
+# The Wi-Fi hardware interface (e.g. en0), auto-detected unless WIFI_IF is set.
+wifi_iface() {
+    [ -n "${WIFI_IF}" ] && { printf '%s' "${WIFI_IF}"; return; }
+    networksetup -listallhardwareports 2>/dev/null \
+        | awk '/Wi-Fi|AirPort/{getline; print $2; exit}'
+}
+
+# Exact SSID of the hotspot as stored in preferred networks (correct apostrophe),
+# or empty if it isn't a saved network on this machine.
+resolve_hotspot_ssid() {
+    networksetup -listpreferredwirelessnetworks "$1" 2>/dev/null \
+        | sed 's/^[[:space:]]*//' | grep -m1 "${HOTSPOT_MATCH}" || true
+}
+
+# Join the hotspot, preferring PROMPT-FREE methods. Order matters:
+#   1. Bare join — no secret is read, so no auth prompt. Works for a saved,
+#      actively-broadcasting network; macOS uses its stored creds internally.
+#   2. A password stashed in the LOGIN keychain under "lidguard-hotspot". Create
+#      it once with -A so reads are prompt-free (see SETUP_NOTES.md).
+#   3. macOS's own stored Wi-Fi password in the SYSTEM keychain — reading this
+#      triggers an admin prompt EVERY time, so it's the last resort.
+# Echoes the error text + returns 1 on failure; silent + returns 0 on success.
+# NOTE: the iPhone hotspot must be actively broadcasting — networksetup can't
+# wake a dormant Instant Hotspot over Bluetooth the way the Wi-Fi menu does.
+wifi_join_hotspot() {
+    local iface="$1" ssid="$2" out pw
+    # 1) Silent bare join.
+    out="$(networksetup -setairportnetwork "${iface}" "${ssid}" 2>&1)"
+    [ -z "${out}" ] && return 0
+    # 2) Prompt-free login-keychain password (if the user stored one).
+    pw="$(sudo -u "${real_user}" security find-generic-password -s lidguard-hotspot -w 2>/dev/null || true)"
+    if [ -n "${pw}" ]; then
+        out="$(networksetup -setairportnetwork "${iface}" "${ssid}" "${pw}" 2>&1)"
+        [ -z "${out}" ] && return 0
+    fi
+    # 3) Last resort: System-keychain Wi-Fi password (prompts each time).
+    pw="$(security find-generic-password -D "AirPort network password" -l "${ssid}" -w 2>/dev/null || true)"
+    if [ -n "${pw}" ]; then
+        out="$(networksetup -setairportnetwork "${iface}" "${ssid}" "${pw}" 2>&1)"
+        [ -z "${out}" ] && return 0
+    fi
+    printf '%s' "${out}"
+    return 1
+}
+
+# Disconnect from the hotspot by cycling Wi-Fi power; macOS then auto-rejoins the
+# best available preferred network (your saved home/office Wi-Fi). `airport -z`
+# was removed in macOS 26, so a power cycle is the reliable way to do this.
+wifi_restore() {
+    local iface="$1"
+    networksetup -setairportpower "${iface}" off >/dev/null 2>&1 || true
+    sleep 2
+    networksetup -setairportpower "${iface}" on  >/dev/null 2>&1 || true
+}
+
 # ---- One-shot status readout ----
 cmd_status() {
-    local sd batt_raw batt src level
+    local sd batt_raw batt src level wif ssid cur
     sd="$(pmset -g 2>/dev/null | awk '/SleepDisabled/{print $2}' || true)"
     batt_raw="$(pmset -g batt 2>/dev/null || true)"
     batt="$(batt_pct_from "${batt_raw}")"
@@ -98,6 +164,14 @@ cmd_status() {
         echo "  thermal      : (run 'sudo lidguard status' to read)"
     fi
     echo "  triggers     : thermal >= ${THERMAL_TRIGGER}   |   battery < ${BATT_MIN_PCT}%"
+    if [ "${HOTSPOT_ENABLE}" = "1" ]; then
+        wif="$(wifi_iface)"
+        ssid="$(resolve_hotspot_ssid "${wif}")"
+        cur="$(networksetup -getairportnetwork "${wif}" 2>/dev/null | sed -n 's/^Current Wi-Fi Network: //p')"
+        echo "  hotspot      : ${ssid:-<not a saved network>}  (current Wi-Fi: ${cur:-not connected})"
+    else
+        echo "  hotspot      : disabled (Wi-Fi left alone)"
+    fi
     echo "  log          : ${LOG}"
 }
 
@@ -111,6 +185,9 @@ cmd_start() {
             LIDGUARD_THERMAL_TRIGGER="${THERMAL_TRIGGER}" \
             LIDGUARD_BATT_MIN="${BATT_MIN_PCT}" \
             LIDGUARD_INTERVAL="${INTERVAL_SEC}" \
+            LIDGUARD_HOTSPOT="${HOTSPOT_ENABLE}" \
+            LIDGUARD_HOTSPOT_MATCH="${HOTSPOT_MATCH}" \
+            LIDGUARD_WIFI_IF="${WIFI_IF}" \
             LIDGUARD_LOG="${LOG}" \
             "$0" start
     fi
@@ -122,16 +199,29 @@ cmd_start() {
         THERMAL_TRIGGER="critical"; trigger_sev=3
     fi
 
+    # Resolve the Wi-Fi interface + hotspot SSID once, up front.
+    local wifi_if="" hotspot_ssid=""
+    if [ "${HOTSPOT_ENABLE}" = "1" ]; then
+        wifi_if="$(wifi_iface)"
+        [ -n "${wifi_if}" ] && hotspot_ssid="$(resolve_hotspot_ssid "${wifi_if}")"
+    fi
+
     # Capture the AC-power womp value so we can restore it on exit.
     local orig_womp
     orig_womp="$(pmset -g custom 2>/dev/null | awk '/AC Power/{ac=1} ac && /womp/{print $2; exit}' || true)"
     [ -z "${orig_womp}" ] && orig_womp=1
 
-    # Critical safety net: ALWAYS re-enable normal sleep on the way out.
+    # Critical safety net: ALWAYS re-enable normal sleep (and drop the hotspot)
+    # on the way out.
     restore() {
         pmset -a disablesleep 0 2>/dev/null || true
         pmset -a womp "${orig_womp}" 2>/dev/null || true
-        log "travel mode ENDED — disablesleep restored to 0 (normal sleep re-enabled)"
+        if [ "${HOTSPOT_ENABLE}" = "1" ] && [ -n "${wifi_if}" ]; then
+            wifi_restore "${wifi_if}"
+            log "travel mode ENDED — normal sleep restored; Wi-Fi cycled to auto-rejoin preferred networks"
+        else
+            log "travel mode ENDED — disablesleep restored to 0 (normal sleep re-enabled)"
+        fi
     }
     trap 'restore; exit 0' INT TERM
     trap 'restore' EXIT
@@ -141,6 +231,22 @@ cmd_start() {
     pmset -a womp 1
     pmset -a tcpkeepalive 1
     log "travel mode STARTED — lid-close sleep disabled. triggers: thermal>=${THERMAL_TRIGGER}, batt<${BATT_MIN_PCT}%, every ${INTERVAL_SEC}s"
+
+    # Switch Wi-Fi to the iPhone hotspot (best-effort — never blocks travel mode).
+    if [ "${HOTSPOT_ENABLE}" = "1" ]; then
+        if [ -z "${wifi_if}" ]; then
+            log "WARN Wi-Fi interface not found — skipping hotspot switch"
+        elif [ -z "${hotspot_ssid}" ]; then
+            log "WARN hotspot matching '${HOTSPOT_MATCH}' is not a saved network — skipping Wi-Fi switch (join it once manually so macOS remembers it)"
+        else
+            local join_err
+            if join_err="$(wifi_join_hotspot "${wifi_if}" "${hotspot_ssid}")"; then
+                log "Wi-Fi switched to hotspot '${hotspot_ssid}'"
+            else
+                log "WARN could not join hotspot '${hotspot_ssid}': ${join_err} — make sure Personal Hotspot is on / in range"
+            fi
+        fi
+    fi
     echo "Lid can now be closed. Press Ctrl-C to end travel mode."
 
     local thermal_warned=0
