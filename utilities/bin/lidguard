@@ -18,15 +18,18 @@
 #     Nominal < Fair/Moderate < Serious/Heavy < Critical/Trapping < Sleeping
 #   We sleep the Mac when pressure reaches LIDGUARD_THERMAL_TRIGGER (see below).
 #
-# Wi-Fi:
-#   Travel mode usually means leaving the Wi-Fi you're on, so on START it
-#   switches Wi-Fi to your iPhone hotspot (must already be a saved network), and
-#   on STOP it flips Wi-Fi off/on so macOS auto-rejoins whatever preferred
-#   network is in range. Disable the whole Wi-Fi behavior with LIDGUARD_HOTSPOT=0.
+# Wi-Fi (opt-in):
+#   By default lidguard leaves Wi-Fi ALONE — so you can start travel mode, close
+#   the lid, and coast on your current network for a few minutes as you head out.
+#   Pass --hotspot to instead switch Wi-Fi to your iPhone hotspot on start (must
+#   already be a saved network) and flip Wi-Fi off/on on stop so macOS auto-rejoins
+#   your preferred networks. Note: joining the hotspot pops a macOS admin-password
+#   prompt each time (System-keychain read; no way around it via networksetup).
 #
 # Usage:
-#   sudo lidguard [start]   Enter travel mode and monitor. Ctrl-C to stop.
-#   lidguard status         One-shot readout (no changes). Add sudo to read thermal.
+#   sudo lidguard [start]              Enter travel mode and monitor. Ctrl-C to stop.
+#   sudo lidguard --hotspot            ...and also switch Wi-Fi to the iPhone hotspot.
+#   lidguard status                    One-shot readout (no changes). Add sudo for thermal.
 #
 # The monitor loop runs as root (the script re-execs itself via sudo, so you're
 # prompted for a password once). An exit trap ALWAYS restores normal sleep, so
@@ -41,7 +44,7 @@ set -euo pipefail
 THERMAL_TRIGGER="${LIDGUARD_THERMAL_TRIGGER:-critical}"  # pressure level that sleeps the Mac
 BATT_MIN_PCT="${LIDGUARD_BATT_MIN:-15}"                  # battery cutoff, % (only on battery)
 INTERVAL_SEC="${LIDGUARD_INTERVAL:-30}"                  # seconds between checks
-HOTSPOT_ENABLE="${LIDGUARD_HOTSPOT:-1}"                  # 1=switch Wi-Fi to hotspot on start, 0=leave Wi-Fi alone
+HOTSPOT_ENABLE="${LIDGUARD_HOTSPOT:-0}"                  # 1=switch Wi-Fi to hotspot on start, 0=leave Wi-Fi alone. Off by default; opt in with --hotspot.
 HOTSPOT_MATCH="${LIDGUARD_HOTSPOT_MATCH:-Kam.s iPhone 17 PX}"  # regex to find the hotspot among saved nets ('.' matches the curly apostrophe)
 WIFI_IF="${LIDGUARD_WIFI_IF:-}"                          # Wi-Fi interface (auto-detected if empty)
 
@@ -284,16 +287,29 @@ cmd_start() {
 }
 
 # ---- Dispatch ----
-case "${1:-start}" in
-    start|"") cmd_start ;;
-    status)   cmd_status ;;
-    -h|--help|help)
+# Flags may appear in any position; the first non-flag arg is the subcommand.
+cmd=""
+for arg in "$@"; do
+    case "${arg}" in
+        --hotspot|--wifi) HOTSPOT_ENABLE=1 ;;   # opt in to the Wi-Fi -> hotspot switch
+        --no-hotspot)     HOTSPOT_ENABLE=0 ;;
+        -h|--help|help)   cmd="help" ;;
+        start|status)     [ -z "${cmd}" ] && cmd="${arg}" ;;
+        "")               ;;
+        *)
+            echo "lidguard: unknown argument '${arg}'" >&2
+            echo "usage: sudo lidguard [start] [--hotspot] | lidguard status" >&2
+            exit 1
+            ;;
+    esac
+done
+[ -z "${cmd}" ] && cmd="start"
+
+case "${cmd}" in
+    start)  cmd_start ;;
+    status) cmd_status ;;
+    help)
         # Print the contiguous comment header (skip the shebang, stop at code).
         awk 'NR==1{next} /^#/{sub(/^# ?/,""); print; next} {exit}' "$0"
-        ;;
-    *)
-        echo "lidguard: unknown command '${1}'" >&2
-        echo "usage: sudo lidguard [start] | lidguard status" >&2
-        exit 1
         ;;
 esac

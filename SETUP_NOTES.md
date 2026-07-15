@@ -161,13 +161,15 @@ Nothing runs in the background — it's an on-demand script you start when trave
 ```bash
 sudo lidguard          # enter travel mode + monitor (prompts for password once)
                        # ...close the lid. Press Ctrl-C to end travel mode.
+sudo lidguard --hotspot  # ...and also switch Wi-Fi to the iPhone hotspot (opt-in)
 lidguard status        # one-shot readout (add sudo to also read thermal pressure)
 ```
 
-**What it does:** switches Wi-Fi to your iPhone hotspot (see below), sets
-`pmset disablesleep 1` (the only reliable way to stop lid-close sleep) plus
-`womp`/`tcpkeepalive` for network wake, then every 30s checks thermal pressure
-and battery:
+**What it does:** sets `pmset disablesleep 1` (the only reliable way to stop
+lid-close sleep) plus `womp`/`tcpkeepalive` for network wake, then every 30s
+checks thermal pressure and battery. By default it leaves **Wi-Fi alone** (so you
+can close the lid and coast on your current network as you head out); pass
+`--hotspot` to switch to your iPhone hotspot (see below).
 
 - **Thermal pressure reaches the trigger level** → forces `pmset sleepnow`, keeps
   travel mode on, resumes monitoring after wake. macOS 26 removed the raw °C sensor
@@ -182,11 +184,13 @@ and battery:
 An exit trap **always** restores normal sleep (`disablesleep 0`) on Ctrl-C or crash,
 so the Mac is never left unable to sleep.
 
-**Wi-Fi auto-switch:** since travel mode usually means leaving the Wi-Fi you're on,
-start also joins your iPhone hotspot (`Kam's iPhone 17 PX`) via `networksetup`, and
-stop cycles Wi-Fi off/on so macOS auto-rejoins whatever preferred network is in range
-(the legacy `airport -z` disassociate was removed in macOS 26, so a power cycle is the
-reliable way back). Requirements/notes:
+**Wi-Fi hotspot switch (opt-in, `--hotspot`):** off by default — plain `sudo lidguard`
+never touches Wi-Fi, so you can start it, close the lid, and stay on your current
+network for a few minutes as you leave. Run `sudo lidguard --hotspot` when you want it
+to join your iPhone hotspot (`Kam's iPhone 17 PX`) via `networksetup` on start and
+cycle Wi-Fi off/on on stop so macOS auto-rejoins your preferred networks (the legacy
+`airport -z` disassociate was removed in macOS 26, so a power cycle is the reliable way
+back). Requirements/notes:
 
 - **Expect an admin-password prompt on start.** Joining the hotspot reads its saved
   Wi-Fi password from the macOS **System keychain**, and macOS gates that read with an
@@ -199,9 +203,9 @@ reliable way back). Requirements/notes:
 - Make sure Personal Hotspot is on / in range when you start — `networksetup` can't wake
   a dormant Instant Hotspot over Bluetooth the way the Wi-Fi menu does; if it's not
   broadcasting, the join just warns and travel mode continues.
-- Turn the whole Wi-Fi behavior off with `LIDGUARD_HOTSPOT=0` (no prompt, no switch);
-  point it at a different hotspot with `LIDGUARD_HOTSPOT_MATCH` (a regex matched against
-  saved networks).
+- `--hotspot` enables it for one run; set `LIDGUARD_HOTSPOT=1` to make it the default
+  again. Point it at a different hotspot with `LIDGUARD_HOTSPOT_MATCH` (a regex matched
+  against saved networks).
 
 **Tuning** (env overrides): `LIDGUARD_THERMAL_TRIGGER`, `LIDGUARD_BATT_MIN`,
 `LIDGUARD_INTERVAL`, `LIDGUARD_HOTSPOT`, `LIDGUARD_HOTSPOT_MATCH`. **Log:**
