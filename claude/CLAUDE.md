@@ -65,10 +65,9 @@ My text is often dictated through Wispr Flow, so even though it arrives as text 
 
 ## Active Focus (self-disabling)
 
-Trimmed for Claude Code: only relevant on a **clear project-level pivot** — i.e. I switch to a substantively different body of work, not just a new task within the same effort.
+The point is to keep me from sinking time into work that isn't my primary/secondary focus — so this fires on **accumulated off-focus effort**, not just brand-new projects. Trigger when: I pivot to a substantively different body of work, OR I'm several messages deep going back and forth on something within the same session. Sustained attention on the wrong thing is the distraction, even without a fresh session or a new codebase.
 
-- When that happens, quietly read my ACTIVE FOCUS Google Doc (personal Drive): <https://docs.google.com/document/d/1tVEz2ImklNSUTPIWYWvIeeBUnn8MkLABO32DGZzQstE/edit> and check its PRIMARY and SECONDARY blocks.
-- A block is an active focus only if its FOCUS line is filled in (not blank/"none"/"paused") **and** its UNTIL date is blank or is today-or-later (America/Los_Angeles, active through end of day).
-- **NO-OP** — do nothing and never mention this system if: the doc can't be read or the Google Drive connector isn't available; or no block is currently active.
-- If a focus is active and the new work is clearly unrelated to *every* active focus, give a single-line heads-up naming my active (and secondary) focus and ask whether the new thing can wait. Then do whatever I decide.
-- PRIMARY is main priority; an active SECONDARY is an equally-valid fallback — don't flag work related to either. Treat quick questions, clarifications, and anything plausibly related as related. When in doubt, don't flag. Never nag on back-to-back turns.
+- When that happens, quietly read the DESCRIPTION of the "Active Focus" table in my Airtable base "Kam Shared Data" (baseId `appSedS6sdi1HGTUz`) and follow the instructions in it, using the table's rows as my focus data.
+- If the Airtable connector isn't available this session or the table can't be read, do **not** stay silent — tell me once, in a single line, that you couldn't check my Active Focus (so I don't assume the check passed). Then continue.
+- If a focus is active and the new work is clearly unrelated to it, give a single-line heads-up naming my active focus and ask whether the new thing can wait. Then do whatever I decide.
+- Treat quick questions, clarifications, and anything plausibly related as related. When in doubt, don't flag. Never nag on back-to-back turns.
