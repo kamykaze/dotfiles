@@ -1,12 +1,10 @@
-tap "apppackio/apppack"
-tap "armmbed/formulae"
-tap "felixkratz/formulae"
-tap "heroku/brew"
-tap "nikitabobko/tap"
-tap "osx-cross/arm"
-tap "osx-cross/avr"
-tap "qmk/qmk"
-tap "stripe/stripe-cli"
+# Homebrew 6+ refuses to load formulae from third-party taps unless they are
+# trusted. `trusted:` declares that here so `brew bundle` never stops to ask.
+# Only the formulae actually used below are trusted, not the whole tap.
+tap "apppackio/apppack", trusted: { formulae: ["apppack"] }
+tap "armmbed/formulae", trusted: { formulae: ["arm-none-eabi-gcc"] }
+tap "heroku/brew", trusted: { formulae: ["heroku"] }
+tap "stripe/stripe-cli", trusted: { formulae: ["stripe"] }
 
 # ============================================================
 # CLI Tools
@@ -90,6 +88,7 @@ vscode "github.copilot-chat"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "kawamataryo.copy-python-dotted-path"
+vscode "mechatroner.rainbow-csv"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
@@ -103,6 +102,7 @@ vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cmake-tools"
 vscode "ms-vscode.cpp-devtools"
 vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"

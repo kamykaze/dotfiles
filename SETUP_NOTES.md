@@ -251,8 +251,27 @@ git add -p
 git commit -m "chore: sync configs"
 ```
 
-The sync script copies: VS Code extensions list, BetterTouchTool presets,
-and macOS system preferences. It will never touch `claude_desktop_config.json` (sensitive).
+The sync script copies: VS Code settings/keybindings/extensions snapshots,
+BetterTouchTool presets, and macOS system preferences. It will never touch
+`claude_desktop_config.json` (sensitive).
+
+**Sync direction is one-way: machine -> repo.** Nothing it writes is symlinked back.
+
+#### Guards on a freshly-imaged Mac
+
+Because sync reads live state, running it before a machine is fully provisioned
+would capture *un-configured* state as the new source of truth — and the daily
+LaunchAgent would do it silently. Two guards prevent that:
+
+| Guard | Behaviour |
+|-------|-----------|
+| macOS preferences | Skipped entirely until `scripts/macos.sh` has been run on this machine. It writes a stamp at `~/.local/state/dotfiles/macos-applied`; without it, sync would replace every curated `defaults write` value with macOS factory defaults. |
+| VS Code extensions | Additions are recorded, but an extension missing locally is **kept** in the snapshot rather than dropped — a half-finished `brew bundle` shouldn't shrink the list. The withheld names are printed. |
+
+Pass `--force` to override both (`./scripts/sync.sh --force`) — only correct once
+you're sure the live machine really is the state you want recorded.
+
+**On a new machine, run `bash scripts/macos.sh` before your first sync.**
 
 ### Adding a new app config
 
@@ -286,3 +305,34 @@ and macOS system preferences. It will never touch `claude_desktop_config.json` (
 | MCP API keys | LastPass: MCP API Keys |
 | BetterTouchTool license | LastPass: BetterTouchTool License |
 | Other software licenses | LastPass |
+
+---
+
+## Troubleshooting
+
+### `Refusing to load formula ... from untrusted tap`
+
+Homebrew 6 requires third-party (non-`homebrew/*`) taps to be explicitly trusted
+before it will load a formula from them, so a fresh machine used to stop here:
+
+```
+Error: Refusing to load formula armmbed/formulae/arm-none-eabi-gcc from untrusted tap armmbed/formulae.
+```
+
+The `Brewfile` now declares this inline, so `brew bundle` applies the trust itself:
+
+```ruby
+tap "armmbed/formulae", trusted: { formulae: ["arm-none-eabi-gcc"] }
+```
+
+If you add a new formula or cask from a third-party tap, add it to that tap's
+`trusted:` list too (`casks: [...]` for casks). To check the current trust store:
+
+```bash
+brew trust --json v1
+```
+
+Note: `brew bundle` aborts on the first failure and `install.sh` uses `set -e`,
+so a Brewfile error means the later steps (symlinks, submodules, VS Code, BTT,
+launch agents) never ran. Just re-run `./install.sh` after fixing — every script
+is idempotent.
