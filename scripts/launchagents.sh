@@ -64,10 +64,28 @@ else
         echo "  [ok] Kanata LaunchDaemon loaded"
     fi
 
-    echo ""
-    echo "  NOTE: Kanata requires accessibility permissions."
-    echo "  If it fails to start, grant access in:"
-    echo "  System Settings -> Privacy & Security -> Accessibility"
+    # Loading the daemon says nothing about whether kanata survived. The common
+    # failure is a missing TCC grant, which only shows up in the log — so look.
+    if command -v kanata &>/dev/null && [ -f "${KANATA_PLIST_DEST}" ]; then
+        sleep 4
+        if pgrep -x kanata >/dev/null 2>&1; then
+            echo "  [ok] kanata is running"
+        else
+            echo ""
+            echo "  [warn] kanata is NOT running. Last error from /tmp/kanata.log:"
+            grep -a "ERROR" /tmp/kanata.log 2>/dev/null | tail -1 | sed 's/^/         /'
+            if grep -aq "Input Monitoring" /tmp/kanata.log 2>/dev/null; then
+                echo ""
+                echo "  ACTION: System Settings -> Privacy & Security -> Input Monitoring"
+                echo "          Enable 'kanata'. If it is not listed, add it with + and"
+                echo "          Cmd+Shift+G -> /opt/homebrew/bin/kanata"
+                echo "          (Input Monitoring, NOT Accessibility. KeepAlive restarts"
+                echo "           kanata within seconds of the toggle.)"
+            else
+                echo "         See SETUP_NOTES.md section 7 for the full checklist."
+            fi
+        fi
+    fi
 fi
 
 # ============================================================

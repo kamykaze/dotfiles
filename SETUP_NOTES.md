@@ -191,16 +191,29 @@ Verify with `systemextensionsctl list` — it should show the
 If it says `0 extension(s)`, the driver is not active and kanata cannot work no
 matter what else is configured. Approving it usually needs a reboot.
 
-**Step 3 — Grant Accessibility permission:**
+**Step 3 — Grant Input Monitoring permission:**
 
-1. Open **System Settings → Privacy & Security → Accessibility**
-2. Add `kanata` (or `~/bin/kanata-runner.sh`) to the allowed list
+It's **Input Monitoring**, not Accessibility. Kanata reads raw key events, which
+is a different TCC permission.
+
+1. Start the daemon once so kanata registers itself with IOKit — it logs
+   `asking IOKit to register kanata under System Settings` and then exits.
+2. Open **System Settings → Privacy & Security → Input Monitoring**
+3. Enable `kanata`. If it isn't listed, add it with **+** and `Cmd+Shift+G` →
+   `/opt/homebrew/bin/kanata` (the path is hidden in the file picker).
+
+`KeepAlive` restarts kanata within seconds of the toggle — no reboot needed.
+
+**Permission is tied to the binary, so `brew upgrade kanata` revokes it.** If
+mappings stop working right after a Homebrew upgrade, this is why: re-enable the
+toggle (removing and re-adding the entry may be needed).
 
 The LaunchDaemon is installed by `scripts/launchagents.sh`. If kanata silently
 fails to run, work down this list:
 
 ```bash
 tail -40 /tmp/kanata.log                  # the actual error, always start here
+                                          # "needs macOS Input Monitoring" -> step 3
 kanata -c _configs/kanata.kbd --check     # config parses?
 systemextensionsctl list                  # Karabiner driver activated?
 pgrep -fl Karabiner-VirtualHIDDevice-Daemon
