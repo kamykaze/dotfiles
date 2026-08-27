@@ -91,14 +91,16 @@ Just install the cask and sign in. There is **nothing to copy from this repo.**
   that file. This repo used to ship a `.template` for it; that was a mistake and
   it has been removed.
 
-Only these preferences are worth re-setting by hand, all in the app's settings UI:
+Two preferences are worth setting by hand in the app's settings:
 
 | Preference | Value |
 |------------|-------|
-| Show in menu bar | on |
+| Show Claude in the menu bar | on |
 | Quick entry shortcut | `Alt+Space` |
-| Sidebar mode | chat |
-| Web search in Cowork | on |
+
+Everything else in that file sets itself. `sidebarMode`, `coworkWebSearchEnabled`
+and friends are state the app records as you use it, not settings to go hunting
+for — don't try to match them by hand.
 
 ---
 
