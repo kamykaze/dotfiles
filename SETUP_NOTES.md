@@ -160,7 +160,23 @@ Kanata on macOS depends on the **Karabiner virtual HID driver** for keyboard out
 `karabiner-elements` is in the Brewfile and installs the driver, but you must
 activate it manually on first launch.
 
-**Step 1 — Activate the Karabiner driver:**
+**Step 1 — Fill in the private config:**
+
+`kanata.kbd` ends with `(include kanata-private.kbd)`, and that file is gitignored,
+so it never arrives with a fresh clone. `scripts/launchagents.sh` seeds it from the
+template, but the values are placeholders:
+
+```bash
+$EDITOR _configs/kanata-private.kbd   # replace the example.com macros
+kanata -c _configs/kanata.kbd --check # confirm it still parses
+```
+
+Without it the config doesn't parse, and because the daemon has `KeepAlive` set,
+kanata respawns and dies in a loop with no visible symptom other than
+`/tmp/kanata.log` growing. `launchagents.sh` now runs `--check` first and refuses
+to load a config that doesn't parse.
+
+**Step 2 — Activate the Karabiner driver:**
 
 1. Open Karabiner-Elements (installed via Brewfile)
 2. Follow the prompt to activate the DriverKit virtual HID device
@@ -170,13 +186,26 @@ activate it manually on first launch.
 If you skip this, Kanata will fail with:
 `failed to open keyboard device(s): Karabiner-VirtualHIDDevice driver is not activated`
 
-**Step 2 — Grant Accessibility permission:**
+Verify with `systemextensionsctl list` — it should show the
+`org.pqrs.Karabiner-DriverKit-VirtualHIDDevice` extension as `[activated enabled]`.
+If it says `0 extension(s)`, the driver is not active and kanata cannot work no
+matter what else is configured. Approving it usually needs a reboot.
+
+**Step 3 — Grant Accessibility permission:**
 
 1. Open **System Settings → Privacy & Security → Accessibility**
 2. Add `kanata` (or `~/bin/kanata-runner.sh`) to the allowed list
 
-The LaunchAgent is installed by `scripts/launchagents.sh`. If Kanata silently
-fails to run after reboot, one of the above two permissions is usually the cause.
+The LaunchDaemon is installed by `scripts/launchagents.sh`. If kanata silently
+fails to run, work down this list:
+
+```bash
+tail -40 /tmp/kanata.log                  # the actual error, always start here
+kanata -c _configs/kanata.kbd --check     # config parses?
+systemextensionsctl list                  # Karabiner driver activated?
+pgrep -fl Karabiner-VirtualHIDDevice-Daemon
+sudo launchctl list | grep kanata         # daemon loaded?
+```
 
 ---
 

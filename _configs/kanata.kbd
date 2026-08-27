@@ -70,7 +70,7 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   process-unmapped-keys yes
   log-layer-changes yes
   concurrent-tap-hold yes
-  chords-v2-min-idle-experimental 50
+  chords-v2-min-idle 50
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
   )

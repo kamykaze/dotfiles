@@ -1,16 +1,26 @@
 ;; kanata-private.kbd
 ;;
-;; This file contains private/personal configuration that you don't want in your public dotfiles.
-;; Copy this file to kanata-private.kbd and customize it with your personal settings.
-;; The kanata-private.kbd file is gitignored and won't be committed to your repo.
+;; Personal values kept out of the repo. `_configs/kanata-private.kbd` is
+;; gitignored; only this .template is committed.
 ;;
-;; Usage:
-;;   cp kanata-private.kbd.template kanata-private.kbd
-;;   Edit kanata-private.kbd with your personal settings
+;;   cp _configs/kanata-private.kbd.template _configs/kanata-private.kbd
+;;   then edit the three macros below
+;;
+;; kanata.kbd does `(include kanata-private.kbd)` and references every alias
+;; defined here. If the file is missing or an alias is absent, kanata fails to
+;; parse and the LaunchDaemon crash-loops — check /tmp/kanata.log.
+;;
+;; In a (macro ...) each character is a key name, so spell the text out one key
+;; at a time. `S-2` is a shifted 2, i.e. "@".
 
 (defalias
-  ;; Email domain completion
-  ;; After typing "@;", this will complete to your email domain
-  ;; Example: Change "gmail.com" to "yourdomain.com"
-  email-domain (macro g m a i l . c o m)
+  ;; "@" + ";" + comp  ->  your primary email domain.
+  ;; You type the "@" yourself, so this macro is the domain only.
+  email-domain (macro e x a m p l e . c o m)
+
+  ;; "@" + "@" + comp  ->  your secondary email domain (domain only, as above).
+  email-secondary-domain (macro s e c o n d . e x a m p l e . c o m)
+
+  ;; "e" + comp  ->  your full email address, "@" included.
+  email-address (macro y o u S-2 e x a m p l e . c o m)
 )

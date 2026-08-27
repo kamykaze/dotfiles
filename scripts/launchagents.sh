@@ -15,6 +15,19 @@ KANATA_PLIST_SRC="${DOTFILES_DIR}/utilities/launchdaemons/com.github.jtroo.kanat
 KANATA_PLIST_DEST="/Library/LaunchDaemons/com.github.jtroo.kanata.plist"
 KANATA_RUNNER_SRC="${DOTFILES_DIR}/utilities/bin/kanata-runner.sh"
 KANATA_RUNNER_DEST="${HOME}/bin/kanata-runner.sh"
+KANATA_CONFIG="${DOTFILES_DIR}/_configs/kanata.kbd"
+KANATA_PRIVATE="${DOTFILES_DIR}/_configs/kanata-private.kbd"
+
+# kanata.kbd does `(include kanata-private.kbd)`, and that file is gitignored, so
+# it is always absent on a fresh clone. Without it the config does not parse and
+# the daemon crash-loops invisibly (KeepAlive respawns it forever). Seed it from
+# the template so kanata runs, and say loudly that the values are placeholders.
+if [ ! -f "${KANATA_PRIVATE}" ] && [ -f "${KANATA_PRIVATE}.template" ]; then
+    cp "${KANATA_PRIVATE}.template" "${KANATA_PRIVATE}"
+    echo "  [copy] kanata-private.kbd created from template"
+    echo "  [ACTION NEEDED] Edit _configs/kanata-private.kbd — the email macros"
+    echo "                  are placeholders (example.com) until you do."
+fi
 
 if [ ! -f "${KANATA_PLIST_SRC}" ]; then
     echo "  [warn] Kanata plist not found at ${KANATA_PLIST_SRC}, skipping"
@@ -36,11 +49,20 @@ else
         echo "  [copy] Kanata plist -> /Library/LaunchDaemons/ (username: $(whoami))"
     fi
 
-    # Load the daemon (unload first to be safe/idempotent)
-    echo "  Loading Kanata LaunchDaemon..."
-    sudo launchctl unload "${KANATA_PLIST_DEST}" 2>/dev/null || true
-    sudo launchctl load "${KANATA_PLIST_DEST}"
-    echo "  [ok] Kanata LaunchDaemon loaded"
+    # Validate the config before loading. The daemon has KeepAlive set, so a
+    # config error turns into an invisible respawn loop that only shows up as a
+    # growing /tmp/kanata.log — fail loudly here instead.
+    if command -v kanata &>/dev/null && ! kanata -c "${KANATA_CONFIG}" --check &>/dev/null; then
+        echo "  [warn] kanata config does not parse — NOT loading the daemon."
+        kanata -c "${KANATA_CONFIG}" --check 2>&1 | grep -vE "^\S+ .*(INFO|starting)" | sed 's/^/         /'
+        echo "         Fix the config, then re-run: bash scripts/launchagents.sh"
+    else
+        # Load the daemon (unload first to be safe/idempotent)
+        echo "  Loading Kanata LaunchDaemon..."
+        sudo launchctl unload "${KANATA_PLIST_DEST}" 2>/dev/null || true
+        sudo launchctl load "${KANATA_PLIST_DEST}"
+        echo "  [ok] Kanata LaunchDaemon loaded"
+    fi
 
     echo ""
     echo "  NOTE: Kanata requires accessibility permissions."
