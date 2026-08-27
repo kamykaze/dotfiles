@@ -49,7 +49,10 @@ brew "stripe/stripe-cli/stripe"
 # ============================================================
 # GUI Apps (Casks)
 # ============================================================
-cask "karabiner-elements"          # Required: provides the virtual HID driver that Kanata depends on
+# NOTE: karabiner-elements is deliberately NOT here. It is `auto_updates`, so brew
+# cannot hold it back, and it ships whatever VirtualHIDDevice driver version it
+# likes — 16.1.0 shipped driver 8.0.0 while kanata 1.12.0 requires 6.2.0, which
+# silently breaks all mappings. scripts/karabiner-driver.sh pins the driver.
 cask "visual-studio-code"          # Editor (required for vscode entries below)
 cask "bettertouchtool"             # Trackpad / keyboard customization
 cask "claude"                      # Claude Desktop (MCP integrations)

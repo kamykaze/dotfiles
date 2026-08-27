@@ -71,18 +71,25 @@ else
         if pgrep -x kanata >/dev/null 2>&1; then
             echo "  [ok] kanata is running"
         else
-            # Match the CURRENT error only. Grepping the whole log finds stale
-            # lines from earlier failures and prints advice for the wrong gate —
-            # kanata needs two separate permissions and asks for them in turn.
-            LAST_ERR="$(grep -a "ERROR" /tmp/kanata.log 2>/dev/null | tail -1)"
+            # Scope every match to the MOST RECENT run. /tmp/kanata.log accumulates
+            # across a crash loop, so grepping the whole file matches gates already
+            # cleared — and the current failure may be a WARN with no ERROR line at
+            # all, leaving a stale ERROR as the newest one.
+            RUN_LOG="$(awk '/kanata v[0-9][^ ]* starting/{buf=""} {buf = buf $0 "\n"} END{printf "%s", buf}' /tmp/kanata.log 2>/dev/null)"
+            LAST_ERR="$(printf '%s' "${RUN_LOG}" | grep -a "ERROR" | tail -1)"
+
             echo ""
-            echo "  [warn] kanata is NOT running. Last error from /tmp/kanata.log:"
-            [ -n "${LAST_ERR}" ] && printf '%s\n' "${LAST_ERR}" | sed 's/^/         /'
+            echo "  [warn] kanata is NOT running. From the latest run in /tmp/kanata.log:"
+            if [ -n "${LAST_ERR}" ]; then
+                printf '%s\n' "${LAST_ERR}" | sed 's/^/         /'
+            else
+                printf '%s' "${RUN_LOG}" | tail -3 | sed 's/^/         /'
+            fi
 
             PERM=""
-            case "${LAST_ERR}" in
-                *"Input Monitoring"*) PERM="Input Monitoring" ;;
-                *Accessibility*)      PERM="Accessibility" ;;
+            case "${RUN_LOG}" in
+                *"needs macOS Input Monitoring"*) PERM="Input Monitoring" ;;
+                *"needs macOS Accessibility"*)    PERM="Accessibility" ;;
             esac
 
             if [ -n "${PERM}" ]; then
@@ -94,6 +101,14 @@ else
                 echo "          kanata needs BOTH Input Monitoring and Accessibility, and"
                 echo "          only reports the next missing one — expect to grant the"
                 echo "          other after this. KeepAlive restarts it within seconds."
+            elif printf '%s' "${RUN_LOG}" | grep -aqE "connect_failed|output backend (not ready|unavailable)"; then
+                # kanata grabbed the keyboard but has no virtual keyboard to write
+                # to: typing works, mappings don't. Almost always a driver version
+                # kanata does not support.
+                echo ""
+                echo "  ACTION: kanata has no output backend — the Karabiner driver"
+                echo "          version is probably wrong. Run:"
+                echo "            bash scripts/karabiner-driver.sh"
             else
                 echo "         See SETUP_NOTES.md section 7 for the full checklist."
             fi

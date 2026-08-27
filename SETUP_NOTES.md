@@ -156,9 +156,15 @@ Kanata shortcuts layer mapping.
 
 ## 7. Kanata — First-time Setup
 
-Kanata on macOS depends on the **Karabiner virtual HID driver** for keyboard output.
-`karabiner-elements` is in the Brewfile and installs the driver, but you must
-activate it manually on first launch.
+Kanata on macOS writes remapped keys to the **Karabiner virtual HID driver**.
+kanata pins one driver version per release and talks to it over a UNIX socket
+whose path changed between driver majors, so the version has to match exactly.
+
+`scripts/karabiner-driver.sh` owns this. It is **not** installed via
+`cask "karabiner-elements"` — that cask is `auto_updates`, so brew cannot hold it
+back, and Karabiner-Elements 16.1.0 shipped driver 8.0.0 while kanata 1.12.0
+requires 6.2.0. When kanata bumps its requirement, bump `REQUIRED_VERSION` in
+that script (see [kanata releases](https://github.com/jtroo/kanata/releases)).
 
 **Step 1 — Fill in the private config:**
 
@@ -176,20 +182,29 @@ kanata respawns and dies in a loop with no visible symptom other than
 `/tmp/kanata.log` growing. `launchagents.sh` now runs `--check` first and refuses
 to load a config that doesn't parse.
 
-**Step 2 — Activate the Karabiner driver:**
+**Step 2 — Install and activate the driver:**
 
-1. Open Karabiner-Elements (installed via Brewfile)
-2. Follow the prompt to activate the DriverKit virtual HID device
-3. Go to **System Settings → Privacy & Security** and approve the driver if prompted
-4. You do not need to configure Karabiner itself — just the driver needs to be active
+```bash
+bash scripts/karabiner-driver.sh
+```
 
-If you skip this, Kanata will fail with:
-`failed to open keyboard device(s): Karabiner-VirtualHIDDevice driver is not activated`
+On a clean machine it installs the pinned version and requests activation. If a
+*different* version is already installed it prints the replacement commands
+rather than doing it silently — swapping drivers needs a `deactivate`, a GUI
+approval and a reboot.
 
-Verify with `systemextensionsctl list` — it should show the
-`org.pqrs.Karabiner-DriverKit-VirtualHIDDevice` extension as `[activated enabled]`.
-If it says `0 extension(s)`, the driver is not active and kanata cannot work no
-matter what else is configured. Approving it usually needs a reboot.
+Then approve it in **System Settings → General → Login Items & Extensions →
+Driver Extensions** and reboot.
+
+Verify:
+
+```bash
+systemextensionsctl list   # want org.pqrs.Karabiner-DriverKit-VirtualHIDDevice [activated enabled]
+```
+
+`0 extension(s)` means the driver is not active and kanata cannot work no matter
+what else is configured. Without activation kanata fails with
+`failed to open keyboard device(s): Karabiner-VirtualHIDDevice driver is not activated`.
 
 **Step 3 — Grant BOTH TCC permissions:**
 
@@ -222,10 +237,32 @@ fails to run, work down this list:
 tail -40 /tmp/kanata.log                  # the actual error, always start here
                                           # "needs macOS <permission>" -> step 3
 kanata -c _configs/kanata.kbd --check     # config parses?
-systemextensionsctl list                  # Karabiner driver activated?
+bash scripts/karabiner-driver.sh          # driver version matches what kanata wants?
+systemextensionsctl list                  # driver activated?
 pgrep -fl Karabiner-VirtualHIDDevice-Daemon
 sudo launchctl list | grep kanata         # daemon loaded?
 ```
+
+`bash scripts/launchagents.sh` reads the latest run in the log and names the
+specific blocker, so start there if you'd rather not read the log yourself.
+
+#### "kanata is running but nothing is remapped"
+
+The nastiest failure mode, because typing still works. The log shows:
+
+```
+Waiting for DriverKit virtual keyboard... (9.2s/10.0s)
+[WARN] output backend not ready after 10s
+[WARN] output backend unavailable — releasing input devices
+[INFO] Input devices released. Keyboard is usable (without remapping).
+connect_failed asio.system:2
+```
+
+kanata grabbed the keyboard, found no virtual keyboard to write to, and stepped
+aside on purpose. `connect_failed asio.system:2` is ENOENT on the driver's socket
+— **almost always the wrong driver version**, since the socket path moved between
+majors. Run `bash scripts/karabiner-driver.sh`. It is not a permissions problem;
+permission failures are hard errors that exit instead.
 
 ---
 

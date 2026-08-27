@@ -51,6 +51,7 @@ _configs/     →  ~/.configs/
 | `scripts/symlinks.sh` | Creates all dotfile symlinks |
 | `scripts/homebrew.sh` | Installs Homebrew and runs Brewfile |
 | `scripts/macos.sh` | Applies macOS system preferences via `defaults write` |
+| `scripts/karabiner-driver.sh` | Pins the Karabiner virtual HID driver to the version kanata requires |
 | `scripts/launchagents.sh` | Installs launchd services (Kanata auto-start) |
 | `scripts/sync.sh` | Exports configs from apps that own their files (run daily via LaunchAgent). Skips macOS prefs until `macos.sh` has been applied here; `--force` overrides |
 

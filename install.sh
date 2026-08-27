@@ -142,6 +142,12 @@ bash "${SCRIPTS_DIR}/install-hooks.sh"
 echo ""
 
 # ============================================================
+# Karabiner virtual HID driver (must precede the Kanata daemon)
+# ============================================================
+bash "${SCRIPTS_DIR}/karabiner-driver.sh"
+echo ""
+
+# ============================================================
 # Launch Agents (Kanata, daily sync, etc.)
 # ============================================================
 bash "${SCRIPTS_DIR}/launchagents.sh"

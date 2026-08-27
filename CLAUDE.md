@@ -23,6 +23,10 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `scripts/symlinks.sh` — handles all symlinking (`_*` files and `_configs/`)
 - `scripts/homebrew.sh` — installs Homebrew and runs Brewfile
 - `scripts/macos.sh` — applies system preferences via `defaults write`
+- `scripts/karabiner-driver.sh` — pins the Karabiner virtual HID driver to the exact
+  version kanata requires. Never move this to a Brewfile cask: `karabiner-elements`
+  is `auto_updates` and will ship a driver kanata can't talk to, which silently
+  breaks every mapping
 - `scripts/launchagents.sh` — installs launchd services (eg: Kanata auto-start)
 - Run `./install.sh` to install all configurations
 
@@ -118,7 +122,9 @@ These are non-negotiable. Follow them for every file touched in this repo.
 
 | App | Config approach |
 |-----|----------------|
-| Kanata | `_configs/kanata.kbd` symlinked to `~/.configs/kanata.kbd` |
+| Kanata | `_configs/kanata.kbd` symlinked to `~/.configs/kanata.kbd`. Private aliases in
+gitignored `_configs/kanata-private.kbd` (template committed). Virtual HID driver version
+is pinned by `scripts/karabiner-driver.sh`, NOT by a Brewfile cask |
 | BetterTouchTool | `.bttpreset` export in `bettertouchtool/` |
 | Claude Desktop | Nothing in the repo — sign in and the hosted connectors follow the account. Its `claude_desktop_config.json` is app-owned; never copy a repo version over it |
 | Claude Code (global) | `claude/CLAUDE.md` symlinked to `~/.claude/CLAUDE.md` (handled in `scripts/symlinks.sh`) |
