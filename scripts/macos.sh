@@ -177,4 +177,14 @@ echo "  Restarting Finder and Dock..."
 killall Finder 2>/dev/null || true
 killall Dock 2>/dev/null || true
 
+# ============================================================
+# Stamp: marks this machine as "prefs applied".
+# scripts/sync.sh refuses to read live defaults back into this file until the
+# stamp exists — otherwise a sync on a freshly-imaged Mac would overwrite every
+# curated value above with macOS factory defaults.
+# ============================================================
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles"
+mkdir -p "${STATE_DIR}"
+printf '%s\n' "applied on $(hostname) at $(date '+%Y-%m-%d %H:%M:%S')" > "${STATE_DIR}/macos-applied"
+
 echo "  Done. Some settings require a logout/restart to take effect."

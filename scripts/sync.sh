@@ -2,6 +2,18 @@
 set -e
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles"
+
+# --force syncs even from a machine that has not been fully provisioned yet.
+# Without it, sections that could capture un-configured state are skipped —
+# this script runs daily via LaunchAgent, so a silent bad sync is the real risk.
+FORCE=0
+for arg in "$@"; do
+    case "${arg}" in
+        --force) FORCE=1 ;;
+        *) echo "Unknown option: ${arg}" >&2; exit 64 ;;
+    esac
+done
 
 echo "-> Syncing configs into dotfiles repo..."
 
@@ -66,14 +78,42 @@ sync_file() {
 }
 
 # ============================================================
+# VS Code settings / keybindings snapshots
+# Settings Sync owns the live files; these are read-only snapshots for reference
+# and cold-start diffing. Never symlinked back — that breaks Settings Sync.
+# ============================================================
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
+sync_file "${VSCODE_USER_DIR}/settings.json" \
+          "${DOTFILES_DIR}/_configs/vscode-settings.json" "VS Code settings"
+sync_file "${VSCODE_USER_DIR}/keybindings.json" \
+          "${DOTFILES_DIR}/_configs/vscode-keybindings.json" "VS Code keybindings"
+
+# ============================================================
 # VS Code extensions list
 # ============================================================
 if command -v code &>/dev/null; then
     EXTENSIONS_FILE="${DOTFILES_DIR}/_configs/vscode-extensions.txt"
     NEW_LIST="$(code --list-extensions 2>/dev/null | sort)"
     OLD_LIST="$(sort "${EXTENSIONS_FILE}" 2>/dev/null || echo "")"
+    REMOVED="$(comm -23 <(echo "${OLD_LIST}") <(echo "${NEW_LIST}"))"
+
     if [ "${NEW_LIST}" = "${OLD_LIST}" ]; then
         echo "  [skip] VS Code extensions (unchanged)"
+    elif [ -n "${REMOVED}" ] && [ "${FORCE}" -eq 0 ]; then
+        # A missing extension usually means it has not finished installing yet
+        # (an aborted brew bundle, Settings Sync mid-flight) rather than a
+        # deliberate uninstall. Record additions, but keep the missing ones so a
+        # half-provisioned machine cannot quietly shrink the list. --force to drop them.
+        UNION="$(printf '%s\n%s\n' "${OLD_LIST}" "${NEW_LIST}" | sed '/^$/d' | sort -u)"
+        if [ "${UNION}" != "${OLD_LIST}" ]; then
+            echo "${UNION}" > "${EXTENSIONS_FILE}"
+            echo "  [copy] VS Code extensions list (additions only)"
+            changed=1
+        else
+            echo "  [skip] VS Code extensions (nothing to add)"
+        fi
+        echo "         kept, not installed here — use --force to drop:"
+        echo "${REMOVED}" | sed 's/^/           - /'
     else
         echo "${NEW_LIST}" > "${EXTENSIONS_FILE}"
         echo "  [copy] VS Code extensions list"
@@ -122,6 +162,12 @@ echo "  [skip] Claude Desktop config (sensitive — edit .template manually)"
 # Reads live defaults and updates the values in macos.sh in-place.
 # Add new settings here whenever you add a defaults write to macos.sh.
 # ============================================================
+if [ ! -f "${STATE_DIR}/macos-applied" ] && [ "${FORCE}" -eq 0 ]; then
+    echo "-> Skipping macOS preferences — scripts/macos.sh has never been applied here."
+    echo "   Syncing now would overwrite every curated value with this machine's"
+    echo "   factory defaults. Run 'bash scripts/macos.sh' first, or pass --force."
+else
+
 echo "-> Syncing macOS preferences into scripts/macos.sh..."
 
 # Trackpad — tracking & click
@@ -157,6 +203,8 @@ sync_default "com.apple.dock"                        "mineffect"                
 # Keyboard
 sync_default "NSGlobalDomain"                        "KeyRepeat"                                "int"
 sync_default "NSGlobalDomain"                        "InitialKeyRepeat"                         "int"
+
+fi
 
 # ============================================================
 # Summary
