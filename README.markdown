@@ -44,7 +44,7 @@ _configs/     →  ~/.configs/
 | `scripts/homebrew.sh` | Installs Homebrew and runs Brewfile |
 | `scripts/macos.sh` | Applies macOS system preferences via `defaults write` |
 | `scripts/launchagents.sh` | Installs launchd services (Kanata auto-start) |
-| `scripts/sync.sh` | Exports configs from apps that own their files (run daily via LaunchAgent) |
+| `scripts/sync.sh` | Exports configs from apps that own their files (run daily via LaunchAgent). Skips macOS prefs until `macos.sh` has been applied here; `--force` overrides |
 
 All scripts are idempotent — safe to run multiple times.
 
@@ -77,8 +77,8 @@ All scripts are idempotent — safe to run multiple times.
 
 ### Applications
 
-- `_configs/vscode-settings.json` / `vscode-keybindings.json` — VS Code settings (symlinked by install.sh)
-- `_configs/vscode-extensions.txt` — VS Code extensions list
+- `_configs/vscode-settings.json` / `vscode-keybindings.json` — VS Code settings snapshots (reference only; Settings Sync owns the live files)
+- `_configs/vscode-extensions.txt` — VS Code extensions snapshot (the Brewfile installs them)
 - `bettertouchtool/` — BetterTouchTool presets (trackpad, keyboard, touchbar)
 - `utilities/scripts/chrome-tab-focus.sh` — Focuses Chrome tabs (Gmail, Docs, Sheets, etc.) by URL and title, called by BetterTouchTool shortcuts
 

@@ -58,9 +58,10 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `_ignore` - Universal ignore patterns
 
 ### Additional Configurations
-- `_configs/vscode-settings.json` - Visual Studio Code settings
-- `_configs/vscode-keybindings.json` - Visual Studio Code keybindings
-- `_configs/vscode-extensions.txt` - List of installed VS Code extensions
+- `_configs/vscode-settings.json` - VS Code settings **snapshot** (never symlinked — Settings Sync owns the live file)
+- `_configs/vscode-keybindings.json` - VS Code keybindings **snapshot** (same rule)
+- `_configs/vscode-extensions.txt` - Snapshot of installed VS Code extensions, dumped by `scripts/sync.sh`.
+  Not an install list — the Brewfile's `vscode "..."` entries do the installing.
 - `chrome/` - Chrome browser extensions and configurations
 - `_config/powerline/` - Powerline status line configuration
 
@@ -81,10 +82,11 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 
 ### Installation
 ```bash
-./install.sh  # Install all dotfiles via symlinks (includes VS Code setup)
+./install.sh  # Install all dotfiles via symlinks
 
-# Manually install VS Code extensions (optional)
-cat _configs/vscode-extensions.txt | xargs -L 1 code --install-extension
+# VS Code needs nothing extra: extensions come from the Brewfile's `vscode` entries,
+# settings/keybindings from Settings Sync. Do NOT symlink vscode-*.json into
+# ~/Library/Application Support/Code/User/ — it breaks Settings Sync.
 ```
 
 ### Keyboard Layout Management

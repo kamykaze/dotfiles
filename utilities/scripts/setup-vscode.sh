@@ -1,38 +1,38 @@
 #!/usr/bin/env bash
-# Setup VS Code configuration symlinks
+# VS Code — status check only. This script deliberately DOES NOT touch
+# ~/Library/Application Support/Code/User/.
+#
+# VS Code config is owned by built-in Settings Sync (GitHub account):
+#   - settings.json / keybindings.json  -> Settings Sync
+#   - extensions                        -> Settings Sync, plus the `vscode "..."`
+#                                          entries in the Brewfile for a cold install
+#
+# The `_configs/vscode-*.json` files in this repo are read-only SNAPSHOTS refreshed
+# by scripts/sync.sh. They are NOT symlinked into place: symlinking them fights
+# Settings Sync, which overwrites the file and silently drops newer synced changes.
+
+set -e
 
 VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-VSCODE_CONFIG_DIR="$DOTFILES_DIR/_configs"
 
-echo "Setting up VS Code configuration..."
+echo "-> Checking VS Code configuration..."
+echo "   settings.json / keybindings.json / extensions are managed by Settings Sync."
 
-# Create VS Code User directory if it doesn't exist
-mkdir -p "$VSCODE_USER_DIR"
-
-# Backup and symlink settings.json
-if [ -f "$VSCODE_USER_DIR/settings.json" ] && [ ! -L "$VSCODE_USER_DIR/settings.json" ]; then
-    echo "Backing up existing settings.json..."
-    mv "$VSCODE_USER_DIR/settings.json" "$VSCODE_USER_DIR/settings.json.backup.$(date +%Y%m%d)"
+if [ ! -d "${VSCODE_USER_DIR}" ]; then
+    echo "   [skip] VS Code has not run yet — sign in and enable Settings Sync on first launch."
+    exit 0
 fi
 
-if [ ! -L "$VSCODE_USER_DIR/settings.json" ]; then
-    echo "Symlinking settings.json..."
-    ln -sf "$VSCODE_CONFIG_DIR/vscode-settings.json" "$VSCODE_USER_DIR/settings.json"
-fi
+# Warn about symlinks left behind by older versions of this script, which break
+# Settings Sync. Left for the user to remove so no synced state is discarded silently.
+for name in settings keybindings; do
+    target="${VSCODE_USER_DIR}/${name}.json"
+    if [ -L "${target}" ] && [[ "$(readlink "${target}")" == "${DOTFILES_DIR}"/* ]]; then
+        echo "   [warn] ${name}.json is symlinked into this repo — this breaks Settings Sync."
+        echo "          Fix with:  rm \"${target}\""
+        echo "          then restart VS Code and let Settings Sync restore it."
+    fi
+done
 
-# Backup and symlink keybindings.json
-if [ -f "$VSCODE_USER_DIR/keybindings.json" ] && [ ! -L "$VSCODE_USER_DIR/keybindings.json" ]; then
-    echo "Backing up existing keybindings.json..."
-    mv "$VSCODE_USER_DIR/keybindings.json" "$VSCODE_USER_DIR/keybindings.json.backup.$(date +%Y%m%d)"
-fi
-
-if [ ! -L "$VSCODE_USER_DIR/keybindings.json" ]; then
-    echo "Symlinking keybindings.json..."
-    ln -sf "$VSCODE_CONFIG_DIR/vscode-keybindings.json" "$VSCODE_USER_DIR/keybindings.json"
-fi
-
-echo "VS Code configuration setup complete!"
-echo ""
-echo "To install extensions, run:"
-echo "  cat $VSCODE_CONFIG_DIR/vscode-extensions.txt | xargs -L 1 code --install-extension"
+echo "   Done."

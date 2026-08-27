@@ -18,6 +18,9 @@
     "workbench.colorTheme": "Light Modern",
     "git.confirmSync": false,
     "python.terminal.useEnvFile": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor"
+    },
     "chat.viewSessions.orientation": "stacked",
     "markdown-preview-enhanced.enablePreviewZenMode": false
 }

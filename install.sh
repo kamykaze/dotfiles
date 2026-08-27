@@ -51,7 +51,6 @@ echo ""
 # VS Code configuration
 # ============================================================
 if [ -f "${DOTFILES_DIR}/utilities/scripts/setup-vscode.sh" ]; then
-    echo "-> Setting up VS Code configuration..."
     bash "${DOTFILES_DIR}/utilities/scripts/setup-vscode.sh"
     echo ""
 fi
