@@ -4,10 +4,73 @@ set -e
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPTS_DIR="${DOTFILES_DIR}/scripts"
 
+# ============================================================
+# Options
+#   -y | --yes   skip the preflight prompt (also: DOTFILES_ASSUME_YES=1)
+# ============================================================
+ASSUME_YES="${DOTFILES_ASSUME_YES:-0}"
+for arg in "$@"; do
+    case "${arg}" in
+        -y|--yes) ASSUME_YES=1 ;;
+        -h|--help)
+            echo "Usage: ./install.sh [-y|--yes]"
+            echo "  -y, --yes   Skip the preflight prompt (for re-runs and automation)"
+            exit 0
+            ;;
+        *) echo "Unknown option: ${arg}" >&2; exit 64 ;;
+    esac
+done
+
 echo "============================================"
 echo "  Dotfiles Bootstrap"
 echo "============================================"
 echo ""
+
+# ============================================================
+# Preflight — SETUP_NOTES.md covers prerequisites and the manual steps this
+# script cannot do. Easy to run install.sh first and read the notes after,
+# so make that an explicit choice rather than the default.
+# ============================================================
+if [ "${ASSUME_YES}" -ne 1 ]; then
+    cat <<'PREFLIGHT'
+  READ SETUP_NOTES.md FIRST
+  -------------------------
+  It covers the prerequisites and the manual steps this script can't do.
+
+      less SETUP_NOTES.md
+
+  Before you continue, know that:
+
+    * Homebrew installs everything in the Brewfile, casks included. This takes
+      a while and will ask for your password — some casks need sudo.
+    * The Kanata launch daemon goes into /Library/LaunchDaemons (sudo).
+    * At the very end this repo's git remote is switched from HTTPS to SSH.
+      Restore your SSH keys from LastPass first (SETUP_NOTES.md section 1),
+      or pushes will fail until you do.
+    * macOS system preferences are NOT applied here. Run
+      'bash scripts/macos.sh' afterwards — sync.sh keeps macOS prefs disabled
+      until you have.
+    * Existing dotfiles that aren't symlinks are skipped, never overwritten.
+
+PREFLIGHT
+
+    if [ ! -t 0 ]; then
+        echo "  [abort] Not an interactive shell — re-run with --yes to skip this prompt." >&2
+        exit 1
+    fi
+
+    printf "  Type 'yes' to continue: "
+    # `|| reply=""` because `set -e` would otherwise kill the script with a bare
+    # exit 1 and no message when read hits EOF (Ctrl-D at the prompt).
+    read -r reply || reply=""
+    # tr rather than ${reply,,} — macOS ships bash 3.2, which lacks case expansion
+    reply="$(printf '%s' "${reply}" | tr '[:upper:]' '[:lower:]')"
+    if [ "${reply}" != "yes" ]; then
+        echo "  Aborted. Nothing was changed."
+        exit 1
+    fi
+    echo ""
+fi
 
 # ============================================================
 # Xcode Command Line Tools (required for git, make, brew, etc.)

@@ -7,18 +7,26 @@ Personal macOS development environment — clone and run `install.sh` to get a f
 ```bash
 git clone https://github.com/kamykaze/dotfiles.git ~/personal/projects/dotfiles
 cd ~/personal/projects/dotfiles
+less SETUP_NOTES.md   # read this first — install.sh will prompt you to anyway
 ./install.sh
+bash scripts/macos.sh # applies system preferences; not part of install.sh
 ```
 
 `install.sh` will:
 
 - Install Xcode Command Line Tools (if missing)
 - Install Homebrew and all packages from `Brewfile`
-- Create all dotfile symlinks (`_*` → `~/.`)
-- Set up VS Code settings and extensions
-- Wire up the Kanata keyboard LaunchAgent
+- Create all dotfile symlinks (`_*` → `~/.`) — existing non-symlinks are skipped
+- Check VS Code config (Settings Sync owns it; extensions come from the Brewfile)
+- Install the git hooks and wire up the Kanata keyboard LaunchAgent
+- Switch this repo's remote from HTTPS to SSH at the end
 
-After running `install.sh`, see [SETUP_NOTES.md](SETUP_NOTES.md) for manual steps (SSH keys, app licenses, first-time app setup).
+It opens with a preflight summary and waits for you to type `yes`. Use
+`./install.sh --yes` to skip that on re-runs.
+
+It does **not** apply macOS system preferences — run `scripts/macos.sh` for that.
+See [SETUP_NOTES.md](SETUP_NOTES.md) for the full ordering and the manual steps
+(SSH keys, app licenses, first-time app setup).
 
 ---
 

@@ -18,15 +18,44 @@ cd ~/personal/projects/dotfiles
 You can clone to any path. The scripts use `$HOME` and relative paths throughout,
 so the repo location is flexible.
 
-### Step 2 — Run install.sh
+### Step 2 — Restore your SSH keys (recommended before install.sh)
+
+Not strictly required, but do it now if you can — see [section 1](#1-ssh-keys).
+The last thing `install.sh` does is switch this repo's remote from HTTPS to SSH,
+so without keys in place your first `git push` will fail.
+
+### Step 3 — Run install.sh
 
 ```bash
 ./install.sh
 ```
 
+It opens with a preflight summary and waits for you to type `yes`. That prompt
+exists because it is very easy to run this before reading these notes. Skip it on
+re-runs with `./install.sh --yes` (or `DOTFILES_ASSUME_YES=1`).
+
 This will: install Xcode CLT (if missing), install Homebrew and all packages from
-the Brewfile, create all dotfile symlinks, set up VS Code, and wire up the Kanata
-LaunchAgent.
+the Brewfile, create all dotfile symlinks, check VS Code config, install the git
+hooks, and wire up the Kanata LaunchAgent.
+
+It does **not** apply macOS system preferences — that's the next step.
+
+Existing dotfiles that aren't already symlinks are skipped, never overwritten.
+
+### Step 4 — Apply macOS system preferences
+
+```bash
+bash scripts/macos.sh
+```
+
+Deliberately not part of `install.sh` — it rewrites trackpad, keyboard, Finder
+and Dock behaviour, and restarts Finder and Dock, so it's opt-in.
+
+**Don't skip it.** Besides applying your preferences, it writes a stamp at
+`~/.local/state/dotfiles/macos-applied`. Until that stamp exists, `scripts/sync.sh`
+refuses to sync macOS preferences back into the repo — otherwise the daily sync
+LaunchAgent would overwrite every curated value with this machine's factory
+defaults. See [the sync guards](#guards-on-a-freshly-imaged-mac).
 
 ### After install.sh — manual steps
 
