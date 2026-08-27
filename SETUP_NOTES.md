@@ -191,29 +191,36 @@ Verify with `systemextensionsctl list` — it should show the
 If it says `0 extension(s)`, the driver is not active and kanata cannot work no
 matter what else is configured. Approving it usually needs a reboot.
 
-**Step 3 — Grant Input Monitoring permission:**
+**Step 3 — Grant BOTH TCC permissions:**
 
-It's **Input Monitoring**, not Accessibility. Kanata reads raw key events, which
-is a different TCC permission.
+Kanata needs two, and **only ever reports the next missing one** — so fixing the
+first just moves you to the second error. Grant both:
+
+| System Settings → Privacy & Security → | Why |
+|---|---|
+| **Input Monitoring** | read raw key events |
+| **Accessibility** | the commonly-missed second one, behind `IOHIDDeviceOpen error: (iokit/common) not permitted` (kanata issue #1211) |
 
 1. Start the daemon once so kanata registers itself with IOKit — it logs
-   `asking IOKit to register kanata under System Settings` and then exits.
-2. Open **System Settings → Privacy & Security → Input Monitoring**
-3. Enable `kanata`. If it isn't listed, add it with **+** and `Cmd+Shift+G` →
-   `/opt/homebrew/bin/kanata` (the path is hidden in the file picker).
+   `asking IOKit to register kanata under System Settings`, then exits.
+2. In each pane, enable `kanata`. If it isn't listed, add it with **+** and
+   `Cmd+Shift+G` → `/opt/homebrew/bin/kanata` (the path is hidden in the picker).
 
-`KeepAlive` restarts kanata within seconds of the toggle — no reboot needed.
+`KeepAlive` restarts kanata within seconds of each toggle — no reboot needed.
+`bash scripts/launchagents.sh` will tell you which gate you're on.
 
-**Permission is tied to the binary, so `brew upgrade kanata` revokes it.** If
-mappings stop working right after a Homebrew upgrade, this is why: re-enable the
-toggle (removing and re-adding the entry may be needed).
+**Both grants are pinned to the binary path, so `brew upgrade kanata` revokes
+them.** kanata's own error says it: *"if you moved, renamed, or upgraded the
+kanata binary, macOS pins the old path and you must remove the stale entry and
+re-add the current binary."* If mappings die right after a Homebrew upgrade,
+remove and re-add kanata in both panes.
 
 The LaunchDaemon is installed by `scripts/launchagents.sh`. If kanata silently
 fails to run, work down this list:
 
 ```bash
 tail -40 /tmp/kanata.log                  # the actual error, always start here
-                                          # "needs macOS Input Monitoring" -> step 3
+                                          # "needs macOS <permission>" -> step 3
 kanata -c _configs/kanata.kbd --check     # config parses?
 systemextensionsctl list                  # Karabiner driver activated?
 pgrep -fl Karabiner-VirtualHIDDevice-Daemon

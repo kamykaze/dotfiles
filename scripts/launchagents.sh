@@ -71,16 +71,29 @@ else
         if pgrep -x kanata >/dev/null 2>&1; then
             echo "  [ok] kanata is running"
         else
+            # Match the CURRENT error only. Grepping the whole log finds stale
+            # lines from earlier failures and prints advice for the wrong gate —
+            # kanata needs two separate permissions and asks for them in turn.
+            LAST_ERR="$(grep -a "ERROR" /tmp/kanata.log 2>/dev/null | tail -1)"
             echo ""
             echo "  [warn] kanata is NOT running. Last error from /tmp/kanata.log:"
-            grep -a "ERROR" /tmp/kanata.log 2>/dev/null | tail -1 | sed 's/^/         /'
-            if grep -aq "Input Monitoring" /tmp/kanata.log 2>/dev/null; then
+            [ -n "${LAST_ERR}" ] && printf '%s\n' "${LAST_ERR}" | sed 's/^/         /'
+
+            PERM=""
+            case "${LAST_ERR}" in
+                *"Input Monitoring"*) PERM="Input Monitoring" ;;
+                *Accessibility*)      PERM="Accessibility" ;;
+            esac
+
+            if [ -n "${PERM}" ]; then
                 echo ""
-                echo "  ACTION: System Settings -> Privacy & Security -> Input Monitoring"
+                echo "  ACTION: System Settings -> Privacy & Security -> ${PERM}"
                 echo "          Enable 'kanata'. If it is not listed, add it with + and"
                 echo "          Cmd+Shift+G -> /opt/homebrew/bin/kanata"
-                echo "          (Input Monitoring, NOT Accessibility. KeepAlive restarts"
-                echo "           kanata within seconds of the toggle.)"
+                echo ""
+                echo "          kanata needs BOTH Input Monitoring and Accessibility, and"
+                echo "          only reports the next missing one — expect to grant the"
+                echo "          other after this. KeepAlive restarts it within seconds."
             else
                 echo "         See SETUP_NOTES.md section 7 for the full checklist."
             fi
