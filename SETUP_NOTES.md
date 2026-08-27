@@ -50,19 +50,26 @@ ssh-add ~/.ssh/id_ed25519
 
 ---
 
-## 2. Claude Desktop — MCP Configuration
+## 2. Claude Desktop — Sign In
 
-The MCP server config contains API keys that aren't in the repo.
+Just install the cask and sign in. There is **nothing to copy from this repo.**
 
-```bash
-# Copy the template and fill in your API keys
-cp ~/.configs/claude_desktop_config.json.template \
-   ~/Library/Application\ Support/Claude/claude_desktop_config.json
+- Connectors (ClickUp, Gmail, Drive, Slack, …) are hosted and follow your
+  account — no local MCP server config, no API keys to restore.
+- `~/Library/Application Support/Claude/claude_desktop_config.json` is written
+  by the app and holds machine-specific state (device name, per-account flags,
+  pinned/starred sessions). **Never copy a repo version over it** — the app owns
+  that file. This repo used to ship a `.template` for it; that was a mistake and
+  it has been removed.
 
-# Then edit the file and replace all YOUR_* placeholders
-```
+Only these preferences are worth re-setting by hand, all in the app's settings UI:
 
-**LastPass note:** MCP API Keys
+| Preference | Value |
+|------------|-------|
+| Show in menu bar | on |
+| Quick entry shortcut | `Alt+Space` |
+| Sidebar mode | chat |
+| Web search in Cowork | on |
 
 ---
 
@@ -253,7 +260,7 @@ git commit -m "chore: sync configs"
 
 The sync script copies: VS Code settings/keybindings/extensions snapshots,
 BetterTouchTool presets, and macOS system preferences. It will never touch
-`claude_desktop_config.json` (sensitive).
+`claude_desktop_config.json` (app-owned).
 
 **Sync direction is one-way: machine -> repo.** Nothing it writes is symlinked back.
 
@@ -302,7 +309,6 @@ you're sure the live machine really is the state you want recorded.
 | Credential | Where to find it |
 |------------|-----------------|
 | SSH private keys | LastPass: SSH Private Keys |
-| MCP API keys | LastPass: MCP API Keys |
 | BetterTouchTool license | LastPass: BetterTouchTool License |
 | Other software licenses | LastPass |
 

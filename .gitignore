@@ -18,7 +18,7 @@ id_ed25519.pub
 *.cer
 *.crt
 
-# Claude Desktop real config (only .template is committed)
+# Claude Desktop config — app-owned, never commit it (no template ships either)
 _configs/claude_desktop_config.json
 
 # Private Kanata config

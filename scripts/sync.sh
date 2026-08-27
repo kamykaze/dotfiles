@@ -152,10 +152,12 @@ else
 fi
 
 # ============================================================
-# Claude Desktop — SKIPPED (contains API keys)
-# Edit _configs/claude_desktop_config.json.template manually.
+# Claude Desktop — deliberately NOT synced.
+# claude_desktop_config.json is app-owned and holds machine-specific state
+# (device name, per-account flags, pinned sessions). Connectors are hosted and
+# follow the account, so there is nothing worth carrying between machines.
 # ============================================================
-echo "  [skip] Claude Desktop config (sensitive — edit .template manually)"
+echo "  [skip] Claude Desktop config (app-owned — nothing to sync)"
 
 # ============================================================
 # macOS system preferences -> scripts/macos.sh

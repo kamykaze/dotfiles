@@ -29,7 +29,7 @@ All of these are installed automatically by `scripts/homebrew.sh` via `Brewfile`
 | App | Cask | Notes |
 |-----|------|-------|
 | BetterTouchTool | `bettertouchtool` | Trackpad/keyboard customization — needs license key (LastPass) |
-| Claude Desktop | `claude` | AI assistant — needs MCP config (see SETUP_NOTES.md) |
+| Claude Desktop | `claude` | AI assistant — just sign in (see SETUP_NOTES.md) |
 | Google Drive | `google-drive` | Cloud storage |
 | Granola | `granola` | AI meeting notes |
 | Jumpcut | `jumpcut` | Clipboard manager |

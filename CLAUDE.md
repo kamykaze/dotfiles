@@ -120,7 +120,7 @@ These are non-negotiable. Follow them for every file touched in this repo.
 |-----|----------------|
 | Kanata | `_configs/kanata.kbd` symlinked to `~/.configs/kanata.kbd` |
 | BetterTouchTool | `.bttpreset` export in `bettertouchtool/` |
-| Claude Desktop | `.template` file in `_configs/`, real keys in LastPass |
+| Claude Desktop | Nothing in the repo — sign in and the hosted connectors follow the account. Its `claude_desktop_config.json` is app-owned; never copy a repo version over it |
 | Claude Code (global) | `claude/CLAUDE.md` symlinked to `~/.claude/CLAUDE.md` (handled in `scripts/symlinks.sh`) |
 | VS Code | Built-in Settings Sync (GitHub account) — nothing extra needed |
 | Warp | Cloud sync via Warp account — local themes/configs in `_configs/` if needed |
