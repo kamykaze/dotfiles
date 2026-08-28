@@ -63,6 +63,24 @@ The rest of this file covers things that can't be automated.
 
 ---
 
+## 0. Files install.sh will NOT overwrite
+
+`scripts/symlinks.sh` never clobbers a real file. If `~/.gitconfig`,
+`~/.ssh/config` or any other target already exists as a regular file, it is
+skipped and **the repo version stays inactive** — which is easy to miss, since a
+`[skip]` line looks like success. The script now prints a `NOT LINKED` summary at
+the end; act on anything listed there.
+
+To adopt the repo version, move machine-specific values into a local override
+first, then delete the real file and re-run `bash scripts/symlinks.sh`:
+
+| Target | Local override |
+|---|---|
+| `~/.gitconfig` | `~/.gitconfig.local` — identity (`user.name`/`user.email`) and per-machine settings. `_gitconfig` includes it **last**, so it wins over the repo. Not in the repo. |
+| `~/.ssh/config` | no override file; edit `_ssh_config` in the repo |
+
+---
+
 ## 1. SSH Keys
 
 SSH host aliases are in the repo (`_ssh_config` → `~/.ssh/config`), but the
@@ -76,6 +94,15 @@ ssh-add ~/.ssh/id_ed25519
 ```
 
 **LastPass note:** SSH Private Keys
+
+---
+
+**Note:** `_ssh_config` routes `github.com` over `ssh.github.com:443` so SSH works
+on networks that block port 22. That host is absent from a fresh `known_hosts`, so
+until it is added every git operation fails with `Host key verification failed`.
+`scripts/symlinks.sh` seeds it from GitHub's published key list
+(`https://api.github.com/meta`) over TLS — no trust-on-first-use step. If it ran
+offline, re-run it once you have a connection.
 
 ---
 

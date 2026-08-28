@@ -59,3 +59,11 @@
 	displayCommentPrefix = true
 [pull]
 	rebase = false
+
+# ============================================================
+# Machine-local overrides — MUST stay last: git takes the last value it sees,
+# so an include placed earlier gets overridden by sections below it.
+# Holds identity and per-machine settings (see ~/.gitconfig.local).
+# ============================================================
+[include]
+    path = ~/.gitconfig.local
