@@ -50,8 +50,6 @@
 
     # alias gi to git for typos (eg: 'gi tst' instead of 'git st')
     tst = status
-[include]
-    path = ~/.private/github
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
@@ -61,10 +59,19 @@
 	rebase = false
 
 # ============================================================
-# Machine-local overrides — MUST stay last: git takes the last value it sees,
-# so an include placed earlier gets overridden by sections below it.
-# Holds identity and per-machine settings (see ~/.gitconfig.local).
+# Local overrides — these MUST stay at the very END of this file.
+# Git takes the LAST value it sees, so an include placed earlier is overridden
+# by any section below it. ~/.private/github used to sit mid-file, above
+# [merge]/[status]/[pull], which silently ignored anything it set for those keys.
+#
+#   ~/.private/github    long-standing personal file, not in the repo
+#   ~/.gitconfig.local   per-machine settings + identity, not in the repo
+#
+# Later wins, so ~/.gitconfig.local beats ~/.private/github on any overlap.
+# Both are optional; git ignores a missing include path.
 # ============================================================
+[include]
+    path = ~/.private/github
 [include]
     path = ~/.gitconfig.local
 
