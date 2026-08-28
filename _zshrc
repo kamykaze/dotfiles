@@ -3,6 +3,8 @@ export PATH="$PATH:/opt/bin:/Users/kam/dotfiles/sack:/usr/local/php5/bin:/usr/lo
 # export MANPATH="/usr/local/man:$MANPATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 
 export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages/:${HOME}/dotfiles/utilities/:${HOME}/tools/:${HOME}/tools/django-debug-toolbar/"
 

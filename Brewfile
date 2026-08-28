@@ -26,6 +26,7 @@ brew "go"
 brew "imagemagick"
 brew "kanata"
 brew "libfido2"
+brew "libpq"                        # Postgres client (psql, pg_dump) — keg-only, PATH set in _zshrc
 brew "libtiff"
 brew "little-cms2"
 brew "mysql"
