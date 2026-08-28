@@ -21,6 +21,12 @@ id_ed25519.pub
 # Claude Desktop config — app-owned, never commit it (no template ships either)
 _configs/claude_desktop_config.json
 
+# Downloaded installers — never commit binary blobs. scripts/karabiner-driver.sh
+# fetches the driver pkg into mktemp, but a hand-run `curl -LO` lands here.
+*.pkg
+*.dmg
+*.zip
+
 # Private Kanata config
 _configs/kanata-private.kbd
 
