@@ -87,7 +87,9 @@ vscode "docker.docker"
 vscode "eamodio.gitlens"
 vscode "ecmel.vscode-html-css"
 vscode "editorconfig.editorconfig"
-vscode "github.copilot-chat"
+# github.copilot-chat is BUILT INTO VS Code (app/extensions/copilot, identity
+# copilot-chat). Built-ins never show in `code --list-extensions`, so listing it
+# here makes `brew bundle check` fail forever while nothing is actually missing.
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "kawamataryo.copy-python-dotted-path"
