@@ -12,6 +12,7 @@ charliermarsh.ruff
 codezombiech.gitignore
 davidanson.vscode-markdownlint
 docker.docker
+eamodio.gitlens
 ecmel.vscode-html-css
 editorconfig.editorconfig
 github.vscode-github-actions

@@ -170,7 +170,7 @@
     "BTTNotchBarMiniItemsOnTop" : true,
     "BSTSnapAreaDefaultPictoDistanceFromBottom" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C37F30CE-5633-4EC6-A3D4-3A87652D6B82",
+  "BTTPresetUUID" : "CF95A808-A31A-4E7C-895C-63B4B8302B9C",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -191,7 +191,7 @@
           "BTTOrder" : 0
         },
         {
-          "BTTLastUpdatedAt" : 1783605030.7183671,
+          "BTTLastUpdatedAt" : 1788294314.7976298,
           "BTTTriggerType" : 630,
           "BTTTriggerTypeDescriptionReadOnly" : "Group",
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -204,7 +204,7 @@
           "BTTAutoAdaptToKeyboardLayout" : 0,
           "BTTActionsToExecute" : [
             {
-              "BTTLastUpdatedAt" : 1783605030.718317,
+              "BTTLastUpdatedAt" : 1788294314.7975631,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -222,7 +222,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7182519,
+              "BTTLastUpdatedAt" : 1788294314.7976999,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -240,7 +240,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.718235,
+              "BTTLastUpdatedAt" : 1788294314.797544,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -258,7 +258,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7183251,
+              "BTTLastUpdatedAt" : 1788294314.797538,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -277,7 +277,7 @@
               "BTTGestureNotes" : "Left Half"
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.718349,
+              "BTTLastUpdatedAt" : 1788294314.7975302,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -295,7 +295,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7183409,
+              "BTTLastUpdatedAt" : 1788294314.7971301,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -313,7 +313,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7182441,
+              "BTTLastUpdatedAt" : 1788294314.7977061,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -331,7 +331,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7183561,
+              "BTTLastUpdatedAt" : 1788294314.7975559,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -349,7 +349,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7183781,
+              "BTTLastUpdatedAt" : 1788294314.7977109,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -367,13 +367,13 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7181602,
+              "BTTLastUpdatedAt" : 1788294314.797569,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
               "BTTUUID" : "A3460870-26C5-4789-8836-3A0C211DEC1F",
-              "BTTPredefinedActionType" : 98,
-              "BTTPredefinedActionName" : "Center Window on Next Monitor",
+              "BTTPredefinedActionType" : 48,
+              "BTTPredefinedActionName" : "Maximize Window to Next Monitor",
               "BTTAdditionalConfiguration" : "917539",
               "BTTShortcutKeyboardType" : 2302,
               "BTTTriggerOnDown" : 1,
@@ -385,7 +385,7 @@
               "BTTAutoAdaptToKeyboardLayout" : 0
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7181411,
+              "BTTLastUpdatedAt" : 1788294314.7975821,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -412,7 +412,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7183321,
+              "BTTLastUpdatedAt" : 1788294314.7975202,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -439,7 +439,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.718169,
+              "BTTLastUpdatedAt" : 1788294314.797575,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -469,7 +469,7 @@
               ]
             },
             {
-              "BTTLastUpdatedAt" : 1783605030.7275128,
+              "BTTLastUpdatedAt" : 1788294314.797693,
               "BTTTriggerType" : 0,
               "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
               "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
@@ -492,6 +492,60 @@
                   "BTTPredefinedActionType" : 151,
                   "BTTPredefinedActionName" : "Move Window One Space or Desktop Left",
                   "BTTOrder" : 31
+                }
+              ]
+            },
+            {
+              "BTTLastUpdatedAt" : 1788294314.7971511,
+              "BTTTriggerType" : 0,
+              "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "7712E333-7783-4AE3-97A4-78BCCF30446A",
+              "BTTAdditionalConfiguration" : "786465",
+              "BTTShortcutKeyboardType" : 2302,
+              "BTTTriggerOnDown" : 1,
+              "BTTLayoutIndependentChar" : "j",
+              "BTTShortcutKeyCode" : 38,
+              "BTTShortcutAdvancedModifierKeys" : "786465",
+              "BTTShortcutModifierKeys" : 786432,
+              "BTTOrder" : 14,
+              "BTTAutoAdaptToKeyboardLayout" : 0,
+              "BTTActionsToExecute" : [
+                {
+                  "BTTLastUpdatedAt" : 1788294210.952354,
+                  "BTTTriggerParentUUID" : "7712E333-7783-4AE3-97A4-78BCCF30446A",
+                  "BTTIsPureAction" : true,
+                  "BTTUUID" : "CC66EDF6-DB0C-4948-B1DF-DE292A80EEC8",
+                  "BTTPredefinedActionType" : 108,
+                  "BTTPredefinedActionName" : "Resize window to Left Third",
+                  "BTTOrder" : 33
+                }
+              ]
+            },
+            {
+              "BTTLastUpdatedAt" : 1788294463.1074691,
+              "BTTTriggerType" : 0,
+              "BTTTriggerParentUUID" : "851B4F25-FCC1-405A-AB90-42B69F2C2421",
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "B4CE94C5-5DFE-4721-903C-29161EC09CBD",
+              "BTTAdditionalConfiguration" : "786465",
+              "BTTShortcutKeyboardType" : 2302,
+              "BTTTriggerOnDown" : 1,
+              "BTTLayoutIndependentChar" : "l",
+              "BTTShortcutKeyCode" : 37,
+              "BTTShortcutAdvancedModifierKeys" : "786465",
+              "BTTShortcutModifierKeys" : 786432,
+              "BTTOrder" : 15,
+              "BTTAutoAdaptToKeyboardLayout" : 0,
+              "BTTActionsToExecute" : [
+                {
+                  "BTTLastUpdatedAt" : 1788294475.607538,
+                  "BTTTriggerParentUUID" : "B4CE94C5-5DFE-4721-903C-29161EC09CBD",
+                  "BTTIsPureAction" : true,
+                  "BTTUUID" : "6AF46524-B4C7-489A-97EE-3579D956AE86",
+                  "BTTPredefinedActionType" : 110,
+                  "BTTPredefinedActionName" : "Resize window to Right Third",
+                  "BTTOrder" : 34
                 }
               ]
             }
