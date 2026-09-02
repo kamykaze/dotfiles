@@ -56,7 +56,6 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `_vimrc_bare` - Minimal Vim configuration without plugins
 - `_vim/` - Vim plugin directory using Pathogen for plugin management
 - `_zshrc` - Zsh shell configuration (primary shell)
-- `_tmux.conf` - Terminal multiplexer configuration
 - `_gitconfig`, `_gitignore` - Git configuration and global ignore patterns
 - `_inputrc` - Readline library configuration
 - `_ignore` - Universal ignore patterns
@@ -67,7 +66,6 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
 - `_configs/vscode-extensions.txt` - Snapshot of installed VS Code extensions, dumped by `scripts/sync.sh`.
   Not an install list — the Brewfile's `vscode "..."` entries do the installing.
 - `chrome/` - Chrome browser extensions and configurations
-- `_config/powerline/` - Powerline status line configuration
 
 ### Sensitive Config Templates
 - `_configs/*.template` files contain configs with sensitive data redacted
@@ -177,7 +175,6 @@ When you add a new app or tool to your setup:
 
 - `_*` files: Main configuration files (get symlinked to `~/.`)
 - `_config/` and `_configs/`: Application-specific configurations
-  - `_config/`: System-level configs (powerline)
   - `_configs/`: User application configs (kanata, VS Code)
 - `claude/`: Global Claude Code instructions — `CLAUDE.md` symlinked to `~/.claude/CLAUDE.md`
 - `scripts/`: Bootstrap scripts called by `install.sh`

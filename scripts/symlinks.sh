@@ -38,6 +38,9 @@ done
 
 # _config/ subdirectories -> ~/.config/<name>/
 # Can't symlink _config -> ~/.config wholesale because ~/.config already exists.
+# The directory is absent whenever nothing needs ~/.config; without this guard
+# the glob below expands to the literal "_config/*/" and links a dir named "*".
+if [ -d "${DOTFILES_DIR}/_config" ]; then
 echo "-> Symlinking ~/.config/ subdirectories..."
 mkdir -p "${HOME}/.config"
 for subdir in "${DOTFILES_DIR}/_config"/*/; do
@@ -52,6 +55,7 @@ for subdir in "${DOTFILES_DIR}/_config"/*/; do
         echo "  [link] _config/${name} -> ~/.config/${name}"
     fi
 done
+fi
 
 # SSH config: _ssh_config -> ~/.ssh/config
 if [ -f "${DOTFILES_DIR}/_ssh_config" ]; then

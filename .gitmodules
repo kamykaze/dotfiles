@@ -1,16 +1,3 @@
-[submodule "chrome/chrome-devtools-theme"]
-    path = chrome/chrome-devtools-theme
-    url = https://github.com/kamykaze/chrome-devtools-theme.git
-[submodule "utilities/powerline"]
-	path = utilities/powerline
-	url = https://github.com/Lokaltog/powerline.git
-[submodule "utilities/tmux-MacOSX-pasteboard"]
-	path = utilities/tmux-MacOSX-pasteboard
-	url = https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
-[submodule "chrome/Readable-ChromeDevThemes"]
-	path = chrome/Readable-ChromeDevThemes
-	url = https://github.com/Augus/Readable-ChromeDevThemes
-    ignore = dirty
 [submodule "_vim/bundle/neobundle.vim"]
 	path = _vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git

@@ -383,7 +383,7 @@ Sign in to the Mac App Store first with your Apple ID.
 
 ### Synced automatically (symlinked files)
 
-`~/.zshrc`, `~/.gitconfig`, `~/.tmux.conf`, and all other `_*` dotfiles are
+`~/.zshrc`, `~/.gitconfig`, and all other `_*` dotfiles are
 symlinks into the repo. Editing them **is** editing the repo — just `git commit`
 when you're happy with a change.
 

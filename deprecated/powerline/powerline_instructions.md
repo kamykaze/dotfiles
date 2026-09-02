@@ -1,6 +1,6 @@
 Here are some instructions to get your terminal prompt looking like the following. The main advantages (aside from looking nice) is that powerline only shows segments based on what's applicable (and in vim and tmux, lower priority segments disappear as the window gets smaller).
 
-![Bash prompt with Powerline](./misc/powerline_bash.png)
+![Bash prompt with Powerline](./powerline_bash.png)
 
 ## Part 1 - Script
 

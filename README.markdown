@@ -39,7 +39,6 @@ Files prefixed with `_` are symlinked into `$HOME` with the prefix replaced by `
 ```text
 _zshrc        →  ~/.zshrc
 _gitconfig    →  ~/.gitconfig
-_tmux.conf    →  ~/.tmux.conf
 _configs/     →  ~/.configs/
 ```
 
@@ -64,7 +63,6 @@ All scripts are idempotent — safe to run multiple times.
 ### Shell & Terminal
 
 - `_zshrc` — Zsh configuration (primary shell)
-- `_tmux.conf` — Tmux configuration
 
 ### Editor
 
