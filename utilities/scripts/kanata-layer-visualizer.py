@@ -15,6 +15,7 @@ the argument list.
 
 import argparse
 import socket
+import subprocess
 import sys
 import json
 import re
@@ -23,7 +24,8 @@ from pathlib import Path
 from blessed import Terminal
 
 KANATA_HOST = '127.0.0.1'
-KANATA_PORT = 12321
+DEFAULT_KANATA_PORT = 12321
+KANATA_PORT = DEFAULT_KANATA_PORT  # reassigned in main(); the status line renders it
 CONFIG_PATH = os.path.expanduser('~/.configs/kanata.kbd')
 
 class KanataConfigParser:
@@ -454,6 +456,32 @@ class VisualKeyboard:
         print("Press Ctrl+C to exit" + t.normal)
 
 
+def detect_kanata_port():
+    """Port a running kanata was started with, or None.
+
+    Only used to sharpen the connection-failure message, so every failure
+    here is non-fatal — the caller falls back to the generic text.
+    """
+    try:
+        out = subprocess.run(['pgrep', '-fl', 'kanata'],
+                             capture_output=True, text=True, timeout=3).stdout
+    except Exception:
+        return None
+
+    for line in out.splitlines():
+        parts = line.split()
+        if len(parts) < 2:
+            continue
+        # `pgrep -fl kanata` also matches this script's own command line,
+        # so keep only processes whose executable really is kanata.
+        if os.path.basename(parts[1]) != 'kanata':
+            continue
+        match = re.search(r'(?:^|\s)-p\s+(\d+)', line)
+        if match:
+            return int(match.group(1))
+    return None
+
+
 def connect_to_kanata(host, port):
     """Connect to Kanata TCP server"""
     try:
@@ -462,8 +490,19 @@ def connect_to_kanata(host, port):
         return sock
     except ConnectionRefusedError:
         print(f"Error: Cannot connect to Kanata at {host}:{port}")
-        print("\nMake sure Kanata is running with TCP port enabled:")
-        print(f"  sudo kanata -c ~/.configs/kanata.kbd -p {port}")
+
+        # Telling someone to start kanata when it is already running just
+        # gets them a second instance fighting over the keyboard. Say which
+        # port the live one is on instead.
+        running_port = detect_kanata_port()
+        if running_port is not None and running_port != port:
+            print(f"\nKanata IS running, on port {running_port} — not {port}.")
+            print(f"\n  kanata-viz --port {running_port}")
+            if running_port == DEFAULT_KANATA_PORT:
+                print("  kanata-viz                 (same thing, it is the default)")
+        else:
+            print("\nMake sure Kanata is running with TCP port enabled:")
+            print(f"  sudo kanata -c ~/.configs/kanata.kbd -p {port}")
         sys.exit(1)
     except Exception as e:
         print(f"Error connecting to Kanata: {e}")
@@ -493,7 +532,7 @@ def main():
     )
     ap.add_argument('--config', default=CONFIG_PATH, metavar='PATH',
                     help='path to kanata.kbd (default: %(default)s)')
-    ap.add_argument('--port', type=int, default=KANATA_PORT, metavar='PORT',
+    ap.add_argument('--port', type=int, default=DEFAULT_KANATA_PORT, metavar='PORT',
                     help='kanata TCP port (default: %(default)s)')
     ap.add_argument('--debug', action='store_true',
                     help='show debug messages')
