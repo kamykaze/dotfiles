@@ -6,14 +6,14 @@ Displays a visual representation of your keyboard with the current layer's
 mappings, similar to the ASCII layout in your kanata.kbd file.
 
 Usage:
-    python3 kanata-visual-kbd.py [--config PATH] [--port PORT] [--debug]
+    kanata-viz [--config PATH] [--port PORT] [--debug]
 
-Arguments:
-    --config PATH   Path to kanata.kbd config (default: ~/.configs/kanata.kbd)
-    --port PORT     TCP port (default: 12321)
-    --debug         Show debug messages
+`kanata-viz` is an alias defined in _zshrc that runs this through the repo's
+.venv-tools interpreter, where the `blessed` dependency lives. Run --help for
+the argument list.
 """
 
+import argparse
 import socket
 import sys
 import json
@@ -482,18 +482,30 @@ def parse_layer_change(message):
 
 
 def main():
-    # Parse arguments
-    config_path = CONFIG_PATH
-    port = KANATA_PORT
-    debug_mode = False
+    # argparse rather than a hand-rolled loop: the old version swallowed
+    # --help into the TUI, ignored misspelled flags in silence, and blew up
+    # with a bare ValueError traceback on a non-numeric --port.
+    global KANATA_PORT
 
-    for i, arg in enumerate(sys.argv[1:]):
-        if arg == '--config' and i + 2 < len(sys.argv):
-            config_path = os.path.expanduser(sys.argv[i + 2])
-        elif arg == '--port' and i + 2 < len(sys.argv):
-            port = int(sys.argv[i + 2])
-        elif arg == '--debug':
-            debug_mode = True
+    ap = argparse.ArgumentParser(
+        prog='kanata-viz',
+        description='Visual keyboard display showing the active Kanata layer.',
+    )
+    ap.add_argument('--config', default=CONFIG_PATH, metavar='PATH',
+                    help='path to kanata.kbd (default: %(default)s)')
+    ap.add_argument('--port', type=int, default=KANATA_PORT, metavar='PORT',
+                    help='kanata TCP port (default: %(default)s)')
+    ap.add_argument('--debug', action='store_true',
+                    help='show debug messages')
+    args = ap.parse_args()
+
+    config_path = os.path.expanduser(args.config)
+    port = args.port
+    debug_mode = args.debug
+
+    # The status line renders the module-level port. Without this, --port
+    # connects to one port and the display claims another.
+    KANATA_PORT = port
 
     # Verify config exists
     if not os.path.exists(config_path):
