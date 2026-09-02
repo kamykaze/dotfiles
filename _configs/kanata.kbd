@@ -9,8 +9,8 @@ It uses a standard QWERTY layout on a Macbook keyboard
 
 A real-time visual keyboard display is available to see the current layer and key mappings:
   - Start Kanata with TCP: sudo kanata -c ~/.configs/kanata.kbd -p 12321
-  - Run visualizer: python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py
-  - or create an alias: alias kanata-viz='python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py'
+  - Run visualizer: kanata-viz  (alias defined in _zshrc)
+  - Deps live in .venv-tools, built by scripts/python-tools.sh during install.sh
   - See: utilities/scripts/KANATA_VISUALIZER_README.md for details
 
 ## Features:

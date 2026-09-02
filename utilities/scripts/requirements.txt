@@ -1,0 +1,6 @@
+# Python dependencies for this repo's helper scripts.
+# Installed into .venv-tools/ by scripts/python-tools.sh (run from install.sh).
+# Homebrew's python is PEP 668 externally-managed, so these cannot go into the
+# system interpreter without --break-system-packages, which breaks on upgrade.
+
+blessed>=1.20        # TUI rendering for utilities/scripts/kanata-layer-visualizer.py

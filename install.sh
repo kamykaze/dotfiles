@@ -148,6 +148,12 @@ bash "${SCRIPTS_DIR}/karabiner-driver.sh"
 echo ""
 
 # ============================================================
+# Python venv for helper scripts (kanata visualizer)
+# ============================================================
+bash "${SCRIPTS_DIR}/python-tools.sh"
+echo ""
+
+# ============================================================
 # Launch Agents (Kanata, daily sync, etc.)
 # ============================================================
 bash "${SCRIPTS_DIR}/launchagents.sh"

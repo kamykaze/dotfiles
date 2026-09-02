@@ -51,3 +51,6 @@ _atom/projects.cson
 # ============================================================
 .DS_Store
 **/.DS_Store
+
+# Python venv for helper scripts (declared in utilities/scripts/requirements.txt)
+.venv-tools/

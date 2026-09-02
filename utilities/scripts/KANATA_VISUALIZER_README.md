@@ -16,8 +16,16 @@ This visualizer shows which Kanata layer you're currently on with a full visual 
 - **Works as a background service** - Connects via TCP while Kanata runs
 
 **Requirements:**
+
+Nothing to do by hand — `install.sh` runs `scripts/python-tools.sh`, which builds
+`.venv-tools/` from `utilities/scripts/requirements.txt`. The `kanata-viz` alias
+in `_zshrc` points at that venv's interpreter.
+
+Homebrew's python is PEP 668 externally-managed, so `pip3 install blessed` into
+the system interpreter fails; the venv is what makes this reproducible.
+
 ```bash
-pip3 install blessed
+bash scripts/python-tools.sh   # rebuild deps manually if needed
 ```
 
 **Usage:**
