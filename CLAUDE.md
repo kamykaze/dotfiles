@@ -102,6 +102,23 @@ The repository uses Pathogen for plugin management. All plugins are included as 
 
 ---
 
+## Where Work Gets Tracked
+
+There is deliberately **no TODO file and no GitHub issues** in this repo.
+Outstanding work lives in ClickUp (Kam Space -> Productivity list), because
+that is what generates Kam's day — a task filed anywhere else never surfaces
+in planning and rots. `TODO.txt` proved this: it sat unlinked and untouched
+from April to September 2026 while every item in it went stale.
+
+What *does* belong here is the **reasoning** — why a thing is built the way it
+is. Commit messages carry most of it; this file and `deprecated/README.md`
+carry the rest. Decisions in the repo, intentions in ClickUp.
+
+Issues stay enabled on the public repo as a reception desk for other people,
+not as a personal backlog.
+
+---
+
 ## Sensitive Data Rules
 
 These are non-negotiable. Follow them for every file touched in this repo.
