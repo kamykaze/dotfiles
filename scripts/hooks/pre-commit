@@ -60,6 +60,24 @@ for file in ${STAGED_FILES}; do
 done
 
 # ============================================================
+# Warn when the keyboard layer diagram may have gone stale
+# ============================================================
+# assets/keyboard-layers.svg is generated from the kanata config and the
+# BetterTouchTool preset, and nothing regenerates it automatically — a mapping
+# change committed without it leaves the README showing a keyboard that no
+# longer exists. This warns rather than blocks: work-in-progress mapping edits
+# are legitimate commits, and a hook that blocks them only teaches --no-verify.
+MAPPING_CHANGED=$(git diff --cached --name-only | grep -E '^(_configs/kanata\.kbd|bettertouchtool/.+\.bttpreset)$' || true)
+DIAGRAM_STAGED=$(git diff --cached --name-only | grep -E '^assets/keyboard-layers\.svg$' || true)
+
+if [ -n "${MAPPING_CHANGED}" ] && [ -z "${DIAGRAM_STAGED}" ]; then
+    echo "  [WARNING] keyboard mapping changed, but assets/keyboard-layers.svg was not regenerated:"
+    echo "${MAPPING_CHANGED}" | sed 's/^/              /'
+    echo "            run scripts/keymap-diagram.sh and stage the redrawn diagram"
+    echo ""
+fi
+
+# ============================================================
 # Result
 # ============================================================
 if [ "${FAILED}" -eq 1 ]; then
