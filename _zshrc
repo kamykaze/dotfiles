@@ -63,3 +63,37 @@ alias kanata-viz='$HOME/personal/projects/dotfiles/.venv-tools/bin/python $HOME/
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 #ssource <(fzf --zsh)
+
+
+# ── Prompt ────────────────────────────────────────────────────────────────────
+# Warp draws its own prompt (that's why powerline was archived), but the VS Code
+# integrated terminal and SSH sessions still get zsh's bare default. Style only
+# those. No dependencies: vcs_info ships with zsh, so this survives an SSH hop
+# to a box with nothing installed.
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  setopt prompt_subst
+  autoload -Uz vcs_info
+
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' unstagedstr '*'
+  zstyle ':vcs_info:git:*' stagedstr '+'
+  zstyle ':vcs_info:git:*' formats       ' %F{magenta}%b%f%F{yellow}%u%c%f'
+  zstyle ':vcs_info:git:*' actionformats ' %F{magenta}%b%f %F{red}(%a)%f%F{yellow}%u%c%f'
+
+  _prompt_vcs_info() { vcs_info }
+  precmd_functions+=(_prompt_vcs_info)
+
+  # user@host is noise locally; over SSH it's the whole point.
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    _prompt_ctx='%F{yellow}%n@%m%f '
+  else
+    _prompt_ctx=''
+  fi
+
+  # Two lines on purpose: everything informative sits on line 1, so copying a
+  # command and its output never drags half a prompt along with it.
+  PROMPT="${_prompt_ctx}"'%F{cyan}%~%f${vcs_info_msg_0_}
+%(?..%F{red}%? %f)%(?.%F{green}.%F{red})❯%f '
+  unset _prompt_ctx
+fi
