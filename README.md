@@ -53,6 +53,7 @@ _configs/     →  ~/.configs/
 | `scripts/karabiner-driver.sh` | Pins the Karabiner virtual HID driver to the version kanata requires |
 | `scripts/launchagents.sh` | Installs launchd services (Kanata auto-start) |
 | `scripts/sync.sh` | Exports configs from apps that own their files (run daily via LaunchAgent). Skips macOS prefs until `macos.sh` has been applied here; `--force` overrides |
+| `scripts/keymap-diagram.sh` | Redraws the keyboard layer map below from `_configs/kanata.kbd` + the BetterTouchTool preset |
 
 All scripts are idempotent — safe to run multiple times.
 
@@ -81,6 +82,35 @@ All scripts are idempotent — safe to run multiple times.
   - Home row modifiers (ASDF / JKL;)
   - Layers: numbers, navigation, symbols, shortcuts, mirror, plain, disabled
 - `qmk_mappings/` — QMK firmware layouts for physical keyboards
+
+#### Layer map
+
+![Kanata layers](assets/keyboard-layers.svg)
+
+Reading a key: **centre** is tap, **top** is double-tap, **bottom** is hold — or
+the layer it switches to, underlined. Window management draws as an icon: the
+outline is the screen, the shaded part is where the window lands, and a broken
+outline is a space you can't currently see. Every layer shows only the keys it
+changes; the base layer greys in the ones it leaves alone, so the trigger keys
+can be found against a familiar keyboard. On the disabled layer, every key is
+drawn with a "no action" mark. The `f` and `j` keys are outlined more heavily on
+every layer, so you can still count across from the home keys once the legends
+stop looking like a keyboard. Layer names are links — click one to jump to that
+layer's diagram. Each layer has its own colour, and the key
+that switches to it carries that colour on every other layer. Only keys a layer
+actually changes are tinted, so the coloured keys are the layer. Dashed keys
+(`fn`, Touch ID) are hardware macOS never reports, so kanata cannot see them;
+`fn` is held for voice dictation. A key showing a plain chord (`hyper+1`) is one
+kanata fires and nothing in BetterTouchTool answers.
+
+Mappings whose intent isn't obvious from the chord are named in `kanata.kbd`
+itself, with `;; :label lalt+left = prev word` comments that kanata ignores and
+the diagram reads.
+
+Regenerate it with `scripts/keymap-diagram.sh` after changing the layers or the
+BTT preset — the app names come from the preset, so the picture is only as
+current as `bettertouchtool/kam_btt_presets.bttpreset`. The physical layout is
+`scripts/keymap-mbp.json`; edit that to draw a different keyboard.
 
 ### Applications
 
