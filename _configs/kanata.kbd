@@ -5,6 +5,12 @@ This configuration file allows me to enhance a standard laptop keyboard layout.
 
 It uses a standard QWERTY layout on a Macbook keyboard
 
+## After changing a mapping
+
+Run `scripts/keymap-diagram.sh` and commit the redrawn `assets/keyboard-layers.svg`.
+The README embeds it, and nothing regenerates it automatically — an edit here
+without that run leaves the published map lying about the layout.
+
 ## Visual Layer Reference
 
 A real-time visual keyboard display is available to see the current layer and key mappings:
@@ -185,6 +191,19 @@ https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs # key reference
   zpl (multi lsft =)
 
   ;; Specialty keys
+  ;;
+  ;; The ";; :label <chord> = <text>" lines below are read by
+  ;; scripts/keymap-diagram.sh: a chord like lalt+left is drawn as "prev word"
+  ;; instead. kanata ignores them, and they are the only record of what these
+  ;; mappings are FOR — BetterTouchTool never sees these keys, so it cannot
+  ;; name them the way it names the shortcuts layer. Add a line whenever a
+  ;; mapping's intent isn't obvious from the chord itself.
+  ;; :label lalt+left = prev word
+  ;; :label lalt+right = next word
+  ;; :label lmet+left = line start
+  ;; :label lmet+right = line end
+  ;; :label lmet+lsft+[ = prev tab
+  ;; :label lmet+lsft+] = next tab
   pwrd (tap-hold-press $tap-time $hold-time (multi lalt left) (multi lmet left))
   nwrd (tap-hold-press $tap-time $hold-time (multi lalt right) (multi lmet right))
   ptab (multi lmet lsft [ )

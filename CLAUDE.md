@@ -28,6 +28,27 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
   is `auto_updates` and will ship a driver kanata can't talk to, which silently
   breaks every mapping
 - `scripts/launchagents.sh` — installs launchd services (eg: Kanata auto-start)
+- `scripts/keymap-diagram.sh` — redraws `assets/keyboard-layers.svg` (embedded in the
+  README) from `_configs/kanata.kbd`. Not part of `install.sh`. It relabels every raw
+  chord using the BetterTouchTool preset, because kanata only knows it fires Meh+1
+  and BTT is what knows Meh+1 means Obsidian. keymap-drawer's kanata parser is
+  experimental upstream, so the version is pinned in the script
+
+**Whenever `_configs/kanata.kbd` or the BetterTouchTool preset changes, run
+`scripts/keymap-diagram.sh` and commit the redrawn SVG in the same commit.**
+Nothing regenerates it automatically, and a keyboard map that lies is worse than
+no map. Three things feed the drawing:
+- chords the BTT preset binds are named from it (`Meh+a` → "Spotify")
+- chords it doesn't bind are drawn plainly (`hyper+1`), which is a live list of
+  mappings that fire into nothing
+- anything whose intent isn't obvious from the chord gets a `;; :label <chord> =
+  <text>` comment in `kanata.kbd` (eg: `lalt+left` → "prev word"). That comment is
+  the only record of the mapping's purpose, so add one rather than leaving a bare
+  chord on the diagram
+- shortcuts in a BTT group whose name contains "window" are drawn as icons
+  generated from the label's geometry ("Left Two Thirds" → a screen with its left
+  two-thirds shaded). No icon set carries thirds vs quarters vs two-thirds, which
+  is why these are generated rather than borrowed
 - Run `./install.sh` to install all configurations
 
 ### Script Conventions
@@ -45,6 +66,9 @@ The long-term goal is a **full bootstrap system** — clone repo, run `install.s
   - Home row modifiers (ASDF/JKL;)
   - Layer switching (numbers, navigation, symbols, shortcuts, mirror, plain, disabled)
   - Custom key mappings and shortcuts
+- `scripts/keymap-mbp.json` - MacBook Pro physical key positions used to draw the
+  layer map. `fn` and `touchid` are synthetic entries: macOS never sends them, so
+  kanata cannot see them, but `fn` is held for voice dictation and belongs on the map
 - `qmk_mappings/` - QMK keyboard firmware layouts for physical keyboards
 
 ### Window Management
