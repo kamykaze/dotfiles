@@ -67,3 +67,13 @@
 # ============================================================
 [include]
     path = ~/.gitconfig.local
+
+# ============================================================
+# Personal projects use the personal identity, work is the default.
+# Conditional includes obey the same last-one-wins rule as the plain includes
+# above, so this must stay after them — but note it is SCOPED: it only applies
+# under ~/personal/projects/, so it cannot shadow a machine-local identity
+# anywhere else. Identity itself lives in ~/.private/, never in this repo.
+# ============================================================
+[includeIf "gitdir:~/personal/projects/"]
+    path = ~/.private/github-personal
