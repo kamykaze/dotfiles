@@ -22,5 +22,7 @@
         "*.copilotmd": "vscode.markdown.preview.editor"
     },
     "chat.viewSessions.orientation": "stacked",
-    "markdown-preview-enhanced.enablePreviewZenMode": false
+    "markdown-preview-enhanced.enablePreviewZenMode": false,
+    "markdown-preview-enhanced.previewTheme": "vscode.css",
+    "claudeCode.hideOnboarding": true
 }

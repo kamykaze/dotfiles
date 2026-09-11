@@ -135,13 +135,28 @@ if [ -x "${BTTCLI}" ]; then
         for _ in 1 2 3 4 5; do [ -f "${BTT_EXPORT_TMP}" ] && break; sleep 1; done
         # BTT generates a new BTTPresetUUID on every export; strip it before comparing
         btt_strip_uuid() { grep -v '"BTTPresetUUID"' "$1"; }
+        btt_names() { grep -o '"BTTTriggerName" *: *"[^"]*"' "$1" 2>/dev/null | sort -u; }
+
         if diff -q <(btt_strip_uuid "${BTT_EXPORT_TMP}") <(btt_strip_uuid "${BTT_PRESET}") &>/dev/null; then
             rm -f "${BTT_EXPORT_TMP}"
             echo "  [skip] BetterTouchTool preset (unchanged)"
         else
-            mv "${BTT_EXPORT_TMP}" "${BTT_PRESET}"
-            echo "  [copy] BetterTouchTool preset"
-            changed=1
+            # A preset is one blob — it cannot be merged the way the extensions
+            # list can, so an export from a machine whose BTT was never given the
+            # full preset silently deletes every trigger it is missing. Refuse to
+            # write an export that drops named triggers.
+            BTT_LOST="$(comm -23 <(btt_names "${BTT_PRESET}") <(btt_names "${BTT_EXPORT_TMP}"))"
+            if [ -n "${BTT_LOST}" ] && [ "${FORCE}" -eq 0 ]; then
+                rm -f "${BTT_EXPORT_TMP}"
+                echo "  [skip] BetterTouchTool preset — this machine's export would DROP:"
+                printf '%s\n' "${BTT_LOST}" | sed 's/.*: *"//; s/"$//; s/^/           - /'
+                echo "         Import the repo preset into BTT first, or pass --force if"
+                echo "         you really deleted these triggers."
+            else
+                mv "${BTT_EXPORT_TMP}" "${BTT_PRESET}"
+                echo "  [copy] BetterTouchTool preset"
+                changed=1
+            fi
         fi
     else
         rm -f "${BTT_EXPORT_TMP}"
