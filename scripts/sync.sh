@@ -128,13 +128,36 @@ fi
 # ============================================================
 BTTCLI="/Applications/BetterTouchTool.app/Contents/SharedSupport/bin/bttcli"
 BTT_PRESET="${DOTFILES_DIR}/bettertouchtool/kam_btt_presets.bttpreset"
-if [ -x "${BTTCLI}" ]; then
+
+# One preset file, several machines: BTT recalculates snap-area geometry for
+# whatever display is attached, so a laptop rewrites the desktop's second-monitor
+# frames every night and the desktop rewrites them back. Nothing is wrong with
+# either export; they just describe different hardware. Rather than let the last
+# machine to run win, only the designated BTT machine exports.
+#
+# Designate this machine:   touch "${STATE_DIR}/btt-authority"
+# (mkdir -p "${STATE_DIR}" first). --force also overrides.
+if [ ! -f "${STATE_DIR}/btt-authority" ] && [ "${FORCE}" -eq 0 ]; then
+    echo "  [skip] BetterTouchTool preset (not the BTT authority machine)"
+elif [ -x "${BTTCLI}" ]; then
     BTT_EXPORT_TMP="${BTT_PRESET}.tmp"
     if "${BTTCLI}" export_preset name=kam_btt_presets "outputPath=${BTT_EXPORT_TMP}" includeSettings=true compress=false 2>/dev/null; then
         # bttcli returns before the file is fully written — wait briefly
         for _ in 1 2 3 4 5; do [ -f "${BTT_EXPORT_TMP}" ] && break; sleep 1; done
-        # BTT generates a new BTTPresetUUID on every export; strip it before comparing
-        btt_strip_uuid() { grep -v '"BTTPresetUUID"' "$1"; }
+        # Volatile fields, stripped before comparing so an export that is
+        # configurationally identical does not look like a change:
+        #   BTTPresetUUID        regenerated on every single export
+        #   BTTLastUpdatedAt     touched whenever BTT rewrites a trigger, so a
+        #                        preset import bumps all ~450 of them at once
+        #   BTTUUID/ParentUUID/SnapAreaUUID
+        #                        stable on one machine, but an import mints new
+        #                        ones, so two machines disagree forever after
+        # Everything else stays in the comparison — snap-area geometry and
+        # shortcut bindings are real configuration, even when they legitimately
+        # differ per machine (different monitors).
+        btt_strip_uuid() {
+            grep -vE '"(BTTPresetUUID|BTTLastUpdatedAt|BTTUUID|BTTTriggerParentUUID|BTTSnapAreaUUID)" *:' "$1"
+        }
         btt_names() { grep -o '"BTTTriggerName" *: *"[^"]*"' "$1" 2>/dev/null | sort -u; }
 
         if diff -q <(btt_strip_uuid "${BTT_EXPORT_TMP}") <(btt_strip_uuid "${BTT_PRESET}") &>/dev/null; then

@@ -418,6 +418,7 @@ LaunchAgent would do it silently. Two guards prevent that:
 |-------|-----------|
 | macOS preferences | Skipped entirely until `scripts/macos.sh` has been run on this machine. It writes a stamp at `~/.local/state/dotfiles/macos-applied`; without it, sync would replace every curated `defaults write` value with macOS factory defaults. |
 | VS Code extensions | Additions are recorded, but an extension missing locally is **kept** in the snapshot rather than dropped — a half-finished `brew bundle` shouldn't shrink the list. The withheld names are printed. |
+| BetterTouchTool | Exported only on the machine holding `~/.local/state/dotfiles/btt-authority`. BTT recalculates snap-area geometry for the attached display, so a laptop and a two-monitor desktop rewrite each other's frames nightly — both exports are correct, they just describe different hardware. Designate one machine with `touch ~/.local/state/dotfiles/btt-authority`. On top of that, an export that would drop named triggers is refused outright. |
 
 Pass `--force` to override both (`./scripts/sync.sh --force`) — only correct once
 you're sure the live machine really is the state you want recorded.
