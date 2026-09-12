@@ -18,7 +18,17 @@
 
 [push]
 	default = simple
+	# create the upstream ref on first push instead of erroring
+	autoSetupRemote = true
+
+# Shared preferences — NOT machine-specific, so they belong here rather than in
+# a local override. init.defaultBranch lived only in one machine's
+# ~/.gitconfig.local, so every other machine silently fell back to git's built-in
+# "master" when running `git init`.
+[init]
+	defaultBranch = main
 [core]
+    autocrlf = input
     editor = /usr/bin/vim
     page = less -R
     pager = less -+$LESS -FRX
