@@ -139,4 +139,50 @@ else
     echo "  [ok] Dotfiles sync LaunchAgent loaded (runs daily)"
 fi
 
+# ============================================================
+# Obsidian vault agents (LaunchAgents - run as the user)
+# ============================================================
+# Both live in ~/personal/ObsidianVault/.scripts/ and are tracked in THAT repo;
+# only the plists live here, because nothing else backs them up. Losing them
+# loses the daily backup that protects the vault, silently.
+#
+#   vault-backup  12:30  commit + git bundle to personal Google Drive
+#   vault-drain   07:30  sweep ClickUp `to-vault` tags into the vault
+#
+# Morning for the drain because Kam works evenings: 07:30 catches the whole
+# previous day, and lands before the 12:30 backup so the same day's notes get
+# bundled rather than waiting ~24h.
+for VAULT_AGENT in vault-backup vault-drain; do
+    VA_SRC="${DOTFILES_DIR}/utilities/launchdaemons/com.kam.${VAULT_AGENT}.plist"
+    VA_DEST="${LAUNCH_AGENTS_DIR}/com.kam.${VAULT_AGENT}.plist"
+    VA_SCRIPT="${HOME}/personal/ObsidianVault/.scripts/${VAULT_AGENT}.sh"
+
+    if [ ! -f "${VA_SRC}" ]; then
+        echo "  [warn] ${VAULT_AGENT} plist not found at ${VA_SRC}, skipping"
+        continue
+    fi
+
+    # The plist points at a script in the vault repo. Without that clone the agent
+    # loads fine and fails every single run into a log nobody reads - so refuse.
+    if [ ! -f "${VA_SCRIPT}" ]; then
+        echo "  [warn] ${VAULT_AGENT}: ${VA_SCRIPT} missing - clone the vault repo first. Not loading."
+        continue
+    fi
+
+    if [ -f "${VA_DEST}" ]; then
+        echo "  [skip] ${VAULT_AGENT} LaunchAgent (already installed)"
+    else
+        sed "s|__USER__|$(whoami)|g" "${VA_SRC}" > "${VA_DEST}"
+        chmod 644 "${VA_DEST}"
+        echo "  [copy] ${VAULT_AGENT} plist -> ~/Library/LaunchAgents/ (user: $(whoami))"
+    fi
+
+    launchctl unload "${VA_DEST}" 2>/dev/null || true
+    if launchctl load "${VA_DEST}"; then
+        echo "  [ok] com.kam.${VAULT_AGENT} loaded"
+    else
+        echo "  [warn] com.kam.${VAULT_AGENT} failed to load"
+    fi
+done
+
 echo "  Done."

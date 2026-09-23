@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kam.vault-drain</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/__USER__/personal/ObsidianVault/.scripts/vault-drain.sh</string>
+    </array>
+
+    <!-- Every day at 07:30 local time.
+
+         Why the morning: Kam works evenings, so the heaviest tagging happens
+         after the previous run. 07:30 catches the whole previous day - including
+         last night - so the vault is already current the first time he reaches
+         for it.
+
+         If the Mac is asleep, launchd runs the job shortly after it wakes, which
+         is when he sits down. That is the right moment either way.
+
+         It also lands before the 12:30 backup, so anything drained in the
+         morning is committed and bundled the same day rather than waiting ~24h.
+
+         To change the time, edit Hour/Minute below then:
+           launchctl unload ~/Library/LaunchAgents/com.kam.vault-drain.plist
+           launchctl load   ~/Library/LaunchAgents/com.kam.vault-drain.plist -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>7</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/__USER__/personal/ObsidianVault/.scripts/launchd-drain.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/__USER__/personal/ObsidianVault/.scripts/launchd-drain.err.log</string>
+
+    <!-- Never on load. A drain should happen on schedule, not because someone
+         reloaded the agent. -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

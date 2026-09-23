@@ -108,6 +108,38 @@ if [ -f "${DOTFILES_DIR}/claude/CLAUDE.md" ]; then
     fi
 fi
 
+# Claude settings: claude/settings.json -> ~/.claude/settings.json
+# Holds the permission allowlist, which is load-bearing for the unattended
+# vault-drain agent: ClickUp filter/get/tag/update only (never delete), and every
+# vault folder EXCEPT 90 - Private/. Untracked, that grant lives on one machine and
+# a rebuild either breaks the drain or re-grants broadly without knowing why it was
+# narrow.
+#
+# Unlike CLAUDE.md, Claude Code WRITES this file when a permission is approved. If it
+# ever replaces rather than edits in place, the symlink becomes a real file and the
+# repo silently stops tracking it. So this block repairs rather than skips: identical
+# content is re-linked, divergent content is reported instead of being clobbered.
+if [ -f "${DOTFILES_DIR}/claude/settings.json" ]; then
+    echo "-> Symlinking Claude settings..."
+    mkdir -p "${HOME}/.claude"
+    if [ -L "${HOME}/.claude/settings.json" ]; then
+        echo "  [skip] ~/.claude/settings.json (already linked)"
+    elif [ -e "${HOME}/.claude/settings.json" ]; then
+        if diff -q "${HOME}/.claude/settings.json" "${DOTFILES_DIR}/claude/settings.json" >/dev/null 2>&1; then
+            rm "${HOME}/.claude/settings.json"
+            ln -s "${DOTFILES_DIR}/claude/settings.json" "${HOME}/.claude/settings.json"
+            echo "  [relink] ~/.claude/settings.json was a real file, identical - re-linked"
+        else
+            echo "  [WARN] ~/.claude/settings.json exists and DIFFERS from the repo copy."
+            echo "         Not overwriting. Diff them, merge by hand, then re-run:"
+            echo "           diff ~/.claude/settings.json ${DOTFILES_DIR}/claude/settings.json"
+        fi
+    else
+        ln -s "${DOTFILES_DIR}/claude/settings.json" "${HOME}/.claude/settings.json"
+        echo "  [link] claude/settings.json -> ~/.claude/settings.json"
+    fi
+fi
+
 # lidguard travel-mode CLI: utilities/bin/lidguard -> ~/.local/bin/lidguard
 # (~/.local/bin is already on PATH; symlinked so repo edits take effect live.)
 if [ -f "${DOTFILES_DIR}/utilities/bin/lidguard" ]; then
