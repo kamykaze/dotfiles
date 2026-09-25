@@ -140,20 +140,35 @@ if [ -f "${DOTFILES_DIR}/claude/settings.json" ]; then
     fi
 fi
 
-# lidguard travel-mode CLI: utilities/bin/lidguard -> ~/.local/bin/lidguard
+# Repo scripts that outside callers invoke by absolute path get a stable home in
+# ~/.local/bin, so nothing has to encode where this repo is checked out.
 # (~/.local/bin is already on PATH; symlinked so repo edits take effect live.)
-if [ -f "${DOTFILES_DIR}/utilities/bin/lidguard" ]; then
-    echo "-> Symlinking lidguard CLI..."
+#
+# This is not just tidiness for chrome-tab-focus: BetterTouchTool round-trips its
+# whole preset on every sync (scripts/sync.sh exports it from the authority
+# machine and commits the result), so a repo path written into a BTT command is
+# re-expanded and written back on the next export. A placeholder cannot survive
+# that. A symlink can, because BTT never learns the real path at all.
+link_bin() {
+    local source="${DOTFILES_DIR}/$1"
+    local name="$2"
+    local target="${HOME}/.local/bin/${name}"
+
+    [ -f "${source}" ] || return 0
     mkdir -p "${HOME}/.local/bin"
-    if [ -L "${HOME}/.local/bin/lidguard" ]; then
-        echo "  [skip] ~/.local/bin/lidguard (already linked)"
-    elif [ -e "${HOME}/.local/bin/lidguard" ]; then
-        echo "  [skip] ~/.local/bin/lidguard (exists as non-symlink, skipping)"
+    if [ -L "${target}" ]; then
+        echo "  [skip] ~/.local/bin/${name} (already linked)"
+    elif [ -e "${target}" ]; then
+        echo "  [skip] ~/.local/bin/${name} (exists as non-symlink, skipping)"
     else
-        ln -s "${DOTFILES_DIR}/utilities/bin/lidguard" "${HOME}/.local/bin/lidguard"
-        echo "  [link] utilities/bin/lidguard -> ~/.local/bin/lidguard"
+        ln -s "${source}" "${target}"
+        echo "  [link] $1 -> ~/.local/bin/${name}"
     fi
-fi
+}
+
+echo "-> Symlinking repo scripts into ~/.local/bin..."
+link_bin "utilities/bin/lidguard" "lidguard"
+link_bin "utilities/scripts/chrome-tab-focus.sh" "chrome-tab-focus"
 
 if [ -n "${BLOCKED}" ]; then
     echo ""

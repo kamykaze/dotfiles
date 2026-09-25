@@ -89,8 +89,16 @@
 # Personal projects use the personal identity, work is the default.
 # Conditional includes obey the same last-one-wins rule as the plain includes
 # above, so this must stay after them — but note it is SCOPED: it only applies
-# under ~/personal/projects/, so it cannot shadow a machine-local identity
-# anywhere else. Identity itself lives in ~/.private/, never in this repo.
+# under ~/personal/, so it cannot shadow a machine-local identity anywhere else.
+# Identity itself lives in ~/.private/, never in this repo.
+#
+# Scoped to ~/personal/ rather than ~/personal/projects/: this repo was cloned to
+# ~/personal/dotfiles on a second machine, landed one level outside the old
+# pattern, and silently resolved to the work identity. Everything under
+# ~/personal/ is personal, so matching the whole tree is both correct and one
+# fewer trap — the narrower pattern needed a new entry per repo that sits beside
+# projects/ instead of inside it, and the failure is invisible until after you
+# have pushed.
 # ============================================================
-[includeIf "gitdir:~/personal/projects/"]
+[includeIf "gitdir:~/personal/"]
     path = ~/.private/github-personal

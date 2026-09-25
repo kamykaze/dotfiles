@@ -58,7 +58,15 @@ alias l='ls -l'
 alias lla='ls -ahl'
 alias ..='cd ..'
 alias mkdir='mkdir -pv'
-alias kanata-viz='$HOME/personal/projects/dotfiles/.venv-tools/bin/python $HOME/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py'
+# This file is symlinked to ~/.zshrc, so it can find its own repo: %N is the
+# path zsh sourced, :A resolves the symlink back into the checkout, :h is its
+# dirname. Anything here that needs a repo path should use ${DOTFILES_DIR}
+# rather than spelling out a clone location that differs per machine.
+export DOTFILES_DIR="${${(%):-%N}:A:h}"
+
+# Needs the venv interpreter (blessed is not installed system-wide), so this
+# cannot be a plain symlink into ~/.local/bin the way chrome-tab-focus is.
+alias kanata-viz='"${DOTFILES_DIR}/.venv-tools/bin/python" "${DOTFILES_DIR}/utilities/scripts/kanata-layer-visualizer.py"'
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"

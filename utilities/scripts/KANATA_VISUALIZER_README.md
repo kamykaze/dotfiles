@@ -37,23 +37,21 @@ sudo kanata -c ~/.configs/kanata.kbd -p 12321
 
 2. In a separate terminal, run the visualizer:
 ```bash
-python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py
+kanata-viz
 ```
 
 3. Optional: Specify custom config path:
 ```bash
-python3 kanata-layer-visualizer.py --config /path/to/kanata.kbd
+kanata-viz --config /path/to/kanata.kbd
 ```
 
 4. Debug mode (to see raw TCP messages):
 ```bash
-python3 kanata-layer-visualizer.py --debug
+kanata-viz --debug
 ```
 
-**Create an alias in your `~/.zshrc`:**
-```bash
-alias kanata-viz='python3 ~/personal/projects/dotfiles/utilities/scripts/kanata-layer-visualizer.py'
-```
+The `kanata-viz` alias is already defined in `_zshrc`. It resolves the repo
+location from the sourced file itself, so it works whatever path you cloned to.
 
 ## Alternative: Simple Log Monitor - `kanata-layer-visualizer-simple.sh`
 

@@ -12,6 +12,12 @@ less SETUP_NOTES.md   # read this first — install.sh will prompt you to anyway
 bash scripts/macos.sh # applies system preferences; not part of install.sh
 ```
 
+The path above is only a default — clone anywhere. Scripts derive the repo
+location from their own path, `_zshrc` derives it from the sourced file, and
+anything invoked from outside the repo (BetterTouchTool, launchd) is pointed at
+`~/.local/bin` or has its path substituted at install time. Nothing that ships
+here should hardcode a clone location.
+
 `install.sh` will:
 
 - Install Xcode Command Line Tools (if missing)

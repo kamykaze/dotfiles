@@ -3063,7 +3063,7 @@
                   "BTTUUID" : "4915E4A1-DB4A-41D4-B3E4-D9A64C53D846",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"work\" \"Cuker - Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://calendar.google.com/calendar/u/0/r/\" \"work\" \"Cuker - Calendar\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3088,7 +3088,7 @@
                   "BTTUUID" : "2CF4D41B-47DF-426A-9B98-F3ECB82707B2",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://calendar.google.com/calendar/u/0/r/\" \"personal\" \"Google Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://calendar.google.com/calendar/u/0/r/\" \"personal\" \"Google Calendar\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3224,7 +3224,7 @@
                   "BTTUUID" : "D2EC07FF-4655-4090-BDDD-7A2D5220B344",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://mail.google.com/mail/u/0/\" \"work\" \"Cuker Mail\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://mail.google.com/mail/u/0/\" \"work\" \"Cuker Mail\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3249,7 +3249,7 @@
                   "BTTUUID" : "15B505B1-49E2-4530-A6A3-69D1479D6AA2",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://mail.google.com/mail/u/0/\" \"personal\" \"kamykaze@gmail.com\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://mail.google.com/mail/u/0/\" \"personal\" \"kamykaze@gmail.com\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3293,7 +3293,7 @@
                   "BTTUUID" : "A8158B50-BA3B-4B15-8DED-C8F3437AA87E",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://monkeytype.com/\" \"personal\" \"Monkeytype\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://monkeytype.com/\" \"personal\" \"Monkeytype\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3315,7 +3315,7 @@
                   "BTTUUID" : "3A2AF029-7DB9-4BC9-842E-089961C3B2C7",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://typecelerate.com/\" \"personal\" \"Typecelerate\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://typecelerate.com/\" \"personal\" \"Typecelerate\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3337,7 +3337,7 @@
                   "BTTUUID" : "246F7F94-D1D5-4A89-BED4-170AEF63CD8C",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://cuker1.harvestapp.com/time\" \"work\" \"Timesheet – Cuker Agency – Harvest\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://cuker1.harvestapp.com/time\" \"work\" \"Timesheet – Cuker Agency – Harvest\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3437,7 +3437,7 @@
                   "BTTUUID" : "4AEB963A-F1B0-4C28-9471-EDC50114B9DF",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://claude.ai/\" \"personal\" \"Claude\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://claude.ai/\" \"personal\" \"Claude\"",
                   "BTTOrder" : 0
                 }
               ]
@@ -3514,7 +3514,7 @@
                   "BTTUUID" : "0FC637CA-1BFB-4D4C-BD28-4DC048CED5AA",
                   "BTTPredefinedActionType" : 137,
                   "BTTPredefinedActionName" : "Execute Terminal Command (Async, non-blocking)",
-                  "BTTTerminalCommand" : "${HOME}/personal/projects/dotfiles/utilities/scripts/chrome-tab-focus.sh \"https://docs.google.com/spreadsheets/d/1OPpdCOMTSSvF4Uor45FSaJR_9bYTTLBsg8K8FUTXe4k/edit?gid=502320290#gid=502320290\" \"work\" \"Production Calendar\"",
+                  "BTTTerminalCommand" : "${HOME}/.local/bin/chrome-tab-focus \"https://docs.google.com/spreadsheets/d/1OPpdCOMTSSvF4Uor45FSaJR_9bYTTLBsg8K8FUTXe4k/edit?gid=502320290#gid=502320290\" \"work\" \"Production Calendar\"",
                   "BTTOrder" : 29
                 }
               ]
