@@ -16,6 +16,7 @@ brew "git"
 brew "just"
 brew "node"
 brew "python@3.12"
+brew "uv"                            # scripts/keymap-diagram.sh runs keymap-drawer through `uv run`
 
 # ============================================================
 # Development Tools
