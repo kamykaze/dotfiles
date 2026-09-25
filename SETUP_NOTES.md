@@ -139,7 +139,13 @@ two things set up first:
 1. Open BetterTouchTool and enter your license key from LastPass
 2. Go to **Settings → Scripting → Command Line / Socket Server** and enable it
 3. Restart BetterTouchTool
-4. Re-run `./install.sh` (or just the import step: `bttcli import_preset path=bettertouchtool/kam_btt_presets.bttpreset`)
+4. Run `bash scripts/btt-import.sh` (also part of `./install.sh`)
+
+Use that script rather than calling `bttcli import_preset` by hand. BTT raises
+a confirmation sheet for imports and gives it 30 seconds; if it goes unanswered
+`bttcli` still prints `done` and exits 0, so a by-hand import reports success
+having changed nothing. The script reads BTT's state back and tells you whether
+the preset actually landed. Tick "do not ask again" on the sheet the first time.
 
 The socket server setting is stored in BTT's own preferences, not in the
 preset file, so it must be enabled manually on each new machine. It is also

@@ -54,3 +54,7 @@ _atom/projects.cson
 
 # Python venv for helper scripts (declared in utilities/scripts/requirements.txt)
 .venv-tools/
+
+# BTT state snapshot taken by scripts/btt-import.sh before it overwrites the
+# live preset. Machine-specific and regenerated on every import.
+bettertouchtool/.btt-backup-before-import.bttpreset
