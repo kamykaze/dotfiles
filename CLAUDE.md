@@ -143,6 +143,55 @@ not as a personal backlog.
 
 ---
 
+## Claude Instructions Live in Two Places, and They Don't Match
+
+`claude/CLAUDE.md` (symlinked to `~/.claude/CLAUDE.md`) governs **Claude Code**.
+A separate preferences textarea on **claude.ai** governs the web and mobile app,
+and Cowork. They overlap heavily and are **deliberately not identical.**
+
+**What is genuinely shared** — voice and messaging rules, ADHD response shape,
+honesty/accuracy rules, ClickUp as the task home, and the `to-vault` capture
+contract. These should say the same thing in both places, and when one changes
+the other is stale until it is updated by hand.
+
+**What differs on purpose** — mostly knowledge-base access, because the surfaces
+have different reach:
+
+| | Claude Code | claude.ai / Cowork |
+|---|---|---|
+| Obsidian vault | on disk, authoritative, writable | unreachable |
+| How it reads the vault | direct from `~/personal/ObsidianVault` | Google Drive `Brain Mirror`, read-only, ~24h stale |
+| Writing knowledge | ClickUp `to-vault` (see below) | ClickUp `to-vault` |
+
+Copying either instruction verbatim into the other **breaks it**: telling Claude
+Code to read the Drive mirror points it at a stale copy while the live vault sits
+on the same machine, and telling claude.ai to read the disk points it at nothing.
+
+**The write path is the one thing that must stay identical on both.** Findings go
+to a ClickUp task tagged `to-vault`, and `vault-drain` files them. That holds even
+on Claude Code where the vault is writable, because `vault-drain` is where the
+filing rules live.
+
+### The unsolved part
+
+**The claude.ai side is not version-controlled anywhere.** It is a textarea in a
+web app. The only copy is a hand-maintained snapshot at
+`~/personal/ObsidianVault/50 - Reference/Claude.ai Instructions.md`, which is
+re-snapshotted *after* the fact and is reliably stale — as of 2026-09-24 it still
+carried a dead Sunsama routing line.
+
+So there is no mechanism keeping the shared parts in sync, and no diff to catch
+drift. The likely fix is the pattern this repo already uses everywhere else: make
+a file here the source of truth (e.g. `claude/claude-ai-preferences.md`) and treat
+the web box as a **deploy target you paste into**, the same way `_zshrc` is the
+source and `~/.zshrc` is the deployment. It cannot be symlinked, but "paste from
+the repo" is strictly better than "snapshot into the vault afterwards."
+
+Not built. Tracked in ClickUp per *Where Work Gets Tracked* above:
+[Keep claude.ai preferences and Claude Code CLAUDE.md in sync](https://app.clickup.com/t/86bc7cuc3).
+
+---
+
 ## Sensitive Data Rules
 
 These are non-negotiable. Follow them for every file touched in this repo.
