@@ -24,5 +24,8 @@
     "chat.viewSessions.orientation": "stacked",
     "markdown-preview-enhanced.enablePreviewZenMode": false,
     "markdown-preview-enhanced.previewTheme": "vscode.css",
-    "claudeCode.hideOnboarding": true
+    "claudeCode.hideOnboarding": true,
+    "workbench.notifications.position": "top-right",
+    "task.notifyWindowOnTaskCompletion": 30000,
+    "chat.agentSessions.showExternal": "recent"
 }
