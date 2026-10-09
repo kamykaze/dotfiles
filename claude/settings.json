@@ -63,7 +63,8 @@
       "Write(//Users/kam/personal/ObsidianVault/50 - Reference/**)",
       "Edit(//Users/kam/personal/ObsidianVault/50 - Reference/**)",
       "Write(//Users/kam/personal/ObsidianVault/60 - Table Tennis/**)",
-      "Edit(//Users/kam/personal/ObsidianVault/60 - Table Tennis/**)"
+      "Edit(//Users/kam/personal/ObsidianVault/60 - Table Tennis/**)",
+      "ClaudeInChromeDomain(app.clickup.com)"
     ],
     "additionalDirectories": [
       "/Users/kam/personal/projects/skillsmith/src/app/learn",
@@ -72,26 +73,6 @@
       "/Users/kam/personal/projects/skillsmith/src/app/scoreboard"
     ]
   },
-  "enabledPlugins": {
-    "shopify-ai-toolkit@claude-plugins-official": true,
-    "warp@claude-code-warp": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    }
-  },
-  "effortLevel": "high",
-  "askUserQuestionTimeout": "5m",
-  "tui": "fullscreen",
-  "theme": "auto",
-  "editorMode": "normal",
-  "remoteControlAtStartup": true,
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,  
   "hooks": {
     "Stop": [
       {
@@ -125,5 +106,25 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "shopify-ai-toolkit@claude-plugins-official": true,
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "askUserQuestionTimeout": "5m",
+  "tui": "fullscreen",
+  "theme": "auto",
+  "editorMode": "normal",
+  "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
