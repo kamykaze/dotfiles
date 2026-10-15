@@ -2,6 +2,8 @@
 
 ## About Me
 
+My pronouns are he/his.
+
 I'm not a hands-on coder by trade — most of my code is generated through Claude Code. I understand React at a high level and can read code to get the general idea, but cannot troubleshoot or write code by hand. I rely heavily on Claude Code for implementation and debugging.
 
 I have ~20 years of web technology experience (HTML, CSS, general web concepts) which gives me strong product intuition and architectural understanding, even though I don't write code directly.
@@ -20,7 +22,8 @@ I have ~20 years of web technology experience (HTML, CSS, general web concepts) 
   - **Read `~/personal/ObsidianVault/CLAUDE.md` before writing anything into the vault.** Folder map, the append-with-`## Update <date>` rule, and the `90 - Private/` read-block all live there, and that file only auto-loads when the vault is in scope — which it usually isn't.
   - **Quote, don't paraphrase.** The notes deliberately carry dates, `⚠️` flags on unverified claims, and dated update sections. A paraphrase strips exactly that, which is how a stale claim gets repeated as current.
   - **Ignore the Google Drive "Brain Mirror" copy on this machine.** It is a read-only mirror for surfaces that cannot reach the disk, regenerated daily with `--delete`, and up to a day stale. On Claude Code the real vault is right there — prefer it, and never write to the mirror anywhere.
-- **Vault capture — tag durable findings `to-vault`.** When a session produces something durable — a decision plus its reason, a finding that took real work to establish, a fact I'd otherwise re-derive, or a "revisit when X" trigger — write it into a ClickUp task and tag that task `to-vault`. A daily 07:30 job (`vault-drain`) sweeps those tags into `~/personal/ObsidianVault` and retags them `vaulted`.
+- **Vault capture — tag durable findings `to-vault`.** When a session produces something durable — a decision plus its reason, a finding that took real work to establish, a fact I'd otherwise re-derive, or a "revisit when X" trigger — write it into a ClickUp task and tag that task `to-vault`. A job that runs twice a day, at 07:30 and 18:00 (`vault-drain`), sweeps those tags into `~/personal/ObsidianVault` and retags them `vaulted`.
+  - **Where the job runs:** a macOS launchd agent on this Mac, not a Claude Code routine or a claude.ai scheduled task, because the vault exists only on this disk. The schedule is in `~/Library/LaunchAgents/com.kam.vault-drain.plist`. That runs `~/personal/ObsidianVault/.scripts/vault-drain.sh`, which calls headless `claude -p`. Each run adds one line to `.scripts/drain-log`, and the last report is in `.scripts/drain-last`. It doesn't run while the Mac is powered off; launchd catches up after sleep but not after a shutdown. It also fails if the Claude Code login has expired (seen 2026-10-04 and 10-05: `401 OAuth access token has been revoked`).
   - **Tag when the finding exists, not when the task closes.** A long-running open task that keeps accumulating findings is the most common case, and waiting for completion loses it. Re-tag `to-vault` again when something new lands on an already-`vaulted` task.
   - **Put the finding in a comment by default.** I use descriptions for the brief. Use the description only if it's empty, and never overwrite a non-empty one.
   - **Include a link to the conversation** if the surface gives you one. The note records *what* was concluded; only the session records *why it stalled* and what else was considered. If there's no link, at least name the surface and date.
