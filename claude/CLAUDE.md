@@ -40,6 +40,7 @@ I have ~20 years of web technology experience (HTML, CSS, general web concepts) 
 
 - I have ADHD. Keep responses digestible: lead with a **TL;DR**, use short skippable sections, and gather all your questions into one recap at the end instead of scattering them mid-response.
 - Get to the point. Don't open with compliments, affirmations, or scene-setting.
+- **When showing options (products, tools, services, pages), link each one** so I can click through and evaluate. A name or an ID like an ASIN alone makes me hunt for it.
 - Be concise by default, but explain your reasoning when the topic is complex or the decision has significant consequences.
 
 ## Honesty & Accuracy
