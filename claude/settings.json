@@ -52,17 +52,11 @@
       "mcp__clickup-personal__clickup_add_tag_to_task",
       "mcp__clickup-personal__clickup_remove_tag_from_task",
       "mcp__clickup-personal__clickup_update_task",
-      "Write(//Users/kam/personal/ObsidianVault/10 - Inbox/**)",
       "Edit(//Users/kam/personal/ObsidianVault/10 - Inbox/**)",
-      "Write(//Users/kam/personal/ObsidianVault/20 - Systems/**)",
       "Edit(//Users/kam/personal/ObsidianVault/20 - Systems/**)",
-      "Write(//Users/kam/personal/ObsidianVault/30 - Workflows/**)",
       "Edit(//Users/kam/personal/ObsidianVault/30 - Workflows/**)",
-      "Write(//Users/kam/personal/ObsidianVault/40 - Research/**)",
       "Edit(//Users/kam/personal/ObsidianVault/40 - Research/**)",
-      "Write(//Users/kam/personal/ObsidianVault/50 - Reference/**)",
       "Edit(//Users/kam/personal/ObsidianVault/50 - Reference/**)",
-      "Write(//Users/kam/personal/ObsidianVault/60 - Table Tennis/**)",
       "Edit(//Users/kam/personal/ObsidianVault/60 - Table Tennis/**)",
       "ClaudeInChromeDomain(app.clickup.com)"
     ],
@@ -71,6 +65,13 @@
       "/Users/kam/personal/projects/skillsmith/src/app/api/domains/[id]",
       "/Users/kam/personal/projects/skillsmith/plans",
       "/Users/kam/personal/projects/skillsmith/src/app/scoreboard"
+    ],
+    "deny": [
+      "mcp__clickup-bulk__clickup_request_attachment_upload",
+      "mcp__clickup-bulk__clickup_delete_task",
+      "mcp__clickup-bulk__clickup_delete_comment",
+      "mcp__clickup-bulk__clickup_attach_task_file",
+      "mcp__clickup-bulk__clickup_execute_operator"
     ]
   },
   "hooks": {
